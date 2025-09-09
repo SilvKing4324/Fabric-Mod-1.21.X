@@ -13,6 +13,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.silvking432.silvkingsmod.SilvKingsMod;
+import net.silvking432.silvkingsmod.block.custom.MagicBlock;
 
 public class ModBlocks {
 
@@ -20,6 +21,7 @@ public class ModBlocks {
     public static final Block RAW_TITANIUM_BLOCK = registerBlock("raw_titanium_block", new Block(AbstractBlock.Settings.create().strength(5f, 4f).requiresTool().sounds(BlockSoundGroup.STONE)));
     public static final Block TITANIUM_ORE = registerBlock("titanium_ore", new ExperienceDroppingBlock(UniformIntProvider.create(2, 5),AbstractBlock.Settings.create().strength(4f, 3f).requiresTool().sounds(BlockSoundGroup.STONE)));
     public static final Block TITANIUM_DEEPSLATE_ORE = registerBlock("titanium_deepslate_ore", new ExperienceDroppingBlock(UniformIntProvider.create(2, 5),AbstractBlock.Settings.create().strength(5f, 3f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE)));
+    public static final Block MAGIC_BLOCK = registerBlock("magic_block", new MagicBlock(AbstractBlock.Settings.create().strength(10f, 4f).requiresTool().sounds(BlockSoundGroup.AMETHYST_BLOCK)));
 
 
     public static Block registerBlock(String name, Block block) {
@@ -40,7 +42,7 @@ public class ModBlocks {
             entries.add(ModBlocks.RAW_TITANIUM_BLOCK);
             entries.add(ModBlocks.TITANIUM_ORE);
             entries.add(ModBlocks.TITANIUM_DEEPSLATE_ORE);
-
+            entries.add(ModBlocks.MAGIC_BLOCK);
         });
     }
 }

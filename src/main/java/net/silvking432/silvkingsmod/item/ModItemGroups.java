@@ -19,6 +19,7 @@ public class ModItemGroups {
                     .entries((displayContet, entries) -> {
                         entries.add(ModItems.TITANIUM_SHARD);
                         entries.add(ModItems.TITANIUM_INGOT);
+                        entries.add(ModItems.CHISEL);
                     }).build());
 
     public static final ItemGroup TITANIUM_BLOCKS_GROUP = Registry.register(Registries.ITEM_GROUP, Identifier.of(SilvKingsMod.MOD_ID, "titanium_blocks"),
@@ -30,7 +31,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.RAW_TITANIUM_BLOCK);
                         entries.add(ModBlocks.TITANIUM_ORE);
                         entries.add(ModBlocks.TITANIUM_DEEPSLATE_ORE);
-
+                        entries.add(ModBlocks.MAGIC_BLOCK);
                     }).build());
 
     public static void registerItemGroups() {
