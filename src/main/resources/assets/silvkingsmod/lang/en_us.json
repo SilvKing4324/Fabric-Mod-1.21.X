@@ -12,6 +12,11 @@
   "block.silvkingsmod.magic_block": "Magic Block",
 
   "itemgroup.silvkingsmod.titanium_items": "Titanium Items",
-  "itemgroup.silvkingsmod.titanium_blocks": "Titanium Blocks"
+  "itemgroup.silvkingsmod.titanium_blocks": "Titanium Blocks",
+
+  "tooltip.silvkingsmod.magic_block.tooltip" : "This block §9transmutates§r §6Items§r.",
+  "tooltip.silvkingsmod.chisel": "Press §eShift§r for more Information!",
+  "tooltip.silvkingsmod.chisel.shift_down": "This Item chisels blocks into Bricks!",
+  "tooltip.silvkingsmod.super_flower" : "Straight from §cGod§r!"
 
 }
