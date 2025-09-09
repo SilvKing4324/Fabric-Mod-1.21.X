@@ -4,6 +4,9 @@
 
   "block.silvkingsmod.titanium_block": "Block of Titanium",
   "block.silvkingsmod.raw_titanium_block": "Block of Raw Titanium",
+  "block.silvkingsmod.titanium_ore": "Titanium Ore",
+  "block.silvkingsmod.titanium_deepslate_ore": "Deepslate Titanium Ore",
+
 
   "itemgroup.silvkingsmod.titanium_items": "Titanium Items",
   "itemgroup.silvkingsmod.titanium_blocks": "Titanium Blocks"
