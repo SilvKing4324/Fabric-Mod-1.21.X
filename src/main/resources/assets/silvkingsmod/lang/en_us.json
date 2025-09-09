@@ -1,4 +1,11 @@
 {
   "item.silvkingsmod.titanium_ingot": "Titanium Ingot",
-  "item.silvkingsmod.titanium_shard": "Titanium Shard"
+  "item.silvkingsmod.titanium_shard": "Titanium Shard",
+
+  "block.silvkingsmod.titanium_block": "Block of Titanium",
+  "block.silvkingsmod.raw_titanium_block": "Block of Raw Titanium",
+
+  "itemgroup.silvkingsmod.titanium_items": "Titanium Items",
+  "itemgroup.silvkingsmod.titanium_blocks": "Titanium Blocks"
+
 }
