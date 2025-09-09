@@ -2,15 +2,14 @@
   "item.silvkingsmod.titanium_ingot": "Titanium Ingot",
   "item.silvkingsmod.titanium_shard": "Titanium Shard",
   "item.silvkingsmod.chisel": "Chisel",
-
+  "item.silvkingsmod.super_flower": "Super Flower",
+  "item.silvkingsmod.starlight_ashes": "Starlight Ashes",
 
   "block.silvkingsmod.titanium_block": "Block of Titanium",
   "block.silvkingsmod.raw_titanium_block": "Block of Raw Titanium",
   "block.silvkingsmod.titanium_ore": "Titanium Ore",
   "block.silvkingsmod.titanium_deepslate_ore": "Deepslate Titanium Ore",
   "block.silvkingsmod.magic_block": "Magic Block",
-
-
 
   "itemgroup.silvkingsmod.titanium_items": "Titanium Items",
   "itemgroup.silvkingsmod.titanium_blocks": "Titanium Blocks"

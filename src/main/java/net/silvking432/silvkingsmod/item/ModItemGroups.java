@@ -10,6 +10,7 @@ import net.minecraft.util.Identifier;
 import net.silvking432.silvkingsmod.SilvKingsMod;
 import net.silvking432.silvkingsmod.block.ModBlocks;
 
+
 public class ModItemGroups {
 
     public static final ItemGroup TITANIUM_ITEMS_GROUP = Registry.register(Registries.ITEM_GROUP, Identifier.of(SilvKingsMod.MOD_ID, "titanium_items"),
@@ -20,6 +21,9 @@ public class ModItemGroups {
                         entries.add(ModItems.TITANIUM_SHARD);
                         entries.add(ModItems.TITANIUM_INGOT);
                         entries.add(ModItems.CHISEL);
+                        entries.add(ModItems.SUPER_FLOWER);
+                        entries.add(ModItems.STARLIGHT_ASHES);
+
                     }).build());
 
     public static final ItemGroup TITANIUM_BLOCKS_GROUP = Registry.register(Registries.ITEM_GROUP, Identifier.of(SilvKingsMod.MOD_ID, "titanium_blocks"),
