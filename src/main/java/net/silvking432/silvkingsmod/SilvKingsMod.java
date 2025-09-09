@@ -2,6 +2,7 @@ package net.silvking432.silvkingsmod;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.silvking432.silvkingsmod.item.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,6 +12,6 @@ public class SilvKingsMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		//new
+		ModItems.registerModItems();
 	}
 }
