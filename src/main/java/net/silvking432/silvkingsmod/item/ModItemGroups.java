@@ -33,6 +33,8 @@ public class ModItemGroups {
                         entries.add(ModItems.TITANIUM_CHESTPLATE);
                         entries.add(ModItems.TITANIUM_LEGGINGS);
                         entries.add(ModItems.TITANIUM_BOOTS);
+                        entries.add(ModItems.TITANIUM_HORSE_ARMOR);
+                        entries.add(ModItems.SILV_SMITHING_TEMPLATE);
 
                     }).build());
 

@@ -1,4 +1,5 @@
-// 1.21	2025-09-10T19:12:35.2434447	SilvKings Mod/Recipes
+// 1.21	2025-09-10T23:29:48.1412542	SilvKings Mod/Recipes
+cc7c31dc742ce2b0d538020106468f596ba1867b data\silvkingsmod\advancement\recipes\misc\silv.json
 dc3d79ef19faa31b12d4a5674750b6da20e6808c data\silvkingsmod\advancement\recipes\misc\titanium_block.json
 edd2e9674ef96e46aac6610813c63d94b5c6bc4a data\silvkingsmod\recipe\titanium_shard_from_magic_block.json
 e4a56ff5277f9b0802a5e846a44a823e6ddc2546 data\silvkingsmod\recipe\titanium_fence.json
@@ -29,3 +30,4 @@ eb85367e21cb26c1b44b70197382ea4358e5d117 data\silvkingsmod\advancement\recipes\m
 d82a9fb83f04998b6ec51e36b317d02d2c623270 data\silvkingsmod\recipe\titanium_shard.json
 ff76bc06f52975c94f1961923e467232040ea1a8 data\silvkingsmod\advancement\recipes\misc\titanium_shard_from_magic_block.json
 54284b136c5aefc0e34f9136a3f2816ede87200d data\silvkingsmod\advancement\recipes\misc\titanium_ingot_from_blasting_titanium_deepslate_ore.json
+ddff11f348764b637ccc177a66973d1a77e8582a data\silvkingsmod\recipe\silv.json

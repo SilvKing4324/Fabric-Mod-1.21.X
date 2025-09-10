@@ -43,5 +43,22 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.TITANIUM_LEGGINGS)
                 .add(ModItems.TITANIUM_BOOTS);
 
+        getOrCreateTagBuilder(ItemTags.HEAD_ARMOR)
+                .add(ModItems.TITANIUM_HELMET);
+
+        getOrCreateTagBuilder(ItemTags.CHEST_ARMOR)
+                .add(ModItems.TITANIUM_CHESTPLATE);
+
+        getOrCreateTagBuilder(ItemTags.LEG_ARMOR)
+                .add(ModItems.TITANIUM_LEGGINGS);
+
+        getOrCreateTagBuilder(ItemTags.FOOT_ARMOR)
+                .add(ModItems.TITANIUM_BOOTS);
+
+        getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS)
+                .add(ModItems.TITANIUM_INGOT);
+
+        getOrCreateTagBuilder(ItemTags.TRIM_TEMPLATES)
+                .add(ModItems.SILV_SMITHING_TEMPLATE);
     }
 }

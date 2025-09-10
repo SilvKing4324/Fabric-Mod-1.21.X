@@ -95,6 +95,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"titanium_shard_from_magic_block"));
         // Builder nennt Rezept nach output, um duplikate zu vermeiden name = path
 
-
+        offerSmithingTrimRecipe(recipeExporter, ModItems.SILV_SMITHING_TEMPLATE, Identifier.of(SilvKingsMod.MOD_ID, "silv"));
     }
 }

@@ -5,6 +5,7 @@ import net.minecraft.item.*;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.silvking432.silvkingsmod.SilvKingsMod;
@@ -38,7 +39,8 @@ public class ModItems {
     public static final Item TITANIUM_CHESTPLATE = registerItem("titanium_chestplate", new ModArmorItem(ModArmorMaterials.TITANIUM_ARMOR_MATERIAL,ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(43))));
     public static final Item TITANIUM_LEGGINGS = registerItem("titanium_leggings", new ArmorItem(ModArmorMaterials.TITANIUM_ARMOR_MATERIAL,ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(43))));
     public static final Item TITANIUM_BOOTS = registerItem("titanium_boots", new ArmorItem(ModArmorMaterials.TITANIUM_ARMOR_MATERIAL,ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(43))));
-
+    public static final Item TITANIUM_HORSE_ARMOR = registerItem("titanium_horse_armor", new AnimalArmorItem(ModArmorMaterials.TITANIUM_ARMOR_MATERIAL, AnimalArmorItem.Type.EQUESTRIAN, false , new Item.Settings().maxCount(1)));
+    public static final Item SILV_SMITHING_TEMPLATE = registerItem("silv_armor_trim_smithing_template", SmithingTemplateItem.of(Identifier.of(SilvKingsMod.MOD_ID, "silv"), FeatureFlags.VANILLA));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(SilvKingsMod.MOD_ID, name), item);
