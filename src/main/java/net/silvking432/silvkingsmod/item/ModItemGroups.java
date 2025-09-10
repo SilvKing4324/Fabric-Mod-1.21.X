@@ -35,7 +35,15 @@ public class ModItemGroups {
                         entries.add(ModBlocks.RAW_TITANIUM_BLOCK);
                         entries.add(ModBlocks.TITANIUM_ORE);
                         entries.add(ModBlocks.TITANIUM_DEEPSLATE_ORE);
-                        entries.add(ModBlocks.MAGIC_BLOCK);
+                        entries.add(ModBlocks.TITANIUM_STAIRS);
+                        entries.add(ModBlocks.TITANIUM_SLAB);
+                        entries.add(ModBlocks.TITANIUM_BUTTON);
+                        entries.add(ModBlocks.TITANIUM_PRESSURE_PLATE);
+                        entries.add(ModBlocks.TITANIUM_FENCE);
+                        entries.add(ModBlocks.TITANIUM_FENCE_GATE);
+                        entries.add(ModBlocks.TITANIUM_WALL);
+                        entries.add(ModBlocks.TITANIUM_DOOR);
+                        entries.add(ModBlocks.TITANIUM_TRAPDOOR);
                     }).build());
 
     public static void registerItemGroups() {

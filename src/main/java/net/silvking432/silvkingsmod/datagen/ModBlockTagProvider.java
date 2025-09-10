@@ -27,5 +27,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RAW_TITANIUM_BLOCK)
                 .add(ModBlocks.TITANIUM_DEEPSLATE_ORE)
                 .add(ModBlocks.TITANIUM_ORE);
+
+        getOrCreateTagBuilder(BlockTags.FENCES).add(ModBlocks.TITANIUM_FENCE);
+        getOrCreateTagBuilder(BlockTags.FENCE_GATES).add(ModBlocks.TITANIUM_FENCE_GATE);
+        getOrCreateTagBuilder(BlockTags.WALLS).add(ModBlocks.TITANIUM_WALL);
     }
 }

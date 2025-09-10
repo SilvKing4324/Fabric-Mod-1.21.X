@@ -6,6 +6,7 @@ import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
@@ -38,15 +39,62 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.TITANIUM_SHARD), conditionsFromItem(ModItems.TITANIUM_SHARD)) // Unlocks Recipe
                 .offerTo(recipeExporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.TITANIUM_SHARD, 9)
-                .input(ModBlocks.RAW_TITANIUM_BLOCK)
-                .criterion(hasItem(ModBlocks.RAW_TITANIUM_BLOCK), conditionsFromItem(ModBlocks.RAW_TITANIUM_BLOCK))
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.TITANIUM_DOOR, 2)
+                .pattern("RR")
+                .pattern("RR")
+                .pattern("RR")
+                .input('R', ModItems.TITANIUM_INGOT)
+                .criterion(hasItem(ModItems.TITANIUM_INGOT), conditionsFromItem(ModItems.TITANIUM_INGOT)) // Unlocks Recipe
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.TITANIUM_TRAPDOOR, 1)
+                .pattern("RR")
+                .pattern("RR")
+                .input('R', ModItems.TITANIUM_INGOT)
+                .criterion(hasItem(ModItems.TITANIUM_INGOT), conditionsFromItem(ModItems.TITANIUM_INGOT)) // Unlocks Recipe
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.TITANIUM_STAIRS, 4)
+                .pattern("R  ")
+                .pattern("RR ")
+                .pattern("RRR")
+                .input('R', ModItems.TITANIUM_INGOT)
+                .criterion(hasItem(ModItems.TITANIUM_INGOT), conditionsFromItem(ModItems.TITANIUM_INGOT)) // Unlocks Recipe
+                .offerTo(recipeExporter);
+
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.TITANIUM_FENCE,3)
+                .pattern("RXR")
+                .pattern("RXR")
+                .input('R', ModItems.TITANIUM_INGOT)
+                .input('X', Items.STICK)
+                .criterion(hasItem(ModItems.TITANIUM_INGOT), conditionsFromItem(ModItems.TITANIUM_INGOT)) // Unlocks Recipe
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.TITANIUM_FENCE_GATE)
+                .pattern("RXR")
+                .pattern("RXR")
+                .input('X', ModItems.TITANIUM_INGOT)
+                .input('R', Items.STICK)
+                .criterion(hasItem(ModItems.TITANIUM_INGOT), conditionsFromItem(ModItems.TITANIUM_INGOT)) // Unlocks Recipe
                 .offerTo(recipeExporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.TITANIUM_SHARD, 9)
                 .input(ModBlocks.RAW_TITANIUM_BLOCK)
                 .criterion(hasItem(ModBlocks.RAW_TITANIUM_BLOCK), conditionsFromItem(ModBlocks.RAW_TITANIUM_BLOCK))
+                .offerTo(recipeExporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.TITANIUM_BUTTON, 1)
+                .input(ModItems.TITANIUM_INGOT)
+                .criterion(hasItem(ModItems.TITANIUM_INGOT), conditionsFromItem(ModItems.TITANIUM_INGOT))
+                .offerTo(recipeExporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.TITANIUM_SHARD, 32)
+                .input(ModBlocks.MAGIC_BLOCK)
+                .criterion(hasItem(ModBlocks.MAGIC_BLOCK), conditionsFromItem(ModBlocks.RAW_TITANIUM_BLOCK))
                 .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"titanium_shard_from_magic_block"));
         // Builder nennt Rezept nach output, um duplikate zu vermeiden name = path
+
+
     }
 }
