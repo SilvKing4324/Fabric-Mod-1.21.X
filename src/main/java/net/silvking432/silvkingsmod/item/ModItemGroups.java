@@ -23,6 +23,12 @@ public class ModItemGroups {
                         entries.add(ModItems.CHISEL);
                         entries.add(ModItems.SUPER_FLOWER);
                         entries.add(ModItems.STARLIGHT_ASHES);
+                        entries.add(ModItems.TITANIUM_SWORD);
+                        entries.add(ModItems.TITANIUM_AXE);
+                        entries.add(ModItems.TITANIUM_PICKAXE);
+                        entries.add(ModItems.TITANIUM_SHOVEL);
+                        entries.add(ModItems.TITANIUM_HOE);
+                        entries.add(ModItems.TITANIUM_HAMMER);
 
                     }).build());
 
@@ -45,6 +51,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TITANIUM_DOOR);
                         entries.add(ModBlocks.TITANIUM_TRAPDOOR);
                         entries.add(ModBlocks.TITANIUM_LAMP);
+
                     }).build());
 
     public static void registerItemGroups() {

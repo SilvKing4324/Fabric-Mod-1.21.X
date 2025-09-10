@@ -44,5 +44,11 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.TITANIUM_SHARD, Models.GENERATED);
         itemModelGenerator.register(ModItems.CHISEL, Models.GENERATED);
         itemModelGenerator.register(ModItems.STARLIGHT_ASHES, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TITANIUM_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TITANIUM_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TITANIUM_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TITANIUM_HOE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TITANIUM_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TITANIUM_HAMMER, Models.HANDHELD);
     }
 }

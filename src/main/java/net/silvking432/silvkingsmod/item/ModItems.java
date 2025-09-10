@@ -1,9 +1,7 @@
 package net.silvking432.silvkingsmod.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -11,7 +9,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.silvking432.silvkingsmod.SilvKingsMod;
 import net.silvking432.silvkingsmod.item.custom.ChiselItem;
-import net.silvking432.silvkingsmod.item.custom.ModFoodComponents;
+import net.silvking432.silvkingsmod.item.custom.HammerItem;
 
 import java.util.List;
 
@@ -29,7 +27,12 @@ public class ModItems {
     }});
     // endregion
     public static final Item STARLIGHT_ASHES = registerItem("starlight_ashes", new Item(new Item.Settings()));
-
+    public static final Item TITANIUM_SWORD = registerItem("titanium_sword", new SwordItem(ModToolMaterials.TITANIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TITANIUM,3,-2.4f))));
+    public static final Item TITANIUM_PICKAXE = registerItem("titanium_pickaxe", new PickaxeItem(ModToolMaterials.TITANIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TITANIUM,1,-2.8f))));
+    public static final Item TITANIUM_AXE = registerItem("titanium_axe", new AxeItem(ModToolMaterials.TITANIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TITANIUM,6,-3.0f))));
+    public static final Item TITANIUM_SHOVEL = registerItem("titanium_shovel", new ShovelItem(ModToolMaterials.TITANIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TITANIUM,2,-3.0f))));
+    public static final Item TITANIUM_HOE = registerItem("titanium_hoe", new HoeItem(ModToolMaterials.TITANIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TITANIUM,0,-3.0f))));
+    public static final Item TITANIUM_HAMMER = registerItem("titanium_hammer", new HammerItem(ModToolMaterials.TITANIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TITANIUM,7,-3.4f))));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(SilvKingsMod.MOD_ID, name), item);

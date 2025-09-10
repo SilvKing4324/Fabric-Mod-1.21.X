@@ -1,4 +1,4 @@
-package net.silvking432.silvkingsmod.item.custom;
+package net.silvking432.silvkingsmod.item;
 
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;

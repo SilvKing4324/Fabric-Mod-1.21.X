@@ -4,6 +4,13 @@
   "item.silvkingsmod.chisel": "Chisel",
   "item.silvkingsmod.super_flower": "Super Flower",
   "item.silvkingsmod.starlight_ashes": "Starlight Ashes",
+  "item.silvkingsmod.titanium_sword": "Titan Sword",
+  "item.silvkingsmod.titanium_pickaxe": "Titan Pickaxe",
+  "item.silvkingsmod.titanium_axe": "Titan Axe",
+  "item.silvkingsmod.titanium_shovel": "Titan Shovel",
+  "item.silvkingsmod.titanium_hoe": "Titan Hoe",
+  "item.silvkingsmod.titanium_hammer": "Titan Hammer",
+
 
   "block.silvkingsmod.titanium_block": "Block of Titanium",
   "block.silvkingsmod.raw_titanium_block": "Block of Raw Titanium",
