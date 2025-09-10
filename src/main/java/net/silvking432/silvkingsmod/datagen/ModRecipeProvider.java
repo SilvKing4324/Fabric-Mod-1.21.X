@@ -1,0 +1,52 @@
+package net.silvking432.silvkingsmod.datagen;
+
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.data.server.recipe.RecipeExporter;
+import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.item.ItemConvertible;
+import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.util.Identifier;
+import net.silvking432.silvkingsmod.SilvKingsMod;
+import net.silvking432.silvkingsmod.block.ModBlocks;
+import net.silvking432.silvkingsmod.item.ModItems;
+
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+
+public class ModRecipeProvider extends FabricRecipeProvider {
+    public ModRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+        super(output, registriesFuture);
+    }
+
+    @Override
+    public void generate(RecipeExporter recipeExporter) {
+        List<ItemConvertible> TITANIUM_SMELTABLES = List.of(ModBlocks.TITANIUM_ORE,ModBlocks.TITANIUM_DEEPSLATE_ORE);
+
+        offerSmelting(recipeExporter, TITANIUM_SMELTABLES, RecipeCategory.MISC, ModItems.TITANIUM_INGOT, 0.25f, 200,"titanium_ingot");
+        offerBlasting(recipeExporter, TITANIUM_SMELTABLES, RecipeCategory.MISC, ModItems.TITANIUM_INGOT, 0.25f, 100,"titanium_ingot");
+
+        offerReversibleCompactingRecipes(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModItems.TITANIUM_INGOT, RecipeCategory.MISC, ModBlocks.TITANIUM_BLOCK);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.RAW_TITANIUM_BLOCK)
+                .pattern("RRR")
+                .pattern("RRR")
+                .pattern("RRR")
+                .input('R', ModItems.TITANIUM_SHARD)
+                .criterion(hasItem(ModItems.TITANIUM_SHARD), conditionsFromItem(ModItems.TITANIUM_SHARD)) // Unlocks Recipe
+                .offerTo(recipeExporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.TITANIUM_SHARD, 9)
+                .input(ModBlocks.RAW_TITANIUM_BLOCK)
+                .criterion(hasItem(ModBlocks.RAW_TITANIUM_BLOCK), conditionsFromItem(ModBlocks.RAW_TITANIUM_BLOCK))
+                .offerTo(recipeExporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.TITANIUM_SHARD, 9)
+                .input(ModBlocks.RAW_TITANIUM_BLOCK)
+                .criterion(hasItem(ModBlocks.RAW_TITANIUM_BLOCK), conditionsFromItem(ModBlocks.RAW_TITANIUM_BLOCK))
+                .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"titanium_shard_from_magic_block"));
+        // Builder nennt Rezept nach output, um duplikate zu vermeiden name = path
+    }
+}
