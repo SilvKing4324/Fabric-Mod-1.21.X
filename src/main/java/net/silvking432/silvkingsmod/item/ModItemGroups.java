@@ -29,6 +29,10 @@ public class ModItemGroups {
                         entries.add(ModItems.TITANIUM_SHOVEL);
                         entries.add(ModItems.TITANIUM_HOE);
                         entries.add(ModItems.TITANIUM_HAMMER);
+                        entries.add(ModItems.TITANIUM_HELMET);
+                        entries.add(ModItems.TITANIUM_CHESTPLATE);
+                        entries.add(ModItems.TITANIUM_LEGGINGS);
+                        entries.add(ModItems.TITANIUM_BOOTS);
 
                     }).build());
 

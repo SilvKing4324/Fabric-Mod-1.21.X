@@ -1,6 +1,7 @@
-// 1.21	2025-09-10T18:46:21.4269945	SilvKings Mod/Tags for minecraft:item
+// 1.21	2025-09-10T19:12:35.2474438	SilvKings Mod/Tags for minecraft:item
 90c509284d63aab2ed9882a7cf7acb62c76e7666 data\minecraft\tags\item\hoes.json
 63c13fde8583feed331b78f453424546ccfab0e1 data\minecraft\tags\item\swords.json
+376372cd32f8791d95feee93b08290f09f539eea data\minecraft\tags\item\trimmable_armor.json
 bc42221436868f8962d852fcf5ee50011a0c5a75 data\silvkingsmod\tags\item\transformable_items.json
 d0e06ec39fa790d57f1d03b39831de72b33f5d8e data\minecraft\tags\item\axes.json
 698c7b55359b05e377b03d5a7f556f8a38ab8a5f data\minecraft\tags\item\pickaxes.json

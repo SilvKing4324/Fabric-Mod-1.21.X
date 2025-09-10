@@ -3,6 +3,7 @@ package net.silvking432.silvkingsmod.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.util.Identifier;
 import net.silvking432.silvkingsmod.block.ModBlocks;
 import net.silvking432.silvkingsmod.block.custom.TitaniumLampBlock;
@@ -50,5 +51,10 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.TITANIUM_HOE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TITANIUM_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TITANIUM_HAMMER, Models.HANDHELD);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.TITANIUM_HELMET);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.TITANIUM_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.TITANIUM_LEGGINGS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.TITANIUM_BOOTS);
+
     }
 }
