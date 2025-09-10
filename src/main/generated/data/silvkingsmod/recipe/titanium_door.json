@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "R": {
+      "item": "silvkingsmod:titanium_ingot"
+    }
+  },
+  "pattern": [
+    "RR",
+    "RR",
+    "RR"
+  ],
+  "result": {
+    "count": 2,
+    "id": "silvkingsmod:titanium_door"
+  }
+}

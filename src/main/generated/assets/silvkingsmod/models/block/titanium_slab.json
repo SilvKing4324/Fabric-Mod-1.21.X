@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "silvkingsmod:block/titanium_block",
+    "side": "silvkingsmod:block/titanium_block",
+    "top": "silvkingsmod:block/titanium_block"
+  }
+}
