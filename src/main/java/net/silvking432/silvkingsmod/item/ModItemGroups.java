@@ -44,6 +44,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TITANIUM_WALL);
                         entries.add(ModBlocks.TITANIUM_DOOR);
                         entries.add(ModBlocks.TITANIUM_TRAPDOOR);
+                        entries.add(ModBlocks.TITANIUM_LAMP);
                     }).build());
 
     public static void registerItemGroups() {

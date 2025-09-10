@@ -12,6 +12,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.silvking432.silvkingsmod.SilvKingsMod;
 import net.silvking432.silvkingsmod.block.custom.MagicBlock;
+import net.silvking432.silvkingsmod.block.custom.TitaniumLampBlock;
 
 public class ModBlocks {
 
@@ -29,6 +30,7 @@ public class ModBlocks {
     public static final Block TITANIUM_WALL = registerBlock("titanium_wall", new WallBlock(AbstractBlock.Settings.create().strength(8f, 4f).requiresTool().sounds(BlockSoundGroup.METAL)));
     public static final Block TITANIUM_DOOR = registerBlock("titanium_door", new DoorBlock(BlockSetType.IRON, AbstractBlock.Settings.create().strength(8f, 4f).requiresTool().sounds(BlockSoundGroup.METAL).nonOpaque()));
     public static final Block TITANIUM_TRAPDOOR = registerBlock("titanium_trapdoor", new TrapdoorBlock(BlockSetType.IRON, AbstractBlock.Settings.create().strength(8f, 4f).requiresTool().sounds(BlockSoundGroup.METAL).nonOpaque()));
+    public static final Block TITANIUM_LAMP = registerBlock("titanium_lamp", new TitaniumLampBlock(AbstractBlock.Settings.create().strength(10f, 4f).requiresTool().luminance(state -> state.get(TitaniumLampBlock.CLICKED) ? 15 : 0)));
 
 
     public static Block registerBlock(String name, Block block) {

@@ -2,10 +2,10 @@ package net.silvking432.silvkingsmod.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.client.BlockStateModelGenerator;
-import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.client.Models;
+import net.minecraft.data.client.*;
+import net.minecraft.util.Identifier;
 import net.silvking432.silvkingsmod.block.ModBlocks;
+import net.silvking432.silvkingsmod.block.custom.TitaniumLampBlock;
 import net.silvking432.silvkingsmod.item.ModItems;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -30,6 +30,11 @@ public class ModModelProvider extends FabricModelProvider {
         titanium_pool.fence(ModBlocks.TITANIUM_FENCE);
         titanium_pool.fenceGate(ModBlocks.TITANIUM_FENCE_GATE);
         titanium_pool.wall(ModBlocks.TITANIUM_WALL);
+
+        Identifier lampOffIdentifier = TexturedModel.CUBE_ALL.upload(ModBlocks.TITANIUM_LAMP, blockStateModelGenerator.modelCollector);
+        Identifier lampOnIdentifier = blockStateModelGenerator.createSubModel(ModBlocks.TITANIUM_LAMP, "_on", Models.CUBE_ALL, TextureMap::all);
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.TITANIUM_LAMP)
+                .coordinate(BlockStateModelGenerator.createBooleanModelMap(TitaniumLampBlock.CLICKED, lampOnIdentifier, lampOffIdentifier)));
     }
 
     @Override
