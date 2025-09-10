@@ -12,6 +12,7 @@ import net.silvking432.silvkingsmod.SilvKingsMod;
 import net.silvking432.silvkingsmod.item.custom.ChiselItem;
 import net.silvking432.silvkingsmod.item.custom.HammerItem;
 import net.silvking432.silvkingsmod.item.custom.ModArmorItem;
+import net.silvking432.silvkingsmod.item.custom.TitaniumBowItem;
 
 import java.util.List;
 
@@ -41,6 +42,7 @@ public class ModItems {
     public static final Item TITANIUM_BOOTS = registerItem("titanium_boots", new ArmorItem(ModArmorMaterials.TITANIUM_ARMOR_MATERIAL,ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(43))));
     public static final Item TITANIUM_HORSE_ARMOR = registerItem("titanium_horse_armor", new AnimalArmorItem(ModArmorMaterials.TITANIUM_ARMOR_MATERIAL, AnimalArmorItem.Type.EQUESTRIAN, false , new Item.Settings().maxCount(1)));
     public static final Item SILV_SMITHING_TEMPLATE = registerItem("silv_armor_trim_smithing_template", SmithingTemplateItem.of(Identifier.of(SilvKingsMod.MOD_ID, "silv"), FeatureFlags.VANILLA));
+    public static final Item TITANIUM_BOW = registerItem("titanium_bow", new TitaniumBowItem(new Item.Settings().maxDamage(500)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(SilvKingsMod.MOD_ID, name), item);

@@ -16,6 +16,7 @@
   "item.silvkingsmod.titanium_boots": "Titan Boots",
   "item.silvkingsmod.titanium_horse_armor": "Titan Horse Armor",
   "item.silvkingsmod.silv_armor_trim_smithing_template": "SilvKing's Smithing Template",
+  "item.silvkingsmod.titanium_bow": "Titanium Bow",
 
 
   "block.silvkingsmod.titanium_block": "Block of Titan",
@@ -41,6 +42,7 @@
   "tooltip.silvkingsmod.chisel": "Press §eShift§r for more Information!",
   "tooltip.silvkingsmod.chisel.shift_down": "This Item chisels blocks into Bricks!",
   "tooltip.silvkingsmod.super_flower" : "Straight from §cGod§r!",
+  "tooltip.silvkingsmod.titanium_bow" : "Shoots with a lot more power!",
 
   "trim_material.silvkingsmod.titanium": "Titan Material",
   "trim_pattern.silvkingsmod.silv": "SilvKing's Armor Pattern"
