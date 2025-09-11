@@ -1,6 +1,7 @@
-// 1.21	2025-09-11T05:32:41.6683029	SilvKings Mod/Tags for minecraft:item
+// 1.21	2025-09-11T06:39:12.8869777	SilvKings Mod/Tags for minecraft:item
 90c509284d63aab2ed9882a7cf7acb62c76e7666 data\minecraft\tags\item\hoes.json
 d0e06ec39fa790d57f1d03b39831de72b33f5d8e data\minecraft\tags\item\axes.json
+33ad92d0021ef470bd65fa46100039f7df529fac data\minecraft\tags\item\logs_that_burn.json
 6783576a404f502d3c943903a32c429537ae99c8 data\minecraft\tags\item\shovels.json
 f7ea2fb5e0b5515520a184ff91e63ebe16f183dd data\minecraft\tags\item\trim_templates.json
 da97c2556b2aff3cdaf5fdc7d9713d049dce3bcf data\minecraft\tags\item\head_armor.json
@@ -12,3 +13,4 @@ bc42221436868f8962d852fcf5ee50011a0c5a75 data\silvkingsmod\tags\item\transformab
 698c7b55359b05e377b03d5a7f556f8a38ab8a5f data\minecraft\tags\item\pickaxes.json
 8b82bf6ab2424f606b46e516e97ed6b71825047b data\minecraft\tags\item\foot_armor.json
 348ce28aa7186f94783809deb8506feb876f1d4f data\minecraft\tags\item\leg_armor.json
+5b322f9d3feed9862a00e463963e9ab6504d355c data\minecraft\tags\item\planks.json

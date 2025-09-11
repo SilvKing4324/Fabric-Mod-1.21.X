@@ -61,6 +61,15 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TITANIUM_DOOR);
                         entries.add(ModBlocks.TITANIUM_TRAPDOOR);
                         entries.add(ModBlocks.TITANIUM_LAMP);
+                        entries.add(ModBlocks.DRIFTWOOD_LOG);
+                        entries.add(ModBlocks.DRIFTWOOD_WOOD);
+                        entries.add(ModBlocks.STRIPPED_DRIFTWOOD_LOG);
+                        entries.add(ModBlocks.STRIPPED_DRIFTWOOD_WOOD);
+                        entries.add(ModBlocks.DRIFTWOOD_LEAVES);
+                        entries.add(ModBlocks.DRIFTWOOD_PLANKS);
+                        entries.add(ModBlocks.DRIFTWOOD_SAPLING);
+
+
 
                     }).build());
 

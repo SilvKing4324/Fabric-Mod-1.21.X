@@ -3,9 +3,7 @@ package net.silvking432.silvkingsmod;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
-import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
-import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
-import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.fabric.api.registry.*;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potions;
 import net.silvking432.silvkingsmod.block.ModBlocks;
@@ -45,5 +43,16 @@ public class SilvKingsMod implements ModInitializer {
 
 		CompostingChanceRegistry.INSTANCE.add(ModItems.SUPER_FLOWER, 0.7f);
 		CompostingChanceRegistry.INSTANCE.add(ModItems.SUPER_FLOWER_SEEDS, 0.35f);
+		CompostingChanceRegistry.INSTANCE.add(ModItems.HONEY_BERRIES, 0.3f);
+
+		StrippableBlockRegistry.register(ModBlocks.DRIFTWOOD_LOG, ModBlocks.STRIPPED_DRIFTWOOD_LOG);
+		StrippableBlockRegistry.register(ModBlocks.DRIFTWOOD_WOOD, ModBlocks.STRIPPED_DRIFTWOOD_WOOD);
+
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.DRIFTWOOD_LOG,5,5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.DRIFTWOOD_WOOD,5,5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.STRIPPED_DRIFTWOOD_WOOD,5,5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.STRIPPED_DRIFTWOOD_LOG,5,5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.DRIFTWOOD_PLANKS,5,20);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.DRIFTWOOD_LEAVES,30,60);
 	}
 }
