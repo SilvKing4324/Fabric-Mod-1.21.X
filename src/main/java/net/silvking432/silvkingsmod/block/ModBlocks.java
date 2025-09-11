@@ -12,10 +12,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.silvking432.silvkingsmod.SilvKingsMod;
-import net.silvking432.silvkingsmod.block.custom.HoneyBerryBushBlock;
-import net.silvking432.silvkingsmod.block.custom.MagicBlock;
-import net.silvking432.silvkingsmod.block.custom.SuperFlowerCropBlock;
-import net.silvking432.silvkingsmod.block.custom.TitaniumLampBlock;
+import net.silvking432.silvkingsmod.block.custom.*;
 import net.silvking432.silvkingsmod.sound.ModSounds;
 import net.silvking432.silvkingsmod.world.tree.ModSaplingGenerators;
 
@@ -46,7 +43,7 @@ public class ModBlocks {
     public static final Block STRIPPED_DRIFTWOOD_WOOD = registerBlock("stripped_driftwood_wood", new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD)));
     public static final Block DRIFTWOOD_PLANKS = registerBlock("driftwood_planks", new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
     public static final Block DRIFTWOOD_LEAVES = registerBlock("driftwood_leaves", new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
-    public static final Block DRIFTWOOD_SAPLING = registerBlock("driftwood_sapling", new SaplingBlock(ModSaplingGenerators.DRIFTWOOD, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+    public static final Block DRIFTWOOD_SAPLING = registerBlock("driftwood_sapling", new ModSaplingBlock(ModSaplingGenerators.DRIFTWOOD, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING), Blocks.STONE));
 
 
 

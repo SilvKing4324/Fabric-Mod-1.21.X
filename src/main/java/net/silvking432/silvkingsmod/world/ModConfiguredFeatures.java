@@ -1,6 +1,7 @@
 package net.silvking432.silvkingsmod.world;
 
 import net.minecraft.block.Blocks;
+import net.minecraft.block.SweetBerryBushBlock;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.structure.rule.RuleTest;
@@ -17,6 +18,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.silvking432.silvkingsmod.block.ModBlocks;
+import net.silvking432.silvkingsmod.block.custom.HoneyBerryBushBlock;
 
 import java.util.List;
 
@@ -26,6 +28,7 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> TITANIUM_END_ORE_KEY = registerKey("titanium_end_ore");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> DRIFTWOOD_KEY = registerKey("driftwood");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> HONEY_BERRY_BUSH_KEY = registerKey("honey_berry_bush");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         RuleTest stoneReplaceables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
@@ -46,9 +49,6 @@ public class ModConfiguredFeatures {
         register(context, TITANIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldTitaniumOres,4,0.95f));
         register(context, TITANIUM_NETHER_ORE_KEY, Feature.ORE, new OreFeatureConfig(netherTitaniumOres,4,1.0f));
         register(context, TITANIUM_END_ORE_KEY, Feature.ORE, new OreFeatureConfig(endTitaniumOres,5,1.0f));
-
-
-
         register(context, DRIFTWOOD_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlocks.DRIFTWOOD_LOG),
                 new StraightTrunkPlacer(5, 6, 3),
@@ -56,7 +56,12 @@ public class ModConfiguredFeatures {
                 BlockStateProvider.of(ModBlocks.DRIFTWOOD_LEAVES),
                 new BlobFoliagePlacer(ConstantIntProvider.create(4), ConstantIntProvider.create(1), 3),
 
-                new TwoLayersFeatureSize(1, 0, 2)).build());
+                new TwoLayersFeatureSize(1, 0, 2)).dirtProvider(BlockStateProvider.of(Blocks.STONE)).build());
+
+        register(context, HONEY_BERRY_BUSH_KEY,Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.HONEY_BERRY_BUSH.getDefaultState().with(HoneyBerryBushBlock.AGE, 3))),
+                        List.of(Blocks.GRASS_BLOCK)));
 
     }
 
