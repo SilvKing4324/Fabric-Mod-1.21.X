@@ -9,10 +9,12 @@ import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.silvking432.silvkingsmod.SilvKingsMod;
+import net.silvking432.silvkingsmod.block.ModBlocks;
 import net.silvking432.silvkingsmod.item.custom.ChiselItem;
 import net.silvking432.silvkingsmod.item.custom.HammerItem;
 import net.silvking432.silvkingsmod.item.custom.ModArmorItem;
 import net.silvking432.silvkingsmod.item.custom.TitaniumBowItem;
+import net.silvking432.silvkingsmod.sound.ModSounds;
 
 import java.util.List;
 
@@ -43,6 +45,9 @@ public class ModItems {
     public static final Item TITANIUM_HORSE_ARMOR = registerItem("titanium_horse_armor", new AnimalArmorItem(ModArmorMaterials.TITANIUM_ARMOR_MATERIAL, AnimalArmorItem.Type.EQUESTRIAN, false , new Item.Settings().maxCount(1)));
     public static final Item SILV_SMITHING_TEMPLATE = registerItem("silv_armor_trim_smithing_template", SmithingTemplateItem.of(Identifier.of(SilvKingsMod.MOD_ID, "silv"), FeatureFlags.VANILLA));
     public static final Item TITANIUM_BOW = registerItem("titanium_bow", new TitaniumBowItem(new Item.Settings().maxDamage(500)));
+    public static final Item NECRON_DOOM_MUSIC_DISC = registerItem("necron_doom_music_disc", new Item(new Item.Settings().jukeboxPlayable(ModSounds.NECRON_DOOM_KEY).maxCount(1)));
+    public static final Item SUPER_FLOWER_SEEDS = registerItem("super_flower_seeds", new AliasedBlockItem(ModBlocks.SUPER_FLOWER_CROP, new Item.Settings()));
+    public static final Item HONEY_BERRIES = registerItem("honey_berries", new AliasedBlockItem(ModBlocks.HONEY_BERRY_BUSH, new Item.Settings().food(ModFoodComponents.HONEY_BERRY)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(SilvKingsMod.MOD_ID, name), item);

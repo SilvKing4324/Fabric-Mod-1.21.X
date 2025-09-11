@@ -5,8 +5,11 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
 import net.silvking432.silvkingsmod.datagen.*;
+import net.silvking432.silvkingsmod.enchantment.ModEnchantments;
 import net.silvking432.silvkingsmod.trim.ModTrimMaterials;
 import net.silvking432.silvkingsmod.trim.ModTrimPatterns;
+import net.silvking432.silvkingsmod.world.ModConfiguredFeatures;
+import net.silvking432.silvkingsmod.world.ModPlacedFeatures;
 
 public class SilvKingsModDataGenerator implements DataGeneratorEntrypoint {
 	@Override
@@ -25,5 +28,8 @@ public class SilvKingsModDataGenerator implements DataGeneratorEntrypoint {
 	public void buildRegistry(RegistryBuilder registryBuilder) {
 		registryBuilder.addRegistry(RegistryKeys.TRIM_PATTERN, ModTrimPatterns::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.TRIM_MATERIAL, ModTrimMaterials::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.ENCHANTMENT, ModEnchantments::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
 	}
 }

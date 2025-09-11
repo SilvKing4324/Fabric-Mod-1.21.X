@@ -6,6 +6,8 @@ import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.util.Identifier;
 import net.silvking432.silvkingsmod.block.ModBlocks;
+import net.silvking432.silvkingsmod.block.custom.HoneyBerryBushBlock;
+import net.silvking432.silvkingsmod.block.custom.SuperFlowerCropBlock;
 import net.silvking432.silvkingsmod.block.custom.TitaniumLampBlock;
 import net.silvking432.silvkingsmod.item.ModItems;
 
@@ -20,6 +22,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_TITANIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TITANIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TITANIUM_DEEPSLATE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TITANIUM_NETHER_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TITANIUM_END_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MAGIC_BLOCK);
         blockStateModelGenerator.registerDoor(ModBlocks.TITANIUM_DOOR);
         blockStateModelGenerator.registerTrapdoor(ModBlocks.TITANIUM_TRAPDOOR);
@@ -36,6 +40,9 @@ public class ModModelProvider extends FabricModelProvider {
         Identifier lampOnIdentifier = blockStateModelGenerator.createSubModel(ModBlocks.TITANIUM_LAMP, "_on", Models.CUBE_ALL, TextureMap::all);
         blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.TITANIUM_LAMP)
                 .coordinate(BlockStateModelGenerator.createBooleanModelMap(TitaniumLampBlock.CLICKED, lampOnIdentifier, lampOffIdentifier)));
+
+        blockStateModelGenerator.registerCrop(ModBlocks.SUPER_FLOWER_CROP, SuperFlowerCropBlock.AGE,0,1,2,3,4,5,6);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.HONEY_BERRY_BUSH, BlockStateModelGenerator.TintType.NOT_TINTED, HoneyBerryBushBlock.AGE,0,1,2,3);
     }
 
     @Override
@@ -57,6 +64,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor((ArmorItem) ModItems.TITANIUM_BOOTS);
         itemModelGenerator.register(ModItems.TITANIUM_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.SILV_SMITHING_TEMPLATE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.NECRON_DOOM_MUSIC_DISC, Models.GENERATED);
+
 
     }
 }

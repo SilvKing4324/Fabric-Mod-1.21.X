@@ -2,6 +2,7 @@ package net.silvking432.silvkingsmod.block;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -11,8 +12,11 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.silvking432.silvkingsmod.SilvKingsMod;
+import net.silvking432.silvkingsmod.block.custom.HoneyBerryBushBlock;
 import net.silvking432.silvkingsmod.block.custom.MagicBlock;
+import net.silvking432.silvkingsmod.block.custom.SuperFlowerCropBlock;
 import net.silvking432.silvkingsmod.block.custom.TitaniumLampBlock;
+import net.silvking432.silvkingsmod.sound.ModSounds;
 
 public class ModBlocks {
 
@@ -20,7 +24,7 @@ public class ModBlocks {
     public static final Block RAW_TITANIUM_BLOCK = registerBlock("raw_titanium_block", new Block(AbstractBlock.Settings.create().strength(8f, 4f).requiresTool().sounds(BlockSoundGroup.STONE)));
     public static final Block TITANIUM_ORE = registerBlock("titanium_ore", new ExperienceDroppingBlock(UniformIntProvider.create(2, 5),AbstractBlock.Settings.create().strength(4f, 3f).requiresTool().sounds(BlockSoundGroup.STONE)));
     public static final Block TITANIUM_DEEPSLATE_ORE = registerBlock("titanium_deepslate_ore", new ExperienceDroppingBlock(UniformIntProvider.create(2, 5),AbstractBlock.Settings.create().strength(5f, 3f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE)));
-    public static final Block MAGIC_BLOCK = registerBlock("magic_block", new MagicBlock(AbstractBlock.Settings.create().strength(10f, 4f).requiresTool().sounds(BlockSoundGroup.AMETHYST_BLOCK)));
+    public static final Block MAGIC_BLOCK = registerBlock("magic_block", new MagicBlock(AbstractBlock.Settings.create().strength(10f, 4f).requiresTool().sounds(ModSounds.MAGIC_BLOCK_SOUNDS)));
     public static final Block TITANIUM_STAIRS = registerBlock("titanium_stairs", new StairsBlock(ModBlocks.TITANIUM_BLOCK.getDefaultState(), AbstractBlock.Settings.create().strength(8f, 4f).requiresTool().sounds(BlockSoundGroup.METAL)));
     public static final Block TITANIUM_SLAB = registerBlock("titanium_slab", new SlabBlock(AbstractBlock.Settings.create().strength(8f, 4f).requiresTool().sounds(BlockSoundGroup.METAL)));
     public static final Block TITANIUM_BUTTON = registerBlock("titanium_button", new ButtonBlock(BlockSetType.IRON, 2, AbstractBlock.Settings.create().strength(8f, 4f).requiresTool().sounds(BlockSoundGroup.METAL).noCollision()));
@@ -31,10 +35,18 @@ public class ModBlocks {
     public static final Block TITANIUM_DOOR = registerBlock("titanium_door", new DoorBlock(BlockSetType.IRON, AbstractBlock.Settings.create().strength(8f, 4f).requiresTool().sounds(BlockSoundGroup.METAL).nonOpaque()));
     public static final Block TITANIUM_TRAPDOOR = registerBlock("titanium_trapdoor", new TrapdoorBlock(BlockSetType.IRON, AbstractBlock.Settings.create().strength(8f, 4f).requiresTool().sounds(BlockSoundGroup.METAL).nonOpaque()));
     public static final Block TITANIUM_LAMP = registerBlock("titanium_lamp", new TitaniumLampBlock(AbstractBlock.Settings.create().strength(10f, 4f).requiresTool().luminance(state -> state.get(TitaniumLampBlock.CLICKED) ? 15 : 0)));
+    public static final Block SUPER_FLOWER_CROP = registerBlockWithoutBlockItem("super_flower_crop", new SuperFlowerCropBlock(AbstractBlock.Settings.create().noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY).mapColor(MapColor.DARK_GREEN)));
+    public static final Block HONEY_BERRY_BUSH = registerBlockWithoutBlockItem("honey_berry_bush", new HoneyBerryBushBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH)));
+    public static final Block TITANIUM_NETHER_ORE = registerBlock("titanium_nether_ore", new ExperienceDroppingBlock(UniformIntProvider.create(2, 5),AbstractBlock.Settings.create().strength(4f, 3f).requiresTool().sounds(BlockSoundGroup.NETHER_ORE)));
+    public static final Block TITANIUM_END_ORE = registerBlock("titanium_end_ore", new ExperienceDroppingBlock(UniformIntProvider.create(2, 5),AbstractBlock.Settings.create().strength(4f, 3f).requiresTool().sounds(BlockSoundGroup.STONE)));
 
 
     public static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
+        return Registry.register(Registries.BLOCK, Identifier.of(SilvKingsMod.MOD_ID, name), block);
+    }
+
+    public static Block registerBlockWithoutBlockItem(String name, Block block) {
         return Registry.register(Registries.BLOCK, Identifier.of(SilvKingsMod.MOD_ID, name), block);
     }
 

@@ -11,4 +11,15 @@ public class ModFoodComponents {
             .statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 400,1), 1.0f)
             .statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 400,0), 1.0f)
             .alwaysEdible().snack().build();
+
+    public static final FoodComponent HONEY_BERRY = new FoodComponent.Builder().nutrition(0).saturationModifier(0.15f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 400,0), 0.1f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.POISON, 400,0), 0.1f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 1200,15), 0.1f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 200,0), 0.1f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 400,4), 1.0f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.HASTE, 600,0), 1.0f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.HASTE, 900,1), 0.1f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 1200,5), 1.0f)
+            .alwaysEdible().snack().build();
 }

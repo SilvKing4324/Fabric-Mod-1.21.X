@@ -3,12 +3,20 @@ package net.silvking432.silvkingsmod;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
+import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.minecraft.item.Items;
+import net.minecraft.potion.Potions;
 import net.silvking432.silvkingsmod.block.ModBlocks;
 import net.silvking432.silvkingsmod.component.ModDataComponentTypes;
+import net.silvking432.silvkingsmod.effect.ModEffects;
+import net.silvking432.silvkingsmod.enchantment.ModEnchantmentEffects;
 import net.silvking432.silvkingsmod.item.ModItemGroups;
 import net.silvking432.silvkingsmod.item.ModItems;
+import net.silvking432.silvkingsmod.potion.ModPotions;
 import net.silvking432.silvkingsmod.util.HammerUsageEvent;
+import net.silvking432.silvkingsmod.world.gen.ModWorldGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,9 +30,20 @@ public class SilvKingsMod implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModItemGroups.registerItemGroups();
 		ModDataComponentTypes.registerDataComponentTypes();
+		ModEffects.registerEffects();
+		ModPotions.registerPotions();
+		ModEnchantmentEffects.registerEnchantmentEffects();
+		ModWorldGeneration.generateModWorldGen();
 
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 200000);
 
 		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
+
+		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
+			builder.registerPotionRecipe(Potions.AWKWARD, Items.SLIME_BALL, ModPotions.SLIMEY_POTION);
+		});
+
+		CompostingChanceRegistry.INSTANCE.add(ModItems.SUPER_FLOWER, 0.7f);
+		CompostingChanceRegistry.INSTANCE.add(ModItems.SUPER_FLOWER_SEEDS, 0.35f);
 	}
 }

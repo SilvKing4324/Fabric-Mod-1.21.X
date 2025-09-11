@@ -36,6 +36,9 @@ public class ModItemGroups {
                         entries.add(ModItems.TITANIUM_HORSE_ARMOR);
                         entries.add(ModItems.SILV_SMITHING_TEMPLATE);
                         entries.add(ModItems.TITANIUM_BOW);
+                        entries.add(ModItems.NECRON_DOOM_MUSIC_DISC);
+                        entries.add(ModItems.SUPER_FLOWER_SEEDS);
+                        entries.add(ModItems.HONEY_BERRIES);
 
                     }).build());
 
