@@ -11,6 +11,8 @@ import net.silvking432.silvkingsmod.block.custom.SuperFlowerCropBlock;
 import net.silvking432.silvkingsmod.block.custom.TitaniumLampBlock;
 import net.silvking432.silvkingsmod.item.ModItems;
 
+import java.util.Optional;
+
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
         super(output);
@@ -71,7 +73,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.TITANIUM_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.SILV_SMITHING_TEMPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.NECRON_DOOM_MUSIC_DISC, Models.GENERATED);
-
+        itemModelGenerator.register(ModItems.MANTIS_SPAWN_EGG, new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
 
     }
 }

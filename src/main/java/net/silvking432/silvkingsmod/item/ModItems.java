@@ -10,10 +10,8 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.silvking432.silvkingsmod.SilvKingsMod;
 import net.silvking432.silvkingsmod.block.ModBlocks;
-import net.silvking432.silvkingsmod.item.custom.ChiselItem;
-import net.silvking432.silvkingsmod.item.custom.HammerItem;
-import net.silvking432.silvkingsmod.item.custom.ModArmorItem;
-import net.silvking432.silvkingsmod.item.custom.TitaniumBowItem;
+import net.silvking432.silvkingsmod.entity.ModEntities;
+import net.silvking432.silvkingsmod.item.custom.*;
 import net.silvking432.silvkingsmod.sound.ModSounds;
 
 import java.util.List;
@@ -48,6 +46,8 @@ public class ModItems {
     public static final Item NECRON_DOOM_MUSIC_DISC = registerItem("necron_doom_music_disc", new Item(new Item.Settings().jukeboxPlayable(ModSounds.NECRON_DOOM_KEY).maxCount(1)));
     public static final Item SUPER_FLOWER_SEEDS = registerItem("super_flower_seeds", new AliasedBlockItem(ModBlocks.SUPER_FLOWER_CROP, new Item.Settings()));
     public static final Item HONEY_BERRIES = registerItem("honey_berries", new AliasedBlockItem(ModBlocks.HONEY_BERRY_BUSH, new Item.Settings().food(ModFoodComponents.HONEY_BERRY)));
+    public static final Item MANTIS_SPAWN_EGG = registerItem("mantis_spawn_egg", new SpawnEggItem(ModEntities.MANTIS, 0x9dc783, 0xbfaf5f, new Item.Settings().food(ModFoodComponents.HONEY_BERRY)));
+    public static final Item TOMAHAWK = registerItem("tomahawk", new TomahawkItem(new Item.Settings().maxCount(16)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(SilvKingsMod.MOD_ID, name), item);

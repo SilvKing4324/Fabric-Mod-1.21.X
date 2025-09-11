@@ -39,6 +39,8 @@ public class ModItemGroups {
                         entries.add(ModItems.NECRON_DOOM_MUSIC_DISC);
                         entries.add(ModItems.SUPER_FLOWER_SEEDS);
                         entries.add(ModItems.HONEY_BERRIES);
+                        entries.add(ModItems.MANTIS_SPAWN_EGG);
+                        entries.add(ModItems.TOMAHAWK);
 
                     }).build());
 

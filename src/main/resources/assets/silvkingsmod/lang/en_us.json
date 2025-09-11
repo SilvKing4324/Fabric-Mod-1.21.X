@@ -24,6 +24,8 @@
   "item.minecraft.potion.effect.slimey_potion" : "Potion of Slimey",
   "item.silvkingsmod.super_flower_seeds": "Superflower Seeds",
   "item.silvkingsmod.honey_berries": "Honey Berries",
+  "item.silvkingsmod.mantis_spawn_egg": "Mantis Spawn Egg",
+  "item.silvkingsmod.tomahawk": "Tomahawk",
 
 
   "block.silvkingsmod.titanium_block": "Block of Titan",
@@ -72,6 +74,9 @@
   "tooltip.silvkingsmod.chisel.shift_down": "This Item chisels blocks into Bricks!",
   "tooltip.silvkingsmod.super_flower" : "Straight from §cGod§r!",
   "tooltip.silvkingsmod.titanium_bow" : "Shoots with a lot more power!",
+
+  "entity.silvkingsmod.mantis": "Mantis",
+  "entity.silvkingsmod.tomahawk": "Tomahawk",
 
   "trim_material.silvkingsmod.titanium": "Titan Material",
   "trim_pattern.silvkingsmod.silv": "SilvKing's Armor Pattern"
