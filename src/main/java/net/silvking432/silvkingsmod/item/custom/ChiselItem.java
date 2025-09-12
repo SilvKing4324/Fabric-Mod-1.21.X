@@ -8,6 +8,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.particle.BlockStateParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -16,6 +18,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.world.World;
 import net.silvking432.silvkingsmod.block.ModBlocks;
 import net.silvking432.silvkingsmod.component.ModDataComponentTypes;
+import net.silvking432.silvkingsmod.particle.ModParticles;
 import net.silvking432.silvkingsmod.sound.ModSounds;
 
 import java.util.List;
@@ -47,6 +50,15 @@ public class ChiselItem extends Item {
                         item -> Objects.requireNonNull(context.getPlayer()).sendEquipmentBreakStatus(item, EquipmentSlot.MAINHAND));
 
                 world.playSound(null,context.getBlockPos(), ModSounds.CHISEL_USE, SoundCategory.BLOCKS);
+
+                ((ServerWorld) world).spawnParticles(new BlockStateParticleEffect(ParticleTypes.BLOCK, clickedBlock.getDefaultState()),
+                        context.getBlockPos().getX() + 0.5, context.getBlockPos().getY() + 0.5, context.getBlockPos().getZ() + 0.5, 20, 0.7, 0.7, 0.7,0.1);
+
+                ((ServerWorld) world).spawnParticles(ParticleTypes.FLAME,
+                        context.getBlockPos().getX() + 0.5, context.getBlockPos().getY() + 1.0, context.getBlockPos().getZ() + 0.5, 20, 0, 0, 0,0.1);
+
+                ((ServerWorld) world).spawnParticles(ModParticles.STARLIGHT_ASHES_PARTICLE,
+                        context.getBlockPos().getX() + 0.5, context.getBlockPos().getY() + 1.0, context.getBlockPos().getZ() + 0.5, 20, 0, 0, 0,0.1);
 
                 context.getStack().set(ModDataComponentTypes.COORDINATES, context.getBlockPos());
             }

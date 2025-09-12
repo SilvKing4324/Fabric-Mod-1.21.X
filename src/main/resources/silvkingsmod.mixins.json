@@ -12,6 +12,8 @@
     "requireAnnotations": true
   },
   "client": [
-    "AbstractClientPlayerEntityMixin"
+    "AbstractClientPlayerEntityMixin",
+    "ItemRendererMixin",
+    "ModelLoaderMixin"
   ]
 }

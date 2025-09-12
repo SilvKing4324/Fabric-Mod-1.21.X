@@ -16,6 +16,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.silvking432.silvkingsmod.particle.ModParticles;
 import net.silvking432.silvkingsmod.util.ModTags;
 
 import java.util.List;
@@ -27,6 +28,8 @@ public class MagicBlock extends Block {
 
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+
+        world.addParticle(ModParticles.STARLIGHT_ASHES_PARTICLE,pos.getX() + 0.5,pos.getY() + 1.0, pos.getZ() + 0.5,0,1,0);
 
         world.playSound(player, pos, SoundEvents.BLOCK_AMETHYST_BLOCK_CHIME, SoundCategory.BLOCKS, 10f,1f);
         return ActionResult.SUCCESS;

@@ -26,6 +26,8 @@
   "item.silvkingsmod.honey_berries": "Honey Berries",
   "item.silvkingsmod.mantis_spawn_egg": "Mantis Spawn Egg",
   "item.silvkingsmod.tomahawk": "Tomahawk",
+  "item.silvkingsmod.spectre_staff": "Spectre Staff",
+  "item.silvkingsmod.hyperion": "§dHyperion§r",
 
 
   "block.silvkingsmod.titanium_block": "Block of Titan",
@@ -54,6 +56,7 @@
   "block.silvkingsmod.driftwood_planks": "Driftwood Planks",
   "block.silvkingsmod.driftwood_leaves": "Driftwood Leaves",
   "block.silvkingsmod.driftwood_sapling": "Driftwood Sapling",
+  "block.silvkingsmod.chair": "Chair",
 
   "effect.silvkingsmod.slimey": "Slimey",
 
@@ -77,6 +80,7 @@
 
   "entity.silvkingsmod.mantis": "Mantis",
   "entity.silvkingsmod.tomahawk": "Tomahawk",
+  "entity.minecraft.villager.titanium_trader": "Titanium Trader",
 
   "trim_material.silvkingsmod.titanium": "Titan Material",
   "trim_pattern.silvkingsmod.silv": "SilvKing's Armor Pattern"

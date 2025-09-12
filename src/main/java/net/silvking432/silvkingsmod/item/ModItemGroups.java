@@ -41,6 +41,8 @@ public class ModItemGroups {
                         entries.add(ModItems.HONEY_BERRIES);
                         entries.add(ModItems.MANTIS_SPAWN_EGG);
                         entries.add(ModItems.TOMAHAWK);
+                        entries.add(ModItems.HYPERION);
+                        entries.add(ModItems.SPECTRE_STAFF);
 
                     }).build());
 
@@ -51,6 +53,7 @@ public class ModItemGroups {
                     .entries((displayContet, entries) -> {
                         entries.add(ModBlocks.TITANIUM_BLOCK);
                         entries.add(ModBlocks.RAW_TITANIUM_BLOCK);
+                        entries.add(ModBlocks.MAGIC_BLOCK);
                         entries.add(ModBlocks.TITANIUM_ORE);
                         entries.add(ModBlocks.TITANIUM_DEEPSLATE_ORE);
                         entries.add(ModBlocks.TITANIUM_STAIRS);
@@ -70,6 +73,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.DRIFTWOOD_LEAVES);
                         entries.add(ModBlocks.DRIFTWOOD_PLANKS);
                         entries.add(ModBlocks.DRIFTWOOD_SAPLING);
+                        entries.add(ModBlocks.CHAIR);
 
 
 
