@@ -5,12 +5,19 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.silvking432.silvkingsmod.block.ModBlocks;
+import net.silvking432.silvkingsmod.block.entity.ModBlockEntities;
+import net.silvking432.silvkingsmod.block.entity.renderer.PedestalBlockEntityRenderer;
 import net.silvking432.silvkingsmod.entity.ModEntities;
 import net.silvking432.silvkingsmod.entity.client.*;
 import net.silvking432.silvkingsmod.particle.ModParticles;
 import net.silvking432.silvkingsmod.particle.StarlightAshesParticle;
+import net.silvking432.silvkingsmod.screen.ModScreenHandlers;
+import net.silvking432.silvkingsmod.screen.custom.GrowthChamberScreen;
+import net.silvking432.silvkingsmod.screen.custom.PedestalScreen;
 import net.silvking432.silvkingsmod.util.ModModelPredicates;
 
 public class SilvKingsModClient implements ClientModInitializer {
@@ -32,5 +39,9 @@ public class SilvKingsModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.CHAIR_ENTITY, ChairRenderer::new);
 
         ParticleFactoryRegistry.getInstance().register(ModParticles.STARLIGHT_ASHES_PARTICLE, StarlightAshesParticle.Factory::new);
+
+        BlockEntityRendererFactories.register(ModBlockEntities.PEDESTAL_BE, PedestalBlockEntityRenderer::new);
+        HandledScreens.register(ModScreenHandlers.PEDESTAL_SCREEN_HANDLER, PedestalScreen::new);
+        HandledScreens.register(ModScreenHandlers.GROWTH_CHAMBER_SCREEN_HANDLER, GrowthChamberScreen::new);
     }
 }

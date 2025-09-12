@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.registry.*;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potions;
 import net.silvking432.silvkingsmod.block.ModBlocks;
+import net.silvking432.silvkingsmod.block.entity.ModBlockEntities;
 import net.silvking432.silvkingsmod.component.ModDataComponentTypes;
 import net.silvking432.silvkingsmod.effect.ModEffects;
 import net.silvking432.silvkingsmod.enchantment.ModEnchantmentEffects;
@@ -17,6 +18,8 @@ import net.silvking432.silvkingsmod.item.ModItemGroups;
 import net.silvking432.silvkingsmod.item.ModItems;
 import net.silvking432.silvkingsmod.particle.ModParticles;
 import net.silvking432.silvkingsmod.potion.ModPotions;
+import net.silvking432.silvkingsmod.recipe.ModRecipes;
+import net.silvking432.silvkingsmod.screen.ModScreenHandlers;
 import net.silvking432.silvkingsmod.util.HammerUsageEvent;
 import net.silvking432.silvkingsmod.util.ModLootTableModifiers;
 import net.silvking432.silvkingsmod.villager.ModVillagerTrades;
@@ -46,6 +49,9 @@ public class SilvKingsMod implements ModInitializer {
 		ModVillagerTrades.registerModVillagerTrades();
 		ModParticles.registerParticles();
 		ModLootTableModifiers.modifyLootTables();
+		ModBlockEntities.registerBlockEntities();
+		ModScreenHandlers.registerScreenHandlers();
+		ModRecipes.registerRecipes();
 
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 200000);
 
