@@ -32,7 +32,9 @@ public class SilvKingsModClient implements ClientModInitializer {
         ModModelPredicates.registerModelPredicates();
 
         EntityModelLayerRegistry.registerModelLayer(MantisModel.MANTIS, MantisModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(TitanPlayerModel.TITAN_PLAYER, TitanPlayerModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.MANTIS, MantisRenderer::new);
+        EntityRendererRegistry.register(ModEntities.TITAN_PLAYER, TitanPlayerRenderer::new);
 
         EntityModelLayerRegistry.registerModelLayer(TomahawkProjectileModel.TOMAHAWK, TomahawkProjectileModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.TOMAHAWK, TomahawkProjectileRenderer::new);

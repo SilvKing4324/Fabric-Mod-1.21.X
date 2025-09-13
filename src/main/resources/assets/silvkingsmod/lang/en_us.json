@@ -28,6 +28,7 @@
   "item.silvkingsmod.tomahawk": "Tomahawk",
   "item.silvkingsmod.spectre_staff": "Spectre Staff",
   "item.silvkingsmod.hyperion": "§dHyperion§r",
+  "item.silvkingsmod.titan_player_spawn_egg": "Titan Player Spawn Egg",
 
 
   "block.silvkingsmod.titanium_block": "Block of Titan",
@@ -81,6 +82,7 @@
   "tooltip.silvkingsmod.titanium_bow" : "Shoots with a lot more power!",
 
   "entity.silvkingsmod.mantis": "Mantis",
+  "entity.silvkingsmod.titan_player": "Titan Player",
   "entity.silvkingsmod.tomahawk": "Tomahawk",
   "entity.minecraft.villager.titanium_trader": "Titanium Trader",
 

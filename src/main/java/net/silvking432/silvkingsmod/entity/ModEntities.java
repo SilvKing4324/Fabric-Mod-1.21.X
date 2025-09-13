@@ -8,6 +8,7 @@ import net.minecraft.util.Identifier;
 import net.silvking432.silvkingsmod.SilvKingsMod;
 import net.silvking432.silvkingsmod.entity.custom.ChairEntity;
 import net.silvking432.silvkingsmod.entity.custom.MantisEntity;
+import net.silvking432.silvkingsmod.entity.custom.TitanPlayerEntity;
 import net.silvking432.silvkingsmod.entity.custom.TomahawkProjectileEntity;
 
 public class ModEntities {
@@ -15,6 +16,10 @@ public class ModEntities {
     public static final EntityType<MantisEntity> MANTIS = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(SilvKingsMod.MOD_ID, "mantis"),
             EntityType.Builder.create(MantisEntity::new, SpawnGroup.CREATURE).dimensions(2f,2.5f).build());
+
+    public static final EntityType<TitanPlayerEntity> TITAN_PLAYER = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "titan_player"),
+            EntityType.Builder.create(TitanPlayerEntity::new, SpawnGroup.MONSTER).dimensions(0.5f,1.75f).build());
 
     public static final EntityType<TomahawkProjectileEntity> TOMAHAWK = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(SilvKingsMod.MOD_ID, "tomahawk"),

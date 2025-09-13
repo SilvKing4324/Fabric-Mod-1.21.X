@@ -77,6 +77,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SILV_SMITHING_TEMPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.NECRON_DOOM_MUSIC_DISC, Models.GENERATED);
         itemModelGenerator.register(ModItems.MANTIS_SPAWN_EGG, new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
+        itemModelGenerator.register(ModItems.TITAN_PLAYER_SPAWN_EGG, new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
 
     }
 }

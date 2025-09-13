@@ -14,6 +14,7 @@ import net.silvking432.silvkingsmod.effect.ModEffects;
 import net.silvking432.silvkingsmod.enchantment.ModEnchantmentEffects;
 import net.silvking432.silvkingsmod.entity.ModEntities;
 import net.silvking432.silvkingsmod.entity.custom.MantisEntity;
+import net.silvking432.silvkingsmod.entity.custom.TitanPlayerEntity;
 import net.silvking432.silvkingsmod.item.ModItemGroups;
 import net.silvking432.silvkingsmod.item.ModItems;
 import net.silvking432.silvkingsmod.particle.ModParticles;
@@ -27,8 +28,6 @@ import net.silvking432.silvkingsmod.villager.ModVillagers;
 import net.silvking432.silvkingsmod.world.gen.ModWorldGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Random;
 
 public class SilvKingsMod implements ModInitializer {
 	public static final String MOD_ID = "silvkingsmod";
@@ -76,6 +75,7 @@ public class SilvKingsMod implements ModInitializer {
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.DRIFTWOOD_LEAVES,30,60);
 
 		FabricDefaultAttributeRegistry.register(ModEntities.MANTIS, MantisEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.TITAN_PLAYER, TitanPlayerEntity.createAttributes());
 
 	}
 }

@@ -43,6 +43,7 @@ public class ModItemGroups {
                         entries.add(ModItems.TOMAHAWK);
                         entries.add(ModItems.HYPERION);
                         entries.add(ModItems.SPECTRE_STAFF);
+                        entries.add(ModItems.TITAN_PLAYER_SPAWN_EGG);
 
                     }).build());
 

@@ -46,10 +46,12 @@ public class ModItems {
     public static final Item NECRON_DOOM_MUSIC_DISC = registerItem("necron_doom_music_disc", new Item(new Item.Settings().jukeboxPlayable(ModSounds.NECRON_DOOM_KEY).maxCount(1)));
     public static final Item SUPER_FLOWER_SEEDS = registerItem("super_flower_seeds", new AliasedBlockItem(ModBlocks.SUPER_FLOWER_CROP, new Item.Settings()));
     public static final Item HONEY_BERRIES = registerItem("honey_berries", new AliasedBlockItem(ModBlocks.HONEY_BERRY_BUSH, new Item.Settings().food(ModFoodComponents.HONEY_BERRY)));
-    public static final Item MANTIS_SPAWN_EGG = registerItem("mantis_spawn_egg", new SpawnEggItem(ModEntities.MANTIS, 0x9dc783, 0xbfaf5f, new Item.Settings().food(ModFoodComponents.HONEY_BERRY)));
+    public static final Item MANTIS_SPAWN_EGG = registerItem("mantis_spawn_egg", new SpawnEggItem(ModEntities.MANTIS, 0x9dc783, 0xbfaf5f, new Item.Settings()));
     public static final Item TOMAHAWK = registerItem("tomahawk", new TomahawkItem(new Item.Settings().maxCount(16)));
     public static final Item HYPERION = registerItem("hyperion", new Item(new Item.Settings().maxCount(1)));
     public static final Item SPECTRE_STAFF = registerItem("spectre_staff", new Item(new Item.Settings().maxCount(1)));
+    public static final Item TITAN_PLAYER_SPAWN_EGG = registerItem("titan_player_spawn_egg", new SpawnEggItem(ModEntities.TITAN_PLAYER, 0x00daff, 0x00adff, new Item.Settings()));
+
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(SilvKingsMod.MOD_ID, name), item);
