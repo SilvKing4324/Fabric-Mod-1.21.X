@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "package": "net.silvking432.silvkingsmod.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ExampleMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  },
+  "client": [
+    "AbstractClientPlayerEntityMixin",
+    "ItemRendererMixin",
+    "ModelLoaderMixin"
+  ]
+}

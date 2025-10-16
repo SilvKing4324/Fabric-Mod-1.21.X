@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "silvkingsmod:titanium_trader_poi",
+      "required": false
+    }
+  ]
+}

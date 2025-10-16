@@ -1,0 +1,8 @@
+{
+  "asset_id": "silvkingsmod:silv",
+  "decal": false,
+  "description": {
+    "translate": "trim_pattern.silvkingsmod.silv"
+  },
+  "template_item": "silvkingsmod:silv_armor_trim_smithing_template"
+}

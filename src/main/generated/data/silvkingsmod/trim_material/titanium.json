@@ -1,0 +1,9 @@
+{
+  "asset_name": "titanium",
+  "description": {
+    "color": "#B03FE0",
+    "translate": "trim_material.silvkingsmod.titanium"
+  },
+  "ingredient": "silvkingsmod:titanium_ingot",
+  "item_model_index": 1.0
+}

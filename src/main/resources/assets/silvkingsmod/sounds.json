@@ -1,0 +1,47 @@
+{
+  "chisel_use": {
+    "subtitle": "sounds.silvkingsmod.chisel_use",
+    "sounds": [
+      "silvkingsmod:chisel_use"
+    ]
+  },
+  "magic_block_break": {
+    "subtitle": "sounds.silvkingsmod.magic_block_break",
+    "sounds": [
+      "silvkingsmod:magic_block_break"
+    ]
+  },
+  "magic_block_step": {
+  "subtitle": "sounds.silvkingsmod.magic_block_step",
+  "sounds": [
+    "silvkingsmod:magic_block_step"
+  ]
+  },
+  "magic_block_place": {
+    "subtitle": "sounds.silvkingsmod.magic_block_place",
+    "sounds": [
+      "silvkingsmod:magic_block_place"
+    ]
+  },
+  "magic_block_hit": {
+    "subtitle": "sounds.silvkingsmod.magic_block_hit",
+    "sounds": [
+      "silvkingsmod:magic_block_hit"
+    ]
+  },
+  "magic_block_fall": {
+    "subtitle": "sounds.silvkingsmod.magic_block_fall",
+    "sounds": [
+      "silvkingsmod:magic_block_fall"
+    ]
+  },
+  "necron_doom": {
+    "subtitle": "sounds.silvkingsmod.necron_doom",
+    "sounds": [
+      {
+        "name": "silvkingsmod:necron_doom",
+        "stream" : "true"
+      }
+    ]
+  }
+}

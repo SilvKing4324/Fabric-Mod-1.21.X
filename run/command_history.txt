@@ -1,0 +1,50 @@
+/summon silvkingsmod:titan_player
+/weather clear
+/locate biome minecraft:plains
+/tp @s 92 81 437
+/setworldspawn
+/enchant @s minecraft:protection 4
+/enchant @s minecraft:unbreaking 3
+/enchant @s minecraft:sharpness 5
+/tp @e[type=silvkingsmod:titan_player] @s
+/effect give @e minecraft:strength infinite 2 true
+/summon minecraft:iron_golem
+/summon minecraft:warden
+/summon minecraft:iron_golem
+/give @s minecraft:command_block
+/summon minecraft:wither
+/tp @e ~ ~ ~
+/summon minecraft:breeze
+/tick rate 60
+/summon minecraft:villager
+/summon silvkingsmod:tomahawk
+/summon silvkingsmod:titan_player
+/locate biome minecraft:stony_peaks
+/tp @s -3567 109 1908
+/summon silvkingsmod:tomahawk
+/summon silvkingsmod:titan_player
+/give Player911 minecraft:command_block
+/give Player996 minecraft:command_block
+/enchant @s silvkingsmod:lightning_striker
+/enchant @s silvkingsmod:smelting_touch
+/enchant @s silvkingsmod:smelting_touch 34
+/enchant @s silvkingsmod:smelting_touch 1
+/give @s silvkingsmod:titanium_pickaxe[minecraft:damage=1]
+/give @s silvkingsmod:titanium_pickaxe[minecraft:damage=2600]
+/enchant @s silvkingsmod:smelting_touch
+/effect clear
+/summon silvkingsmod:titan_player
+/give @s minecraft:structure_block
+/time set night
+/time set midnight
+/gamerule doDaylightCycle false
+/time set day
+/give @s minecraft:structure_void
+/fill ~10 ~10 ~10 ~-10 ~-10 ~-10 silvkingsmod:titanium_tnt replace air
+/give @s silvkingsmod:matrix_block
+/effect give @s minecraft:night_vision
+/effect give @s minecraft:night_vision infinite
+/effect give @s minecraft:night_vision infinite 1 true
+/setblock -597 44 2005 minecraft:end_portal
+/enchant @s silvkingsmod:smelting_touch
+/give @s minecraft:wheat 64

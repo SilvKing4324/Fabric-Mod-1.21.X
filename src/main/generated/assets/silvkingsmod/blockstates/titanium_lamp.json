@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "clicked=false": {
+      "model": "silvkingsmod:block/titanium_lamp"
+    },
+    "clicked=true": {
+      "model": "silvkingsmod:block/titanium_lamp_on"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "silvkingsmod:item/necron_doom_music_disc"
+  }
+}

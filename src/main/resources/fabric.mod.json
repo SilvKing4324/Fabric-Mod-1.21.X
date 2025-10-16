@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "silvkingsmod",
+	"version": "${version}",
+	"name": "SilvKings Mod",
+	"description": "SilvKings first Mod!",
+	"authors": [
+		"SilvKing432!"
+	],
+	"contact": {
+		"homepage": "https://silvking432.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/silvkingsmod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.silvking432.silvkingsmod.SilvKingsMod"
+		],
+		"fabric-datagen": [
+			"net.silvking432.silvkingsmod.SilvKingsModDataGenerator"
+		],
+		"client": [
+			"net.silvking432.silvkingsmod.SilvKingsModClient"
+		]
+	},
+	"mixins": [
+		"silvkingsmod.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.17.2",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

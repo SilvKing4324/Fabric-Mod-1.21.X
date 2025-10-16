@@ -1,0 +1,67 @@
+{
+  "minecraft:recipes/misc/lapis_lazuli_from_smelting_deepslate_lapis_ore": {
+    "criteria": {
+      "has_deepslate_lapis_ore": "2025-09-11 04:52:24 +0200"
+    },
+    "done": true
+  },
+  "silvkingsmod:recipes/misc/titanium_ingot_from_smelting_titanium_deepslate_ore": {
+    "criteria": {
+      "has_titanium_deepslate_ore": "2025-09-11 04:54:32 +0200"
+    },
+    "done": true
+  },
+  "minecraft:nether/explore_nether": {
+    "criteria": {
+      "minecraft:nether_wastes": "2025-09-11 04:59:07 +0200",
+      "minecraft:soul_sand_valley": "2025-09-11 04:59:11 +0200",
+      "minecraft:basalt_deltas": "2025-09-11 04:58:31 +0200"
+    },
+    "done": false
+  },
+  "minecraft:nether/root": {
+    "criteria": {
+      "entered_nether": "2025-09-11 04:58:31 +0200"
+    },
+    "done": true
+  },
+  "minecraft:story/enter_the_nether": {
+    "criteria": {
+      "entered_nether": "2025-09-11 04:58:31 +0200"
+    },
+    "done": true
+  },
+  "silvkingsmod:recipes/misc/titanium_ingot_from_blasting_titanium_deepslate_ore": {
+    "criteria": {
+      "has_titanium_deepslate_ore": "2025-09-11 04:54:32 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2025-09-11 04:51:21 +0200"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:beach": "2025-09-11 04:52:15 +0200",
+      "minecraft:forest": "2025-09-11 04:51:55 +0200",
+      "minecraft:sparse_jungle": "2025-09-11 04:55:39 +0200",
+      "minecraft:ocean": "2025-09-11 04:52:16 +0200",
+      "minecraft:jungle": "2025-09-11 04:55:44 +0200",
+      "minecraft:river": "2025-09-11 04:51:29 +0200",
+      "minecraft:meadow": "2025-09-11 04:52:53 +0200",
+      "minecraft:savanna": "2025-09-11 04:51:31 +0200",
+      "minecraft:plains": "2025-09-11 04:51:21 +0200"
+    },
+    "done": false
+  },
+  "minecraft:recipes/misc/lapis_lazuli_from_blasting_deepslate_lapis_ore": {
+    "criteria": {
+      "has_deepslate_lapis_ore": "2025-09-11 04:52:24 +0200"
+    },
+    "done": true
+  },
+  "DataVersion": 3953
+}

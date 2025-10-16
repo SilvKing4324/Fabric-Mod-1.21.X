@@ -1,0 +1,8 @@
+// 1.21	2025-10-16T23:20:44.370242	SilvKings Mod/Tags for minecraft:block
+b67adb3af33103d1164e376696bd7e8924e9d723 data\minecraft\tags\block\fence_gates.json
+27aca2412a86d5f99c10abbe83cd9717b5842628 data\minecraft\tags\block\walls.json
+a249c46329a41538f49a564e1f14338aaf1be5a0 data\silvkingsmod\tags\block\needs_titanium_tool.json
+33ad92d0021ef470bd65fa46100039f7df529fac data\minecraft\tags\block\logs_that_burn.json
+affba32bf73a569163d933f9f5a0af4c89f0b869 data\minecraft\tags\block\needs_diamond_tool.json
+8b83d35ae677d797406201d8c68a0be75328b46a data\minecraft\tags\block\fences.json
+d98ba3ae7afe92ab0fde37f49b7ebaacb8bb123f data\minecraft\tags\block\mineable\pickaxe.json

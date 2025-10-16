@@ -1,0 +1,6 @@
+{
+  "parent": "silvkingsmod:item/titanium_bow",
+  "textures": {
+    "layer0": "silvkingsmod:item/titanium_bow_pulling_0"
+  }
+}

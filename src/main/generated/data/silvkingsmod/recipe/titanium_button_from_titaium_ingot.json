@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "silvkingsmod:titanium_ingot"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "silvkingsmod:titanium_button"
+  }
+}

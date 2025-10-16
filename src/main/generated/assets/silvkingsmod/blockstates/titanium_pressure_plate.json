@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "silvkingsmod:block/titanium_pressure_plate"
+    },
+    "powered=true": {
+      "model": "silvkingsmod:block/titanium_pressure_plate_down"
+    }
+  }
+}

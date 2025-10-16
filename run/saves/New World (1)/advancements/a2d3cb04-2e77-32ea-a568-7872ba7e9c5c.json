@@ -1,0 +1,52 @@
+{
+  "minecraft:recipes/misc/lapis_lazuli_from_smelting_deepslate_lapis_ore": {
+    "criteria": {
+      "has_deepslate_lapis_ore": "2025-09-11 05:06:02 +0200"
+    },
+    "done": true
+  },
+  "silvkingsmod:recipes/misc/titanium_ingot_from_smelting_titanium_deepslate_ore": {
+    "criteria": {
+      "has_titanium_deepslate_ore": "2025-09-11 05:06:02 +0200"
+    },
+    "done": true
+  },
+  "minecraft:nether/explore_nether": {
+    "criteria": {
+      "minecraft:nether_wastes": "2025-09-11 05:06:03 +0200",
+      "minecraft:basalt_deltas": "2025-09-11 05:06:12 +0200"
+    },
+    "done": false
+  },
+  "silvkingsmod:recipes/misc/titanium_ingot_from_blasting_titanium_deepslate_ore": {
+    "criteria": {
+      "has_titanium_deepslate_ore": "2025-09-11 05:06:02 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2025-09-11 05:06:02 +0200"
+    },
+    "done": true
+  },
+  "minecraft:end/root": {
+    "criteria": {
+      "entered_end": "2025-09-11 05:08:11 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/lapis_lazuli_from_blasting_deepslate_lapis_ore": {
+    "criteria": {
+      "has_deepslate_lapis_ore": "2025-09-11 05:06:02 +0200"
+    },
+    "done": true
+  },
+  "minecraft:story/enter_the_end": {
+    "criteria": {
+      "entered_end": "2025-09-11 05:08:11 +0200"
+    },
+    "done": true
+  },
+  "DataVersion": 3953
+}

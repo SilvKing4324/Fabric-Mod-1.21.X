@@ -1,0 +1,130 @@
+{
+  "silvkingsmod:recipes/misc/titanium_door": {
+    "criteria": {
+      "has_titanium_ingot": "2025-09-12 17:51:16 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/ladder": {
+    "criteria": {
+      "has_stick": "2025-09-12 17:49:44 +0200"
+    },
+    "done": true
+  },
+  "silvkingsmod:recipes/misc/titanium_block": {
+    "criteria": {
+      "has_titanium_ingot": "2025-09-12 17:51:16 +0200"
+    },
+    "done": true
+  },
+  "silvkingsmod:recipes/misc/titanium_trapdoor": {
+    "criteria": {
+      "has_titanium_ingot": "2025-09-12 17:51:16 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/campfire": {
+    "criteria": {
+      "has_stick": "2025-09-12 17:49:44 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/white_dye": {
+    "criteria": {
+      "has_bone_meal": "2025-09-12 17:49:44 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/wooden_hoe": {
+    "criteria": {
+      "has_stick": "2025-09-12 17:49:44 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/wooden_pickaxe": {
+    "criteria": {
+      "has_stick": "2025-09-12 17:49:44 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/wooden_axe": {
+    "criteria": {
+      "has_stick": "2025-09-12 17:49:44 +0200"
+    },
+    "done": true
+  },
+  "silvkingsmod:recipes/misc/titanium_fence_gate": {
+    "criteria": {
+      "has_titanium_ingot": "2025-09-12 17:51:16 +0200"
+    },
+    "done": true
+  },
+  "silvkingsmod:recipes/misc/titanium_button": {
+    "criteria": {
+      "has_titanium_ingot": "2025-09-12 17:51:16 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2025-09-12 17:49:44 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/chest": {
+    "criteria": {
+      "has_lots_of_items": "2025-09-12 17:49:44 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/wooden_shovel": {
+    "criteria": {
+      "has_stick": "2025-09-12 17:49:44 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/emerald_block": {
+    "criteria": {
+      "has_emerald": "2025-09-12 17:49:44 +0200"
+    },
+    "done": true
+  },
+  "silvkingsmod:recipes/misc/titanium_fence": {
+    "criteria": {
+      "has_titanium_ingot": "2025-09-12 17:51:16 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/wooden_sword": {
+    "criteria": {
+      "has_stick": "2025-09-12 17:49:44 +0200"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:river": "2025-09-12 17:51:59 +0200",
+      "minecraft:plains": "2025-09-12 17:49:45 +0200"
+    },
+    "done": false
+  },
+  "silvkingsmod:recipes/misc/raw_titanium_block": {
+    "criteria": {
+      "has_titanium_shard": "2025-09-12 17:49:44 +0200"
+    },
+    "done": true
+  },
+  "silvkingsmod:recipes/misc/titanium_stairs": {
+    "criteria": {
+      "has_titanium_ingot": "2025-09-12 17:51:16 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/bone_block": {
+    "criteria": {
+      "has_bone_meal": "2025-09-12 17:49:44 +0200"
+    },
+    "done": true
+  },
+  "DataVersion": 3953
+}

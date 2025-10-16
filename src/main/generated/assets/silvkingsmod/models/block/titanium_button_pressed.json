@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_pressed",
+  "textures": {
+    "texture": "silvkingsmod:block/titanium_block"
+  }
+}

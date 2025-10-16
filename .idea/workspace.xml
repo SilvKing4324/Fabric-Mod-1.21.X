@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2c1b1156-a927-48e6-80ed-0262f43d7cf4" name="Changes" comment="Added Custom Tnt Block" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;SilvKing4323&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/SilvKing4324/Fabric-Mod-1.21.X.git&quot;,
+    &quot;accountId&quot;: &quot;ee161757-094d-4380-af45-4736a50b80ff&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-c453a9ae23/1.21-net.fabricmc.yarn.1_21.1.21+build.9-v2/minecraft-merged-c453a9ae23-1.21-net.fabricmc.yarn.1_21.1.21+build.9-v2-sources.jar!/net/minecraft/server/MinecraftServer.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="32TUW4lVebsPNMIAdtYFTg8IxY1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Fabric-Mod-1.21.X [:net.fabricmc.devlaunchinjector.Main.main()].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/SIlvKings Mod/Fabric-Mod-1.21.X",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\data\silvkingsmod\structures" />
+      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\lang" />
+      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\data\silvkingsmod\recipe" />
+      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\textures\particle" />
+      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\textures\entity\villager" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\textures\block" />
+      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\textures\entity\titan_player" />
+      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\textures\gui" />
+      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\textures\gui\growth_chamber" />
+      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\textures\gui\pedestal" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Data Generation" />
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2c1b1156-a927-48e6-80ed-0262f43d7cf4" name="Changes" comment="" />
+      <created>1757444083198</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1757444083198</updated>
+      <workItem from="1757444084538" duration="1563000" />
+      <workItem from="1757445868205" duration="11000" />
+      <workItem from="1757446139726" duration="21865000" />
+      <workItem from="1757511856819" duration="45063000" />
+      <workItem from="1757602579883" duration="14034000" />
+      <workItem from="1757623454219" duration="1879000" />
+      <workItem from="1757626964477" duration="40162000" />
+      <workItem from="1757773324269" duration="19387000" />
+      <workItem from="1757992465656" duration="4000" />
+      <workItem from="1760528424232" duration="21692000" />
+      <workItem from="1760648434515" duration="2055000" />
+      <workItem from="1760651584854" duration="837000" />
+      <workItem from="1760652443936" duration="33000" />
+      <workItem from="1760652488754" duration="150000" />
+      <workItem from="1760652650651" duration="25000" />
+      <workItem from="1760652685874" duration="93000" />
+      <workItem from="1760652792267" duration="14000" />
+      <workItem from="1760652880554" duration="84000" />
+      <workItem from="1760653015495" duration="9000" />
+      <workItem from="1760653037362" duration="568000" />
+      <workItem from="1760653923716" duration="90000" />
+    </task>
+    <task id="LOCAL-00001" summary="added very important comment">
+      <option name="closed" value="true" />
+      <created>1757447368856</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1757447368856</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added custom Items">
+      <option name="closed" value="true" />
+      <created>1757448650286</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1757448650286</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added custom Blocks &amp; Item Groups">
+      <option name="closed" value="true" />
+      <created>1757450518113</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1757450518113</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added more Blocks loot tables and recipes">
+      <option name="closed" value="true" />
+      <created>1757452490170</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1757452490170</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added an Advanced Block and an Advanced Item">
+      <option name="closed" value="true" />
+      <created>1757454914942</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1757454914942</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added custom Food and Fuel">
+      <option name="closed" value="true" />
+      <created>1757457018971</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1757457018971</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added custom tooltips">
+      <option name="closed" value="true" />
+      <created>1757458174898</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1757458174898</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added Data generation and Tags">
+      <option name="closed" value="true" />
+      <created>1757475799695</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1757475799695</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added Non Block Blocks">
+      <option name="closed" value="true" />
+      <created>1757480038555</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1757480038556</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added Non Block Blocks">
+      <option name="closed" value="true" />
+      <created>1757480086986</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1757480086986</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added Blockstates and Block Data">
+      <option name="closed" value="true" />
+      <created>1757512157069</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1757512157069</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added custom Tools and Hammer">
+      <option name="closed" value="true" />
+      <created>1757523058555</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1757523058555</updated>
+    </task>
+    <task id="LOCAL-00013" summary="added custom Armor">
+      <option name="closed" value="true" />
+      <created>1757534022916</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1757534022916</updated>
+    </task>
+    <task id="LOCAL-00014" summary="added custom effects for armor">
+      <option name="closed" value="true" />
+      <created>1757535867383</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1757535867383</updated>
+    </task>
+    <task id="LOCAL-00015" summary="added horse armor, custom armor trims and custom item model predicates">
+      <option name="closed" value="true" />
+      <created>1757540018466</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1757540018466</updated>
+    </task>
+    <task id="LOCAL-00016" summary="added a custom bow">
+      <option name="closed" value="true" />
+      <created>1757542420673</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1757542420673</updated>
+    </task>
+    <task id="LOCAL-00017" summary="added custom sounds, music discs, effects, potions, paintings, enchantments, crops, bushes and basic world gen">
+      <option name="closed" value="true" />
+      <created>1757556225308</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1757556225308</updated>
+    </task>
+    <task id="LOCAL-00018" summary="added world ore generation for titan ore">
+      <option name="closed" value="true" />
+      <created>1757561617277</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1757561617277</updated>
+    </task>
+    <task id="LOCAL-00019" summary="added world bush generation and changed up tree mechanics">
+      <option name="closed" value="true" />
+      <created>1757611531986</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1757611531986</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added custom entity and a custom projectile aswell as Entityvariants">
+      <option name="closed" value="true" />
+      <created>1757623404564</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1757623404564</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Added Custom Loot Tables, 3D Models, 2D Animated Textures, Particles and VillagerProfessions">
+      <option name="closed" value="true" />
+      <created>1757637118295</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1757637118295</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Added Custom growth Chamber and Pedestal (Block Entitys)">
+      <option name="closed" value="true" />
+      <created>1757694509044</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1757694509044</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Added new Custom Entity">
+      <option name="closed" value="true" />
+      <created>1757773916893</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1757773916893</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Added new Smelting Touch Enchantment">
+      <option name="closed" value="true" />
+      <created>1760535229282</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1760535229282</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Added Custom Tnt Block">
+      <option name="closed" value="true" />
+      <created>1760541019186</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1760541019186</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <MESSAGE value="added very important comment" />
+    <MESSAGE value="added custom Items" />
+    <MESSAGE value="added custom Blocks &amp; Item Groups" />
+    <MESSAGE value="added more Blocks loot tables and recipes" />
+    <MESSAGE value="added an Advanced Block and an Advanced Item" />
+    <MESSAGE value="added custom Food and Fuel" />
+    <MESSAGE value="added custom tooltips" />
+    <MESSAGE value="added Data generation and Tags" />
+    <MESSAGE value="added Non Block Blocks" />
+    <MESSAGE value="added Blockstates and Block Data" />
+    <MESSAGE value="added custom Tools and Hammer" />
+    <MESSAGE value="added custom Armor" />
+    <MESSAGE value="added custom effects for armor" />
+    <MESSAGE value="added horse armor, custom armor trims and custom item model predicates" />
+    <MESSAGE value="added a custom bow" />
+    <MESSAGE value="added custom sounds, music discs, effects, potions, paintings, enchantments, crops, bushes and basic world gen" />
+    <MESSAGE value="added world ore generation for titan ore" />
+    <MESSAGE value="added world tree generation and new custom trees" />
+    <MESSAGE value="added world bush generation and changed up tree mechanics" />
+    <MESSAGE value="Added custom entity and a custom projectile aswell as Entityvariants" />
+    <MESSAGE value="Added Custom Loot Tables, 3D Models, 2D Animated Textures, Particles and VillagerProfessions" />
+    <MESSAGE value="Added Custom growth Chamber and Pedestal (Block Entitys)" />
+    <MESSAGE value="Added new Custom Entity" />
+    <MESSAGE value="Added new Smelting Touch Enchantment" />
+    <MESSAGE value="Added Custom Tnt Block" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Custom Tnt Block" />
+  </component>
+</project>

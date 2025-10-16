@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "silvkingsmod:block/super_flower_crop_stage5"
+  }
+}
