@@ -18,6 +18,7 @@ import net.silvking432.silvkingsmod.world.tree.ModSaplingGenerators;
 
 public class ModBlocks {
 
+
     public static final Block TITANIUM_BLOCK = registerBlock("titanium_block", new Block(AbstractBlock.Settings.create().strength(8f, 4f).requiresTool().sounds(BlockSoundGroup.METAL)));
     public static final Block RAW_TITANIUM_BLOCK = registerBlock("raw_titanium_block", new Block(AbstractBlock.Settings.create().strength(8f, 4f).requiresTool().sounds(BlockSoundGroup.STONE)));
     public static final Block TITANIUM_ORE = registerBlock("titanium_ore", new ExperienceDroppingBlock(UniformIntProvider.create(2, 5),AbstractBlock.Settings.create().strength(4f, 3f).requiresTool().sounds(BlockSoundGroup.STONE)));
@@ -49,7 +50,7 @@ public class ModBlocks {
     public static final Block GROWTH_CHAMBER = registerBlock("growth_chamber", new GrowthChamberBlock(AbstractBlock.Settings.create()));
     public static final Block TITANIUM_TNT = registerBlock("titanium_tnt", new TitaniumTntBlock(AbstractBlock.Settings.create().mapColor(MapColor.BLUE).breakInstantly().sounds(BlockSoundGroup.GRASS).burnable().solidBlock(Blocks::never)));
     public static final Block MATRIX_BLOCK = registerBlock("matrix_block", new MatrixBlock(AbstractBlock.Settings.create().strength(100f, 100f).requiresTool().sounds(BlockSoundGroup.METAL)));
-
+    public static final Block TITANIUM_BEACON = registerBlock("titanium_beacon", new TitaniumBeaconBlock(AbstractBlock.Settings.create().strength(8f, 4f).requiresTool().sounds(BlockSoundGroup.GLASS).luminance(state -> 15).nonOpaque()));
 
 
     public static Block registerBlock(String name, Block block) {

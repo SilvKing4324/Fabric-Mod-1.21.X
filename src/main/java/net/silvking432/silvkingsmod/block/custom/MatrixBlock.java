@@ -3,14 +3,22 @@ package net.silvking432.silvkingsmod.block.custom;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
+import net.silvking432.silvkingsmod.entity.ModEntities;
 
 public class MatrixBlock extends Block {
     public MatrixBlock(Settings settings) {
@@ -19,10 +27,52 @@ public class MatrixBlock extends Block {
 
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        if (!world.isClient) {
-            player.sendMessage(Text.literal("The Mystical Aura of this block doesn't let you do this!"),true);
-        }
+        // Hole das Item aus der Hand, die der Spieler gerade benutzt
+        ItemStack itemStack = player.getStackInHand(player.getActiveHand());
 
+        if (!world.isClient) {
+            // Prüfen, ob es ein Drachenei ist
+            if (itemStack.isOf(Items.DRAGON_EGG)) {
+
+                // 1. Nachricht senden
+                player.sendMessage(Text.literal("A mythical Creature has been called! The Magna Titan arrives!")
+                        .formatted(Formatting.RED, Formatting.BOLD), false);
+
+                // 2. Ei abziehen
+                if (!player.isCreative()) {
+                    itemStack.decrement(1);
+                }
+                double dx = player.getX() - (pos.getX() + 0.5);
+                double dz = player.getZ() - (pos.getZ() + 0.5);
+                double distance = Math.sqrt(dx * dx + dz * dz);
+
+                if (distance > 0) {
+                    // Kraft festlegen (ca. 10 Blöcke weit entspricht etwa einer Stärke von 2.5 bis 3.0)
+                    double strength = 2.5;
+                    player.addVelocity((dx / distance) * strength, 0, (dz / distance) * strength);
+                    player.velocityModified = true; // Wichtig, damit der Server die Bewegung an den Client schickt
+                }
+
+                // 3. Sound & Partikel
+                ServerWorld serverWorld = (ServerWorld) world;
+                serverWorld.playSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
+                        SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 2.0f, 0.5f);
+
+                serverWorld.spawnParticles(ParticleTypes.FLAME, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 100, 0.5, 0.5, 0.5, 0.15);
+                serverWorld.spawnParticles(ParticleTypes.EXPLOSION_EMITTER, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 1, 0, 0, 0, 0.0);
+
+                // 4. Boss Spawn
+                ModEntities.MAGNA_TITAN.spawn(serverWorld, pos, SpawnReason.SPAWNER);
+
+                // 5. Block entfernen
+                world.breakBlock(pos, false);
+
+                return ActionResult.SUCCESS;
+            }
+
+            // Nachricht wenn kein Ei benutzt wurde
+            player.sendMessage(Text.literal("The Mystical Aura of this block doesn't let you do this!"), true);
+        }
         return ActionResult.SUCCESS;
     }
 
@@ -46,7 +96,6 @@ public class MatrixBlock extends Block {
 
             // Blockzentrum
             double bx = pos.getX() + 0.5;
-            double by = pos.getY();
             double bz = pos.getZ() + 0.5;
 
             // Wenn Spieler in einem "1x2x1" Bereich über dem Block ist

@@ -10,6 +10,7 @@ import net.silvking432.silvkingsmod.SilvKingsMod;
 public class ModParticles {
 
     public static final SimpleParticleType STARLIGHT_ASHES_PARTICLE = registerParticle("starlight_ashes_particle", FabricParticleTypes.simple());
+    public static final SimpleParticleType BLACK_HOLE_PARTICLE = registerParticle("black_hole_particle", FabricParticleTypes.simple());
 
     private static SimpleParticleType registerParticle(String name, SimpleParticleType particleType) {
         return Registry.register(Registries.PARTICLE_TYPE, Identifier.of(SilvKingsMod.MOD_ID, name), particleType);

@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "silvkingsmod:lava_arena",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 80,
+    "separation": 20,
+    "salt": 432432432
+  }
+}

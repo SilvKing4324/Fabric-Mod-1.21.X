@@ -18,6 +18,14 @@ public class ModEntities {
             Identifier.of(SilvKingsMod.MOD_ID, "titan_player"),
             EntityType.Builder.create(TitanPlayerEntity::new, SpawnGroup.MONSTER).dimensions(0.5f,1.75f).build());
 
+    public static final EntityType<MagnaTitanEntity> MAGNA_TITAN = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "magna_titan"),
+            EntityType.Builder.create(MagnaTitanEntity::new, SpawnGroup.MONSTER).dimensions(0.8f,2.75f).build());
+
+    public static final EntityType<MagnaMinionEntity> MAGNA_MINION = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "magna_minion"),
+            EntityType.Builder.create(MagnaMinionEntity::new, SpawnGroup.MONSTER).dimensions(0.5f,1.5f).build());
+
     public static final EntityType<TomahawkProjectileEntity> TOMAHAWK = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(SilvKingsMod.MOD_ID, "tomahawk"),
             EntityType.Builder.<TomahawkProjectileEntity>create(TomahawkProjectileEntity::new, SpawnGroup.MISC).dimensions(0.5f,1.15f).build());
@@ -34,6 +42,29 @@ public class ModEntities {
                     .build("titanium_tnt_entity")
     );
 
+    public static final EntityType<LavaGolemEntity> LAVA_GOLEM = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "lava_golem"),
+            EntityType.Builder.create(LavaGolemEntity::new, SpawnGroup.MONSTER)
+                    .dimensions(1.4f, 2.7f)
+                    .build());
+
+    public static final EntityType<MagnaWitchEntity> MAGNA_WITCH = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "magna_witch"),
+            EntityType.Builder.create(MagnaWitchEntity::new, SpawnGroup.MONSTER)
+                    .dimensions(0.6f, 1.95f)
+                    .build());
+
+    public static final EntityType<MagnaFireballEntity> MAGNA_FIREBALL = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "magna_fireball"),
+            EntityType.Builder.<MagnaFireballEntity>create(MagnaFireballEntity::new, SpawnGroup.MISC)
+                    .dimensions(1.2f, 1.2f) // Größe des Feuerballs
+                    .build());
+
+    public static final EntityType<MagnaAnvilEntity> MAGNA_ANVIL = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "magna_anvil"),
+            EntityType.Builder.<MagnaAnvilEntity>create(MagnaAnvilEntity::new, SpawnGroup.MISC)
+                    .dimensions(1.5f, 1.5f) // Größere Hitbox, weil der Amboss ja riesig ist!
+                    .build());
 
 
     public static void registerModEntities() {

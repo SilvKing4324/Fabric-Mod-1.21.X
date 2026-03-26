@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:stronghold",
+  "biomes": "#minecraft:has_structure/stronghold",
+  "step": "surface_structures",
+  "terrain_adaptation": "bury",
+  "spawn_overrides": {
+    "monster": {
+      "bounding_box": "piece",
+      "spawns": [
+        { "type": "minecraft:zombie", "weight": 100, "minCount": 1, "maxCount": 4 },
+        { "type": "minecraft:skeleton", "weight": 100, "minCount": 1, "maxCount": 4 },
+        { "type": "minecraft:creeper", "weight": 100, "minCount": 1, "maxCount": 4 },
+        { "type": "minecraft:spider", "weight": 100, "minCount": 1, "maxCount": 4 },
+        { "type": "minecraft:enderman", "weight": 10, "minCount": 1, "maxCount": 1 },
+        { "type": "minecraft:witch", "weight": 5, "minCount": 1, "maxCount": 1 },
+        {
+          "type": "silvkingsmod:titan_player",
+          "weight": 50,
+          "minCount": 1,
+          "maxCount": 1
+        }
+      ]
+    }
+  }
+}

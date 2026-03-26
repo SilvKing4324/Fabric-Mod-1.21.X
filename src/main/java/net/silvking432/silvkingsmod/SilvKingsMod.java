@@ -13,8 +13,7 @@ import net.silvking432.silvkingsmod.component.ModDataComponentTypes;
 import net.silvking432.silvkingsmod.effect.ModEffects;
 import net.silvking432.silvkingsmod.enchantment.ModEnchantmentEffects;
 import net.silvking432.silvkingsmod.entity.ModEntities;
-import net.silvking432.silvkingsmod.entity.custom.MantisEntity;
-import net.silvking432.silvkingsmod.entity.custom.TitanPlayerEntity;
+import net.silvking432.silvkingsmod.entity.custom.*;
 import net.silvking432.silvkingsmod.event.SmeltingTouchHandler;
 import net.silvking432.silvkingsmod.item.ModItemGroups;
 import net.silvking432.silvkingsmod.item.ModItems;
@@ -43,8 +42,8 @@ public class SilvKingsMod implements ModInitializer {
 		ModEffects.registerEffects();
 		ModPotions.registerPotions();
 		ModEnchantmentEffects.registerEnchantmentEffects();
-		ModWorldGeneration.generateModWorldGen();
 		ModEntities.registerModEntities();
+		ModWorldGeneration.generateModWorldGen();
 		ModVillagers.registerVillagers();
 		ModVillagerTrades.registerModVillagerTrades();
 		ModParticles.registerParticles();
@@ -58,9 +57,7 @@ public class SilvKingsMod implements ModInitializer {
 
 		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
 
-		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
-			builder.registerPotionRecipe(Potions.AWKWARD, Items.SLIME_BALL, ModPotions.SLIMEY_POTION);
-		});
+		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> builder.registerPotionRecipe(Potions.AWKWARD, Items.SLIME_BALL, ModPotions.SLIMEY_POTION));
 
 		CompostingChanceRegistry.INSTANCE.add(ModItems.SUPER_FLOWER, 0.7f);
 		CompostingChanceRegistry.INSTANCE.add(ModItems.SUPER_FLOWER_SEEDS, 0.35f);
@@ -78,6 +75,10 @@ public class SilvKingsMod implements ModInitializer {
 
 		FabricDefaultAttributeRegistry.register(ModEntities.MANTIS, MantisEntity.createAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.TITAN_PLAYER, TitanPlayerEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.MAGNA_TITAN, MagnaTitanEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.MAGNA_MINION, MagnaMinionEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.LAVA_GOLEM, LavaGolemEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.MAGNA_WITCH, MagnaWitchEntity.createAttributes());
 
 	}
 }

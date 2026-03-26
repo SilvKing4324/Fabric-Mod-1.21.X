@@ -62,6 +62,7 @@
   "block.silvkingsmod.growth_chamber": "Growth Chamber",
   "block.silvkingsmod.titanium_tnt": "Titan TNT",
   "block.silvkingsmod.matrix_block": "Matrix Block",
+  "block.silvkingsmod.titanium_beacon": "Titanium Beacon",
 
   "effect.silvkingsmod.slimey": "Slimey",
 
@@ -86,6 +87,11 @@
 
   "entity.silvkingsmod.mantis": "Mantis",
   "entity.silvkingsmod.titan_player": "Titan Player",
+  "entity.silvkingsmod.magna_titan": "Magna Titan",
+  "entity.silvkingsmod.magna_minion": "Magna Minion",
+  "entity.silvkingsmod.lava_golem": "Lava Golem",
+  "entity.silvkingsmod.magna_witch": "Magna Witch",
+
   "entity.silvkingsmod.tomahawk": "Tomahawk",
   "entity.minecraft.villager.titanium_trader": "Titanium Trader",
 

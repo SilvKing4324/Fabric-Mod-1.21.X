@@ -18,6 +18,12 @@ public class TitaniumAttackGoal extends MeleeAttackGoal {
     }
 
     @Override
+    public boolean canStart() {
+        // Er darf nur angreifen, wenn er NICHT gerade am Gappen ist!
+        return super.canStart() && !((TitanPlayerEntity)this.mob).isGapping();
+    }
+
+    @Override
     public void start() {
         super.start();
         attackDelay = 0;
@@ -65,6 +71,22 @@ public class TitaniumAttackGoal extends MeleeAttackGoal {
         this.resetAttackCooldown();
         this.mob.swingHand(Hand.MAIN_HAND);
         this.mob.tryAttack(pEnemy);
+
+        double deltaX = this.mob.getX() - pEnemy.getX();
+        double deltaZ = this.mob.getZ() - pEnemy.getZ();
+
+        double distance = Math.sqrt(deltaX * deltaX + deltaZ * deltaZ);
+        if (distance > 0) {
+            deltaX /= distance;
+            deltaZ /= distance;
+
+            // Den Mob mit einer Stärke von 0.5 Blöcken nach hinten schubsen
+            float pushStrength = 0.5f;
+            this.mob.setVelocity(deltaX * pushStrength, 0.0, deltaZ * pushStrength);
+
+            // Dem Client sagen, dass sich die Geschwindigkeit geändert hat
+            this.mob.velocityDirty = true;
+        }
     }
 
     @Override

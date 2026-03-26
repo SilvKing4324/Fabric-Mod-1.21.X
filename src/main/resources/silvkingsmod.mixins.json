@@ -3,7 +3,8 @@
   "package": "net.silvking432.silvkingsmod.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "ExampleMixin"
+    "ExampleMixin",
+    "StrongholdSizeMixin"
   ],
   "injectors": {
     "defaultRequire": 1
