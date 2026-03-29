@@ -57,19 +57,19 @@ public class ModEntities {
     public static final EntityType<MagnaFireballEntity> MAGNA_FIREBALL = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(SilvKingsMod.MOD_ID, "magna_fireball"),
             EntityType.Builder.<MagnaFireballEntity>create(MagnaFireballEntity::new, SpawnGroup.MISC)
-                    .dimensions(1.2f, 1.2f) // Größe des Feuerballs
+                    .dimensions(1.2f, 1.2f)
                     .build());
 
     public static final EntityType<MagnaAnvilEntity> MAGNA_ANVIL = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(SilvKingsMod.MOD_ID, "magna_anvil"),
             EntityType.Builder.<MagnaAnvilEntity>create(MagnaAnvilEntity::new, SpawnGroup.MISC)
-                    .dimensions(4.0f, 2.2f) // Größere Hitbox, weil der Amboss ja riesig ist!
+                    .dimensions(4.0f, 2.2f)
                     .build());
 
     public static final EntityType<MagnaBombEntity> MAGNA_BOMB = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(SilvKingsMod.MOD_ID, "magna_bomb"),
-            EntityType.Builder.<MagnaBombEntity>create(MagnaBombEntity::new, SpawnGroup.MISC)
-                    .dimensions(2.5f, 2.5f) // Größere Hitbox, weil der Amboss ja riesig ist!
+            EntityType.Builder.create(MagnaBombEntity::new, SpawnGroup.MISC)
+                    .dimensions(2.5f, 2.5f)
                     .build());
 
 

@@ -10,6 +10,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.BossBar;
 import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
@@ -54,6 +55,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MagnaTitanEntity extends HostileEntity {
+    public enum BossState {
+        ATTACKING,
+        POTTING,
+        HEALING,
+        BLACK_HOLE,
+        ULTIMATE,
+        STUNNED,
+        SHIELDED,
+        ANVIL,
+        FAILING // The player failed
+    }
+
     private int pottingTimer = -1;
     private int pendingStrengthLevel = 0;
     private int blackHoleTimer = 0;
@@ -66,22 +79,17 @@ public class MagnaTitanEntity extends HostileEntity {
     private int idleAnimationTimeout = 0;
     private int minionCount = 0;
     private int ultCountdown = 0;
-    public int attackAnimationTimeout = 0;
     private int failTimer = 0;
-    private boolean isFailing = false;
-    private boolean ultPhaseTriggered = false;
-
     private int ultPhaseTimer = 0;
     private int ultDeflections = 0;
-    private BlockPos targetCirclePos;
-    private boolean isUltActive = false;
-    private Entity currentUltProjectile; // Der "Ball"
     private int stunTimer = 0;
+    private int musicPhase = 0;
+
+
+    public int attackAnimationTimeout = 0;
 
     private double hoverYTarget = 0;
     private long nextMusicStartTime = 0;
-    private int musicPhase = 0; // 0=Intro1, 1=Loop1, 2=Intro2, 3=Loop2, etc.
-    private boolean phaseShiftPending = false;
 
     public final AnimationState idleAnimationState = new AnimationState();
     public final AnimationState attackAnimationState = new AnimationState();
@@ -92,25 +100,22 @@ public class MagnaTitanEntity extends HostileEntity {
     private boolean hasDone56Blowback = false;
     private boolean hasDone26Blowback = false;
     private boolean hasDoneBlackHole = false;
-    private boolean isHealingPhase = false;
+    private boolean ultPhaseTriggered = false;
+    private boolean phaseShiftPending = false;
 
-    private static final TrackedData<Boolean> IS_SHIELDED =
-            DataTracker.registerData(MagnaTitanEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     private static final TrackedData<Boolean> RAGE_MODE =
             DataTracker.registerData(MagnaTitanEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-    private static final TrackedData<Integer> DATA_ID_TYPE_VARIANT =
+    private static final TrackedData<Integer> BOSS_STATE =
             DataTracker.registerData(MagnaTitanEntity.class, TrackedDataHandlerRegistry.INTEGER);
-    private static final TrackedData<Boolean> ATTACKING =
-            DataTracker.registerData(MagnaTitanEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-    private static final TrackedData<Boolean> HEALING_PHASE =
-            DataTracker.registerData(MagnaTitanEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
     private final List<BlockPos> activeBeacons = new ArrayList<>();
 
     private BlockPos spawnPos;
+    private BlockPos targetCirclePos;
 
-    private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Magna Titan"),
-            BossBar.Color.RED, BossBar.Style.NOTCHED_6);
+    private Entity currentUltProjectile;
+
+    private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Magna Titan"), BossBar.Color.RED, BossBar.Style.NOTCHED_6);
 
     public MagnaTitanEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
@@ -119,16 +124,13 @@ public class MagnaTitanEntity extends HostileEntity {
 
     @Override
     public @Nullable EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData) {
-        // 1. Erstmal die Standard-Initialisierung (Wichtig!)
         entityData = super.initialize(world, difficulty, spawnReason, entityData);
 
-        // 2. Werte setzen
         this.spawnPos = this.getBlockPos();
         this.musicPhase = 0;
-        // Timer auf Ende von Intro 1 setzen (14.75s)
         this.nextMusicStartTime = System.currentTimeMillis() + 14800;
+        this.setState(BossState.ATTACKING);
 
-        // 3. Equipment und Attribute (wie gehabt)
         this.initEquipment(world.getRandom(), difficulty);
         double baseDamage = switch (world.getDifficulty()) {
             case NORMAL -> 15.0;
@@ -141,13 +143,9 @@ public class MagnaTitanEntity extends HostileEntity {
             attackDamageAttr.setBaseValue(baseDamage);
         }
 
-        // 4. SOUND-START (Ganz am Ende, wenn alles bereit ist)
         if (!world.isClient()) {
             ServerWorld serverWorld = world.toServerWorld();
 
-            // Kleiner Trick: Da die BossBar manchmal 1 Tick braucht,
-            // spielen wir den Sound für alle Spieler in der Nähe ab,
-            // falls die BossBar-Liste noch leer ist.
             if (this.bossBar.getPlayers().isEmpty()) {
                 for (ServerPlayerEntity player : serverWorld.getPlayers(p -> p.squaredDistanceTo(this) < 2500)) { // 50 Blöcke Radius
                     serverWorld.playSound(null, player.getX(), player.getY(), player.getZ(),
@@ -160,7 +158,6 @@ public class MagnaTitanEntity extends HostileEntity {
                 }
             }
         }
-
         return entityData;
     }
 
@@ -181,8 +178,8 @@ public class MagnaTitanEntity extends HostileEntity {
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new MagnaTitanMeleeGoal(this, 1.2D, true));
-        this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 4.0F));
-        this.goalSelector.add(6, new LookAroundGoal(this));
+        this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 4.0F));
+        this.goalSelector.add(3, new LookAroundGoal(this));
 
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
         this.targetSelector.add(0, new RevengeGoal(this));
@@ -191,11 +188,8 @@ public class MagnaTitanEntity extends HostileEntity {
     @Override
     protected void initDataTracker(DataTracker.Builder builder) {
         super.initDataTracker(builder);
-        builder.add(DATA_ID_TYPE_VARIANT,0);
-        builder.add(ATTACKING,false);
-        builder.add(IS_SHIELDED, false);
         builder.add(RAGE_MODE, false);
-        builder.add(HEALING_PHASE, false);
+        builder.add(BOSS_STATE, BossState.ATTACKING.ordinal());
     }
 
     private void setupAnimationStates() {
@@ -257,7 +251,7 @@ public class MagnaTitanEntity extends HostileEntity {
             }
         }
 
-        if (this.dataTracker.get(IS_SHIELDED)) {
+        if (this.getState() == BossState.SHIELDED) {
             if (this.getY() < hoverYTarget) {
                 this.setVelocity(0, 0.05, 0);
             } else {
@@ -280,213 +274,32 @@ public class MagnaTitanEntity extends HostileEntity {
     @Override
     protected void mobTick() {
         super.mobTick();
+
         this.updateBossBar();
         this.tickBossMusic();
-        this.tickUltLogic();
-
-        if (this.isUltActive || this.stunTimer > 0) {
-            return;
-        }
-
-        if (this.pottingTimer > 0) {
-            this.pottingTimer--;
-
-            this.getNavigation().stop();
-            this.setVelocity(0, this.getVelocity().y, 0);
-
-            if (this.pottingTimer == 0) {
-                this.addStatusEffect(new net.minecraft.entity.effect.StatusEffectInstance(
-                        net.minecraft.entity.effect.StatusEffects.STRENGTH,
-                        Integer.MAX_VALUE, this.pendingStrengthLevel - 1, false, true, true));
-
-                var registryManager = this.getWorld().getRegistryManager();
-                var enchantments = registryManager.getWrapperOrThrow(net.minecraft.registry.RegistryKeys.ENCHANTMENT);
-
-                ItemStack staff = new ItemStack(ModItems.SPECTRE_STAFF);
-                staff.addEnchantment(enchantments.getOrThrow(net.minecraft.enchantment.Enchantments.KNOCKBACK), 5);
-
-                this.equipStack(EquipmentSlot.MAINHAND, staff);
-
-                this.getWorld().playSound(null, this.getX(), this.getY(), this.getZ(),
-                        SoundEvents.ENTITY_PLAYER_LEVELUP, net.minecraft.sound.SoundCategory.HOSTILE, 1.0f, 1.2f);
-
-                this.pottingTimer = -1;
-            }
-            return;
-        }
-
-        // 2. BASIS-DATEN
-        float healthPercent = this.getHealth() / this.getMaxHealth();
-        this.bossBar.setPercent(healthPercent);
-
         if (this.healMoveCooldown > 0) this.healMoveCooldown--;
 
-        // 2. Trigger-Logik
-        boolean canHeal = healthPercent <= 0.66f && !this.isShieldActive() && this.blackHoleTimer <= 0
-                && this.anvilDropsLeft <= 0 && this.pottingTimer <= 0 && !this.isHealing();
+        switch (this.getState()) {
+            case ULTIMATE   -> this.tickUltLogic();
+            case STUNNED    -> this.tickStunLogic();
+            case POTTING    -> this.tickPottingPhase();
+            case HEALING    -> this.tickHealingPhase();
+            case BLACK_HOLE -> this.tickBlackHolePhase();
+            case SHIELDED   -> this.tickShieldPhaseLogic();
+            case FAILING -> this.tickFailLogic();
+            case ATTACKING  -> {
+                float healthPercent = this.getHealth() / this.getMaxHealth();
 
-        if (canHeal && this.healMoveCooldown <= 0) {
-            if (this.age % 20 == 0) {
-                float chance = this.isRaging() ? 0.10f : 0.05f;
-                if (this.random.nextFloat() < chance) {
-                    startHealPhase();
-                }
-            }
-        }
-
-        // 3. Aktive Heil-Phase
-        if (this.isHealing()) {
-            this.getNavigation().stop();
-            this.setVelocity(0, this.getVelocity().y, 0);
-            this.healTicksActive++;
-
-            if (!this.getWorld().isClient) {
-                if (this.age % 5 == 0) {
-                    spawnHealingTrails();
-                }
-                // Prüfen, ob noch Beacons da sind
-                activeBeacons.removeIf(pos -> this.getWorld().getBlockState(pos).isAir()); // Später durch Titan-Beacon Check ersetzen
-
-                if (activeBeacons.isEmpty() || this.getHealth() >= this.getMaxHealth()) {
-                    stopHealPhase();
-                } else {
-                    int HealTimer = 170;
-                    if (this.isRaging()) {
-                        HealTimer = HealTimer + 130;
-                    }
-                    float healPerSecond = (this.healTicksActive <= HealTimer) ? 4.0f : 10.0f;
-                    if (this.isRaging()) healPerSecond *= 1.5f;
-
-                    this.heal(healPerSecond / 20.0f);
-
-                    if (this.age % 5 == 0) {
-                        ((ServerWorld)this.getWorld()).spawnParticles(ParticleTypes.HAPPY_VILLAGER,
-                                this.getX(), this.getY() + 1, this.getZ(), 5, 0.5, 1.0, 0.5, 0.1);
-                    }
-                }
-            }
-            return;
-        }
-
-        handlePhaseTriggers(healthPercent);
-
-        if (this.blackHoleTimer > 0) {
-            this.blackHoleTimer--;
-            this.getNavigation().stop();
-
-            // SCHWEBEN: Nach oben bewegen (Ziel: ca. 10 Blöcke über dem Boden/Spieler)
-            if (this.blackHoleTimer > 260) {
-                this.addVelocity(0, 0.15, 0);
-            } else {
-                this.setVelocity(0, Math.sin(this.age * 0.05) * 0.01, 0);
-            }
-
-            if (!this.getWorld().isClient) {
-                ServerWorld world = (ServerWorld) this.getWorld();
-
-                double holeX = this.getX();
-                double holeY = this.getY() + 5.0;
-                double holeZ = this.getZ();
-
-                // PARTIKEL SPAWNEN (Jeden Tick für dichte Optik)
-                world.spawnParticles(ModParticles.BLACK_HOLE_PARTICLE, holeX, holeY, holeZ, 1, 0, 0, 0, 0);
-
-                var players = world.getEntitiesByClass(PlayerEntity.class,
-                        this.getBoundingBox().expand(30.0), p -> !p.isCreative() && !p.isSpectator());
-
-                for (PlayerEntity p : players) {
-                    double dx = holeX - p.getX();
-                    double dy = holeY - p.getY();
-                    double dz = holeZ - p.getZ();
-                    double dist = Math.sqrt(dx*dx + dy*dy + dz*dz);
-
-                    if (dist > 0.5 && dist < 30.0) {
-                        double pullStrength = 0.12;
-
-                        if (p.isSprinting() && dist > 10.0) {
-                            pullStrength = 0.04;
-                        }
-
-                        if (dist < 3.5) {
-                            pullStrength = 0.3;
-                            p.damage(this.getDamageSources().magic(), 4.0f);
-                        }
-
-                        // Geschwindigkeit hinzufügen
-                        p.addVelocity(dx/dist * pullStrength, dy/dist * pullStrength, dz/dist * pullStrength);
-
-                        p.velocityDirty = true;
-                        p.velocityModified = true;
-
-                        if (p instanceof ServerPlayerEntity sp) {
-                            sp.networkHandler.sendPacket(new EntityVelocityUpdateS2CPacket(p));
-                        }
-                    }
-                }
-                if (this.blackHoleTimer % 10 == 0) {
-                    world.playSound(null, holeX, holeY, holeZ, SoundEvents.ENTITY_BREEZE_WIND_BURST, net.minecraft.sound.SoundCategory.HOSTILE, 1.5f, 0.4f);
-                }
-            }
-            return;
-        }
-
-        // ANVIL DROP MOVE
-        if (this.anvilCooldown > 0) {
-            this.anvilCooldown--;
-        }
-
-        if (healthPercent <= 0.83f && !this.isShieldActive() && this.blackHoleTimer <= 0 && this.anvilCooldown <= 0 && this.anvilDropsLeft <= 0 && !this.isHealingPhase) {             // 10% Chance pro Sekunde (alle 20 Ticks)
-            if (this.age % 20 == 0 && this.random.nextFloat() < 0.10f) {
-                this.anvilDropsLeft = this.isRaging() ? 5 : 3;
-                executeAnvilJump();
-            }
-        }
-
-        if (this.anvilDropsLeft > 0 && this.isOnGround() && this.anvilJumpTimer <= 0) {
-            this.anvilJumpTimer = 35;
-        }
-
-        if (this.anvilJumpTimer > 0) {
-            this.anvilJumpTimer--;
-            if (this.anvilJumpTimer == 0 && this.anvilDropsLeft > 0) {
-                executeAnvilJump();
-            }
-        }
-
-        // 4. SHIELD PHASE
-        if (this.dataTracker.get(IS_SHIELDED)) {
-            // FIREBALL LOGIC
-            if (!this.getWorld().isClient && this.getTarget() != null) {
-                LivingEntity target = this.getTarget();
-
-                // Do not shoot at own people
-                boolean isMinion = target instanceof MagnaMinionEntity ||
-                        target instanceof LavaGolemEntity ||
-                        target instanceof MagnaWitchEntity;
-
-                if (!isMinion && target != this) {
-                    this.fireballCooldown--;
-                    if (this.fireballCooldown <= 0) {
-                        shootMagnaFireball(target);
-                        this.fireballCooldown = 60 + this.random.nextInt(40);
-                    }
-                } else {
-                    // If focus on minion find player
-                    this.setTarget(this.getWorld().getClosestPlayer(this, 64.0));
-                }
-            }
-
-            if (this.minionCount <= 0) {
-                this.dataTracker.set(IS_SHIELDED, false);
-                this.playSound(SoundEvents.BLOCK_BEACON_DEACTIVATE, 1.0f, 1.0f);
-                this.setVelocity(0, -0.01, 0);
+                this.handlePhaseTriggers(healthPercent);
+                this.tickAnvilLogic(healthPercent);
+                this.checkHealTrigger(healthPercent);
             }
         }
     }
 
     @Override
     public boolean isAttacking() {
-        return this.dataTracker.get(ATTACKING);
+        return this.getState() == BossState.ATTACKING;
     }
 
     @Override
@@ -560,23 +373,19 @@ public class MagnaTitanEntity extends HostileEntity {
 
     @Override
     public boolean damage(DamageSource source, float amount) {
-        // 1. Immunität bei Schild, Black Hole ODER Heilphase
-        boolean isInvulnerable = this.dataTracker.get(IS_SHIELDED)
-                || this.blackHoleTimer > 0
-                || this.isHealing(); // Nutzt die Hilfsmethode von vorhin
+        BossState currentState = this.getState();
+        boolean isInvulnerable = currentState == BossState.SHIELDED || currentState == BossState.HEALING || currentState == BossState.BLACK_HOLE;
 
-        if (isInvulnerable && !source.isOf(net.minecraft.entity.damage.DamageTypes.OUT_OF_WORLD)) {
+        if (isInvulnerable && !source.isOf(DamageTypes.OUT_OF_WORLD)) {
             if (!this.getWorld().isClient) {
-                // Sound-Feedback: Metallisches "Ping", wenn man ihn schlägt
                 this.playSound(SoundEvents.ENTITY_ZOMBIE_ATTACK_IRON_DOOR, 0.5f, 2.0f);
             }
-            return false; // 100% Schadens-Stop
+            return false;
         }
 
-        if (this.isUltActive) {
+        if (currentState == BossState.ULTIMATE) {
             this.getWorld().playSound(null, this.getX(), this.getY(), this.getZ(),
                     SoundEvents.BLOCK_IRON_DOOR_CLOSE, SoundCategory.HOSTILE, 1.0f, 1.5f);
-            // Während der Ult nimmt er vielleicht gar keinen Schaden oder stark reduziert
             return super.damage(source, amount * 0.1f);
         }
 
@@ -661,16 +470,9 @@ public class MagnaTitanEntity extends HostileEntity {
         }
     }
 
-    public boolean isShieldActive() {
-        return this.dataTracker.get(IS_SHIELDED);
-    }
-
-    public boolean isPotting() {
-        return this.pottingTimer > 0;
-    }
-
     private void executePottingSequence(int strengthLevel) {
         if (this.getWorld().isClient) return;
+        this.setState(BossState.POTTING);
         this.pendingStrengthLevel = strengthLevel;
         this.pottingTimer = 30;
 
@@ -687,8 +489,9 @@ public class MagnaTitanEntity extends HostileEntity {
     }
 
     private void startShieldPhase(int minionCount, int golemCount, int witchCount) {
-        this.dataTracker.set(IS_SHIELDED, true);
+        this.setState(BossState.SHIELDED);
         this.hoverYTarget = this.getY() + 3.0;
+        this.getNavigation().stop();
         this.playSound(SoundEvents.ENTITY_ENDER_DRAGON_GROWL, 1.0f, 0.5f);
 
         if (!this.getWorld().isClient) {
@@ -707,10 +510,6 @@ public class MagnaTitanEntity extends HostileEntity {
         }
     }
 
-    public int getBlackHoleTimer() {
-        return this.blackHoleTimer;
-    }
-
     private void spawnMinion() {
         MagnaMinionEntity minion = new MagnaMinionEntity(ModEntities.MAGNA_MINION, this.getWorld());
         setupSpawn(minion);
@@ -726,12 +525,16 @@ public class MagnaTitanEntity extends HostileEntity {
         setupSpawn(witch);
     }
 
-    public void setAttacking(boolean attacking) {
-        this.dataTracker.set(ATTACKING, attacking);
-    }
-
     public boolean isRaging() {
         return this.dataTracker.get(RAGE_MODE);
+    }
+
+    public void setState(BossState state) {
+        this.dataTracker.set(BOSS_STATE, state.ordinal());
+    }
+
+    public BossState getState() {
+        return BossState.values()[this.dataTracker.get(BOSS_STATE)];
     }
 
     private void setupSpawn(LivingEntity entity) {
@@ -788,40 +591,34 @@ public class MagnaTitanEntity extends HostileEntity {
 
     private void executeAnvilJump() {
         if (this.getTarget() instanceof PlayerEntity player) {
-            // 1. Teleport: 12 Blöcke über den Spieler (etwas höher für bessere Reaktionszeit)
+            this.setState(BossState.ANVIL);
             this.refreshPositionAndAngles(player.getX(), player.getY() + 15.0, player.getZ(), this.getYaw(), this.getPitch());
             if (!this.getWorld().isClient) {
                 ServerWorld world = (ServerWorld) this.getWorld();
 
-                // 2. Deine Custom Projektil-Entity erzeugen
                 MagnaAnvilEntity anvil = new MagnaAnvilEntity(world, this);
 
-                // Position direkt unter dem Boss setzen
                 anvil.setPosition(this.getX(), this.getY() - 1.0, this.getZ());
 
-                // 3. Optik: Custom Model Data für lila Amboss (ID 2)
                 ItemStack anvilStack = new ItemStack(Items.ANVIL);
                 anvilStack.set(DataComponentTypes.CUSTOM_MODEL_DATA,
                         new CustomModelDataComponent(2));
                 anvil.setItem(anvilStack);
-
-                // 4. Den Amboss spawnen
                 world.spawnEntity(anvil);
-
-                // 5. Sound-Effekte
                 world.playSound(null, this.getX(), this.getY(), this.getZ(),
                         SoundEvents.ENTITY_BREEZE_WIND_BURST, SoundCategory.HOSTILE, 2.0f, 0.5f);
 
-                // Ein schweres "Metall-Sausen" beim Start
                 world.playSound(null, this.getX(), this.getY(), this.getZ(),
                         SoundEvents.BLOCK_ANVIL_USE, SoundCategory.HOSTILE, 1.0f, 0.2f);
             }
 
             this.anvilDropsLeft--;
 
-            // Wenn alle Sprünge durch sind, Cooldown starten (500 Ticks = 25 Sek)
             if (this.anvilDropsLeft <= 0) {
+                this.setState(BossState.ATTACKING);
                 this.anvilCooldown = 500;
+            } else {
+                this.setState(BossState.ATTACKING);
             }
         }
     }
@@ -852,26 +649,20 @@ public class MagnaTitanEntity extends HostileEntity {
     }
 
     private void startHealPhase() {
-        this.setHealing(true);
+        this.setState(BossState.HEALING);
         this.teleportToCenter();
         this.activeBeacons.clear();
 
         if (!this.getWorld().isClient) {
             ServerWorld world = (ServerWorld) this.getWorld();
 
-            // --- DYNAMISCHE ANZAHL ---
-            // Wenn Rage-Mode aktiv ist (ab 33% HP), spawnen 5 statt 3 Beacons
             int beaconCount = this.isRaging() ? 5 : 3;
 
-            // Radius evtl. leicht erhöhen bei 5 Beacons, damit sie nicht zu eng stehen
             double radius = this.isRaging() ? 20.0 : 18.0;
 
             for (int i = 0; i < beaconCount; i++) {
-                // Der Winkel berechnet sich jetzt automatisch:
-                // Bei 3 Beacons = 120° Schritte
-                // Bei 5 Beacons = 72° Schritte
                 double baseAngle = i * (360.0 / beaconCount);
-                double variation = this.random.nextDouble() * 20 - 10; // Etwas weniger Zufall bei 5 Beacons
+                double variation = this.random.nextDouble() * 20 - 10;
                 double radians = Math.toRadians(baseAngle + variation);
 
                 int bx = (int) (this.spawnPos.getX() + Math.cos(radians) * radius);
@@ -882,23 +673,21 @@ public class MagnaTitanEntity extends HostileEntity {
                 world.setBlockState(beaconPos, ModBlocks.TITANIUM_BEACON.getDefaultState());
                 this.activeBeacons.add(beaconPos);
 
-                // Optischer Effekt
                 world.spawnParticles(ParticleTypes.EXPLOSION_EMITTER, beaconPos.getX() + 0.5, beaconPos.getY() + 0.5, beaconPos.getZ() + 0.5, 1, 0, 0, 0, 0);
             }
 
-            float pitch = this.isRaging() ? 0.4f : 0.5f; // Tieferer Sound im Rage Mode
+            float pitch = this.isRaging() ? 0.4f : 0.5f;
             world.playSound(null, this.getX(), this.getY(), this.getZ(),
                     SoundEvents.BLOCK_BEACON_ACTIVATE, SoundCategory.HOSTILE, 2.0f, pitch);
         }
     }
 
     private void stopHealPhase() {
-        this.setHealing(false);
+        this.setState(BossState.ATTACKING);
         this.healTicksActive = 0;
         this.healMoveCooldown = this.isRaging() ? 600 : 900; // 30s oder 45s
 
         if (!this.getWorld().isClient) {
-            // Alle verbleibenden Beacons entfernen
             for (BlockPos pos : activeBeacons) {
                 this.getWorld().breakBlock(pos, false);
             }
@@ -909,119 +698,89 @@ public class MagnaTitanEntity extends HostileEntity {
     }
 
     private void handlePhaseTriggers(float healthPercent) {
-        // Phase 1: 100% HP (Erster Spawn)
+        if (this.getState() != BossState.ATTACKING && phase1Triggered) return;
+
+        // --- Phase 1: 100% HP (Erster Spawn) ---
         if (!phase1Triggered) {
             if (!this.getWorld().isClient && this.getWorld() instanceof ServerWorld serverWorld) {
                 serverWorld.setWeather(12000, 0, false, false);
                 serverWorld.setTimeOfDay(6000);
 
-                // Optional: Nachricht an Spieler
                 for (ServerPlayerEntity player : serverWorld.getPlayers()) {
                     player.sendMessage(Text.literal("The sky clears as the Magna Titan awakens...")
                             .formatted(Formatting.GOLD, Formatting.ITALIC), true);
                 }
             }
-
             teleportToCenter();
-            startShieldPhase(2, 0, 1);
+            startShieldPhase(2, 0, 1); // Diese Methode sollte setBossState(SHIELDED) rufen
             phase1Triggered = true;
         }
 
-        // 5/6 HP Schwelle (~83%) -> Blowback + Stärke 1
+        // --- 5/6 HP Schwelle (~83%) -> Blowback + Trank 1 ---
         if (healthPercent <= 0.83f && !hasDone56Blowback) {
             executeBlowbackWave();
             executePottingSequence(1);
             hasDone56Blowback = true;
         }
 
-        // 4/6 HP Schwelle (~66%) -> Black Hole
-        if (healthPercent <= 0.66f && !hasDoneBlackHole && this.blackHoleTimer <= 0 && !this.isHealing()) {
+        // --- 4/6 HP Schwelle (~66%) -> Black Hole ---
+        if (healthPercent <= 0.66f && !hasDoneBlackHole) {
             if (!this.getWorld().isClient && this.getWorld() instanceof ServerWorld serverWorld) {
                 serverWorld.setTimeOfDay(13400);
-            }
-            this.blackHoleTimer = 300; // 15 Sekunden
-            this.hasDoneBlackHole = true;
-
-            if (!this.getWorld().isClient) {
-                for (ServerPlayerEntity player : ((ServerWorld)this.getWorld()).getPlayers(p -> p.squaredDistanceTo(this) < 10000)) {
+                for (ServerPlayerEntity player : serverWorld.getPlayers(p -> p.squaredDistanceTo(this) < 10000)) {
                     player.sendMessage(Text.literal("Watch This!")
-                            .formatted(net.minecraft.util.Formatting.DARK_PURPLE, net.minecraft.util.Formatting.BOLD, net.minecraft.util.Formatting.ITALIC), true);
+                            .formatted(Formatting.DARK_PURPLE, Formatting.BOLD, Formatting.ITALIC), true);
                 }
                 this.getWorld().playSound(null, this.getX(), this.getY(), this.getZ(),
-                        SoundEvents.ENTITY_ENDER_DRAGON_GROWL, net.minecraft.sound.SoundCategory.HOSTILE, 1.5f, 0.5f);
+                        SoundEvents.ENTITY_ENDER_DRAGON_GROWL, SoundCategory.HOSTILE, 1.5f, 0.5f);
             }
+
+            this.setState(BossState.BLACK_HOLE);
+            this.blackHoleTimer = 200;
+            this.hasDoneBlackHole = true;
         }
 
-        // Phase 2: 50% HP (3/6) -> Schild + Minions
+        // --- Phase 2: 50% HP (3/6) -> Schild + Minions ---
         if (healthPercent <= 0.5f && !phase2Triggered) {
             teleportToCenter();
-            startShieldPhase(3, 2, 1);
+            startShieldPhase(3, 2, 1); // Setzt State auf SHIELDED
             phase2Triggered = true;
         }
 
-        // 2/6 HP Schwelle (~33%) -> Rage Mode + Potting 2
+        // --- 2/6 HP Schwelle (~33%) -> Rage Mode + Potting 2 ---
         if (healthPercent <= 0.33f && !hasDone26Blowback) {
             executeBlowbackWave();
             executePottingSequence(3);
 
             this.dataTracker.set(RAGE_MODE, true);
-            this.bossBar.setColor(BossBar.Color.PINK);
 
             if (!this.getWorld().isClient && this.getWorld() instanceof ServerWorld serverWorld) {
-                Text rageTitle = Text.literal("⚠ RAGE MODE ⚠")
-                        .formatted(Formatting.LIGHT_PURPLE, Formatting.BOLD);
-
-                for (ServerPlayerEntity player : serverWorld.getPlayers(p -> p.squaredDistanceTo(this) < 2500)) { // 50 Blöcke Radius
+                Text rageTitle = Text.literal("⚠ RAGE MODE ⚠").formatted(Formatting.LIGHT_PURPLE, Formatting.BOLD);
+                for (ServerPlayerEntity player : serverWorld.getPlayers(p -> p.squaredDistanceTo(this) < 2500)) {
                     player.networkHandler.sendPacket(new TitleS2CPacket(rageTitle));
                     player.networkHandler.sendPacket(new TitleFadeS2CPacket(10, 40, 10));
-
                 }
-                serverWorld.playSound(null, this.getX(), this.getY(), this.getZ(),
-                        SoundEvents.ENTITY_ENDER_DRAGON_GROWL, SoundCategory.HOSTILE, 1.5f, 0.0f);
-
-                serverWorld.playSound(null, this.getX(), this.getY(), this.getZ(),
-                        SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER, SoundCategory.HOSTILE, 1.0f, 1.0f);
+                serverWorld.playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ENTITY_ENDER_DRAGON_GROWL, SoundCategory.HOSTILE, 1.5f, 0.0f);
+                serverWorld.playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER, SoundCategory.HOSTILE, 1.0f, 1.0f);
             }
 
-            var armorAttr = this.getAttributeInstance(EntityAttributes.GENERIC_ARMOR);
-            if (armorAttr != null) {
-                armorAttr.setBaseValue(15.0);
-            }
-
-            var toughnessAttr = this.getAttributeInstance(EntityAttributes.GENERIC_ARMOR_TOUGHNESS);
-            if (toughnessAttr != null) {
-                toughnessAttr.setBaseValue(6.0);
-            }
-
-            var scaleAttr = this.getAttributeInstance(EntityAttributes.GENERIC_SCALE);
-            if (scaleAttr != null) {
-                scaleAttr.setBaseValue(1.2);
-            }
-
+            // Stats erhöhen
+            this.updateAttributesForRage(); // Tipp: In eigene Methode auslagern für Sauberkeit
             hasDone26Blowback = true;
         }
 
-        // Phase 3: 1/4 HP (25%) -> Ult Phase
-        if (healthPercent <= 0.25f && !this.isUltActive && this.ultDeflections == 0 && !this.ultPhaseTriggered) {
+        // --- Phase 3: 25% HP -> Ult Phase ---
+        if (healthPercent <= 0.25f && !this.ultPhaseTriggered) {
             this.ultPhaseTriggered = true;
-            startUltPhase();
+            startUltPhase(); // Muss setBossState(ULTIMATE) rufen
         }
 
-        // Phase 3: 1/6 HP (~16%) -> Final Minion Wave
+        // --- Phase 3: 16% HP -> Final Minion Wave ---
         if (healthPercent <= 0.166f && !phase3Triggered) {
             teleportToCenter();
-            startShieldPhase(4, 2, 2);
+            startShieldPhase(4, 2, 2); // Setzt State auf SHIELDED
             phase3Triggered = true;
         }
-    }
-
-    public boolean isHealing() {
-        return this.dataTracker.get(HEALING_PHASE);
-    }
-
-    public void setHealing(boolean healing) {
-        this.dataTracker.set(HEALING_PHASE, healing);
-        this.isHealingPhase = healing; // Synchronisiert das interne Boolean-Feld
     }
 
     private void spawnHealingTrails() {
@@ -1074,7 +833,7 @@ public class MagnaTitanEntity extends HostileEntity {
 
         // HARTER CUT: Phase 2/3 -> Intro 3 (Black Hole)
         if (healthPercent <= 0.33f && (musicPhase == 2 || musicPhase == 3)) {
-            this.executeHardCut(4); // Sofortiger Sprung zu Intro 3
+            this.executeHardCut(); // Sofortiger Sprung zu Intro 3
             return; // Beendet NUR tickBossMusic, mobTick läuft weiter!
         }
 
@@ -1103,9 +862,9 @@ public class MagnaTitanEntity extends HostileEntity {
         }
     }
 
-    private void executeHardCut(int nextPhase) {
+    private void executeHardCut() {
         this.stopCurrentMusicGlobally();
-        this.musicPhase = nextPhase;
+        this.musicPhase = 4;
         this.phaseShiftPending = false; // Wir brauchen die Flagge nicht mehr
         this.playCurrentPhaseSound();
         this.updateNextStartTime();
@@ -1140,13 +899,12 @@ public class MagnaTitanEntity extends HostileEntity {
         double duration = switch (musicPhase) {
             case 0 -> 14.75;
             case 1 -> 9.65;
-            case 2 -> 9.60;
+            case 2 -> 9.55;
             case 3 -> 29.0;
             case 4 -> 14.6;
             case 5 -> 18.35;
             case 6 -> 21.3;
-            case 7 -> 19.1;
-            default -> 19.1;
+            default -> 19.1; // case 7
         };
         this.nextMusicStartTime = System.currentTimeMillis() + (long)(duration * 1000);
     }
@@ -1159,16 +917,14 @@ public class MagnaTitanEntity extends HostileEntity {
     }
 
     private void startUltPhase() {
-        this.isUltActive = true;
+        this.setState(BossState.ULTIMATE);
         this.ultPhaseTimer = 200; // Prepare time
         this.ultDeflections = 0;
         this.ultCountdown = 1800; // Ult Time
 
-        // Attribute setzen
         var scaleAttr = this.getAttributeInstance(EntityAttributes.GENERIC_SCALE);
         if (scaleAttr != null) scaleAttr.setBaseValue(2.0);
 
-        // Bossbar auf Gold/Gelb ändern für das "Overlay"-Feeling
         this.bossBar.setColor(BossBar.Color.YELLOW);
         this.getWorld().playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ENTITY_ENDER_DRAGON_GROWL, SoundCategory.HOSTILE, 2.0f, 0.5f);
         this.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 100000, 0, false, false));
@@ -1176,106 +932,12 @@ public class MagnaTitanEntity extends HostileEntity {
     }
 
     private void tickUltLogic() {
-        // 1. STUN LOGIK (BRUCH-PHASE)
-        if (this.stunTimer > 0) {
+        if (this.getState() != BossState.ULTIMATE) return;
 
-            if (this.stunTimer == 200) {
-                this.bossTalk("This... this is impossible! But don't celebrate yet, this stun won't last forever!");
-
-                if (this.getWorld() instanceof ServerWorld sw) {
-                    Text title = Text.literal("YOUR CHANCE!").formatted(Formatting.GREEN, Formatting.BOLD);
-                    for (ServerPlayerEntity player : sw.getPlayers()) {
-                        player.networkHandler.sendPacket(new TitleS2CPacket(title));
-                        player.networkHandler.sendPacket(new TitleFadeS2CPacket(5, 40, 5));
-                    }
-                }
-            }
-
-            this.stunTimer--;
-            this.getNavigation().stop();
-            this.setNoGravity(false);
-            if (this.getWorld() instanceof ServerWorld serverWorld) {
-                if (this.age % 15 == 0) {
-                    ParticleS2CPacket explosionPacket = new ParticleS2CPacket(
-                            ParticleTypes.EXPLOSION_EMITTER, true,
-                            this.getX() + (this.random.nextDouble() - 0.5) * 1.5,
-                            this.getY() + this.random.nextDouble() * 2.0,
-                            this.getZ() + (this.random.nextDouble() - 0.5) * 1.5,
-                            0.0f, 0.0f, 0.0f, 0.0f, 1
-                    );
-                    for (ServerPlayerEntity player : serverWorld.getPlayers()) {
-                        if (player.squaredDistanceTo(this.getPos()) < 64 * 64) {
-                            player.networkHandler.sendPacket(explosionPacket);
-                        }
-                    }
-                }
-
-                // Permanenter Rauch (LARGE_SMOKE) alle 2 Ticks
-                if (this.age % 2 == 0) {
-                    ParticleS2CPacket smokePacket = new ParticleS2CPacket(
-                            ParticleTypes.LARGE_SMOKE, true,
-                            this.getX(), this.getY() + 0.5, this.getZ(),
-                            0.4f, 0.5f, 0.4f, 0.02f, 3
-                    );
-                    for (ServerPlayerEntity player : serverWorld.getPlayers()) {
-                        if (player.squaredDistanceTo(this.getPos()) < 64 * 64) {
-                            player.networkHandler.sendPacket(smokePacket);
-                        }
-                    }
-                }
-            }
-            // --- ENDE PARTIKEL ---
-
-            if (this.stunTimer == 0) {
-                this.isUltActive = false;
-                var scaleAttr = this.getAttributeInstance(EntityAttributes.GENERIC_SCALE);
-                if (scaleAttr != null) scaleAttr.setBaseValue(1.2);
-                this.bossBar.setColor(BossBar.Color.PINK);
-            }
-            return;
-        }
-
-        if (!isUltActive) return;
-
-        if (this.isFailing) {
-            this.failTimer--;
-
-            if (this.getWorld() instanceof ServerWorld sw) {
-                BlockPos target = this.spawnPos;
-                Vec3d bossPos = this.getPos().add(0, 2, 0);
-                Vec3d targetPos = target.toCenterPos();
-
-                for (double i = 0; i < 1.0; i += 0.15) {
-                    Vec3d point = bossPos.lerp(targetPos, i);
-                    sw.spawnParticles(ParticleTypes.SOUL_FIRE_FLAME, point.x, point.y, point.z, 1, 0, 0, 0, 0);
-                    sw.spawnParticles(new DustParticleEffect(new org.joml.Vector3f(1.0f, 0.0f, 0.0f), 1.0f),
-                            point.x, point.y, point.z, 1, 0, 0, 0, 0);
-                }
-
-                if (this.failTimer <= 0) {
-                    executeMassiveImpact(sw, target);
-                    this.isFailing = false;
-                } else {
-                    BlockPos center = this.spawnPos;
-                    DustParticleEffect redDust = new DustParticleEffect(new Vector3f(1.0f, 0.0f, 0.0f), 2.0f);
-                    for (int i = 0; i < 360; i += 3) {
-                        double rad = Math.toRadians(i);
-                        double px = center.getX() + Math.cos(rad) * 25;
-                        double pz = center.getZ() + Math.sin(rad) * 25;
-                        sw.spawnParticles(redDust, px, center.getY() + 1.5, pz, 5, 0.1, 0.1, 0.1, 0.0);
-                    }
-                }
-            }
-            return; // WICHTIG: Keine weitere Logik (auch kein Countdown) während des Schusses!
-        }
-
-        // 3. COUNTDOWN & ACTIONBAR
-        if (ultPhaseTimer <= 0) {
-            // Nur runterzählen, wenn nicht gerade der Fail-Schuss läuft
+        if (this.ultPhaseTimer <= 0) {
             this.ultCountdown--;
 
             if (this.age % 10 == 0) {
-                // Fix: Verhindert negative Zahlen in der Anzeige
                 int displayTime = Math.max(0, ultCountdown / 20);
                 Text timerText = Text.literal("Time Until Death Bomb Strike: ")
                         .append(Text.literal(displayTime + "s").formatted(Formatting.RED, Formatting.BOLD));
@@ -1286,28 +948,26 @@ public class MagnaTitanEntity extends HostileEntity {
             }
 
             if (this.ultCountdown <= 0) {
-                triggerUltFail();
-                // Wir setzen ultCountdown auf 1, damit dieser Block nicht
-                // sofort wieder triggert, bis isFailing im nächsten Tick übernimmt
-                this.ultCountdown = 0;
+                this.triggerUltFail();
                 return;
             }
         }
 
-        // 2. VORLAUF-PHASE (Boss teleportiert sich hoch)
-        if (ultPhaseTimer > 0) {
-            ultPhaseTimer--;
-            if (ultPhaseTimer == 0) {
+        if (this.ultPhaseTimer > 0) {
+            this.ultPhaseTimer--;
+            if (this.ultPhaseTimer == 0) {
                 Text instruction = Text.literal("Just give me 90 more seconds! And dont dare to ")
                         .append(Text.literal("stand in the glowing circles to deflect my Magna Bombs 5 times in a row to stop me!")
-                                .formatted(Formatting.YELLOW, Formatting.ITALIC)); // Gelb und kursiv für den Fokus
+                                .formatted(Formatting.YELLOW, Formatting.ITALIC));
 
-                this.bossTalk(instruction);                double angle = this.random.nextDouble() * Math.PI * 2;
+                this.bossTalk(instruction);
+
+                double angle = this.random.nextDouble() * Math.PI * 2;
                 double tx = this.spawnPos.getX() + Math.cos(angle) * 30;
                 double tz = this.spawnPos.getZ() + Math.sin(angle) * 30;
                 double ty = this.spawnPos.getY() + 45;
 
-                this.requestTeleport(tx, ty, tz);
+                this.refreshPositionAndAngles(tx, ty, tz, this.getYaw(), this.getPitch());
                 this.setNoGravity(true);
                 this.getWorld().playSound(null, tx, ty, tz, SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.HOSTILE, 2.0f, 1.0f);
 
@@ -1316,8 +976,7 @@ public class MagnaTitanEntity extends HostileEntity {
             }
         }
 
-        // 3. TENNIS-LOGIK
-        if (ultPhaseTimer <= 0 && this.stunTimer <= 0 && this.hasNoGravity()) {
+        if (this.ultPhaseTimer <= 0 && this.hasNoGravity()) {
             if (targetCirclePos != null) {
                 drawUltCircleParticles();
                 checkPlayerInCircle();
@@ -1327,13 +986,12 @@ public class MagnaTitanEntity extends HostileEntity {
             this.velocityDirty = true;
         }
 
-        // 4. AUTO-DEFLECT & FINISH CHECK
         if (currentUltProjectile != null && currentUltProjectile.isAlive()) {
             double distToBoss = currentUltProjectile.squaredDistanceTo(this.getPos().add(0, 3, 0));
 
             if (distToBoss < 16.0 && currentUltProjectile.getVelocity().y > 0) {
                 if (this.ultDeflections >= 5) {
-                    finishUltPhase();
+                    this.finishUltPhase(); // Hier aufrufen!
                 } else {
                     prepareNextCircle();
                     this.getWorld().playSound(null, this.getX(), this.getY(), this.getZ(),
@@ -1348,9 +1006,12 @@ public class MagnaTitanEntity extends HostileEntity {
                 }
             }
 
-            if (targetCirclePos != null && currentUltProjectile.getVelocity().lengthSquared() < 0.01) {
-                Vec3d dir = targetCirclePos.toCenterPos().subtract(currentUltProjectile.getPos()).normalize().multiply(0.5);
-                currentUltProjectile.setVelocity(dir);
+            if (targetCirclePos != null) {
+                assert currentUltProjectile != null;
+                if (currentUltProjectile.getVelocity().lengthSquared() < 0.01) {
+                    Vec3d dir = targetCirclePos.toCenterPos().subtract(currentUltProjectile.getPos()).normalize().multiply(0.5);
+                    currentUltProjectile.setVelocity(dir);
+                }
             }
         }
     }
@@ -1393,39 +1054,31 @@ public class MagnaTitanEntity extends HostileEntity {
     }
 
     private void drawUltCircleParticles() {
-        // 1. Sicherheits-Checks: Ziel vorhanden und wir sind auf dem Server
         if (this.targetCirclePos == null || !(this.getWorld() instanceof ServerWorld serverWorld)) return;
 
-        // 2. Variablen vorbereiten
         double radius = Math.max(1.0, 5.0 - (this.ultDeflections * 0.8));
         double xCenter = (double) targetCirclePos.getX() + 0.5;
         double yPos = (double) targetCirclePos.getY() + 0.1;
         double zCenter = (double) targetCirclePos.getZ() + 0.5;
 
-        // 3. Partikel-Typ bestimmen (Grün wenn Spieler drin, sonst Flamme)
         var particleType = isPlayerInCircle() ? ParticleTypes.HAPPY_VILLAGER : ParticleTypes.FLAME;
 
-        // 4. Den Kreis berechnen und Pakete senden
         for (int i = 0; i < 360; i += 15) {
-            double radians = Math.toRadians(i); // Hier wird radians definiert
+            double radians = Math.toRadians(i);
 
             double x = xCenter + Math.cos(radians) * radius;
             double z = zCenter + Math.sin(radians) * radius;
 
-            // 5. Das Netzwerk-Paket manuell erstellen (Force = true)
-            // Parameter: Typ, Force, x, y, z, offsetX, offsetY, offsetZ, Speed, Count
-            net.minecraft.network.packet.s2c.play.ParticleS2CPacket packet = new net.minecraft.network.packet.s2c.play.ParticleS2CPacket(
+            ParticleS2CPacket packet = new ParticleS2CPacket(
                     particleType,
-                    true,               // Force-Flag (WICHTIG)
+                    true,
                     x, yPos, z,
-                    0.0f, 0.0f, 0.0f,   // Offset (float)
-                    0.0f,               // Speed (float)
-                    1                   // Count
+                    0.0f, 0.0f, 0.0f,
+                    0.0f,
+                    1
             );
 
-            // 6. Paket an alle Spieler in der Nähe senden
             for (ServerPlayerEntity player : serverWorld.getPlayers()) {
-                // Nur senden, wenn der Spieler in der Nähe ist (z.B. 64 Blöcke), um Lag zu vermeiden
                 if (player.squaredDistanceTo(x, yPos, z) < 64 * 64) {
                     player.networkHandler.sendPacket(packet);
                 }
@@ -1457,7 +1110,6 @@ public class MagnaTitanEntity extends HostileEntity {
 
         Vec3d targetPos = targetCirclePos.toCenterPos();
 
-        // GESCHWINDIGKEIT-FIX: Startet bei 0.3 (statt 0.6) und wird langsamer gesteigert
         double speed = 0.4 + (this.ultDeflections * 0.1);
 
         Vec3d velocity = targetPos.subtract(startPos).normalize().multiply(speed);
@@ -1472,21 +1124,20 @@ public class MagnaTitanEntity extends HostileEntity {
 
     private void reflectProjectile() {
         if (currentUltProjectile != null) {
-            // 1. Geschwindigkeit zum Boss umkehren
             Vec3d toBoss = this.getPos().add(0, 3, 0).subtract(currentUltProjectile.getPos()).normalize().multiply(1.5);
             currentUltProjectile.setVelocity(toBoss);
             currentUltProjectile.velocityModified = true;
 
-            // 2. FIX: Den Kreis am Boden sofort entfernen
             this.targetCirclePos = null;
         }
     }
 
     private void finishUltPhase() {
-        this.targetCirclePos = null;
+        this.setState(BossState.STUNNED);
+        this.stunTimer = 200; // 10 Sekunden Stun
 
+        this.targetCirclePos = null;
         if (currentUltProjectile != null) {
-            // Fette Explosion am Boss in der Luft
             if (this.getWorld() instanceof ServerWorld sw) {
                 sw.createExplosion(this, currentUltProjectile.getX(), currentUltProjectile.getY(), currentUltProjectile.getZ(), 5.0f, World.ExplosionSourceType.MOB);
             }
@@ -1494,41 +1145,30 @@ public class MagnaTitanEntity extends HostileEntity {
             currentUltProjectile = null;
         }
 
-        // Boss-Status anpassen
-        this.stunTimer = 200; // 10 Sekunden Stun
-        this.isUltActive = false;
         this.removeStatusEffect(StatusEffects.GLOWING);
-
-        // Physik: Schwerkraft an, Boss fällt runter
-        this.setNoGravity(false);
+        this.setNoGravity(false); // Boss fällt zu Boden
         this.setVelocity(0, -0.8, 0);
         this.velocityDirty = true;
 
-        // Scale auf 0.9 reduzieren
         var scaleAttr = this.getAttributeInstance(EntityAttributes.GENERIC_SCALE);
         if (scaleAttr != null) scaleAttr.setBaseValue(0.9);
 
-        // Optik & Sound
         this.bossBar.setColor(BossBar.Color.GREEN);
         this.getWorld().playSound(null, this.getX(), this.getY(), this.getZ(),
                 SoundEvents.ENTITY_DRAGON_FIREBALL_EXPLODE, SoundCategory.HOSTILE, 3.0f, 0.5f);
     }
 
-    public int getStunTimer() {
-        return this.stunTimer;
-    }
-
     private void triggerUltFail() {
-        this.isFailing = true;
-        this.failTimer = 80; // 2 Sekunden Zeit zum Weglaufen
+        this.setState(BossState.FAILING);
+        this.failTimer = 80; // 4 Sekunden Zeit bis zum Einschlag
 
         if (this.getWorld() instanceof ServerWorld sw) {
-            this.bossTalk("Now, Its time to die!");
+            this.bossTalk("Now, it's time to die!");
+
             BlockPos center = this.spawnPos;
-            // Sound: Ein tiefes Grollen kündigt den Einschlag an
             sw.playSound(null, center, SoundEvents.ENTITY_WITHER_SPAWN, SoundCategory.HOSTILE, 2.0f, 0.5f);
 
-            // SOFORTIGER WARN-KREIS am Boden (20 Blöcke Radius)
+            // Optische Warnung (Roter Ring)
             DustParticleEffect redDust = new DustParticleEffect(new Vector3f(1.0f, 0.0f, 0.0f), 2.0f);
             for (int i = 0; i < 360; i += 3) {
                 double rad = Math.toRadians(i);
@@ -1540,12 +1180,10 @@ public class MagnaTitanEntity extends HostileEntity {
     }
 
     private void executeMassiveImpact(ServerWorld sw, BlockPos center) {
-        // 1. Actionbar leeren
         for (ServerPlayerEntity player : sw.getPlayers()) {
             player.sendMessage(Text.empty(), true);
         }
 
-        // 2. Schaden & Partikel
         sw.spawnParticles(ParticleTypes.EXPLOSION_EMITTER, center.getX(), center.getY() + 1, center.getZ(), 1, 0, 0, 0, 0);
         this.getWorld().playSound(null, this.getX(), this.getY(), this.getZ(),
                 SoundEvents.ENTITY_DRAGON_FIREBALL_EXPLODE, SoundCategory.HOSTILE, 3.0f, 0.5f);
@@ -1563,17 +1201,32 @@ public class MagnaTitanEntity extends HostileEntity {
             }
         }
 
-        // 3. Reset
-        this.isUltActive = false;
-        this.ultCountdown = 0; // Reset für den nächsten Run
+        ServerPlayerEntity targetPlayer = (ServerPlayerEntity) sw.getClosestPlayer(this.getX(), this.getY(), this.getZ(), 64.0, false);
+        if (targetPlayer != null) {
+            double tpX = targetPlayer.getX() + (this.random.nextDouble() - 0.5) * 2;
+            double tpZ = targetPlayer.getZ() + (this.random.nextDouble() - 0.5) * 2;
+
+            sw.spawnParticles(ParticleTypes.REVERSE_PORTAL, this.getX(), this.getY() + 1, this.getZ(), 40, 0.5, 1, 0.5, 0.2);
+
+            this.refreshPositionAndAngles(tpX, targetPlayer.getY(), tpZ, this.getYaw(), this.getPitch());
+            sw.spawnParticles(ParticleTypes.PORTAL, tpX, targetPlayer.getY() + 1, tpZ, 40, 0.5, 1, 0.5, 0.2);
+            this.getWorld().playSound(null, tpX, targetPlayer.getY(), tpZ, SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.HOSTILE, 1.0f, 1.0f);
+
+            this.lookAtEntity(targetPlayer, 360f, 360f);
+        }
+
+        this.setState(BossState.ATTACKING);
+        this.ultCountdown = 0;
         this.setNoGravity(false);
+
         var scaleAttr = this.getAttributeInstance(EntityAttributes.GENERIC_SCALE);
         if (scaleAttr != null) scaleAttr.setBaseValue(1.2);
-        this.bossBar.setColor(BossBar.Color.PINK);
         this.getWorld().playSound(null, this.getX(), this.getY(), this.getZ(),
                 SoundEvents.ENTITY_DRAGON_FIREBALL_EXPLODE, SoundCategory.HOSTILE, 3.0f, 0.5f);
+
         this.removeStatusEffect(StatusEffects.GLOWING);
         this.setVelocity(0, -1.5, 0);
+        this.velocityDirty = true;
     }
 
     private void bossTalk(Text message) {
@@ -1596,24 +1249,320 @@ public class MagnaTitanEntity extends HostileEntity {
     }
 
     private void updateBossBar() {
-        // 1. HP Prozent berechnen
         float healthPercent = this.getHealth() / this.getMaxHealth();
         this.bossBar.setPercent(healthPercent);
+        switch (this.getState()) {
+            case STUNNED -> this.bossBar.setColor(BossBar.Color.GREEN);
+            case ULTIMATE -> this.bossBar.setColor(BossBar.Color.YELLOW);
+            case FAILING -> this.bossBar.setColor(BossBar.Color.RED);
+            case HEALING -> this.bossBar.setColor(BossBar.Color.PURPLE);
+            case SHIELDED -> this.bossBar.setColor(BossBar.Color.WHITE);
 
-        // 2. Optionale Logik: Farben basierend auf Status automatisch anpassen
-        // Wenn du willst, dass die Bar während des Stuns IMMER grün ist, egal was passiert:
-        if (this.stunTimer > 0) {
-            this.bossBar.setColor(BossBar.Color.GREEN);
-        } else if (this.isUltActive) {
-            if (this.isFailing) {
-                this.bossBar.setColor(BossBar.Color.RED); // Rot während des Todesstrahls
-            } else {
-                this.bossBar.setColor(BossBar.Color.YELLOW);
+            default -> {
+                if (this.isRaging()) {
+                    this.bossBar.setColor(BossBar.Color.PINK);
+                } else {
+                    this.bossBar.setColor(BossBar.Color.BLUE);
+                }
             }
-        } else if (this.dataTracker.get(RAGE_MODE)) {
-            this.bossBar.setColor(BossBar.Color.PINK);
+        }
+    }
+
+    private void tickPottingPhase() {
+        if (this.getState() != BossState.POTTING) return;
+
+        this.getNavigation().stop();
+        this.setVelocity(0, this.getVelocity().y, 0);
+
+        if (this.pottingTimer > 0) {
+            this.pottingTimer--;
+
+            if (this.pottingTimer == 0) {
+                this.addStatusEffect(new net.minecraft.entity.effect.StatusEffectInstance(
+                        net.minecraft.entity.effect.StatusEffects.STRENGTH,
+                        Integer.MAX_VALUE, this.pendingStrengthLevel - 1, false, true, true));
+
+                var registryManager = this.getWorld().getRegistryManager();
+                var enchantments = registryManager.getWrapperOrThrow(net.minecraft.registry.RegistryKeys.ENCHANTMENT);
+                ItemStack staff = new ItemStack(ModItems.SPECTRE_STAFF);
+                staff.addEnchantment(enchantments.getOrThrow(net.minecraft.enchantment.Enchantments.KNOCKBACK), 5);
+                this.equipStack(EquipmentSlot.MAINHAND, staff);
+
+                this.getWorld().playSound(null, this.getX(), this.getY(), this.getZ(),
+                        SoundEvents.ENTITY_PLAYER_LEVELUP, net.minecraft.sound.SoundCategory.HOSTILE, 1.0f, 1.2f);
+
+                this.setState(BossState.ATTACKING);
+                this.pottingTimer = 0;
+            }
+        }
+    }
+
+    private void checkHealTrigger(float healthPercent) {
+        if (this.getState() != BossState.ATTACKING) {
+            return;
+        }
+
+        boolean healthOk = healthPercent <= 0.66f;
+        boolean moveCooldownOk = this.healMoveCooldown <= 0;
+        boolean noAnvils = this.anvilDropsLeft <= 0;
+
+        if (healthOk && moveCooldownOk && noAnvils) {
+            if (this.age % 20 == 0) {
+                float chance = this.isRaging() ? 0.10f : 0.05f;
+                if (this.random.nextFloat() < chance) {
+                    this.startHealPhase();
+                }
+            }
+        }
+    }
+
+    private void tickHealingPhase() {
+        if (this.getState() != BossState.HEALING) return;
+        this.getNavigation().stop();
+        this.setVelocity(0, this.getVelocity().y, 0);
+        this.healTicksActive++;
+
+        if (!this.getWorld().isClient) {
+            if (this.age % 5 == 0) spawnHealingTrails();
+
+            activeBeacons.removeIf(pos -> this.getWorld().getBlockState(pos).isAir());
+
+            if (activeBeacons.isEmpty() || this.getHealth() >= this.getMaxHealth()) {
+                stopHealPhase();
+            } else {
+                int healLimit = this.isRaging() ? 300 : 170;
+                float healPerSecond = (this.healTicksActive <= healLimit) ? 4.0f : 10.0f;
+                if (this.isRaging()) healPerSecond *= 1.5f;
+
+                this.heal(healPerSecond / 20.0f);
+
+                if (this.age % 5 == 0) {
+                    ((ServerWorld)this.getWorld()).spawnParticles(ParticleTypes.HAPPY_VILLAGER,
+                            this.getX(), this.getY() + 1, this.getZ(), 5, 0.5, 1.0, 0.5, 0.1);
+                }
+            }
+        }
+    }
+
+    private void tickBlackHolePhase() {
+        if (this.getState() != BossState.BLACK_HOLE) return;
+
+        this.blackHoleTimer--;
+        this.getNavigation().stop();
+
+        if (this.blackHoleTimer > 260) {
+            this.addVelocity(0, 0.15, 0);
         } else {
-            this.bossBar.setColor(BossBar.Color.PURPLE);
+            this.setVelocity(0, Math.sin(this.age * 0.05) * 0.01, 0);
+        }
+
+        if (!this.getWorld().isClient) {
+            ServerWorld world = (ServerWorld) this.getWorld();
+
+            double holeX = this.getX();
+            double holeY = this.getY() + 5.0;
+            double holeZ = this.getZ();
+
+            world.spawnParticles(ModParticles.BLACK_HOLE_PARTICLE, holeX, holeY, holeZ, 1, 0, 0, 0, 0);
+
+            var players = world.getEntitiesByClass(PlayerEntity.class,
+                    this.getBoundingBox().expand(30.0), p -> !p.isCreative() && !p.isSpectator());
+
+            for (PlayerEntity p : players) {
+                double dx = holeX - p.getX();
+                double dy = holeY - p.getY();
+                double dz = holeZ - p.getZ();
+                double dist = Math.sqrt(dx*dx + dy*dy + dz*dz);
+
+                if (dist > 0.5 && dist < 30.0) {
+                    double pullStrength = 0.12;
+
+                    if (p.isSprinting() && dist > 10.0) {
+                        pullStrength = 0.04;
+                    }
+
+                    if (dist < 3.5) {
+                        pullStrength = 0.3;
+                        p.damage(this.getDamageSources().magic(), 4.0f);
+                    }
+
+                    p.addVelocity(dx/dist * pullStrength, dy/dist * pullStrength, dz/dist * pullStrength);
+                    p.velocityDirty = true;
+                    p.velocityModified = true;
+
+                    if (p instanceof ServerPlayerEntity sp) {
+                        sp.networkHandler.sendPacket(new EntityVelocityUpdateS2CPacket(p));
+                    }
+                }
+            }
+
+            if (this.blackHoleTimer % 10 == 0) {
+                world.playSound(null, holeX, holeY, holeZ, SoundEvents.ENTITY_BREEZE_WIND_BURST, net.minecraft.sound.SoundCategory.HOSTILE, 1.5f, 0.4f);
+            }
+
+            if (this.blackHoleTimer <= 0) {
+                this.setState(BossState.ATTACKING);
+
+                this.setNoGravity(false);
+                this.setVelocity(0, -0.2, 0);
+                this.velocityDirty = true;
+            }
+        }
+    }
+
+    private void tickAnvilLogic(float healthPercent) {
+        if (this.anvilCooldown > 0) {
+            this.anvilCooldown--;
+            return;
+        }
+
+        if (this.getState() == BossState.ATTACKING) {
+
+            boolean canStartAnvils = healthPercent <= 0.83f
+                    && this.anvilCooldown <= 0
+                    && this.anvilDropsLeft <= 0;
+
+            if (canStartAnvils) {
+                if (this.age % 20 == 0 && this.random.nextFloat() < 0.10f) {
+                    this.anvilDropsLeft = this.isRaging() ? 5 : 3;
+                    executeAnvilJump();
+                }
+            }
+        }
+
+        if (this.anvilDropsLeft > 0) {
+            if (this.isOnGround() && this.anvilJumpTimer <= 0) {
+                this.anvilJumpTimer = 35;
+            }
+
+            if (this.anvilJumpTimer > 0) {
+                this.anvilJumpTimer--;
+                if (this.anvilJumpTimer == 0) {
+                    executeAnvilJump();
+                }
+            }
+        }
+    }
+
+    private void tickShieldPhaseLogic() {
+        if (this.getState() != BossState.SHIELDED) return;
+        if (!this.getWorld().isClient && this.getTarget() != null) {
+            LivingEntity target = this.getTarget();
+            boolean isMinion = target instanceof MagnaMinionEntity || target instanceof LavaGolemEntity || target instanceof MagnaWitchEntity;
+
+            if (!isMinion && target != this) {
+                this.fireballCooldown--;
+                if (this.fireballCooldown <= 0) {
+                    shootMagnaFireball(target);
+                    this.fireballCooldown = 60 + this.random.nextInt(40);
+                }
+            } else {
+                this.setTarget(this.getWorld().getClosestPlayer(this, 64.0));
+            }
+        }
+
+        if (this.minionCount <= 0) {
+            this.setState(BossState.ATTACKING);
+            this.playSound(SoundEvents.BLOCK_BEACON_DEACTIVATE, 1.0f, 1.0f);
+            this.setVelocity(0, -0.01, 0);
+            this.velocityDirty = true;
+        }
+    }
+
+    private void tickStunLogic() {
+        if (this.getState() != BossState.STUNNED) return;
+
+        if (this.stunTimer == 200) {
+            this.bossTalk("This... this is impossible! But don't celebrate yet, this stun won't last forever!");
+
+            if (this.getWorld() instanceof ServerWorld sw) {
+                Text title = Text.literal("YOUR CHANCE!").formatted(Formatting.GREEN, Formatting.BOLD);
+                for (ServerPlayerEntity player : sw.getPlayers()) {
+                    player.networkHandler.sendPacket(new TitleS2CPacket(title));
+                    player.networkHandler.sendPacket(new TitleFadeS2CPacket(5, 40, 5));
+                }
+            }
+        }
+
+        this.stunTimer--;
+        this.getNavigation().stop();
+        this.setNoGravity(false);
+
+        if (this.getWorld() instanceof ServerWorld sw) {
+            if (this.age % 15 == 0) {
+                sw.spawnParticles(ParticleTypes.EXPLOSION_EMITTER, this.getX(), this.getY() + 1, this.getZ(), 1, 0.5, 0.5, 0.5, 0.0);
+            }
+            if (this.age % 2 == 0) {
+                sw.spawnParticles(ParticleTypes.LARGE_SMOKE, this.getX(), this.getY() + 0.5, this.getZ(), 3, 0.4, 0.5, 0.4, 0.02);
+            }
+        }
+
+        // Ende des Stuns
+        if (this.stunTimer <= 0) {
+            var scaleAttr = this.getAttributeInstance(EntityAttributes.GENERIC_SCALE);
+            if (scaleAttr != null) scaleAttr.setBaseValue(1.2);
+            this.bossBar.setColor(BossBar.Color.PINK);
+
+            this.setState(BossState.ATTACKING);
+        }
+    }
+
+    private void tickFailLogic() {
+        if (this.getState() != BossState.FAILING) return;
+
+        this.failTimer--;
+
+        if (this.getWorld() instanceof ServerWorld sw) {
+            BlockPos target = this.spawnPos;
+            Vec3d bossPos = this.getPos().add(0, 2, 0);
+            Vec3d targetPos = target.toCenterPos();
+
+            // Partikelstrahl zum Boden
+            for (double i = 0; i < 1.0; i += 0.15) {
+                Vec3d point = bossPos.lerp(targetPos, i);
+                sw.spawnParticles(ParticleTypes.SOUL_FIRE_FLAME, point.x, point.y, point.z, 1, 0, 0, 0, 0);
+                sw.spawnParticles(new DustParticleEffect(new org.joml.Vector3f(1.0f, 0.0f, 0.0f), 1.0f),
+                        point.x, point.y, point.z, 1, 0, 0, 0, 0);
+            }
+
+            if (this.failTimer <= 0) {
+                executeMassiveImpact(sw, target);
+                } else {
+                drawWarningCircle(sw, target);
+            }
+        }
+    }
+
+    private void drawWarningCircle(ServerWorld sw, BlockPos center) {
+        DustParticleEffect redDust = new DustParticleEffect(new org.joml.Vector3f(1.0f, 0.0f, 0.0f), 2.0f);
+
+        for (int i = 0; i < 360; i += 5) {
+            double rad = Math.toRadians(i);
+            double px = center.getX() + 0.5 + Math.cos(rad) * 25;
+            double pz = center.getZ() + 0.5 + Math.sin(rad) * 25;
+
+            sw.spawnParticles(redDust, px, center.getY() + 1.5, pz, 1, 0, 0, 0, 0);
+
+            if (i % 20 == 0) {
+                sw.spawnParticles(ParticleTypes.FLAME, px, center.getY() + 1.2, pz, 1, 0, 0.1, 0, 0.05);
+            }
+        }
+    }
+
+    private void updateAttributesForRage() {
+        var armorAttr = this.getAttributeInstance(EntityAttributes.GENERIC_ARMOR);
+        if (armorAttr != null) {
+            armorAttr.setBaseValue(15.0);
+        }
+
+        var toughnessAttr = this.getAttributeInstance(EntityAttributes.GENERIC_ARMOR_TOUGHNESS);
+        if (toughnessAttr != null) {
+            toughnessAttr.setBaseValue(6.0);
+        }
+
+        var scaleAttr = this.getAttributeInstance(EntityAttributes.GENERIC_SCALE);
+        if (scaleAttr != null) {
+            scaleAttr.setBaseValue(1.2);
         }
     }
 }

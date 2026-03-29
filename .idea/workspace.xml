@@ -4,8 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c1b1156-a927-48e6-80ed-0262f43d7cf4" name="Changes" comment="Improved the boss in design and quality">
+    <list default="true" id="2c1b1156-a927-48e6-80ed-0262f43d7cf4" name="Changes" comment="Removed a lot of unneccessary things and made the code cleaner">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/command_history.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/command_history.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/config/fabric/indigo-renderer.properties" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/fabric/indigo-renderer.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-1.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-2.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-3.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-4.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-5.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/latest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/usercache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ModEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ModEntities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ai/MagnaTitanMeleeGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ai/MagnaTitanMeleeGoal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ai/TitaniumAttackGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ai/TitaniumAttackGoal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ai/TitaniumEscapeAndGapGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ai/TitaniumEscapeAndGapGoal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaAnvilRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaAnvilRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaBombRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaBombRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaMinionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaMinionModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaMinionRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaMinionRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaTitanModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaTitanModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaTitanRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaTitanRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaWitchRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaWitchRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/TitanPlayerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/TitanPlayerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/TitanPlayerRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/TitanPlayerRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/TitaniumTntRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/TitaniumTntRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/LavaGolemEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/LavaGolemEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaAnvilEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaAnvilEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaBombEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaBombEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaFireballEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaFireballEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaMinionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaMinionEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaTitanEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaTitanEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaWitchEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaWitchEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/TitanPlayerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/TitanPlayerEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/TitaniumTntEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/TitaniumTntEntity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,27 +120,27 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Minecraft Client.executor": "Run",
-    "Gradle.Fabric-Mod-1.21.X [:net.fabricmc.devlaunchinjector.Main.main()].executor": "Run",
-    "Gradle.Fabric-Mod-1.21.X [runClient].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/SIlvKings Mod/Fabric-Mod-1.21.X/src/main/resources/assets/silvkingsmod/particles",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.gutterIcons",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Minecraft Client.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Fabric-Mod-1.21.X [:net.fabricmc.devlaunchinjector.Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Fabric-Mod-1.21.X [runClient].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/SIlvKings Mod/Fabric-Mod-1.21.X/src/main/resources/assets/silvkingsmod/particles&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.gutterIcons&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\particles" />
@@ -202,7 +235,8 @@
       <workItem from="1774369415183" duration="31788000" />
       <workItem from="1774443183120" duration="19590000" />
       <workItem from="1774470804728" duration="14031000" />
-      <workItem from="1774540043431" duration="55584000" />
+      <workItem from="1774540043431" duration="61381000" />
+      <workItem from="1774790213270" duration="7131000" />
     </task>
     <task id="LOCAL-00001" summary="added very important comment">
       <option name="closed" value="true" />
@@ -420,7 +454,23 @@
       <option name="project" value="LOCAL" />
       <updated>1774743159183</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Fixed Bomb not Rendering">
+      <option name="closed" value="true" />
+      <created>1774743775329</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1774743775329</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Removed a lot of unneccessary things and made the code cleaner">
+      <option name="closed" value="true" />
+      <created>1774746477702</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1774746477702</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,8 +503,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="added custom Blocks &amp; Item Groups" />
-    <MESSAGE value="added more Blocks loot tables and recipes" />
     <MESSAGE value="added an Advanced Block and an Advanced Item" />
     <MESSAGE value="added custom Food and Fuel" />
     <MESSAGE value="added custom tooltips" />
@@ -478,7 +526,9 @@
     <MESSAGE value="Added Custom Tnt Block" />
     <MESSAGE value="Added Custom Structure and more custom mobs and a new boss. Fixed some old code" />
     <MESSAGE value="Improved the boss in design and quality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved the boss in design and quality" />
+    <MESSAGE value="Fixed Bomb not Rendering" />
+    <MESSAGE value="Removed a lot of unneccessary things and made the code cleaner" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed a lot of unneccessary things and made the code cleaner" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -37,25 +37,20 @@ public class MagnaAnvilEntity extends ThrownItemEntity {
     @Override
     public void tick() {
         super.tick();
-        // Schwerkraft verstärken für "schweres" Gefühl
         Vec3d vel = this.getVelocity();
         this.setVelocity(vel.x, vel.y - 0.05, vel.z);
 
         if (this.getWorld().isClient) {
-            // Erzeugt eine zufällige Verteilung innerhalb des 3x3 Amboss-Modells
-            // (this.random.nextDouble() - 0.5) * 2.5 erzeugt Werte zwischen -1.25 und 1.25
             double offsetX = (this.random.nextDouble() - 0.5) * 2.5;
             double offsetY = (this.random.nextDouble() - 0.5) * 2.0;
             double offsetZ = (this.random.nextDouble() - 0.5) * 2.5;
 
-            // Partikel 1: Im Zentrum des Ambosses verteilt
             this.getWorld().addParticle(ParticleTypes.SOUL_FIRE_FLAME,
                     this.getX() + offsetX,
                     this.getY() + 1.0 + offsetY,
                     this.getZ() + offsetZ,
-                    0, 0, 0); // Velocity bleibt 0
+                    0, 0, 0);
 
-            // Partikel 2: Etwas konzentrierter an der Unterseite für den "Fall-Effekt"
             if (this.random.nextFloat() > 0.5f) {
                 this.getWorld().addParticle(ParticleTypes.SOUL_FIRE_FLAME,
                         this.getX() + (this.random.nextGaussian() * 0.8),
@@ -66,21 +61,16 @@ public class MagnaAnvilEntity extends ThrownItemEntity {
         }
     }
 
-    // Erstelle eine Hilfsmethode für den Flächenschaden
     private void applyAreaDamage() {
         if (!this.getWorld().isClient) {
-            // Radius von 3.5 Blöcken um den Amboss
             double radius = 2.5;
             List<Entity> targets = this.getWorld().getOtherEntities(this, this.getBoundingBox().expand(radius));
 
             for (Entity target : targets) {
-                // Immunitäts-Check (wie zuvor)
                 if (target instanceof LivingEntity && !(target instanceof MagnaTitanEntity || target instanceof MagnaMinionEntity)) {
 
-                    // Schaden basierend auf Entfernung (optional) oder fix
                     target.damage(this.getDamageSources().fallingBlock(this), 60.0f);
 
-                    // Rückstoß vom Zentrum weg
                     double dx = target.getX() - this.getX();
                     double dz = target.getZ() - this.getZ();
                     target.addVelocity(dx * 0.7, 0.3, dz * 0.7);
@@ -92,7 +82,6 @@ public class MagnaAnvilEntity extends ThrownItemEntity {
                 }
             }
 
-            // Optischer Effekt für den Radius
             ((ServerWorld)this.getWorld()).spawnParticles(ParticleTypes.EXPLOSION, this.getX(), this.getY(), this.getZ(), 1, 0, 0, 0, 0);
             ((ServerWorld)this.getWorld()).spawnParticles(ParticleTypes.LARGE_SMOKE, this.getX(), this.getY(), this.getZ(), 20, 1.5, 0.5, 1.5, 0.05);
         }
@@ -100,13 +89,13 @@ public class MagnaAnvilEntity extends ThrownItemEntity {
 
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
-        applyAreaDamage(); // Schaden im Umkreis
+        applyAreaDamage();
         this.discard();
     }
 
     @Override
     protected void onBlockHit(BlockHitResult blockHitResult) {
-        applyAreaDamage(); // Schaden im Umkreis, auch wenn man nur den Boden trifft!
+        applyAreaDamage();
         this.getWorld().playSound(null, this.getBlockPos(), SoundEvents.BLOCK_ANVIL_LAND, SoundCategory.HOSTILE, 1.0f, 0.5f);
         this.discard();
     }

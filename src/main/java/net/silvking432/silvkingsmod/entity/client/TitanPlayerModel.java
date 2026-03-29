@@ -10,7 +10,6 @@ import net.silvking432.silvkingsmod.SilvKingsMod;
 import net.silvking432.silvkingsmod.entity.custom.TitanPlayerEntity;
 import org.joml.Vector3f;
 
-// Wir erben von BipedEntityModel (GENAU WIE DER ZOMBIE)
 public class TitanPlayerModel<T extends TitanPlayerEntity> extends BipedEntityModel<T> {
     public static final EntityModelLayer TITAN_PLAYER = new EntityModelLayer(Identifier.of(SilvKingsMod.MOD_ID, "titan_player"), "main");
 
@@ -21,30 +20,21 @@ public class TitanPlayerModel<T extends TitanPlayerEntity> extends BipedEntityMo
         this.root = root;
     }
 
-    // getTexturedModelData bleibt wie beim Zombie/Player
     public static TexturedModelData getTexturedModelData() {
-        ModelData modelData = BipedEntityModel.getModelData(Dilation.NONE, 0.0F);
-        ModelPartData modelPartData = modelData.getRoot();
-        // ... (Deine addChild Aufrufe für head, body, etc.)
-        return TexturedModelData.of(modelData, 64, 64);
+        return MagnaTitanModel.getTexturedModelData();
     }
 
     @Override
     public void setAngles(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        // 1. Reset (Wichtig für Keyframes)
         this.root.traverse().forEach(ModelPart::resetTransform);
 
-        // 2. Zombie-Logik: Standard-Bewegungen berechnen
         super.setAngles(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
 
-        // 3. JETZT DER FIX: Wir nutzen den AnimationHelper manuell
-        // Wir erstellen einen "Dummy", der so tut, als wäre er ein SinglePartEntityModel
         SinglePartEntityModel<T> dummy = new SinglePartEntityModel<>() {
             @Override public ModelPart getPart() { return root; }
             @Override public void setAngles(T e, float f, float g, float h, float i, float j) {}
         };
 
-        // Jetzt akzeptiert der AnimationHelper das Model!
         Vector3f vec = new Vector3f();
 
         // Idle

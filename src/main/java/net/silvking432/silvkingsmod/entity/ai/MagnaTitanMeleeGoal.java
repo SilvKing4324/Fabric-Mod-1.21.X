@@ -18,28 +18,12 @@ public class MagnaTitanMeleeGoal extends MeleeAttackGoal {
 
     @Override
     public boolean canStart() {
-        // Attacke nur, wenn:
-        // 1. Basis-Bedingungen erfüllt
-        // 2. KEIN Schild/Potting/Healing/BlackHole
-        // 3. NEU: Boss ist NICHT im Stun (Bruch-Phase)
-        // 4. NEU: Boss ist NICHT in der Ult-Phase (Tennis)
-        return super.canStart()
-                && !this.entity.isShieldActive()
-                && !this.entity.isPotting()
-                && !this.entity.isHealing()
-                && this.entity.getBlackHoleTimer() <= 0
-                && this.entity.getStunTimer() <= 0;    // NEU: Kein Angriff im Stun
+        return super.canStart() && this.entity.getState() == MagnaTitanEntity.BossState.ATTACKING;
     }
 
     @Override
     public boolean shouldContinue() {
-        // Sofort abbrechen, wenn eine der Spezial-Phasen oder der Stun startet
-        return super.shouldContinue()
-                && !this.entity.isShieldActive()
-                && !this.entity.isPotting()
-                && !this.entity.isHealing()
-                && this.entity.getBlackHoleTimer() <= 0
-                && this.entity.getStunTimer() <= 0;    // NEU: Abbruch bei Stun
+        return super.shouldContinue() && this.entity.getState() == MagnaTitanEntity.BossState.ATTACKING;
     }
 
     @Override
@@ -64,7 +48,6 @@ public class MagnaTitanMeleeGoal extends MeleeAttackGoal {
     }
 
     private boolean isEnemyWithinAttackDistance(LivingEntity pEnemy) {
-        // Deine gewünschten 3 Blöcke Reichweite
         return this.entity.distanceTo(pEnemy) <= 3.0f;
     }
 
@@ -73,21 +56,16 @@ public class MagnaTitanMeleeGoal extends MeleeAttackGoal {
     }
 
     protected void performMagnaAttack(LivingEntity pEnemy) {
-        // Cooldown setzen (z.B. 20 Ticks = 1 Sekunde zwischen Schlägen)
         this.ticksUntilNextAttack = 20;
 
-        // 1. DER CRIT-SPRUNG (Simuliert Spieler-Verhalten)
         if (this.mob.isOnGround()) {
-            // Ein kleiner Hopser nach oben/vorne für die Wucht
             this.mob.addVelocity(0, 0.3, 0);
             this.mob.velocityDirty = true;
         }
 
-        // 2. DER SCHLAG
         this.mob.swingHand(Hand.MAIN_HAND);
         this.mob.tryAttack(pEnemy);
 
-        // 3. BACK-PUSH (Der Boss springt nach dem Hit zurück)
         double deltaX = this.mob.getX() - pEnemy.getX();
         double deltaZ = this.mob.getZ() - pEnemy.getZ();
         double distance = Math.sqrt(deltaX * deltaX + deltaZ * deltaZ);
@@ -96,10 +74,8 @@ public class MagnaTitanMeleeGoal extends MeleeAttackGoal {
             deltaX /= distance;
             deltaZ /= distance;
 
-            // 0.6 Stärke für den Rückwärtssprung
             float pushBackStrength = 0.6f;
             Vec3d currentVel = this.mob.getVelocity();
-            // Wir addieren den Push zur aktuellen Velocity
             this.mob.setVelocity(currentVel.x + (deltaX * pushBackStrength), 0.1, currentVel.z + (deltaZ * pushBackStrength));
             this.mob.velocityDirty = true;
         }

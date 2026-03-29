@@ -1,5 +1,6 @@
 package net.silvking432.silvkingsmod.entity.client;
 
+import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.BlockRenderManager;
 import net.minecraft.client.render.entity.EntityRenderer;
@@ -37,7 +38,7 @@ public class MagnaBombRenderer extends EntityRenderer<MagnaBombEntity> {
                 matrices,
                 vertexConsumers,
                 light,
-                net.minecraft.client.render.OverlayTexture.DEFAULT_UV
+                OverlayTexture.DEFAULT_UV
         );
 
         matrices.pop();

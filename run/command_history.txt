@@ -1,23 +1,3 @@
-/summon silvkingsmod:magna_titan ~ ~ ~ {NoAI:true}
-/summon silvkingsmod:magna_titan ~ ~ ~ {NoAI:true,attributes:[{id:"minecraft:generic.scale",base:1.2}]}
-/summon silvkingsmod:magna_titan ~ ~ ~ {NoAI:true,attributes:[{id:"minecraft:generic.scale",base:0.9}]}
-/kill @e[type=!minecraft:player]
-/summon silvkingsmod:magna_titan ~ ~ ~ {NoAI:true,attributes:[{id:"minecraft:generic.scale",base:1.2}]}
-/summon silvkingsmod:magna_titan ~ ~ ~ {NoAI:true,attributes:[{id:"minecraft:generic.scale",base:2.0}]}
-/kill @e[type=!minecraft:player]
-/locate structure silvkingsmod:lava_arena
-/tp @s -448 ~ -2240
-/locate structure silvkingsmod:lava_arena
-/tp @s -864 ~ 2720
-/effect give Player325 minecraft:strength infinite 20 true
-/kill @e[type=!minecraft:player]
-/tp @s -864 ~ 2720
-/locate structure silvkingsmod:lava_arena
-/tp @s -4192 ~ -752
-/locate structure silvkingsmod:lava_arena
-/tp @s 1280 ~ 2992
-/kill @e[type=!minecraft:player]
-/locate structure silvkingsmod:lava_arena
 /kill @e[type=!minecraft:player]
 /locate structure silvkingsmod:lava_arena
 /tp @s -496 ~ -608
@@ -48,3 +28,23 @@
 /locate structure silvkingsmod:lava_arena
 /tp @s 48 ~ -1200
 /kill @e[type=!minecraft:player]
+/locate structure silvkingsmod:lava_arena
+/tp @s -1040 ~ -1840
+/kill @e[type=!minecraft:player]
+/locate structure silvkingsmod:lava_arena
+/tp @s -960 ~ -512
+/kill @e[type=!minecraft:player]
+/effect give Player437 minecraft:strength infinite 10 true
+/kill @e[type=!minecraft:player]
+/tp @s -960 ~ -512
+/kill @e[type=!minecraft:player]
+/locate structure silvkingsmod:lava_arena
+/tp @s 656 ~ 1952
+/kill @e[type=!minecraft:player]
+/effect give Player437 minecraft:strength infinite 10 true
+/effect give Player698 minecraft:strength infinite 10 true
+/tp @s 656 ~ 1952
+/kill @e[type=!minecraft:player]
+/effect give Player698 minecraft:strength infinite 10 true
+/locate structure silvkingsmod:lava_arena
+/tp @s 864 ~ -2016

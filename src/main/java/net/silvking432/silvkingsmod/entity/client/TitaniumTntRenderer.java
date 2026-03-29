@@ -26,7 +26,6 @@ public class TitaniumTntRenderer extends EntityRenderer<TitaniumTntEntity> {
                        MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
         matrices.push();
 
-        // TNT etwas anheben (wie beim Vanilla-TNT)
         matrices.translate(0.0F, 0.5F, 0.0F);
 
         int fuse = entity.getFuse();
@@ -43,10 +42,9 @@ public class TitaniumTntRenderer extends EntityRenderer<TitaniumTntEntity> {
         matrices.translate(-0.5F, -0.5F, 0.5F);
         matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(90.0F));
 
-        // Hier den Custom TNT Block rendern, mit Blink-Effekt
         TntMinecartEntityRenderer.renderFlashingBlock(
                 MinecraftClient.getInstance().getBlockRenderManager(),
-                ModBlocks.TITANIUM_TNT.getDefaultState(), // Dein Custom Block
+                ModBlocks.TITANIUM_TNT.getDefaultState(),
                 matrices,
                 vertexConsumers,
                 light,

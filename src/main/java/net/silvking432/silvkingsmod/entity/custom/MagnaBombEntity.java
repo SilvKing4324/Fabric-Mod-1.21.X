@@ -33,12 +33,10 @@ public class MagnaBombEntity extends Entity {
     public void tick() {
         super.tick();
 
-        // 1. Manuelle Bewegung (da noGravity = true)
         Vec3d velocity = this.getVelocity();
         this.setPosition(this.getX() + velocity.x, this.getY() + velocity.y, this.getZ() + velocity.z);
 
         if (!this.getWorld().isClient && this.getWorld() instanceof ServerWorld serverWorld) {
-            // 2. SERVER: Force-Partikel für Sichtbarkeit aus großer Entfernung (45 Blöcke!)
             if (this.age % 2 == 0) {
                 ParticleS2CPacket packet = new ParticleS2CPacket(
                         ParticleTypes.WITCH, true,
@@ -58,18 +56,13 @@ public class MagnaBombEntity extends Entity {
                 }
             }
 
-            // 3. SERVER: Despawn-Logik
-            // Wir prüfen isOnGround nur, wenn sie sich nach unten bewegt (velocity.y < 0)
             if (this.getVelocity().y < 0 && (this.isOnGround() || this.getY() < this.getWorld().getBottomY() + 2)) {
                 if (this.age > 200) this.discard();
             }
 
-            // Erhöhte Lebensdauer, damit sie im Tennis-Match nicht einfach verpufft
             if (this.age > 2400) this.discard();
         }
     }
-
-    // --- FIXES GEGEN DESPAWN & RENDERING ---
 
     @Override
     public boolean shouldRender(double distance) {
@@ -82,8 +75,6 @@ public class MagnaBombEntity extends Entity {
     public boolean isSilent() {
         return false;
     }
-
-    // --- DATA & NBT ---
 
     @Override
     protected void readCustomDataFromNbt(NbtCompound nbt) {

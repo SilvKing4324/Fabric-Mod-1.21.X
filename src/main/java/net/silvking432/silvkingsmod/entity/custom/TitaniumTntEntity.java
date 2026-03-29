@@ -18,7 +18,6 @@ public class TitaniumTntEntity extends TntEntity {
         super(ModEntities.TITANIUM_TNT_ENTITY, world);
         this.updatePosition(x, y, z);
         this.setFuse(100);
-        // kein setOwner/setCausingEntity nötig
     }
 
 
@@ -29,12 +28,12 @@ public class TitaniumTntEntity extends TntEntity {
 
         if (!this.getWorld().isClient && this.getFuse() == 99) {
             this.getWorld().playSound(
-                    null, // null = alle Spieler in der Nähe
+                    null,
                     this.getX(), this.getY(), this.getZ(),
-                    SoundEvents.ENTITY_TNT_PRIMED, // Fuse-Sound
+                    SoundEvents.ENTITY_TNT_PRIMED,
                     SoundCategory.BLOCKS,
-                    1.0F, // Lautstärke
-                    1.0F  // Pitch
+                    1.0F,
+                    1.0F
             );
         }
 

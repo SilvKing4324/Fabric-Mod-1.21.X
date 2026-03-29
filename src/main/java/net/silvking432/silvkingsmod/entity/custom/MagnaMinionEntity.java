@@ -46,10 +46,8 @@ public class MagnaMinionEntity extends HostileEntity {
     public @Nullable EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData) {
         entityData = super.initialize(world, difficulty, spawnReason, entityData);
 
-        // 1. Ausrüstung anlegen (Schwert & Rüstung)
         this.initEquipment(world.getRandom(), difficulty);
 
-        // 2. Schaden basierend auf Difficulty setzen (Easy: 1, Normal: 4, Hard: 7)
         double baseDamage = 1.0;
         if (world.getDifficulty() == net.minecraft.world.Difficulty.NORMAL) baseDamage = 4.0;
         if (world.getDifficulty() == net.minecraft.world.Difficulty.HARD) baseDamage = 7.0;
@@ -67,12 +65,10 @@ public class MagnaMinionEntity extends HostileEntity {
         var registryManager = this.getWorld().getRegistryManager();
         var enchantments = registryManager.getWrapperOrThrow(net.minecraft.registry.RegistryKeys.ENCHANTMENT);
 
-        // Waffe setzen
         ItemStack sword = new ItemStack(ModItems.TITANIUM_SWORD);
         sword.addEnchantment(enchantments.getOrThrow(net.minecraft.enchantment.Enchantments.KNOCKBACK), 1);
         sword.addEnchantment(enchantments.getOrThrow(net.minecraft.enchantment.Enchantments.FIRE_ASPECT), 1);
         this.equipStack(EquipmentSlot.MAINHAND, sword);
-        // Drop-Chancen auf 0 setzen (damit nichts gedroppt wird)
         for (EquipmentSlot slot : EquipmentSlot.values()) {
             this.setEquipmentDropChance(slot, 0.0f);
         }
@@ -135,14 +131,13 @@ public class MagnaMinionEntity extends HostileEntity {
 
     @Override
     public boolean isFireImmune() {
-        return true; // Er brennt nicht
+        return true;
     }
 
     @Override
     public void onDeath(DamageSource damageSource) {
         super.onDeath(damageSource);
         if (!this.getWorld().isClient) {
-            // Suche den Boss in der Nähe (z.B. 50 Blöcke Radius)
             var bosses = this.getWorld().getEntitiesByClass(MagnaTitanEntity.class,
                     this.getBoundingBox().expand(70.0), entity -> true);
 
@@ -157,41 +152,32 @@ public class MagnaMinionEntity extends HostileEntity {
         boolean success = super.tryAttack(target);
 
         if (success && target instanceof LivingEntity livingTarget) {
-            // 1. Bestehende Heilungs-Logik
             float damageDealt = (float) this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
             this.heal(damageDealt * 0.4f);
 
-            // 2. Rückstoß für den SPIELER (Extra Knockback)
-            // Wir geben dem Spieler einen zusätzlichen Stoß nach hinten
             double d = target.getX() - this.getX();
             double e = target.getZ() - this.getZ();
-            livingTarget.takeKnockback(1.5, -d, -e); // 1.5 ist die Stärke des zusätzlichen Schubs
+            livingTarget.takeKnockback(1.5, -d, -e);
 
-            // 3. Rückstoß für das MINION (5 Blöcke nach hinten springen)
             if (!this.getWorld().isClient) {
-                // Wir berechnen die Richtung weg vom Ziel
                 double deltaX = this.getX() - target.getX();
                 double deltaZ = this.getZ() - target.getZ();
 
-                // Normalisieren (damit der Sprung immer gleich weit ist)
                 double distance = Math.sqrt(deltaX * deltaX + deltaZ * deltaZ);
                 if (distance > 0) {
                     deltaX /= distance;
                     deltaZ /= distance;
                 }
 
-                // Geschwindigkeit setzen: 1.5 horizontal und 0.4 nach oben für einen kleinen Hopser
                 this.setVelocity(deltaX * 1.5, 0.4, deltaZ * 1.5);
-                this.velocityDirty = true; // Wichtig, damit der Server die Bewegung an den Client sendet
+                this.velocityDirty = true;
             }
 
-            // 4. Partikel und Sounds (deine bestehende Logik)
             if (!this.getWorld().isClient) {
                 ServerWorld serverWorld = (ServerWorld) this.getWorld();
                 serverWorld.spawnParticles(net.minecraft.particle.ParticleTypes.HEART,
                         this.getX(), this.getY() + 1.5, this.getZ(), 5, 0.3, 0.3, 0.3, 0.1);
 
-                // Neuer Sound für den "Backleap"
                 this.getWorld().playSound(null, this.getBlockPos(),
                         SoundEvents.ENTITY_GENERIC_SMALL_FALL, net.minecraft.sound.SoundCategory.HOSTILE, 1.0f, 1.5f);
             }
@@ -218,23 +204,18 @@ public class MagnaMinionEntity extends HostileEntity {
 
     @Override
     public boolean damage(DamageSource source, float amount) {
-        // 1. Prüfen, ob das Minion den Resistenz-Effekt vom Golem hat (Resi 4 = Amplifier 3)
         var effect = this.getStatusEffect(net.minecraft.entity.effect.StatusEffects.RESISTANCE);
 
         if (effect != null && effect.getAmplifier() >= 3) {
-            // 2. Prüfen, ob ein Spieler der Angreifer ist
             if (source.getAttacker() instanceof net.minecraft.server.network.ServerPlayerEntity player) {
 
-                // Sound-Effekt: Ein "Pling" oder Schild-Geräusch am Ort des Minions
                 this.getWorld().playSound(null, this.getX(), this.getY(), this.getZ(),
                         SoundEvents.ENTITY_BREEZE_DEFLECT,
                         net.minecraft.sound.SoundCategory.HOSTILE, 0.5f, 1.5f);
 
-                // Nachricht in die ActionBar (unten über der Hotbar)
                 player.sendMessage(net.minecraft.text.Text.literal("This Minion is protected by the Lava Golem!")
                         .formatted(net.minecraft.util.Formatting.GOLD, net.minecraft.util.Formatting.BOLD), true);
 
-                // Optionale Partikel: Rauch oder Lava-Funken beim Minion
                 if (!this.getWorld().isClient) {
                     ((net.minecraft.server.world.ServerWorld)this.getWorld()).spawnParticles(
                             net.minecraft.particle.ParticleTypes.LAVA,
@@ -243,11 +224,8 @@ public class MagnaMinionEntity extends HostileEntity {
             }
         }
 
-        // Den normalen Schaden trotzdem ausführen (wird durch Resi 4 eh fast 0 sein)
         return super.damage(source, amount);
     }
-
-    /* Sounds */
 
 
     @Override
@@ -273,14 +251,12 @@ public class MagnaMinionEntity extends HostileEntity {
     @Override
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
-        // Wir speichern den aktuellen Zähler unter dem Namen "GoldenApplesLeft"
         nbt.putInt("GoldenApplesLeft", this.goldenApplesLeft);
     }
 
     @Override
     public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
-        // Wir laden den Wert beim Neustart der Welt oder beim Spawn
         if (nbt.contains("GoldenApplesLeft")) {
             this.goldenApplesLeft = nbt.getInt("GoldenApplesLeft");
         }

@@ -48,10 +48,8 @@ public class TitanPlayerEntity extends HostileEntity {
     public @Nullable EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData) {
         entityData = super.initialize(world, difficulty, spawnReason, entityData);
 
-        // 1. Ausrüstung anlegen (Schwert & Rüstung)
         this.initEquipment(world.getRandom(), difficulty);
 
-        // 2. Schaden basierend auf Difficulty setzen (Easy: 1, Normal: 4, Hard: 7)
         double baseDamage = 1.0;
         if (world.getDifficulty() == net.minecraft.world.Difficulty.NORMAL) baseDamage = 4.0;
         if (world.getDifficulty() == net.minecraft.world.Difficulty.HARD) baseDamage = 7.0;
@@ -68,7 +66,6 @@ public class TitanPlayerEntity extends HostileEntity {
     protected void initEquipment(net.minecraft.util.math.random.Random random, LocalDifficulty localDifficulty) {
         var registryManager = this.getWorld().getRegistryManager();
         var enchantments = registryManager.getWrapperOrThrow(net.minecraft.registry.RegistryKeys.ENCHANTMENT);
-        // Rüstung setzen
         this.equipStack(EquipmentSlot.HEAD, new ItemStack(ModItems.TITANIUM_HELMET));
         this.equipStack(EquipmentSlot.CHEST, new ItemStack(ModItems.TITANIUM_CHESTPLATE));
         this.equipStack(EquipmentSlot.LEGS, new ItemStack(ModItems.TITANIUM_LEGGINGS));
@@ -76,12 +73,10 @@ public class TitanPlayerEntity extends HostileEntity {
         boots.addEnchantment(enchantments.getOrThrow(net.minecraft.enchantment.Enchantments.DEPTH_STRIDER), 3);
         this.equipStack(EquipmentSlot.FEET, boots);
 
-        // Waffe setzen
         ItemStack sword = new ItemStack(ModItems.TITANIUM_SWORD);
         sword.addEnchantment(enchantments.getOrThrow(net.minecraft.enchantment.Enchantments.KNOCKBACK), 1);
         sword.addEnchantment(enchantments.getOrThrow(net.minecraft.enchantment.Enchantments.FIRE_ASPECT), 1);
         this.equipStack(EquipmentSlot.MAINHAND, sword);
-        // Drop-Chancen auf 0 setzen (damit nichts gedroppt wird)
         for (EquipmentSlot slot : EquipmentSlot.values()) {
             this.setEquipmentDropChance(slot, 0.0f);
         }
@@ -105,8 +100,8 @@ public class TitanPlayerEntity extends HostileEntity {
         this.targetSelector.add(2, new ActiveTargetGoal<>(
                 this,
                 LivingEntity.class,
-                true,  // Sicht prüfen
-                target -> !(target instanceof TitanPlayerEntity) // hier alle TitanPlayer ausschließen
+                true,
+                target -> !(target instanceof TitanPlayerEntity)
         ));
     }
 
@@ -168,28 +163,6 @@ public class TitanPlayerEntity extends HostileEntity {
         builder.add(DATA_ID_TYPE_VARIANT,0);
         builder.add(ATTACKING,false);
     }
-/*
-    public MantisVariant getVariant() {
-        return MantisVariant.byId(this.getTypeVariant() & 255);
-    }
-
-    private int getTypeVariant() {
-        return this.dataTracker.get(DATA_ID_TYPE_VARIANT);
-    }
-
-    private void setVariant(MantisVariant variant) {
-        this.dataTracker.set(DATA_ID_TYPE_VARIANT, variant.getId() & 255);
-    }
-
-    @Override
-    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData) {
-        MantisVariant variant = Util.getRandom(MantisVariant.values(), this.random);
-        setVariant(variant);
-        return super.initialize(world, difficulty, spawnReason, entityData);
-    }
-
-    /* Sounds */
-
 
     @Override
     protected @Nullable SoundEvent getHurtSound(DamageSource source) {
@@ -211,27 +184,6 @@ public class TitanPlayerEntity extends HostileEntity {
         return SoundEvents.ENTITY_PLAYER_SPLASH;
     }
 
-    /* BossBar */
-    /*
-    @Override
-    public void onStartedTrackingBy(ServerPlayerEntity player) {
-        super.onStartedTrackingBy(player);
-        this.bossBar.addPlayer(player);
-    }
-
-    @Override
-    public void onStoppedTrackingBy(ServerPlayerEntity player) {
-        super.onStoppedTrackingBy(player);
-        this.bossBar.removePlayer(player);
-    }
-
-    @Override
-    protected void mobTick() {
-        super.mobTick();
-        this.bossBar.setPercent(this.getHealth() / this.getMaxHealth());
-    }
-    */
-
     public int getGoldenApplesLeft() {
         return this.goldenApplesLeft;
     }
@@ -251,14 +203,12 @@ public class TitanPlayerEntity extends HostileEntity {
     @Override
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
-        // Wir speichern den aktuellen Zähler unter dem Namen "GoldenApplesLeft"
         nbt.putInt("GoldenApplesLeft", this.goldenApplesLeft);
     }
 
     @Override
     public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
-        // Wir laden den Wert beim Neustart der Welt oder beim Spawn
         if (nbt.contains("GoldenApplesLeft")) {
             this.goldenApplesLeft = nbt.getInt("GoldenApplesLeft");
         }
