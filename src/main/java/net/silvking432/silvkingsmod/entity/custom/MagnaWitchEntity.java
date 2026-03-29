@@ -23,6 +23,7 @@ public class MagnaWitchEntity extends WitchEntity implements RangedAttackMob {
 
     public MagnaWitchEntity(EntityType<? extends WitchEntity> entityType, World world) {
         super(entityType, world);
+        this.setPersistent();
     }
 
     // --- Attribute (Etwas stärker als eine normale Hexe) ---
@@ -39,9 +40,7 @@ public class MagnaWitchEntity extends WitchEntity implements RangedAttackMob {
         this.goalSelector.getGoals().clear();
         this.targetSelector.getGoals().clear();
         this.goalSelector.add(1, new SwimGoal(this));
-        // Der ProjectileAttackGoal sorgt dafür, dass sie Distanz hält (zwischen 2 und 10 Blöcken)
         this.goalSelector.add(2, new ProjectileAttackGoal(this, 1.0, 60, 10.0F));
-        this.goalSelector.add(3, new WanderAroundFarGoal(this, 1.0));
         this.goalSelector.add(4, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(4, new LookAroundGoal(this));
 

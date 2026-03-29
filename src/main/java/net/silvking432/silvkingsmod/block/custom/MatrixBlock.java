@@ -6,7 +6,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -19,6 +18,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.silvking432.silvkingsmod.entity.ModEntities;
+import net.silvking432.silvkingsmod.item.ModItems;
 
 public class MatrixBlock extends Block {
     public MatrixBlock(Settings settings) {
@@ -32,7 +32,7 @@ public class MatrixBlock extends Block {
 
         if (!world.isClient) {
             // Prüfen, ob es ein Drachenei ist
-            if (itemStack.isOf(Items.DRAGON_EGG)) {
+            if (itemStack.isOf(ModItems.TITAN_HEART)) {
 
                 // 1. Nachricht senden
                 player.sendMessage(Text.literal("A mythical Creature has been called! The Magna Titan arrives!")

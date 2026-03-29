@@ -19,25 +19,27 @@ public class MagnaTitanMeleeGoal extends MeleeAttackGoal {
     @Override
     public boolean canStart() {
         // Attacke nur, wenn:
-        // 1. Basis-Bedingungen erfüllt (Ziel vorhanden etc.)
-        // 2. KEIN Schild aktiv
-        // 3. Er NICHT gerade trinkt (Potting)
-        // 4. Der Black Hole Move NICHT aktiv ist (Timer <= 0)
+        // 1. Basis-Bedingungen erfüllt
+        // 2. KEIN Schild/Potting/Healing/BlackHole
+        // 3. NEU: Boss ist NICHT im Stun (Bruch-Phase)
+        // 4. NEU: Boss ist NICHT in der Ult-Phase (Tennis)
         return super.canStart()
                 && !this.entity.isShieldActive()
                 && !this.entity.isPotting()
+                && !this.entity.isHealing()
                 && this.entity.getBlackHoleTimer() <= 0
-                && !this.entity.isHealing(); // NEU: Höre auf zu jagen, wenn geheilt wird
+                && this.entity.getStunTimer() <= 0;    // NEU: Kein Angriff im Stun
     }
 
     @Override
     public boolean shouldContinue() {
-        // Sofort abbrechen, wenn eine der Spezial-Phasen startet
+        // Sofort abbrechen, wenn eine der Spezial-Phasen oder der Stun startet
         return super.shouldContinue()
                 && !this.entity.isShieldActive()
                 && !this.entity.isPotting()
+                && !this.entity.isHealing()
                 && this.entity.getBlackHoleTimer() <= 0
-                && !this.entity.isHealing(); // NEU: Höre auf zu jagen, wenn geheilt wird
+                && this.entity.getStunTimer() <= 0;    // NEU: Abbruch bei Stun
     }
 
     @Override

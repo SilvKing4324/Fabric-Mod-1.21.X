@@ -35,7 +35,6 @@ public class ModEnchantments {
                 Enchantment.leveledCost(25,9),
                 2,
                 AttributeModifierSlot.MAINHAND))
-                .exclusiveSet(enchantments.getOrThrow(EnchantmentTags.DAMAGE_EXCLUSIVE_SET))
                 .addEffect(EnchantmentEffectComponentTypes.POST_ATTACK,
                         EnchantmentEffectTarget.ATTACKER, EnchantmentEffectTarget.VICTIM,
                         new LightningStrikerEnchantmentEffect()));

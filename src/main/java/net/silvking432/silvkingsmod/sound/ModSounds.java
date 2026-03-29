@@ -26,6 +26,17 @@ public class ModSounds {
     public static final SoundEvent NECRON_DOOM = registerSoundEvent("necron_doom");
     public static final RegistryKey<JukeboxSong> NECRON_DOOM_KEY = RegistryKey.of(RegistryKeys.JUKEBOX_SONG, Identifier.of(SilvKingsMod.MOD_ID,"necron_doom"));
 
+    public static final SoundEvent NECRON_INTRO1 = registerSoundEvent("music_necron_doom_intro1");
+    public static final SoundEvent NECRON_LOOP1 = registerSoundEvent("music_necron_doom_loop1");
+
+    public static final SoundEvent NECRON_INTRO2 = registerSoundEvent("music_necron_doom_intro2");
+    public static final SoundEvent NECRON_LOOP2 = registerSoundEvent("music_necron_doom_loop2");
+
+    public static final SoundEvent NECRON_INTRO3 = registerSoundEvent("music_necron_doom_intro3");
+    public static final SoundEvent NECRON_LOOP3 = registerSoundEvent("music_necron_doom_loop3");
+
+    public static final SoundEvent NECRON_INTRO4 = registerSoundEvent("music_necron_doom_intro4");
+    public static final SoundEvent NECRON_LOOP4 = registerSoundEvent("music_necron_doom_loop4");
 
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = Identifier.of(SilvKingsMod.MOD_ID, name);

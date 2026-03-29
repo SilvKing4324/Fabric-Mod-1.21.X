@@ -4,6 +4,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -22,9 +23,9 @@ public class LavaGolemEntity extends IronGolemEntity {
 
     public LavaGolemEntity(EntityType<? extends IronGolemEntity> entityType, World world) {
         super(entityType, world);
-        // Er soll keine Angst vor Lava haben beim Pathfinding
-        this.setPathfindingPenalty(net.minecraft.entity.ai.pathing.PathNodeType.LAVA, 0.0F);
-        this.setPathfindingPenalty(net.minecraft.entity.ai.pathing.PathNodeType.DANGER_FIRE, 0.0F);
+        this.setPathfindingPenalty(PathNodeType.LAVA, 0.0F);
+        this.setPathfindingPenalty(PathNodeType.DANGER_FIRE, 0.0F);
+        this.setPersistent();
     }
 
     // --- Attribute (Leben, Schaden, Speed) ---
@@ -73,7 +74,6 @@ public class LavaGolemEntity extends IronGolemEntity {
         // 1. Basis-Bewegung (Schwimmen, Herumlaufen, Schauen)
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.1D, false)); // Der eigentliche Angriff
-        this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0D));
         this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(8, new LookAroundGoal(this));
 

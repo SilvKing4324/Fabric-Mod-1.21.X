@@ -1,50 +1,50 @@
-/particle silvkingsmod:black_hole_particle ~ ~5 ~ 0.2 0.2 0.2 0 1 force @a
-/summon silvkingsmod:magna_titan
+/summon silvkingsmod:magna_titan ~ ~ ~ {NoAI:true}
+/summon silvkingsmod:magna_titan ~ ~ ~ {NoAI:true,attributes:[{id:"minecraft:generic.scale",base:1.2}]}
+/summon silvkingsmod:magna_titan ~ ~ ~ {NoAI:true,attributes:[{id:"minecraft:generic.scale",base:0.9}]}
 /kill @e[type=!minecraft:player]
-/summon silvkingsmod:magna_titan
+/summon silvkingsmod:magna_titan ~ ~ ~ {NoAI:true,attributes:[{id:"minecraft:generic.scale",base:1.2}]}
+/summon silvkingsmod:magna_titan ~ ~ ~ {NoAI:true,attributes:[{id:"minecraft:generic.scale",base:2.0}]}
 /kill @e[type=!minecraft:player]
-/tp @s 1680 ~ -352
-/kill @e[type=!minecraft:player]
-/summon minecraft:fireball
-/summon small_fireball ~ ~3 ~ {Item:{id:"minecraft:fire_charge",count:1,components:{"minecraft:custom_model_data":1}},power:[0.0,0.0,0.0]}
-/summon silvkingsmod:magna_titan
-/tp @s 1680 ~ -352
-/kill @e[type=!minecraft:player]
-/setworldspawn ~ ~ ~
-/gamerule keepInventory true
-/kill @e[type=!minecraft:player]
-/summon silvkingsmod:magna_titan
-/kill @e[type=!minecraft:player]
-/summon silvkingsmod:magna_titan
-/kill @e[type=!minecraft:player]
-/summon silvkingsmod:magna_titan
-/kill @e[type=!minecraft:player]
-/locate biome minecraft:plains
 /locate structure silvkingsmod:lava_arena
-/locate structure minecraft:mansion
+/tp @s -448 ~ -2240
 /locate structure silvkingsmod:lava_arena
-/tp @s -6400 ~ 1648
-/give Player584 minecraft:dragon_egg
-/weather clear
-/tp @s -6400 ~ 1648
+/tp @s -864 ~ 2720
+/effect give Player325 minecraft:strength infinite 20 true
 /kill @e[type=!minecraft:player]
-/summon silvkingsmod:magna_titan
+/tp @s -864 ~ 2720
 /locate structure silvkingsmod:lava_arena
-/tp @s -3360 ~ 3184
-/enchant @s minecraft:mending
-/enchant @s minecraft:feather_falling 5
-/enchant @s minecraft:feather_falling 4
-/enchant @s minecraft:swift_sneak 3
-/enchant @s minecraft:respiration 3
-/enchant @s minecraft:aqua_affinity
-/enchant @s minecraft:depth_strider 3
-/enchant @s silvkingsmod:lightning_striker 2
-/enchant @s silvkingsmod:lightning_striker 1
-/enchant @s minecraft:sweeping_edge 3
-/enchant @s minecraft:fire_aspect 2
-/enchant @s minecraft:soul_speed 3
-/tp @s -3360 ~ 3184
-/setworldspawn
-/gamerule keepInventory true
+/tp @s -4192 ~ -752
+/locate structure silvkingsmod:lava_arena
+/tp @s 1280 ~ 2992
 /kill @e[type=!minecraft:player]
-/give Player995 silvkingsmod:titanium_beacon
+/locate structure silvkingsmod:lava_arena
+/kill @e[type=!minecraft:player]
+/locate structure silvkingsmod:lava_arena
+/tp @s -496 ~ -608
+/locate structure silvkingsmod:lava_arena
+/kill @e[type=!minecraft:player]
+/locate structure silvkingsmod:lava_arena
+/tp @s -2048 ~ -512
+/kill @e[type=!minecraft:player]
+/tp @s -2048 ~ -512
+/kill @e[type=!minecraft:player]
+/damage @s 312 minecraft:mob_attack
+/damage @s 100 minecraft:mob_attack
+/locate structure silvkingsmod:lava_arena
+/tp @s 944 ~ -3024
+/damage @s 70 minecraft:mob_attack
+/tp @s 944 ~ -3024
+/kill @e[type=!minecraft:player]
+/locate structure silvkingsmod:lava_arena
+/tp @s -3776 ~ 4064
+/kill @e[type=!minecraft:player]
+/locate structure silvkingsmod:lava_arena
+/tp @s -2336 ~ 1344
+/kill @e[type=!minecraft:player]
+/tp @s -2336 ~ 1344
+/kill @e[type=!minecraft:player]
+/locate structure silvkingsmod:lava_arena
+/tp @s 48 ~ -1200
+/locate structure silvkingsmod:lava_arena
+/tp @s 48 ~ -1200
+/kill @e[type=!minecraft:player]

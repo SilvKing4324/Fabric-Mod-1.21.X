@@ -39,6 +39,7 @@ public class MagnaMinionEntity extends HostileEntity {
 
     public MagnaMinionEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
+        this.setPersistent();
     }
 
     @Override
@@ -82,10 +83,8 @@ public class MagnaMinionEntity extends HostileEntity {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new AttackGoal(this));
 
-        this.goalSelector.add(4, new WanderAroundFarGoal(this, 1.0D));
         this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 4.0F));
         this.goalSelector.add(6, new LookAroundGoal(this));
-        this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0));
 
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
         this.targetSelector.add(0, new RevengeGoal(this));

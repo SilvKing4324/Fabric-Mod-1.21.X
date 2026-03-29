@@ -44,6 +44,7 @@ public class ModItemGroups {
                         entries.add(ModItems.HYPERION);
                         entries.add(ModItems.SPECTRE_STAFF);
                         entries.add(ModItems.TITAN_PLAYER_SPAWN_EGG);
+                        entries.add(ModItems.TITAN_HEART);
 
                     }).build());
 
@@ -79,6 +80,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.GROWTH_CHAMBER);
                         entries.add(ModBlocks.TITANIUM_TNT);
                         entries.add(ModBlocks.MATRIX_BLOCK);
+                        entries.add(ModBlocks.TITANIUM_BEACON);
 
 
 

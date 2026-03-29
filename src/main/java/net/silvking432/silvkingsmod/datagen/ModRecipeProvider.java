@@ -113,6 +113,19 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModBlocks.DRIFTWOOD_LOG), conditionsFromItem(ModBlocks.DRIFTWOOD_LOG)) // Unlocks Recipe
                 .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"driftwood_wood_from_driftwood_planks"));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.TITAN_HEART,1)
+                .pattern("NAN")
+                .pattern("XSX")
+                .pattern("RXR")
+                .input('R', ModItems.TITANIUM_INGOT)
+                .input('X', Items.NETHER_STAR)
+                .input('S', ModItems.STARLIGHT_ASHES)
+                .input('N', Items.NETHERITE_INGOT)
+                .input('A', Items.AMETHYST_CLUSTER)
+
+                .criterion(hasItem(Items.NETHER_STAR), conditionsFromItem(Items.NETHER_STAR)) // Unlocks Recipe
+                .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"titan_heart_from_starlight_ashes"));
+
 
 
 

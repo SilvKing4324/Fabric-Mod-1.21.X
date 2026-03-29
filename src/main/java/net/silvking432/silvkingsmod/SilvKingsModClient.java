@@ -46,11 +46,11 @@ public class SilvKingsModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.MAGNA_WITCH, MagnaWitchRenderer::new);
         EntityRendererRegistry.register(ModEntities.MAGNA_FIREBALL, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.MAGNA_ANVIL, MagnaAnvilRenderer::new);
-
         EntityModelLayerRegistry.registerModelLayer(TomahawkProjectileModel.TOMAHAWK, TomahawkProjectileModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.TOMAHAWK, TomahawkProjectileRenderer::new);
         EntityRendererRegistry.register(ModEntities.CHAIR_ENTITY, ChairRenderer::new);
         EntityRendererRegistry.register(ModEntities.TITANIUM_TNT_ENTITY, TitaniumTntRenderer::new);
+        EntityRendererRegistry.register(ModEntities.MAGNA_BOMB, MagnaBombRenderer::new);
 
         ParticleFactoryRegistry.getInstance().register(ModParticles.STARLIGHT_ASHES_PARTICLE, StarlightAshesParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.BLACK_HOLE_PARTICLE, BlackHoleParticle.Factory::new);

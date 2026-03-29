@@ -12,10 +12,10 @@
     ]
   },
   "magic_block_step": {
-  "subtitle": "sounds.silvkingsmod.magic_block_step",
-  "sounds": [
-    "silvkingsmod:magic_block_step"
-  ]
+    "subtitle": "sounds.silvkingsmod.magic_block_step",
+    "sounds": [
+      "silvkingsmod:magic_block_step"
+    ]
   },
   "magic_block_place": {
     "subtitle": "sounds.silvkingsmod.magic_block_place",
@@ -38,10 +38,48 @@
   "necron_doom": {
     "subtitle": "sounds.silvkingsmod.necron_doom",
     "sounds": [
-      {
-        "name": "silvkingsmod:necron_doom",
-        "stream" : "true"
-      }
+      "silvkingsmod:necron_doom"
+    ]
+  },
+  "music_necron_doom_intro1": {
+    "subtitle": "subtitles.silvkingsmod.necron_doom",
+    "sounds": [
+      "silvkingsmod:music/necron_doom_intro1"
+    ]
+  },
+  "music_necron_doom_loop1": {
+    "sounds": [
+      "silvkingsmod:music/necron_doom_loop1"
+    ]
+  },
+  "music_necron_doom_intro2": {
+    "sounds": [
+      "silvkingsmod:music/necron_doom_intro2"
+    ]
+  },
+  "music_necron_doom_loop2": {
+    "sounds": [
+      "silvkingsmod:music/necron_doom_loop2"
+    ]
+  },
+  "music_necron_doom_intro3": {
+    "sounds": [
+      "silvkingsmod:music/necron_doom_intro3"
+    ]
+  },
+  "music_necron_doom_loop3": {
+    "sounds": [
+      "silvkingsmod:music/necron_doom_loop3"
+    ]
+  },
+  "music_necron_doom_intro4": {
+    "sounds": [
+      "silvkingsmod:music/necron_doom_intro4"
+    ]
+  },
+  "music_necron_doom_loop4": {
+    "sounds": [
+      "silvkingsmod:music/necron_doom_loop4"
     ]
   }
 }

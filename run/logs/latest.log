@@ -1,5 +1,5 @@
-[16:58:29] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.21 with Fabric Loader 0.17.2
-[16:58:29] [main/INFO] (FabricLoader) Loading 57 mods:
+[01:03:01] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.21 with Fabric Loader 0.17.2
+[01:03:01] [main/INFO] (FabricLoader) Loading 57 mods:
 	- fabric-api 0.102.0+1.21
 	- fabric-api-base 0.4.42+6573ed8cd1
 	- fabric-api-lookup-api-v1 1.6.68+b5597344d1
@@ -57,93 +57,119 @@
 	- mobhealthbar 2.3.0
 	- silvkingsmod 1.0.0
 	- worldedit 7.3.8+6939-7d32b45
-[16:58:33] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/Silvio%20Bergmann/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.3+mixin.0.8.7/3e535042688d1265447e52ad86950b7d9678a5fa/sponge-mixin-0.16.3+mixin.0.8.7.jar Service=Knot/Fabric Env=CLIENT
-[16:58:33] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
-[16:58:33] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_17
-[16:58:33] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_21
-[16:58:34] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.0).
-[16:58:36] [Datafixer Bootstrap/INFO] (Minecraft) 226 Datafixer optimizations took 440 milliseconds
-[16:58:40] [Render thread/INFO] (Minecraft) Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[16:58:40] [Render thread/INFO] (Minecraft) Setting user: Player558
-[16:58:40] [Render thread/INFO] (Minecraft) [STDOUT]: All 13 have been set properly
-[16:58:41] [Render thread/INFO] (PlatformManager) Got request to register class com.sk89q.worldedit.fabric.FabricPlatform with WorldEdit [com.sk89q.worldedit.extension.platform.PlatformManager@381db56]
-[16:58:41] [Render thread/INFO] (FabricWorldEdit) WorldEdit for Fabric (version 7.3.8+6939-7d32b45) is loaded
-[16:58:41] [Render thread/ERROR] (Minecraft) No data fixer registered for titanium_tnt_entity
-[16:58:41] [Render thread/INFO] (silvkingsmod) Registering Mod Items forsilvkingsmod
-[16:58:41] [Render thread/INFO] (silvkingsmod) Registering Mod Blocks for silvkingsmod
-[16:58:41] [Render thread/INFO] (silvkingsmod) Registering Item groups for silvkingsmod
-[16:58:41] [Render thread/INFO] (silvkingsmod) Registering Data Component Types for silvkingsmod
-[16:58:41] [Render thread/INFO] (silvkingsmod) Registering Effects for silvkingsmod
-[16:58:41] [Render thread/INFO] (silvkingsmod) Registering Mod Potions for silvkingsmod
-[16:58:41] [Render thread/INFO] (silvkingsmod) Registering Enchantment Effect for silvkingsmod
-[16:58:41] [Render thread/INFO] (silvkingsmod) Registering Mod Entities for silvkingsmod
-[16:58:41] [Render thread/INFO] (silvkingsmod) Registering Villagers for silvkingsmod
-[16:58:41] [Render thread/INFO] (silvkingsmod) Registering Villager Trades for silvkingsmod
-[16:58:41] [Render thread/INFO] (silvkingsmod) Registering Particles for silvkingsmod
-[16:58:41] [Render thread/INFO] (silvkingsmod) Registering block Entities for silvkingsmod
-[16:58:41] [Render thread/INFO] (silvkingsmod) Registering Screen handlers for silvkingsmod
-[16:58:41] [Render thread/INFO] (silvkingsmod) Registering Mod Recipes for silvkingsmod
-[16:58:41] [Render thread/WARN] (FuelRegistryImpl) Tried to register an overly high cookTime: 200000 > 32767! (silvkingsmod:starlight_ashes)
-[16:58:41] [Render thread/INFO] (Indigo) [Indigo] Registering Indigo renderer!
-[16:58:42] [Render thread/INFO] (Minecraft) Backend library: LWJGL version 3.3.3-snapshot
-[16:58:43] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-view-api-v2, fabric-blockrenderlayer-v1, fabric-client-tags-api-v1, fabric-command-api-v1, fabric-command-api-v2, fabric-commands-v0, fabric-content-registries-v0, fabric-convention-tags-v1, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-gametest-api-v1, fabric-item-api-v1, fabric-item-group-api-v1, fabric-key-binding-api-v1, fabric-keybindings-v0, fabric-lifecycle-events-v1, fabric-loot-api-v2, fabric-loot-api-v3, fabric-message-api-v1, fabric-model-loading-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-renderer-api-v1, fabric-renderer-indigo, fabric-renderer-registries-v1, fabric-rendering-data-attachment-v1, fabric-rendering-fluids-v1, fabric-rendering-v0, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-screen-api-v1, fabric-screen-handler-api-v1, fabric-sound-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader, mobhealthbar, silvkingsmod, worldedit
-[16:58:43] [Worker-Main-4/INFO] (Minecraft) Found unifont_all_no_pua-15.1.05.hex, loading
-[16:58:43] [Worker-Main-10/INFO] (Minecraft) Found unifont_jp_patch-15.1.05.hex, loading
-[16:58:43] [Worker-Main-10/WARN] (Minecraft) Invalid frame index on sprite minecraft:item/fire_charge/1 frame 4: 4
-[16:58:44] [Worker-Main-5/WARN] (Minecraft) Texture silvkingsmod:item/titanium_axe with size 300x300 limits mip level from 4 to 2
-[16:58:44] [Worker-Main-5/WARN] (Minecraft) Texture silvkingsmod:block/titanium_nether_ore with size 370x370 limits mip level from 2 to 1
-[16:58:44] [Worker-Main-5/WARN] (Minecraft) minecraft:textures/atlas/blocks.png: dropping miplevel from 4 to 1, because of minimum power of two: 2
-[16:58:44] [Worker-Main-10/WARN] (Minecraft) Unable to load model: 'minecraft:item/fire_charge/2' referenced from: minecraft:item/fire_charge: java.io.FileNotFoundException: minecraft:models/item/fire_charge/2.json
-[16:58:44] [Worker-Main-10/WARN] (Minecraft) Unable to load model: 'minecraft:item/fire_charge/3' referenced from: minecraft:item/fire_charge: java.io.FileNotFoundException: minecraft:models/item/fire_charge/3.json
-[16:58:44] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
-[16:58:44] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
-[16:58:45] [Render thread/INFO] (Minecraft) OpenAL initialized on device OpenAL Soft on Headphones (3- High Definition Audio Device)
-[16:58:45] [Render thread/INFO] (Minecraft) Sound engine started
-[16:58:45] [Render thread/INFO] (Minecraft) Created: 4096x2048x1 minecraft:textures/atlas/blocks.png-atlas
-[16:58:45] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
-[16:58:45] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
-[16:58:45] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
-[16:58:45] [Render thread/INFO] (Minecraft) Created: 2048x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
-[16:58:45] [Render thread/INFO] (Minecraft) Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
-[16:58:45] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
-[16:58:45] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
-[16:58:45] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
-[16:58:45] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
-[16:58:45] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
-[16:58:45] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[16:58:45] [Render thread/INFO] (Minecraft) Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
-[16:58:45] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
-[16:58:45] [Render thread/WARN] (Minecraft) Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
-[16:58:49] [Worker-Main-7/INFO] (PlatformCommandManager) Registering commands with com.sk89q.worldedit.fabric.FabricPlatform
-[16:58:49] [Render thread/INFO] (Minecraft) Loaded 1313 recipes
-[16:58:49] [Render thread/INFO] (Minecraft) Loaded 1420 advancements
-[16:58:50] [Render thread/INFO] (BiomeModificationImpl) Applied 66 biome modifications to 63 of 64 new biomes in 7.322 ms
-[16:58:50] [Server thread/INFO] (Minecraft) Starting integrated minecraft server version 1.21
-[16:58:50] [Server thread/INFO] (Minecraft) Generating keypair
-[16:58:51] [Server thread/INFO] (Minecraft) Preparing start region for dimension minecraft:overworld
-[16:58:51] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
-[16:58:51] [Render thread/INFO] (Minecraft) Time elapsed: 476 ms
-[16:58:52] [Server thread/WARN] (TranslationConventionLogWarnings) 
+[01:03:06] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/Silvio%20Bergmann/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.3+mixin.0.8.7/3e535042688d1265447e52ad86950b7d9678a5fa/sponge-mixin-0.16.3+mixin.0.8.7.jar Service=Knot/Fabric Env=CLIENT
+[01:03:06] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
+[01:03:06] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_17
+[01:03:06] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_21
+[01:03:07] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.0).
+[01:03:08] [Datafixer Bootstrap/INFO] (Minecraft) 226 Datafixer optimizations took 488 milliseconds
+[01:03:14] [Render thread/INFO] (Minecraft) Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[01:03:14] [Render thread/INFO] (Minecraft) Setting user: Player165
+[01:03:15] [Render thread/INFO] (PlatformManager) Got request to register class com.sk89q.worldedit.fabric.FabricPlatform with WorldEdit [com.sk89q.worldedit.extension.platform.PlatformManager@6a86239f]
+[01:03:16] [Render thread/INFO] (FabricWorldEdit) WorldEdit for Fabric (version 7.3.8+6939-7d32b45) is loaded
+[01:03:16] [Render thread/ERROR] (Minecraft) No data fixer registered for titanium_tnt_entity
+[01:03:16] [Render thread/INFO] (silvkingsmod) Registering Mod Items forsilvkingsmod
+[01:03:16] [Render thread/INFO] (silvkingsmod) Registering Mod Blocks for silvkingsmod
+[01:03:16] [Render thread/INFO] (silvkingsmod) Registering Item groups for silvkingsmod
+[01:03:16] [Render thread/INFO] (silvkingsmod) Registering Data Component Types for silvkingsmod
+[01:03:16] [Render thread/INFO] (silvkingsmod) Registering Effects for silvkingsmod
+[01:03:16] [Render thread/INFO] (silvkingsmod) Registering Mod Potions for silvkingsmod
+[01:03:16] [Render thread/INFO] (silvkingsmod) Registering Enchantment Effect for silvkingsmod
+[01:03:16] [Render thread/INFO] (silvkingsmod) Registering Mod Entities for silvkingsmod
+[01:03:16] [Render thread/INFO] (silvkingsmod) Registering Villagers for silvkingsmod
+[01:03:16] [Render thread/INFO] (silvkingsmod) Registering Villager Trades for silvkingsmod
+[01:03:16] [Render thread/INFO] (silvkingsmod) Registering Particles for silvkingsmod
+[01:03:16] [Render thread/INFO] (silvkingsmod) Registering block Entities for silvkingsmod
+[01:03:16] [Render thread/INFO] (silvkingsmod) Registering Screen handlers for silvkingsmod
+[01:03:16] [Render thread/INFO] (silvkingsmod) Registering Mod Recipes for silvkingsmod
+[01:03:16] [Render thread/WARN] (FuelRegistryImpl) Tried to register an overly high cookTime: 200000 > 32767! (silvkingsmod:starlight_ashes)
+[01:03:16] [Render thread/INFO] (Minecraft) [STDOUT]: All 13 have been set properly
+[01:03:16] [Render thread/INFO] (Indigo) [Indigo] Registering Indigo renderer!
+[01:03:17] [Render thread/INFO] (Minecraft) Backend library: LWJGL version 3.3.3-snapshot
+[01:03:18] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-view-api-v2, fabric-blockrenderlayer-v1, fabric-client-tags-api-v1, fabric-command-api-v1, fabric-command-api-v2, fabric-commands-v0, fabric-content-registries-v0, fabric-convention-tags-v1, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-gametest-api-v1, fabric-item-api-v1, fabric-item-group-api-v1, fabric-key-binding-api-v1, fabric-keybindings-v0, fabric-lifecycle-events-v1, fabric-loot-api-v2, fabric-loot-api-v3, fabric-message-api-v1, fabric-model-loading-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-renderer-api-v1, fabric-renderer-indigo, fabric-renderer-registries-v1, fabric-rendering-data-attachment-v1, fabric-rendering-fluids-v1, fabric-rendering-v0, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-screen-api-v1, fabric-screen-handler-api-v1, fabric-sound-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader, mobhealthbar, silvkingsmod, worldedit
+[01:03:18] [Worker-Main-3/INFO] (Minecraft) Found unifont_all_no_pua-15.1.05.hex, loading
+[01:03:18] [Worker-Main-10/INFO] (Minecraft) Found unifont_jp_patch-15.1.05.hex, loading
+[01:03:18] [Worker-Main-1/WARN] (Minecraft) Invalid frame index on sprite minecraft:item/fire_charge/1 frame 4: 4
+[01:03:18] [Worker-Main-2/WARN] (Minecraft) Texture silvkingsmod:item/titanium_axe with size 300x300 limits mip level from 4 to 2
+[01:03:18] [Worker-Main-2/WARN] (Minecraft) Texture silvkingsmod:block/titanium_nether_ore with size 370x370 limits mip level from 2 to 1
+[01:03:18] [Worker-Main-2/WARN] (Minecraft) minecraft:textures/atlas/blocks.png: dropping miplevel from 4 to 1, because of minimum power of two: 2
+[01:03:19] [Worker-Main-11/WARN] (Minecraft) Unable to load model: 'minecraft:item/fire_charge/2' referenced from: minecraft:item/fire_charge: java.io.FileNotFoundException: minecraft:models/item/fire_charge/2.json
+[01:03:19] [Worker-Main-11/WARN] (Minecraft) Unable to load model: 'minecraft:item/fire_charge/3' referenced from: minecraft:item/fire_charge: java.io.FileNotFoundException: minecraft:models/item/fire_charge/3.json
+[01:03:19] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
+[01:03:19] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[01:03:19] [Render thread/INFO] (Minecraft) OpenAL initialized on device OpenAL Soft on Headphones (3- High Definition Audio Device)
+[01:03:19] [Render thread/INFO] (Minecraft) Sound engine started
+[01:03:19] [Render thread/INFO] (Minecraft) Created: 4096x2048x1 minecraft:textures/atlas/blocks.png-atlas
+[01:03:19] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[01:03:19] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[01:03:19] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[01:03:19] [Render thread/INFO] (Minecraft) Created: 2048x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[01:03:19] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[01:03:19] [Render thread/INFO] (Minecraft) Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[01:03:19] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[01:03:19] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[01:03:19] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[01:03:19] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[01:03:19] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[01:03:19] [Render thread/INFO] (Minecraft) Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[01:03:19] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[01:03:19] [Render thread/WARN] (Minecraft) Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[01:03:24] [Worker-Main-10/INFO] (PlatformCommandManager) Registering commands with com.sk89q.worldedit.fabric.FabricPlatform
+[01:03:24] [Render thread/INFO] (Minecraft) Loaded 1314 recipes
+[01:03:24] [Render thread/INFO] (Minecraft) Loaded 1421 advancements
+[01:03:25] [Render thread/INFO] (BiomeModificationImpl) Applied 66 biome modifications to 63 of 64 new biomes in 7.897 ms
+[01:03:25] [Server thread/INFO] (Minecraft) Starting integrated minecraft server version 1.21
+[01:03:25] [Server thread/INFO] (Minecraft) Generating keypair
+[01:03:26] [Server thread/INFO] (Minecraft) Preparing start region for dimension minecraft:overworld
+[01:03:26] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
+[01:03:26] [Render thread/INFO] (Minecraft) Time elapsed: 371 ms
+[01:03:27] [Server thread/WARN] (TranslationConventionLogWarnings) 
 	Dev warning - Untranslated Item Tags detected. Please translate your item tags so other mods such as recipe viewers can properly display your tag's name.
 	The format desired is tag.item.<namespace>.<path> for the translation key with slashes in path turned into periods.
 	To disable this message, set this system property in your runs: `-Dfabric-tag-conventions-v2.missingTagTranslationWarning=SILENCED`.
 	To see individual untranslated item tags found, set the system property to `-Dfabric-tag-conventions-v2.missingTagTranslationWarning=VERBOSE`.
 	Default is `SHORT`.
 
-[16:58:52] [Server thread/INFO] (Minecraft) Changing view distance to 16, from 10
-[16:58:52] [Server thread/INFO] (Minecraft) Changing simulation distance to 8, from 0
-[16:58:53] [Server thread/INFO] (Minecraft) Player558[local:E:7390e3da] logged in with entity id 44 at (-3294.704824350215, 86.0, 3249.57113283955)
-[16:58:53] [Server thread/INFO] (Minecraft) Player558 joined the game
-[16:58:53] [Server thread/INFO] (Minecraft) Player558 has reached the goal [The Next Generation]
-[16:58:53] [Render thread/WARN] (Minecraft) Unknown recipe category: silvkingsmod:growth_chamber/silvkingsmod:titanium_ingot_from_growth_chamber
-[16:58:53] [Render thread/WARN] (Minecraft) Unknown recipe category: silvkingsmod:growth_chamber/silvkingsmod:coal_from_growth_chamber
-[16:58:53] [Render thread/INFO] (Minecraft) [System] [CHAT] Player558 has reached the goal [The Next Generation]
-[16:58:53] [Render thread/INFO] (Minecraft) Loaded 6 advancements
-[16:58:58] [Render thread/INFO] (Minecraft) [System] [CHAT] A mythical Creature has been called! The Magna Titan arrives!
-[16:58:59] [Server thread/INFO] (Minecraft) [Player558: Set own game mode to Survival Mode]
-[16:58:59] [Render thread/INFO] (Minecraft) [System] [CHAT] Set own game mode to Survival Mode
-[16:59:01] [Render thread/INFO] (Minecraft) Loaded 26 advancements
-[16:59:11] [Render thread/INFO] (Minecraft) Loaded 62 advancements
-[17:04:13] [Server thread/INFO] (Minecraft) [Player558: Stopped sound 'silvkingsmod:necron_doom' on source 'record']
-[17:04:13] [Render thread/INFO] (Minecraft) [System] [CHAT] Stopped sound 'silvkingsmod:necron_doom' on source 'record'
-[17:04:13] [Render thread/INFO] (Minecraft) [System] [CHAT] The Earth shakes as the titan falls. Everything breaks apart!
+[01:03:27] [Server thread/INFO] (Minecraft) Changing view distance to 11, from 10
+[01:03:27] [Server thread/INFO] (Minecraft) Changing simulation distance to 8, from 0
+[01:03:28] [Server thread/INFO] (Minecraft) Player165[local:E:ad17322c] logged in with entity id 42 at (41.5, 65.0, 52.5)
+[01:03:28] [Server thread/INFO] (Minecraft) Player165 joined the game
+[01:03:28] [Render thread/WARN] (Minecraft) Unknown recipe category: silvkingsmod:growth_chamber/silvkingsmod:titanium_ingot_from_growth_chamber
+[01:03:28] [Render thread/WARN] (Minecraft) Unknown recipe category: silvkingsmod:growth_chamber/silvkingsmod:coal_from_growth_chamber
+[01:03:28] [Render thread/INFO] (Minecraft) Loaded 2 advancements
+[01:03:44] [Server thread/INFO] (Minecraft) Locating element silvkingsmod:lava_arena took 162 ms
+[01:03:44] [Render thread/INFO] (Minecraft) [System] [CHAT] The nearest silvkingsmod:lava_arena is at [48, ~, -1200] (1271 blocks away)
+[01:03:45] [Server thread/INFO] (Minecraft) [Player165: Teleported Player165 to 48.500000, 75.287231, -1199.500000]
+[01:03:45] [Render thread/INFO] (Minecraft) [System] [CHAT] Teleported Player165 to 48.500000, 75.287231, -1199.500000
+[01:03:46] [Render thread/INFO] (Minecraft) [System] [CHAT] [BOSS] Magma Titan: I have enough of this! Its time to show you my real power! Just give me some time to cast my death bomb!
+[01:03:50] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[01:03:50] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[01:03:50] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[01:03:50] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[01:03:55] [Server thread/INFO] (Minecraft) Villager VillagerEntity['Villager'/1081, l='ServerLevel[New World]', x=91.50, y=80.00, z=-1083.50] died, message: 'Villager was killed'
+[01:03:55] [Render thread/INFO] (Minecraft) Villager VillagerEntity['Villager'/1081, l='ClientLevel', x=91.50, y=80.56, z=-1082.50] died, message: 'Villager died'
+[01:03:55] [Server thread/INFO] (Minecraft) Villager VillagerEntity['Villager'/1235, l='ServerLevel[New World]', x=109.50, y=99.00, z=-1045.50] died, message: 'Villager was killed'
+[01:03:55] [Server thread/INFO] (Minecraft) Villager VillagerEntity['Villager'/1316, l='ServerLevel[New World]', x=96.26, y=91.00, z=-1030.55] died, message: 'Villager was killed'
+[01:03:55] [Render thread/INFO] (Minecraft) Villager VillagerEntity['Villager'/1235, l='ClientLevel', x=108.50, y=99.56, z=-1043.50] died, message: 'Villager died'
+[01:03:55] [Render thread/INFO] (Minecraft) Villager VillagerEntity['Villager'/1316, l='ClientLevel', x=96.26, y=91.00, z=-1030.55] died, message: 'Villager died'
+[01:03:55] [Server thread/INFO] (Minecraft) [Player165: Killed 304 entities]
+[01:03:55] [Render thread/INFO] (Minecraft) [System] [CHAT] Killed 304 entities
+[01:03:56] [Render thread/INFO] (Minecraft) [System] [CHAT] Saved screenshot as 2026-03-29_01.03.56.png
+[01:03:57] [Render thread/INFO] (Minecraft) [System] [CHAT] [BOSS] Magma Titan: Just give me 90 more seconds! And dont dare to stand in the glowing circles to deflect my Magna Bombs 5 times in a row to stop me!
+[01:03:57] [Render thread/INFO] (Minecraft) [System] [CHAT] Saved screenshot as 2026-03-29_01.03.57.png
+[01:04:28] [Render thread/INFO] (Minecraft) [System] [CHAT] [BOSS] Magma Titan: This... this is impossible! But don't celebrate yet, this stun won't last forever!
+[01:04:32] [Server thread/INFO] (Minecraft) [Player165: Set own game mode to Survival Mode]
+[01:04:32] [Render thread/INFO] (Minecraft) [System] [CHAT] Set own game mode to Survival Mode
+[01:04:37] [Server thread/INFO] (Minecraft) [Player165: Set own game mode to Spectator Mode]
+[01:04:37] [Render thread/INFO] (Minecraft) [System] [CHAT] Set own game mode to Spectator Mode
+[01:04:41] [Server thread/INFO] (Minecraft) [Player165: Set own game mode to Creative Mode]
+[01:04:41] [Render thread/INFO] (Minecraft) [System] [CHAT] Set own game mode to Creative Mode
+[01:06:30] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[01:06:30] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[01:06:30] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[01:06:30] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[01:08:18] [Render thread/INFO] (Minecraft) Loaded 3 advancements
+[01:08:42] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[01:08:42] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[01:08:42] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[01:08:42] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end

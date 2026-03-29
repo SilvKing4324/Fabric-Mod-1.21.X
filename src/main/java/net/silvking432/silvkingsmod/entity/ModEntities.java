@@ -63,7 +63,13 @@ public class ModEntities {
     public static final EntityType<MagnaAnvilEntity> MAGNA_ANVIL = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(SilvKingsMod.MOD_ID, "magna_anvil"),
             EntityType.Builder.<MagnaAnvilEntity>create(MagnaAnvilEntity::new, SpawnGroup.MISC)
-                    .dimensions(1.5f, 1.5f) // Größere Hitbox, weil der Amboss ja riesig ist!
+                    .dimensions(4.0f, 2.2f) // Größere Hitbox, weil der Amboss ja riesig ist!
+                    .build());
+
+    public static final EntityType<MagnaBombEntity> MAGNA_BOMB = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "magna_bomb"),
+            EntityType.Builder.<MagnaBombEntity>create(MagnaBombEntity::new, SpawnGroup.MISC)
+                    .dimensions(2.5f, 2.5f) // Größere Hitbox, weil der Amboss ja riesig ist!
                     .build());
 
 
