@@ -5,59 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c1b1156-a927-48e6-80ed-0262f43d7cf4" name="Changes" comment="Improved the boss in design and quality">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaBombRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaBombEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/item/custom/SpectreStaffItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/sounds/music/necron_doom_intro1.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/sounds/music/necron_doom_intro2.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/sounds/music/necron_doom_intro3.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/sounds/music/necron_doom_intro4.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/sounds/music/necron_doom_loop1.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/sounds/music/necron_doom_loop2.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/sounds/music/necron_doom_loop3.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/sounds/music/necron_doom_loop4.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/textures/item/titan_heart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/textures/item/titan_heart.png.mcmeta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/command_history.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/command_history.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/config/fabric/indigo-renderer.properties" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/fabric/indigo-renderer.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/hotbar.nbt" beforeDir="false" afterPath="$PROJECT_DIR$/run/hotbar.nbt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-1.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-2.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-3.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-4.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-5.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/latest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/options.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/options.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/usercache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/generated/.cache/087ef078d96fd31e7d46d9a7a76c08908081e024" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/generated/.cache/087ef078d96fd31e7d46d9a7a76c08908081e024" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/generated/.cache/43401c8f3c7ff44e15428c14684be0623ecb2303" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/generated/.cache/43401c8f3c7ff44e15428c14684be0623ecb2303" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/generated/.cache/4a9d3a0e5dd3e0a4b9bca44e474389eafe75e406" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/generated/.cache/4a9d3a0e5dd3e0a4b9bca44e474389eafe75e406" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/generated/.cache/653244295f78c93ef6bf896855dcccc32c7e2a35" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/generated/.cache/653244295f78c93ef6bf896855dcccc32c7e2a35" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/generated/.cache/7f64a8e22e73817aced9eda65c9669f276af6df0" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/generated/.cache/7f64a8e22e73817aced9eda65c9669f276af6df0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/generated/.cache/a5e6c41396a05146e38983c4d3e75a4bf4a33643" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/generated/.cache/a5e6c41396a05146e38983c4d3e75a4bf4a33643" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/generated/data/silvkingsmod/enchantment/lightning_striker.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/generated/data/silvkingsmod/enchantment/lightning_striker.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/SilvKingsModClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/SilvKingsModClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/block/custom/MatrixBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/block/custom/MatrixBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/block/custom/TitaniumBeaconBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/block/custom/TitaniumBeaconBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/datagen/ModModelProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/datagen/ModModelProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/datagen/ModRecipeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/datagen/ModRecipeProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/enchantment/ModEnchantments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/enchantment/ModEnchantments.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ModEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ModEntities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ai/MagnaTitanMeleeGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ai/MagnaTitanMeleeGoal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaAnvilRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaAnvilRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/LavaGolemEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/LavaGolemEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaAnvilEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaAnvilEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaMinionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaMinionEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaTitanEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaTitanEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaWitchEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaWitchEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/item/ModItemGroups.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/item/ModItemGroups.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/item/ModItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/item/ModItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/sound/ModSounds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/sound/ModSounds.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/lang/en_us.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/sounds.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/sounds.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaBombRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaBombRenderer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +202,7 @@
       <workItem from="1774369415183" duration="31788000" />
       <workItem from="1774443183120" duration="19590000" />
       <workItem from="1774470804728" duration="14031000" />
-      <workItem from="1774540043431" duration="55263000" />
+      <workItem from="1774540043431" duration="55584000" />
     </task>
     <task id="LOCAL-00001" summary="added very important comment">
       <option name="closed" value="true" />
@@ -464,7 +412,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774542503977</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Improved the boss in design and quality">
+      <option name="closed" value="true" />
+      <created>1774743159183</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1774743159183</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
