@@ -14,6 +14,9 @@ public class ModPotions {
     public static final RegistryEntry<Potion> SLIMEY_POTION = registerPotion("slimey_potion",
             new Potion(new StatusEffectInstance(ModEffects.SLIMEY, 1200, 0)));
 
+    public static final RegistryEntry<Potion> VULNERABILITY_POTION = registerPotion("vulnerability_potion",
+            new Potion(new StatusEffectInstance(ModEffects.VULNERABILITY, 3600, 0)));
+
     private static RegistryEntry<Potion> registerPotion(String name, Potion potion) {
         return Registry.registerReference(Registries.POTION, Identifier.of(SilvKingsMod.MOD_ID, name), potion);
     }

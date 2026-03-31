@@ -51,6 +51,7 @@ public class ModBlocks {
     public static final Block TITANIUM_TNT = registerBlock("titanium_tnt", new TitaniumTntBlock(AbstractBlock.Settings.create().mapColor(MapColor.BLUE).breakInstantly().sounds(BlockSoundGroup.GRASS).burnable().solidBlock(Blocks::never)));
     public static final Block MATRIX_BLOCK = registerBlock("matrix_block", new MatrixBlock(AbstractBlock.Settings.create().strength(100f, 100f).requiresTool().sounds(BlockSoundGroup.METAL)));
     public static final Block TITANIUM_BEACON = registerBlock("titanium_beacon", new TitaniumBeaconBlock(AbstractBlock.Settings.create().strength(8f, 4f).requiresTool().sounds(BlockSoundGroup.GLASS).luminance(state -> 15).nonOpaque()));
+    public static final Block TRAPPED_SAND = registerBlock("trapped_sand", new TrappedSandBlock(AbstractBlock.Settings.copy(Blocks.SAND)));
 
 
     public static Block registerBlock(String name, Block block) {

@@ -20,8 +20,11 @@
   "item.silvkingsmod.necron_doom_music_disc": "Necron Doom Music Disc",
   "item.silvkingsmod.necron_doom_music_disc.desc": "ShinkoNet - Necron Doom",
   "item.minecraft.lingering_potion.effect.slimey_potion" : "Lingering Potion of Slimey",
+  "item.minecraft.lingering_potion.effect.vulnerability_potion" : "Lingering Potion of Vulnerability",
   "item.minecraft.splash_potion.effect.slimey_potion" : "Splash Potion of Slimey",
+  "item.minecraft.splash_potion.effect.vulnerability_potion" : "Splash Potion of Vulnerability",
   "item.minecraft.potion.effect.slimey_potion" : "Potion of Slimey",
+  "item.minecraft.potion.effect.vulnerability_potion" : "Potion of Vulnerability",
   "item.silvkingsmod.super_flower_seeds": "Superflower Seeds",
   "item.silvkingsmod.honey_berries": "Honey Berries",
   "item.silvkingsmod.mantis_spawn_egg": "Mantis Spawn Egg",
@@ -64,8 +67,10 @@
   "block.silvkingsmod.titanium_tnt": "Titan TNT",
   "block.silvkingsmod.matrix_block": "Matrix Block",
   "block.silvkingsmod.titanium_beacon": "Titanium Beacon",
+  "block.silvkingsmod.trapped_sand": "Trapped Sand",
 
   "effect.silvkingsmod.slimey": "Slimey",
+  "effect.silvkingsmod.vulnerability": "Vulnerability",
 
   "painting.silvkingsmod.world.title" : "World",
   "painting.silvkingsmod.world.author" : "NanoAttack",

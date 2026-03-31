@@ -58,6 +58,7 @@ public class SilvKingsMod implements ModInitializer {
 		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
 
 		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> builder.registerPotionRecipe(Potions.AWKWARD, Items.SLIME_BALL, ModPotions.SLIMEY_POTION));
+		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> builder.registerPotionRecipe(Potions.AWKWARD, ModItems.HONEY_BERRIES, ModPotions.VULNERABILITY_POTION));
 
 		CompostingChanceRegistry.INSTANCE.add(ModItems.SUPER_FLOWER, 0.7f);
 		CompostingChanceRegistry.INSTANCE.add(ModItems.SUPER_FLOWER_SEEDS, 0.35f);

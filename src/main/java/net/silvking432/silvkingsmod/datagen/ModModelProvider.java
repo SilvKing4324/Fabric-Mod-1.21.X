@@ -31,6 +31,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTrapdoor(ModBlocks.TITANIUM_TRAPDOOR);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TITANIUM_TNT);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MATRIX_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TRAPPED_SAND);
 
 
         titanium_pool.stairs(ModBlocks.TITANIUM_STAIRS);

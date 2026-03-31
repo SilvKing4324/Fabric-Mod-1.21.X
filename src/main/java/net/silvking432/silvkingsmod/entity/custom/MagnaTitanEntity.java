@@ -1,56 +1,41 @@
 package net.silvking432.silvkingsmod.entity.custom;
 
 import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.CustomModelDataComponent;
-import net.minecraft.component.type.PotionContentsComponent;
+import net.minecraft.component.type.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.attribute.DefaultAttributeContainer;
-import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.boss.BossBar;
-import net.minecraft.entity.boss.ServerBossBar;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.damage.DamageTypes;
-import net.minecraft.entity.data.DataTracker;
-import net.minecraft.entity.data.TrackedData;
-import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.attribute.*;
+import net.minecraft.entity.boss.*;
+import net.minecraft.entity.damage.*;
+import net.minecraft.entity.data.*;
+import net.minecraft.entity.effect.*;
+import net.minecraft.entity.mob.*;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.packet.s2c.play.*;
-import net.minecraft.particle.DustParticleEffect;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.Potions;
+import net.minecraft.particle.*;
+import net.minecraft.potion.*;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
+import net.minecraft.sound.*;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.world.Heightmap;
-import net.minecraft.world.LocalDifficulty;
-import net.minecraft.world.ServerWorldAccess;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 import net.silvking432.silvkingsmod.block.ModBlocks;
+import net.silvking432.silvkingsmod.effect.ModEffects;
 import net.silvking432.silvkingsmod.entity.ModEntities;
+import net.silvking432.silvkingsmod.entity.ai.MagnaTitanJumpAttackGoal;
 import net.silvking432.silvkingsmod.entity.ai.MagnaTitanMeleeGoal;
 import net.silvking432.silvkingsmod.item.ModItems;
 import net.silvking432.silvkingsmod.particle.ModParticles;
 import net.silvking432.silvkingsmod.sound.ModSounds;
+
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,23 +53,12 @@ public class MagnaTitanEntity extends HostileEntity {
     }
 
     private int pottingTimer = -1;
-    private int pendingStrengthLevel = 0;
-    private int blackHoleTimer = 0;
-    private int fireballCooldown = 0;
-    private int anvilCooldown = 0;
-    private int anvilDropsLeft = 0;
-    private int anvilJumpTimer = 0;
-    private int healMoveCooldown = 0;
-    private int healTicksActive = 0;
-    private int idleAnimationTimeout = 0;
-    private int minionCount = 0;
-    private int ultCountdown = 0;
-    private int failTimer = 0;
-    private int ultPhaseTimer = 0;
-    private int ultDeflections = 0;
+    private int idleAnimationTimeout = 0, musicPhase = 0;
+    private int fireballCooldown = 0, pendingStrengthLevel = 0, minionCount = 0;
+    private int anvilCooldown = 0, anvilDropsLeft = 0, anvilJumpTimer = 0;
+    private int healMoveCooldown = 0, healTicksActive = 0;
+    private int blackHoleTimer = 0, ultCountdown = 0, ultPhaseTimer = 0, ultDeflections = 0, failTimer = 0;
     private int stunTimer = 0;
-    private int musicPhase = 0;
-
 
     public int attackAnimationTimeout = 0;
 
@@ -94,13 +68,8 @@ public class MagnaTitanEntity extends HostileEntity {
     public final AnimationState idleAnimationState = new AnimationState();
     public final AnimationState attackAnimationState = new AnimationState();
 
-    private boolean phase1Triggered = false;
-    private boolean phase2Triggered = false;
-    private boolean phase3Triggered = false;
-    private boolean hasDone56Blowback = false;
-    private boolean hasDone26Blowback = false;
-    private boolean hasDoneBlackHole = false;
-    private boolean ultPhaseTriggered = false;
+    private boolean phase1Triggered = false, phase2Triggered = false, phase3Triggered = false, ultPhaseTriggered = false;
+    private boolean hasDone56Blowback = false, hasDone26Blowback = false, hasDoneBlackHole = false;
     private boolean phaseShiftPending = false;
 
     private static final TrackedData<Boolean> RAGE_MODE =
@@ -115,7 +84,7 @@ public class MagnaTitanEntity extends HostileEntity {
 
     private Entity currentUltProjectile;
 
-    private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Magna Titan"), BossBar.Color.RED, BossBar.Style.NOTCHED_6);
+    private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Magna Titan"), BossBar.Color.BLUE, BossBar.Style.NOTCHED_6);
 
     public MagnaTitanEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
@@ -178,8 +147,9 @@ public class MagnaTitanEntity extends HostileEntity {
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new MagnaTitanMeleeGoal(this, 1.2D, true));
-        this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 4.0F));
-        this.goalSelector.add(3, new LookAroundGoal(this));
+        this.goalSelector.add(1, new MagnaTitanJumpAttackGoal(this));
+        this.goalSelector.add(3, new LookAtEntityGoal(this, PlayerEntity.class, 4.0F));
+        this.goalSelector.add(4, new LookAroundGoal(this));
 
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
         this.targetSelector.add(0, new RevengeGoal(this));
@@ -211,7 +181,6 @@ public class MagnaTitanEntity extends HostileEntity {
     }
 
     public static DefaultAttributeContainer.Builder createAttributes() {
-
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH,1000)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.33)
@@ -221,9 +190,6 @@ public class MagnaTitanEntity extends HostileEntity {
                 .add(EntityAttributes.GENERIC_ARMOR_TOUGHNESS,3)
                 .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE,1.0)
                 .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK,1);
-
-
-
     }
 
     @Override
@@ -824,38 +790,28 @@ public class MagnaTitanEntity extends HostileEntity {
         long currentTime = System.currentTimeMillis();
         float healthPercent = this.getHealth() / this.getMaxHealth();
 
-        // --- 1. PHASEN-CHECK (Wann soll was passieren?) ---
-
-        // WEICHER ÜBERGANG: Phase 1 (Loop 1) -> Intro 2 vorbereiten
         if (healthPercent <= 0.66f && musicPhase == 1) {
             this.phaseShiftPending = true;
         }
 
-        // HARTER CUT: Phase 2/3 -> Intro 3 (Black Hole)
         if (healthPercent <= 0.33f && (musicPhase == 2 || musicPhase == 3)) {
-            this.executeHardCut(); // Sofortiger Sprung zu Intro 3
-            return; // Beendet NUR tickBossMusic, mobTick läuft weiter!
+            this.executeHardCut();
+            return;
         }
 
-        // WEICHER ÜBERGANG: Phase 5 (Loop 3) -> Intro 4 vorbereiten
         if (healthPercent <= 0.17f && musicPhase == 5) {
             this.phaseShiftPending = true;
         }
 
-        // --- 2. PLAYBACK LOGIC (Zeitgesteuert) ---
         if (currentTime >= this.nextMusicStartTime) {
 
-            // Entscheiden, ob wir die Phase erhöhen
             if (this.phaseShiftPending) {
-                // Der weiche Wechsel: Loop ist fertig, jetzt kommt das nächste Intro
                 this.musicPhase++;
                 this.phaseShiftPending = false;
             }
             else if (this.musicPhase % 2 == 0) {
-                // Automatischer Wechsel: Intro ist fertig, jetzt kommt der Loop
                 this.musicPhase++;
             }
-            // Ansonsten: Normaler Loop-Restart (Phase bleibt gleich)
 
             this.playCurrentPhaseSound();
             this.updateNextStartTime();
@@ -865,7 +821,7 @@ public class MagnaTitanEntity extends HostileEntity {
     private void executeHardCut() {
         this.stopCurrentMusicGlobally();
         this.musicPhase = 4;
-        this.phaseShiftPending = false; // Wir brauchen die Flagge nicht mehr
+        this.phaseShiftPending = false;
         this.playCurrentPhaseSound();
         this.updateNextStartTime();
     }
@@ -882,15 +838,14 @@ public class MagnaTitanEntity extends HostileEntity {
             default -> ModSounds.NECRON_LOOP4;
         };
 
-        if (this.getWorld() instanceof net.minecraft.server.world.ServerWorld serverWorld) {
-            // Wir holen alle Spieler im Umkreis von 64 Blöcken, falls die BossBar leer ist
-            java.util.List<net.minecraft.server.network.ServerPlayerEntity> targets = this.bossBar.getPlayers().isEmpty()
+        if (this.getWorld() instanceof ServerWorld serverWorld) {
+            List<ServerPlayerEntity> targets = this.bossBar.getPlayers().isEmpty()
                     ? serverWorld.getPlayers(p -> p.squaredDistanceTo(this.getPos()) < 4096)
-                    : new java.util.ArrayList<>(this.bossBar.getPlayers());
+                    : new ArrayList<>(this.bossBar.getPlayers());
 
-            for (net.minecraft.server.network.ServerPlayerEntity player : targets) {
+            for (ServerPlayerEntity player : targets) {
                 serverWorld.playSound(null, player.getX(), player.getY(), player.getZ(),
-                        sound, net.minecraft.sound.SoundCategory.RECORDS, 0.7f, 1.0f);
+                        sound, SoundCategory.RECORDS, 0.7f, 1.0f);
             }
         }
     }
@@ -1198,6 +1153,7 @@ public class MagnaTitanEntity extends HostileEntity {
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 400, 2));
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 400, 2));
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 400, 1));
+                player.addStatusEffect(new StatusEffectInstance(ModEffects.VULNERABILITY, 400, 0));
             }
         }
 

@@ -1,50 +1,50 @@
-/kill @e[type=!minecraft:player]
-/locate structure silvkingsmod:lava_arena
-/tp @s -496 ~ -608
-/locate structure silvkingsmod:lava_arena
-/kill @e[type=!minecraft:player]
-/locate structure silvkingsmod:lava_arena
-/tp @s -2048 ~ -512
-/kill @e[type=!minecraft:player]
-/tp @s -2048 ~ -512
-/kill @e[type=!minecraft:player]
-/damage @s 312 minecraft:mob_attack
-/damage @s 100 minecraft:mob_attack
-/locate structure silvkingsmod:lava_arena
-/tp @s 944 ~ -3024
-/damage @s 70 minecraft:mob_attack
-/tp @s 944 ~ -3024
-/kill @e[type=!minecraft:player]
-/locate structure silvkingsmod:lava_arena
-/tp @s -3776 ~ 4064
-/kill @e[type=!minecraft:player]
-/locate structure silvkingsmod:lava_arena
-/tp @s -2336 ~ 1344
-/kill @e[type=!minecraft:player]
-/tp @s -2336 ~ 1344
-/kill @e[type=!minecraft:player]
-/locate structure silvkingsmod:lava_arena
-/tp @s 48 ~ -1200
-/locate structure silvkingsmod:lava_arena
-/tp @s 48 ~ -1200
-/kill @e[type=!minecraft:player]
-/locate structure silvkingsmod:lava_arena
-/tp @s -1040 ~ -1840
-/kill @e[type=!minecraft:player]
-/locate structure silvkingsmod:lava_arena
-/tp @s -960 ~ -512
-/kill @e[type=!minecraft:player]
-/effect give Player437 minecraft:strength infinite 10 true
-/kill @e[type=!minecraft:player]
-/tp @s -960 ~ -512
-/kill @e[type=!minecraft:player]
-/locate structure silvkingsmod:lava_arena
-/tp @s 656 ~ 1952
-/kill @e[type=!minecraft:player]
-/effect give Player437 minecraft:strength infinite 10 true
-/effect give Player698 minecraft:strength infinite 10 true
-/tp @s 656 ~ 1952
-/kill @e[type=!minecraft:player]
-/effect give Player698 minecraft:strength infinite 10 true
-/locate structure silvkingsmod:lava_arena
-/tp @s 864 ~ -2016
+//undo
+//replace sandstone 90%sandstone,10%silvkingsmod:titanium_lamp[clicked=true]
+//undo
+//replace sandstone 90%sandstone,,10%silvkingsmod:titanium_lamp[clicked=false],10%silvkingsmod:titanium_lamp[clicked=true]
+//replace sandstone 90%sandstone,10%silvkingsmod:titanium_lamp[clicked=false],10%silvkingsmod:titanium_lamp[clicked=true]
+//replace jigsaw air
+//set sandstone
+//copy
+//paste
+/place template fabric-gametest-api-v1:empty
+/locate structure minecraft:stronghold
+/tp @s 1168 ~ -928
+//pos1
+//pos2
+//copy
+//paste
+//pos1
+//pos2
+//copy
+/schem save portal
+/schem load portal
+//paste
+//set air
+//replace stone_bricks sandstone
+//replace mossy_stone_bricks sandstone
+//replace cracked_stone_bricks sandstone
+//replace infested_stone_bricks sandstone
+//replace lava water
+//replace iron_bars orange_stained_glass_pane
+//undo
+//set sandstone
+//undo
+//set sandstone
+//copy
+//schem save starter
+//schem load starter
+//paste
+//set air
+//replace stone_bricks,mossy_stone_bricks,cracked_stone_bricks,infested_stone_bricks
+//undo
+//replace stone_bricks,mossy_stone_bricks,cracked_stone_bricks,infested_stone_bricks sandstone
+/replacenear 4 air
+/tp ~ 200 ~
+/setblock ~ ~100 ~ stone
+/place template silvkingsmod:desert_dungeon_hallway1
+/place template silvkingsmod:desert_dungeon_crossing3
+/place template silvkingsmod:desert_dungeon_prison
+/place template silvkingsmod:desert_dungeon_treasure
+/place template silvkingsmod:desert_dungeon_starter
+/place template silvkingsmod:desert_dungeon_hallway1

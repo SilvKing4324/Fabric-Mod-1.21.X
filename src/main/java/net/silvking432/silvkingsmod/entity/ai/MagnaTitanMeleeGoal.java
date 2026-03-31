@@ -18,7 +18,9 @@ public class MagnaTitanMeleeGoal extends MeleeAttackGoal {
 
     @Override
     public boolean canStart() {
-        return super.canStart() && this.entity.getState() == MagnaTitanEntity.BossState.ATTACKING;
+        LivingEntity target = this.mob.getTarget();
+        return super.canStart() && this.entity.getState() == MagnaTitanEntity.BossState.ATTACKING &&
+                target != null && this.mob.distanceTo(target) <= 5.0D;
     }
 
     @Override

@@ -47,6 +47,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.TITANIUM_INGOT), conditionsFromItem(ModItems.TITANIUM_INGOT)) // Unlocks Recipe
                 .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"titanium_trapdoor_from_titanium_ingot"));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.TRAPPED_SAND, 1)
+                .pattern("R")
+                .pattern("X")
+                .input('R', Items.SAND)
+                .input('X', Items.TRIPWIRE_HOOK)
+                .criterion(hasItem(Items.SAND), conditionsFromItem(Items.SAND)) // Unlocks Recipe
+                .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"trapped_sand_from_sand"));
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.TITANIUM_STAIRS, 4)
                 .pattern("R  ")
                 .pattern("RR ")

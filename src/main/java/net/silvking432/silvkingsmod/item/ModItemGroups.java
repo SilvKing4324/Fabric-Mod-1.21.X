@@ -81,6 +81,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TITANIUM_TNT);
                         entries.add(ModBlocks.MATRIX_BLOCK);
                         entries.add(ModBlocks.TITANIUM_BEACON);
+                        entries.add(ModBlocks.TRAPPED_SAND);
 
 
 

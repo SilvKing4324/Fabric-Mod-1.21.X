@@ -17,6 +17,9 @@ public class ModEffects {
                     .addAttributeModifier(EntityAttributes.GENERIC_MOVEMENT_SPEED, Identifier.of(SilvKingsMod.MOD_ID, "slimey"), -0.25f,
                             EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 
+    public static final RegistryEntry<StatusEffect> VULNERABILITY = registerStatusEffect("vulnerability",
+            new VulnerabilityEffect(StatusEffectCategory.HARMFUL, 0x9c2a2a));
+
     private static RegistryEntry<StatusEffect> registerStatusEffect(String name, StatusEffect statusEffect) {
         return Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(SilvKingsMod.MOD_ID, name),statusEffect);
     }

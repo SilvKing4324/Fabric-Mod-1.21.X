@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c1b1156-a927-48e6-80ed-0262f43d7cf4" name="Changes" comment="Removed a lot of unneccessary things and made the code cleaner">
+    <list default="true" id="2c1b1156-a927-48e6-80ed-0262f43d7cf4" name="Changes" comment="Made the structure of the boss even better and cleaner">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/block/custom/TrappedSandBlock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/effect/VulnerabilityEffect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ai/MagnaTitanJumpAttackGoal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/mixin/LivingEntityMixin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/textures/block/trapped_sand.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/textures/mob_effect/vulnerability.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/silvkingsmod/worldgen/desert_dungeon_anchor.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/silvkingsmod/worldgen/desert_dungeon_main.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/command_history.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/command_history.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/config/fabric/indigo-renderer.properties" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/fabric/indigo-renderer.properties" afterDir="false" />
@@ -15,30 +23,85 @@
       <change beforePath="$PROJECT_DIR$/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-5.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/latest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/options.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/options.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/DIM-1/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/DIM-1/data/raids.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/DIM1/data/raids_end.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/DIM1/data/raids_end.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/data/raids.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/data/random_sequences.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/data/random_sequences.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/entities/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/entities/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/entities/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/entities/r.-1.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/level.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/level.dat_old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/poi/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/poi/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/poi/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/poi/r.-1.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/poi/r.-2.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/poi/r.-2.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/poi/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/poi/r.0.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/poi/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/poi/r.0.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/region/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/region/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/region/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/region/r.-1.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/region/r.-2.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/region/r.-2.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/region/r.-3.-2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/region/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/region/r.0.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/region/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/region/r.0.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/DIM-1/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/DIM-1/data/raids.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/DIM1/data/raids_end.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/DIM1/data/raids_end.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/83a58a2f-438a-3130-bffe-4ef9d05cc839.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/data/raids.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/random_sequences.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/data/random_sequences.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.0.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.0.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat_old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/83a58a2f-438a-3130-bffe-4ef9d05cc839.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/poi/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/poi/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/poi/r.-1.-2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/poi/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/poi/r.-1.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/poi/r.-2.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/poi/r.-2.-2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/poi/r.-2.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/poi/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/poi/r.0.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/poi/r.0.-2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/poi/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/poi/r.0.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/poi/r.1.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.-2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.-1.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-2.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-2.-2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-2.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-2.1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.0.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.-2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.1.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.1.-2.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.1.-2.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.1.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/83a58a2f-438a-3130-bffe-4ef9d05cc839.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/usercache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ModEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ModEntities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/.cache/087ef078d96fd31e7d46d9a7a76c08908081e024" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/generated/.cache/087ef078d96fd31e7d46d9a7a76c08908081e024" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/.cache/43401c8f3c7ff44e15428c14684be0623ecb2303" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/generated/.cache/43401c8f3c7ff44e15428c14684be0623ecb2303" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/.cache/4a9d3a0e5dd3e0a4b9bca44e474389eafe75e406" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/generated/.cache/4a9d3a0e5dd3e0a4b9bca44e474389eafe75e406" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/.cache/653244295f78c93ef6bf896855dcccc32c7e2a35" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/generated/.cache/653244295f78c93ef6bf896855dcccc32c7e2a35" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/.cache/7f64a8e22e73817aced9eda65c9669f276af6df0" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/generated/.cache/7f64a8e22e73817aced9eda65c9669f276af6df0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/.cache/a5e6c41396a05146e38983c4d3e75a4bf4a33643" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/generated/.cache/a5e6c41396a05146e38983c4d3e75a4bf4a33643" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/SilvKingsMod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/SilvKingsMod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/block/ModBlocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/block/ModBlocks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/datagen/ModModelProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/datagen/ModModelProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/datagen/ModRecipeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/datagen/ModRecipeProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/effect/ModEffects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/effect/ModEffects.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ai/MagnaTitanMeleeGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ai/MagnaTitanMeleeGoal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ai/TitaniumAttackGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ai/TitaniumAttackGoal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ai/TitaniumEscapeAndGapGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ai/TitaniumEscapeAndGapGoal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaAnvilRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaAnvilRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaBombRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaBombRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaMinionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaMinionModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaMinionRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaMinionRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaTitanModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaTitanModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaTitanRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaTitanRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaWitchRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/MagnaWitchRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/TitanPlayerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/TitanPlayerModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/TitanPlayerRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/TitanPlayerRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/TitaniumTntRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/client/TitaniumTntRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/LavaGolemEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/LavaGolemEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaAnvilEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaAnvilEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaBombEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaBombEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaFireballEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaFireballEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaMinionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaMinionEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaTitanEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaTitanEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaWitchEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaWitchEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/TitanPlayerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/TitanPlayerEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/TitaniumTntEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/TitaniumTntEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/item/ModItemGroups.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/item/ModItemGroups.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/potion/ModPotions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/potion/ModPotions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/lang/en_us.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/silvkingsmod.mixins.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/silvkingsmod.mixins.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,41 +183,41 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Minecraft Client.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Fabric-Mod-1.21.X [:net.fabricmc.devlaunchinjector.Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Fabric-Mod-1.21.X [runClient].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/SIlvKings Mod/Fabric-Mod-1.21.X/src/main/resources/assets/silvkingsmod/particles&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.gutterIcons&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Minecraft Client.executor": "Run",
+    "Gradle.Fabric-Mod-1.21.X [:net.fabricmc.devlaunchinjector.Main.main()].executor": "Run",
+    "Gradle.Fabric-Mod-1.21.X [runClient].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/SIlvKings Mod/Fabric-Mod-1.21.X/src/main/resources/assets/silvkingsmod/textures/block",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "editor.preferences.gutterIcons",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\textures\block" />
       <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\particles" />
       <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\textures\particle" />
       <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\data\silvkingsmod\structure" />
       <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\data\silvkingsmod\worldgen\template_pool\lava_arena" />
-      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\data\silvkingsmod\structures" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\data\silvkingsmod\structure" />
+      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\data\silvkingsmod\structures" />
+      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\data\silvkingsmod\worldgen" />
+      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\textures\mob_effect" />
       <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\sounds\music" />
-      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\sounds" />
-      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\textures\item" />
-      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\textures\block" />
-      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\models\block" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="net.silvking432.silvkingsmod.entity.client" />
@@ -236,7 +299,8 @@
       <workItem from="1774443183120" duration="19590000" />
       <workItem from="1774470804728" duration="14031000" />
       <workItem from="1774540043431" duration="61381000" />
-      <workItem from="1774790213270" duration="7131000" />
+      <workItem from="1774790213270" duration="10652000" />
+      <workItem from="1774813590188" duration="17217000" />
     </task>
     <task id="LOCAL-00001" summary="added very important comment">
       <option name="closed" value="true" />
@@ -470,7 +534,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774746477702</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Made the structure of the boss even better and cleaner">
+      <option name="closed" value="true" />
+      <created>1774797857312</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1774797857312</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -503,7 +575,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="added an Advanced Block and an Advanced Item" />
     <MESSAGE value="added custom Food and Fuel" />
     <MESSAGE value="added custom tooltips" />
     <MESSAGE value="added Data generation and Tags" />
@@ -528,7 +599,8 @@
     <MESSAGE value="Improved the boss in design and quality" />
     <MESSAGE value="Fixed Bomb not Rendering" />
     <MESSAGE value="Removed a lot of unneccessary things and made the code cleaner" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed a lot of unneccessary things and made the code cleaner" />
+    <MESSAGE value="Made the structure of the boss even better and cleaner" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made the structure of the boss even better and cleaner" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
