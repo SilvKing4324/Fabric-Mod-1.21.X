@@ -1,5 +1,5 @@
 {
-  "name": "silvkingsmod:desert_dungeon_anchor",
+  "name": "silvkingsmod:desert_dungeon/desert_dungeon_anchor",
   "fallback": "minecraft:empty",
   "elements": [
     {

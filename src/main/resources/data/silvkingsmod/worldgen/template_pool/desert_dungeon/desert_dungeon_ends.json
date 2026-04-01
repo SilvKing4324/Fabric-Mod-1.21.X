@@ -1,0 +1,15 @@
+{
+  "name": "silvkingsmod:desert_dungeon/desert_dungeon_ends",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_end",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

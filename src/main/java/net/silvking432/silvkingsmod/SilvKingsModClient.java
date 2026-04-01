@@ -38,6 +38,8 @@ public class SilvKingsModClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(TitanPlayerModel.TITAN_PLAYER, TitanPlayerModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(MagnaTitanModel.MAGNA_TITAN, MagnaTitanModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(MagnaMinionModel.MAGNA_MINION, MagnaMinionModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(TomahawkProjectileModel.TOMAHAWK, TomahawkProjectileModel::getTexturedModelData);
+
         EntityRendererRegistry.register(ModEntities.MANTIS, MantisRenderer::new);
         EntityRendererRegistry.register(ModEntities.TITAN_PLAYER, TitanPlayerRenderer::new);
         EntityRendererRegistry.register(ModEntities.MAGNA_TITAN, MagnaTitanRenderer::new);
@@ -46,7 +48,6 @@ public class SilvKingsModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.MAGNA_WITCH, MagnaWitchRenderer::new);
         EntityRendererRegistry.register(ModEntities.MAGNA_FIREBALL, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.MAGNA_ANVIL, MagnaAnvilRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(TomahawkProjectileModel.TOMAHAWK, TomahawkProjectileModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.TOMAHAWK, TomahawkProjectileRenderer::new);
         EntityRendererRegistry.register(ModEntities.CHAIR_ENTITY, ChairRenderer::new);
         EntityRendererRegistry.register(ModEntities.TITANIUM_TNT_ENTITY, TitaniumTntRenderer::new);

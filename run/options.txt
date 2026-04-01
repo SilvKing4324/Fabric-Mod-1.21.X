@@ -48,8 +48,8 @@ mouseSensitivity:0.5
 damageTiltStrength:1.0
 highContrast:false
 narratorHotkey:true
-resourcePacks:["fabric"]
-incompatibleResourcePacks:[]
+resourcePacks:["vanilla","fabric"]
+incompatibleResourcePacks:["worldedit"]
 lastServer:
 lang:en_us
 chatVisibility:0

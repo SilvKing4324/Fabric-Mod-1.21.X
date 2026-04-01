@@ -1,0 +1,114 @@
+{
+  "name": "silvkingsmod:desert_dungeon/desert_dungeon_main",
+  "fallback": "silvkingsmod:desert_dungeon/desert_dungeon_ends",
+  "elements": [
+    {
+      "weight": 10,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_treasure",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+  	{	
+      "weight": 100,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_hallway1",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+  	{
+      "weight": 50,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_hallway2",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+  	{
+      "weight": 50,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_hallway3",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 50,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_crossing1",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 50,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_crossing2",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 50,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_crossing3",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 20,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_dirtroom",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_iceroom",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 20,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_prison",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 30,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_wall",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 50,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_3way",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}
