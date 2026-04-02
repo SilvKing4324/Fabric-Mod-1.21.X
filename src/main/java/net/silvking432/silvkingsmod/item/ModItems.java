@@ -52,6 +52,9 @@ public class ModItems {
     public static final Item SPECTRE_STAFF = registerItem("spectre_staff", new SpectreStaffItem(new Item.Settings().maxCount(1)));
     public static final Item TITAN_PLAYER_SPAWN_EGG = registerItem("titan_player_spawn_egg", new SpawnEggItem(ModEntities.TITAN_PLAYER, 0x00daff, 0x00adff, new Item.Settings()));
     public static final Item TITAN_HEART = registerItem("titan_heart", new Item(new Item.Settings()));
+    public static final Item DARK_WORLD_ORB = registerItem("dark_world_orb", new Item(new Item.Settings()));
+    public static final Item DARK_WORLD_KEY = registerItem("dark_world_key", new Item(new Item.Settings()));
+    public static final Item DRAGON_SCALE = registerItem("dragon_scale", new Item(new Item.Settings()));
 
 
 

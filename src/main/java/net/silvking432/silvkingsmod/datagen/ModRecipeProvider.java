@@ -134,6 +134,19 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.NETHER_STAR), conditionsFromItem(Items.NETHER_STAR)) // Unlocks Recipe
                 .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"titan_heart_from_starlight_ashes"));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DARK_WORLD_KEY,1)
+                .pattern("RAR")
+                .pattern("SXS")
+                .pattern("RNR")
+                .input('R', ModItems.TITANIUM_INGOT)
+                .input('X', Items.NETHER_STAR)
+                .input('S', ModItems.DRAGON_SCALE)
+                .input('N', ModItems.DARK_WORLD_ORB)
+                .input('A', ModItems.TITAN_HEART)
+
+                .criterion(hasItem(ModItems.DARK_WORLD_ORB), conditionsFromItem(ModItems.DARK_WORLD_ORB)) // Unlocks Recipe
+                .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"dark_world_key_from_dark_world_orb"));
+
 
 
 

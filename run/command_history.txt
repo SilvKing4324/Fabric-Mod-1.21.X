@@ -1,50 +1,50 @@
-/setblock ~ ~ ~ stone
-/place jigsaw silvkingsmod:desert_dungeon_anchor silvkingsmod:desert_dungeon_starter 7 ~ ~ ~
-/place jigsaw silvkingsmod:desert_dungeon_anchor silvkingsmod:desert_dungeon_start 7 ~ ~ ~
-/place jigsaw silvkingsmod:desert_dungeon_anchor silvkingsmod:desert_dungeon_start 20 ~ ~ ~
-/place jigsaw silvkingsmod:desert_dungeon_anchor silvkingsmod:desert_dungeon_start 20 ~ ~5 ~
-/place jigsaw silvkingsmod:desert_dungeon_anchor silvkingsmod:desert_dungeon_start 50 ~ ~5 ~
-/place jigsaw silvkingsmod:desert_dungeon_anchor silvkingsmod:desert_dungeon_start 20 ~ ~5 ~
-/place jigsaw silvkingsmod:desert_dungeon_anchor silvkingsmod:desert_dungeon_start 10 ~ ~5 ~
-/place jigsaw silvkingsmod:desert_dungeon_anchor silvkingsmod:desert_dungeon_start 7 ~ ~5 ~
-/place jigsaw silvkingsmod:desert_dungeon_anchor silvkingsmod:desert_dungeon_start 10 ~ ~5 ~
-/locate structure silvkingsmod:desert_dungeon
-/locate biome minecraft:desert
-/tp @s -1156 112 1266
-/locate structure silvkingsmod:desert_dungeon
-/tp @s 320 ~ -688
-/tp 10000 ~ 10000
-/locate structure silvkingsmod:desert_dungeon
-/tp @s 11072 ~ 9216
-/place structure silvkingsmod:desert_dungeon
-/place jigsaw silvkingsmod:desert_dungeon_anchor silvkingsmod:desert_dungeon_start 10 ~ ~5 ~
-/place jigsaw silvkingsmod:desert_dungeon/desert_dungeon_anchor silvkingsmod:desert_dungeon_start 10 ~ ~5 ~
-/place structure silvkingsmod:desert_dungeon
-/locate structure silvkingsmod:desert_dungeon
-/tp @s -1776 ~ -4304
-/locate structure silvkingsmod:desert_dungeon
-/tp @s 1584 ~ 1872
-/locate structure silvkingsmod:desert_dungeon
-/tp @s -2032 ~ 1360
-/locate structure silvkingsmod:desert_dungeon
-/tp @s 3648 ~ 16
-/locate structure minecraft:trial_chambers
-/tp @s 3360 ~ -448
-/locate structure minecraft:trial_chambers
-/locate structure silvkingsmod:desert_dungeon
-/tp @s 4384 ~ -6352
-/loot give @s loot silvkingsmod:chests/dungeon_map
-/loot give @s loot minecraft:chests/shipwreck_map
-/data get entity @s SelectedItem
-/locate structure minecraft:buried_treasure
-/tp @s 1049 ~ 985
-/locate structure minecraft:shipwreck
-/tp @s 608 ~ 1376
-/locate structure minecraft:shipwreck
-/tp @s 288 ~ 1344
-/locate structure minecraft:shipwreck
-/tp @s 416 ~ 1600
-/loot give @s loot minecraft:chests/shipwreck_map
-/locate structure silvkingsmod:desert_dungeon
-/tp @s 1536 ~ 3936
-/locate structure silvkingsmod:desert_dungeon
+/place template minecraft:ancient_city/city_center/city_center_3
+/place template minecraft:ancient_city/city_center/city_center_1
+/place template minecraft:ancient_city/city_center/city_center_2
+/place template minecraft:ancient_city/city_center/city_center_1
+/place template minecraft:ancient_city/city_center/city_center_2
+/place template minecraft:ancient_city/city_center/city_center_3
+/place template minecraft:ancient_city/city_center/city_center_1
+/place template minecraft:ancient_city/city_center/city_center_3
+/place template minecraft:ancient_city/city_center/city_center_2
+/place template minecraft:ancient_city/city_center/city_center_1
+/locate structure minecraft:ancient_city
+/tp @s 112 ~ 544
+/place template minecraft:ancient_city/city_center/city_center_1#
+/place template minecraft:ancient_city/city_center/city_center_1
+/place template minecraft:ancient_city/city_center/city_center_2
+/place template minecraft:ancient_city/city_center/city_center_1
+/locate structure minecraft:ancient_city
+/tp @s 1264 ~ -640
+/locate structure minecraft:ancient_city
+/tp @s -1344 ~ -336
+/setblock ~ ~ ~ silvkingsmod:dark_world_portal
+/locate structure minecraft:ancient_city
+/tp @s -1344 ~ -336
+/kill @e[type=!minecraft:player]
+/summon minecraft:end_po
+/setblock ~ ~ ~ minecraft:nether_portal
+/tp @s -1344 ~ -336
+/execute in silvkingsmod:dark_world run tp @s -1344 ~ -336
+/execute in silvkingsmod:dark_world run tp @s 0 0 0
+/locate structure minecraft:ancient_city
+/tp @s 384 ~ 2480
+/recipe give Player802 silvkingsmod:*
+/recipe give Player802 silvkingsmod:titan_heart_from_starlight_ashes
+/recipe give Player802 silvkingsmod:dark_world_key_from_dark_world_orb
+/summon minecraft:wither
+/kill @e[type=minecraft:wither]
+/summon minecraft:wither
+/kill @e[type=minecraft:wither]
+/recipe give Player802 silvkingsmod:titanium_ingot
+/summon minecraft:ender_dragon
+/kill @e[type=minecraft:ender_dragon]
+/summon minecraft:ender_dragon
+/kill @e[type=minecraft:ender_dragon]
+/summon minecraft:ender_dragon
+/kill @e[type=minecraft:ender_dragon]
+/give @s silvkingsmod:dragon_scale
+/summon silvkingsmod:magna_titan
+/kill @e[type=!minecraft:player]
+/locate structure minecraft:ancient_city
+/tp @s -992 ~ -1040

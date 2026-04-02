@@ -310,23 +310,20 @@ public class MagnaTitanEntity extends HostileEntity {
         super.onDeath(damageSource);
 
         if (!this.getWorld().isClient) {
-            // Wir nutzen ein neutrales Paket, das die ganze Kategorie stoppt
             StopSoundS2CPacket stopAllMusic = new StopSoundS2CPacket(null, SoundCategory.RECORDS);
 
             for (ServerPlayerEntity player : this.bossBar.getPlayers()) {
-                // 1. Musik stoppen (Egal welche Phase gerade aktiv war)
                 player.networkHandler.sendPacket(stopAllMusic);
 
-                // 2. Sieges-Sound abspielen
                 this.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(),
                         SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, SoundCategory.MASTER, 1.0f, 1.0f);
 
-                // 3. Nachricht senden
                 player.sendMessage(Text.literal("The Earth shakes as the titan falls!")
                         .formatted(Formatting.GOLD, Formatting.BOLD), false);
             }
 
             this.dropStack(new ItemStack(ModItems.SPECTRE_STAFF));
+            this.dropStack(new ItemStack(ModItems.DARK_WORLD_ORB));
         }
     }
 

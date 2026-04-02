@@ -45,6 +45,7 @@ public class ModItemGroups {
                         entries.add(ModItems.SPECTRE_STAFF);
                         entries.add(ModItems.TITAN_PLAYER_SPAWN_EGG);
                         entries.add(ModItems.TITAN_HEART);
+                        entries.add(ModItems.DARK_WORLD_ORB);
 
                     }).build());
 
@@ -82,6 +83,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.MATRIX_BLOCK);
                         entries.add(ModBlocks.TITANIUM_BEACON);
                         entries.add(ModBlocks.TRAPPED_SAND);
+                        entries.add(ModBlocks.DARK_WORLD_PORTAL);
 
 
 

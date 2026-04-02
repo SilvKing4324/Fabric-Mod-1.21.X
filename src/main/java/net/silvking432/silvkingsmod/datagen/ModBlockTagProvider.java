@@ -22,7 +22,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TITANIUM_DEEPSLATE_ORE)
                 .add(ModBlocks.TITANIUM_ORE)
                 .add(ModBlocks.MAGIC_BLOCK)
-                .add(ModBlocks.MATRIX_BLOCK);
+                .add(ModBlocks.MATRIX_BLOCK)
+                .add(ModBlocks.NIGHTSLATE);
+
+        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
+                .add(ModBlocks.TRAPPED_SAND);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.TITANIUM_BLOCK)

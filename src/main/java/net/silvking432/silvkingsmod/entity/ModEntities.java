@@ -20,11 +20,11 @@ public class ModEntities {
 
     public static final EntityType<MagnaTitanEntity> MAGNA_TITAN = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(SilvKingsMod.MOD_ID, "magna_titan"),
-            EntityType.Builder.create(MagnaTitanEntity::new, SpawnGroup.MONSTER).dimensions(0.8f,2.75f).build());
+            EntityType.Builder.create(MagnaTitanEntity::new, SpawnGroup.MONSTER).dimensions(0.8f,2.75f).makeFireImmune().build());
 
     public static final EntityType<MagnaMinionEntity> MAGNA_MINION = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(SilvKingsMod.MOD_ID, "magna_minion"),
-            EntityType.Builder.create(MagnaMinionEntity::new, SpawnGroup.MONSTER).dimensions(0.5f,1.5f).build());
+            EntityType.Builder.create(MagnaMinionEntity::new, SpawnGroup.MONSTER).dimensions(0.5f,1.5f).makeFireImmune().build());
 
     public static final EntityType<TomahawkProjectileEntity> TOMAHAWK = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(SilvKingsMod.MOD_ID, "tomahawk"),
@@ -45,12 +45,14 @@ public class ModEntities {
     public static final EntityType<LavaGolemEntity> LAVA_GOLEM = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(SilvKingsMod.MOD_ID, "lava_golem"),
             EntityType.Builder.create(LavaGolemEntity::new, SpawnGroup.MONSTER)
+                    .makeFireImmune()
                     .dimensions(1.4f, 2.7f)
                     .build());
 
     public static final EntityType<MagnaWitchEntity> MAGNA_WITCH = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(SilvKingsMod.MOD_ID, "magna_witch"),
             EntityType.Builder.create(MagnaWitchEntity::new, SpawnGroup.MONSTER)
+                    .makeFireImmune()
                     .dimensions(0.6f, 1.95f)
                     .build());
 

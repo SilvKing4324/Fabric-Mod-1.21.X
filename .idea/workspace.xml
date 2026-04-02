@@ -4,16 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c1b1156-a927-48e6-80ed-0262f43d7cf4" name="Changes" comment="tried to add new desert dungeon structure.&#10;For debug help the datapack is found in src/ressources/data/silvkingsmod">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/minecraft/worldgen/biome/desert.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/silvkingsmod/loot_table/chests/dungeon_map.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/silvkingsmod/worldgen/structure/desert_dungeon.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/silvkingsmod/worldgen/structure_set/desert_dungeons.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/silvkingsmod/worldgen/template_pool/desert_dungeon/desert_dungeon_ends.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/silvkingsmod/worldgen/template_pool/desert_dungeon/desert_dungeon_main.json" afterDir="false" />
+    <list default="true" id="2c1b1156-a927-48e6-80ed-0262f43d7cf4" name="Changes" comment="added desert dungeon">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/block/custom/DarkWorldPortalBlock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/datagen/ModEntityLootTableProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/dimension/ModDimensions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/textures/block/dark_world_portal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/textures/block/dark_world_portal.png.mcmeta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/textures/block/nightslate.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/textures/item/dark_world_key.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/textures/item/dark_world_orb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/textures/item/dark_world_orb.png.mcmeta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/textures/item/dragon_scale.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/silvkingsmod/dimension/dark_world.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/silvkingsmod/dimension_type/dark_world_type.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/silvkingsmod/worldgen/biome/midnight_forest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/silvkingsmod/worldgen/biome/soul_desert.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/silvkingsmod/worldgen/noise_settings/dark_world_settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/command_history.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/command_history.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/config/fabric/indigo-renderer.properties" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/fabric/indigo-renderer.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/hotbar.nbt" beforeDir="false" afterPath="$PROJECT_DIR$/run/hotbar.nbt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-1.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-2.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-3.log.gz" afterDir="false" />
@@ -21,10 +31,74 @@
       <change beforePath="$PROJECT_DIR$/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-5.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/latest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/options.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/options.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/DIM-1/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/DIM-1/data/raids.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/DIM1/data/raids_end.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/DIM1/data/raids_end.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/data/raids.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/data/random_sequences.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/data/random_sequences.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/entities/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/entities/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/entities/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/entities/r.-1.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/level.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/level.dat_old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/poi/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/poi/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/poi/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/poi/r.-1.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/poi/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/poi/r.0.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/poi/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/poi/r.0.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/region/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/region/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/region/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/region/r.-1.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/region/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/region/r.0.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World (1)/region/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World (1)/region/r.0.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/DIM-1/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/DIM-1/data/raids.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/DIM1/data/raids_end.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/DIM1/data/raids_end.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/data/raids.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/random_sequences.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/data/random_sequences.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.0.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.0.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat_old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/poi/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/poi/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/poi/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/poi/r.-1.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/poi/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/poi/r.0.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/poi/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/poi/r.0.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.-1.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.0.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.1.-2.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.1.-2.mca" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/usercache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data/silvkingsmod/worldgen/desert_dungeon_anchor.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/silvkingsmod/worldgen/template_pool/desert_dungeon/desert_dungeon_anchor.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data/silvkingsmod/worldgen/desert_dungeon_main.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/.cache/087ef078d96fd31e7d46d9a7a76c08908081e024" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/generated/.cache/087ef078d96fd31e7d46d9a7a76c08908081e024" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/.cache/43401c8f3c7ff44e15428c14684be0623ecb2303" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/generated/.cache/43401c8f3c7ff44e15428c14684be0623ecb2303" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/.cache/4a9d3a0e5dd3e0a4b9bca44e474389eafe75e406" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/generated/.cache/4a9d3a0e5dd3e0a4b9bca44e474389eafe75e406" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/.cache/653244295f78c93ef6bf896855dcccc32c7e2a35" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/generated/.cache/653244295f78c93ef6bf896855dcccc32c7e2a35" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/.cache/7f64a8e22e73817aced9eda65c9669f276af6df0" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/generated/.cache/7f64a8e22e73817aced9eda65c9669f276af6df0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/.cache/a5e6c41396a05146e38983c4d3e75a4bf4a33643" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/generated/.cache/a5e6c41396a05146e38983c4d3e75a4bf4a33643" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/data/minecraft/tags/block/mineable/pickaxe.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/generated/data/minecraft/tags/block/mineable/pickaxe.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/data/silvkingsmod/loot_table/blocks/matrix_block.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/SilvKingsMod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/SilvKingsMod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/SilvKingsModClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/SilvKingsModClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/SilvKingsModDataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/SilvKingsModDataGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/block/ModBlocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/block/ModBlocks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/block/custom/PedestalBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/block/custom/PedestalBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/block/entity/custom/PedestalBlockEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/block/entity/custom/PedestalBlockEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/datagen/ModBlockTagProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/datagen/ModBlockTagProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/datagen/ModLootTableProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/datagen/ModLootTableProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/datagen/ModModelProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/datagen/ModModelProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/datagen/ModRecipeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/datagen/ModRecipeProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ModEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/ModEntities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaTitanEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/entity/custom/MagnaTitanEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/item/ModItemGroups.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/item/ModItemGroups.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/item/ModItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/silvking432/silvkingsmod/item/ModItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/lang/en_us.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/textures/item/titanium_axe.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/textures/item/titanium_axe.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/textures/item/titanium_hoe.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/textures/item/titanium_hoe.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/textures/item/titanium_ingot.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/textures/item/titanium_ingot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/textures/item/titanium_shovel.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/textures/item/titanium_shovel.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/textures/item/titanium_sword.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/silvkingsmod/textures/item/titanium_sword.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data/silvkingsmod/worldgen/structure/desert_dungeon.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/silvkingsmod/worldgen/structure/desert_dungeon.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data/silvkingsmod/worldgen/template_pool/desert_dungeon/desert_dungeon_main.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/silvkingsmod/worldgen/template_pool/desert_dungeon/desert_dungeon_main.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,41 +180,41 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Minecraft Client.executor": "Run",
-    "Gradle.Fabric-Mod-1.21.X [:net.fabricmc.devlaunchinjector.Main.main()].executor": "Run",
-    "Gradle.Fabric-Mod-1.21.X [runClient].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/SIlvKings Mod/Fabric-Mod-1.21.X/src/main/resources/data/silvkingsmod/worldgen/structure_set",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.gutterIcons",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Minecraft Client.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Fabric-Mod-1.21.X [:net.fabricmc.devlaunchinjector.Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Fabric-Mod-1.21.X [runClient].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/SIlvKings Mod/Fabric-Mod-1.21.X/src/main/resources/assets/silvkingsmod/textures/block&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.gutterIcons&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\textures\block" />
       <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\data\silvkingsmod\worldgen\structure_set" />
       <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\data\silvkingsmod\worldgen\structure" />
-      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\textures\block" />
       <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\particles" />
       <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\textures\particle" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\data\silvkingsmod\worldgen\template_pool\desert_dungeon" />
-      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\data\silvkingsmod\structure" />
-      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\data\silvkingsmod\worldgen\template_pool" />
-      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\data\silvkingsmod\structures" />
-      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\data\silvkingsmod\worldgen" />
+      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\textures\item" />
+      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\data\minecraft\structure\ancient_city\city_center" />
+      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\assets\silvkingsmod\textures\block" />
+      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\data\silvkingsmod\worldgen\noise_settings" />
+      <recent name="D:\SIlvKings Mod\Fabric-Mod-1.21.X\src\main\resources\data\silvkingsmod\worldgen\biome" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="net.silvking432.silvkingsmod.entity.client" />
@@ -223,7 +297,8 @@
       <workItem from="1774470804728" duration="14031000" />
       <workItem from="1774540043431" duration="61381000" />
       <workItem from="1774790213270" duration="10652000" />
-      <workItem from="1774813590188" duration="29178000" />
+      <workItem from="1774813590188" duration="58779000" />
+      <workItem from="1775156694813" duration="3322000" />
     </task>
     <task id="LOCAL-00001" summary="added very important comment">
       <option name="closed" value="true" />
@@ -473,7 +548,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774999848640</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="added desert dungeon">
+      <option name="closed" value="true" />
+      <created>1775056012982</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1775056012982</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -506,7 +589,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="added custom tooltips" />
     <MESSAGE value="added Data generation and Tags" />
     <MESSAGE value="added Non Block Blocks" />
     <MESSAGE value="added Blockstates and Block Data" />
@@ -531,7 +613,8 @@
     <MESSAGE value="Removed a lot of unneccessary things and made the code cleaner" />
     <MESSAGE value="Made the structure of the boss even better and cleaner" />
     <MESSAGE value="tried to add new desert dungeon structure.&#10;For debug help the datapack is found in src/ressources/data/silvkingsmod" />
-    <option name="LAST_COMMIT_MESSAGE" value="tried to add new desert dungeon structure.&#10;For debug help the datapack is found in src/ressources/data/silvkingsmod" />
+    <MESSAGE value="added desert dungeon" />
+    <option name="LAST_COMMIT_MESSAGE" value="added desert dungeon" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

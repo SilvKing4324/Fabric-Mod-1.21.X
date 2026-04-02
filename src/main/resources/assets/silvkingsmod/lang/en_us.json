@@ -33,6 +33,9 @@
   "item.silvkingsmod.hyperion": "§dHyperion§r",
   "item.silvkingsmod.titan_player_spawn_egg": "Titan Player Spawn Egg",
   "item.silvkingsmod.titan_heart": "Titan Heart",
+  "item.silvkingsmod.dark_world_orb": "Dark World Orb",
+  "item.silvkingsmod.dark_world_key": "Dark World Key",
+  "item.silvkingsmod.dragon_scale": "Dragon Scale",
 
 
   "block.silvkingsmod.titanium_block": "Block of Titan",
@@ -68,6 +71,8 @@
   "block.silvkingsmod.matrix_block": "Matrix Block",
   "block.silvkingsmod.titanium_beacon": "Titanium Beacon",
   "block.silvkingsmod.trapped_sand": "Trapped Sand",
+  "block.silvkingsmod.nightslate": "Nightslate",
+  "block.silvkingsmod.dark_world_portal": "Dark World Portal",
 
   "effect.silvkingsmod.slimey": "Slimey",
   "effect.silvkingsmod.vulnerability": "Vulnerability",

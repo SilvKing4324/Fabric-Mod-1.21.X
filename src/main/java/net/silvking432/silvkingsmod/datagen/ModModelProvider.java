@@ -32,6 +32,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TITANIUM_TNT);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MATRIX_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TRAPPED_SAND);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NIGHTSLATE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DARK_WORLD_PORTAL);
 
 
         titanium_pool.stairs(ModBlocks.TITANIUM_STAIRS);
@@ -83,6 +85,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MANTIS_SPAWN_EGG, new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
         itemModelGenerator.register(ModItems.TITAN_PLAYER_SPAWN_EGG, new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
         itemModelGenerator.register(ModItems.TITAN_HEART, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DARK_WORLD_ORB, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DRAGON_SCALE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DARK_WORLD_KEY, Models.GENERATED);
 
 
     }

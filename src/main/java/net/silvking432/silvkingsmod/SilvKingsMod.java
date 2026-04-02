@@ -10,6 +10,7 @@ import net.minecraft.potion.Potions;
 import net.silvking432.silvkingsmod.block.ModBlocks;
 import net.silvking432.silvkingsmod.block.entity.ModBlockEntities;
 import net.silvking432.silvkingsmod.component.ModDataComponentTypes;
+import net.silvking432.silvkingsmod.dimension.ModDimensions;
 import net.silvking432.silvkingsmod.effect.ModEffects;
 import net.silvking432.silvkingsmod.enchantment.ModEnchantmentEffects;
 import net.silvking432.silvkingsmod.entity.ModEntities;
@@ -51,6 +52,7 @@ public class SilvKingsMod implements ModInitializer {
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandlers.registerScreenHandlers();
 		ModRecipes.registerRecipes();
+		ModDimensions.registerDimensions();
 		SmeltingTouchHandler.register();
 
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 200000);
