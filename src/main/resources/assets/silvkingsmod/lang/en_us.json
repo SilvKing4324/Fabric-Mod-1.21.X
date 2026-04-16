@@ -72,7 +72,9 @@
   "block.silvkingsmod.titanium_beacon": "Titanium Beacon",
   "block.silvkingsmod.trapped_sand": "Trapped Sand",
   "block.silvkingsmod.nightslate": "Nightslate",
+  "block.silvkingsmod.hardstone": "Hardstone",
   "block.silvkingsmod.dark_world_portal": "Dark World Portal",
+  "block.silvkingsmod.pulse_emitter": "Pulse Emitter",
 
   "effect.silvkingsmod.slimey": "Slimey",
   "effect.silvkingsmod.vulnerability": "Vulnerability",
@@ -83,6 +85,11 @@
   "painting.silvkingsmod.shrimp.author" : "NanoAttack",
   "painting.silvkingsmod.saw_them.title" : "Saw Them",
   "painting.silvkingsmod.saw_them.author" : "NanoAttack",
+  "painting.silvkingsmod.dark_world.title" : "Dark World",
+  "painting.silvkingsmod.dark_world.author" : "Gemini",
+  "painting.silvkingsmod.dark_portal.title" : "Dark World Entrance",
+  "painting.silvkingsmod.dark_portal.author" : "Gemini",
+
 
   "enchantment.silvkingsmod.lightning_striker": "Lightning Striker",
   "enchantment.silvkingsmod.smelting_touch": "Smelting Touch",

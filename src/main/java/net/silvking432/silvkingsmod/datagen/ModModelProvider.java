@@ -34,6 +34,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TRAPPED_SAND);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NIGHTSLATE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DARK_WORLD_PORTAL);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.HARDSTONE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PULSE_EMITTER);
 
 
         titanium_pool.stairs(ModBlocks.TITANIUM_STAIRS);

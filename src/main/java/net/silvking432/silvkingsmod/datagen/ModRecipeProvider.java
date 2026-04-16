@@ -147,6 +147,19 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.DARK_WORLD_ORB), conditionsFromItem(ModItems.DARK_WORLD_ORB)) // Unlocks Recipe
                 .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"dark_world_key_from_dark_world_orb"));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.PULSE_EMITTER,1)
+                .pattern("RAR")
+                .pattern("SXS")
+                .pattern("RNR")
+                .input('R', Items.CHISELED_STONE_BRICKS)
+                .input('X', Items.COMPASS)
+                .input('S', Items.REDSTONE)
+                .input('N', Items.COMPARATOR)
+                .input('A', Items.REPEATER)
+
+                .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE)) // Unlocks Recipe
+                .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"pulse_emitter_from_compass"));
+
 
 
 

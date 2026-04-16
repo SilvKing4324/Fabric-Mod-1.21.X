@@ -16,6 +16,8 @@ public class ModLootTableModifiers {
             = Identifier.of("minecraft", "blocks/short_grass");
     private static final Identifier CREEPER_ID
             = Identifier.of("minecraft", "entities/creeper");
+    private static final Identifier ENDERDRAGON_ID
+            = Identifier.of("minecraft", "entities/ender_dragon");
 
     public static void modifyLootTables() {
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registry) -> {
@@ -32,7 +34,7 @@ public class ModLootTableModifiers {
             if(LootTables.IGLOO_CHEST_CHEST.equals(key)) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(1.0f)) // Drops 100% of the time
+                        .conditionally(RandomChanceLootCondition.builder(1.0f))
                         .with(ItemEntry.builder(ModItems.CHISEL))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
 
@@ -42,9 +44,18 @@ public class ModLootTableModifiers {
             if(CREEPER_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.05f)) // Drops 75% of the time
+                        .conditionally(RandomChanceLootCondition.builder(0.05f))
                         .with(ItemEntry.builder(ModItems.NECRON_DOOM_MUSIC_DISC))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
+
+                tableBuilder.pool(poolBuilder.build());
+            }
+            if(ENDERDRAGON_ID.equals(key.getValue())) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(1.0f))
+                        .with(ItemEntry.builder(ModItems.DRAGON_SCALE))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0f, 2.0f)).build());
 
                 tableBuilder.pool(poolBuilder.build());
             }

@@ -1,0 +1,88 @@
+{
+  "name": "silvkingsmod:desert_dungeon/desert_dungeon_feature",
+  "fallback": "silvkingsmod:desert_dungeon/desert_dungeon_feature",
+  "elements": [
+    {
+      "weight": 25,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_trappedchestfeature",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 25,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_noteblockfeature",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 35,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_emptyfeature",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 25,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_lavafeature",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },    {
+      "weight": 25,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_cagefeature",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 25,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_arrowfeature",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 25,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_magnafeature",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+
+      "weight": 25,
+      "_comment": "TODO: Fix Painting spawning wrong Bug",
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_paintingfeature",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 15,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_enchanterfeature",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

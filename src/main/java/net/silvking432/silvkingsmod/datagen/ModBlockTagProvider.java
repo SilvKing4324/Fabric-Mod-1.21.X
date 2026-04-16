@@ -18,12 +18,19 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.TITANIUM_BLOCK)
+                .add(ModBlocks.TITANIUM_SLAB)
+                .add(ModBlocks.TITANIUM_WALL)
+                .add(ModBlocks.TITANIUM_FENCE_GATE)
+                .add(ModBlocks.TITANIUM_FENCE)
+                .add(ModBlocks.TITANIUM_STAIRS)
                 .add(ModBlocks.RAW_TITANIUM_BLOCK)
                 .add(ModBlocks.TITANIUM_DEEPSLATE_ORE)
                 .add(ModBlocks.TITANIUM_ORE)
                 .add(ModBlocks.MAGIC_BLOCK)
                 .add(ModBlocks.MATRIX_BLOCK)
-                .add(ModBlocks.NIGHTSLATE);
+                .add(ModBlocks.NIGHTSLATE)
+                .add(ModBlocks.PULSE_EMITTER)
+                .add(ModBlocks.HARDSTONE);
 
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
                 .add(ModBlocks.TRAPPED_SAND);
@@ -39,7 +46,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.WALLS).add(ModBlocks.TITANIUM_WALL);
 
         getOrCreateTagBuilder(ModTags.Blocks.NEEDS_TITANIUM_TOOL)
-                .addTag(BlockTags.NEEDS_DIAMOND_TOOL);
+                .addTag(BlockTags.NEEDS_DIAMOND_TOOL)
+                .add(ModBlocks.HARDSTONE);
 
         getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
                 .add(ModBlocks.DRIFTWOOD_LOG)

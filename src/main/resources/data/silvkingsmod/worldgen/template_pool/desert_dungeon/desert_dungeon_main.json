@@ -39,6 +39,24 @@
       }
     },
     {
+      "weight": 45,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_stairs",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 75,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_stairs2",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
       "weight": 80,
       "element": {
         "location": "silvkingsmod:desert_dungeon_crossing1",
@@ -69,6 +87,15 @@
       "weight": 30,
       "element": {
         "location": "silvkingsmod:desert_dungeon_dirtroom",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 30,
+      "element": {
+        "location": "silvkingsmod:desert_dungeon_featureroom",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

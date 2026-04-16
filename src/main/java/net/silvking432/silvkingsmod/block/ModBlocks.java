@@ -18,7 +18,7 @@ import net.silvking432.silvkingsmod.world.tree.ModSaplingGenerators;
 
 public class ModBlocks {
 
-
+    // Heardness: Breaking Time, Resistance: Explosion Resistance
     public static final Block TITANIUM_BLOCK = registerBlock("titanium_block", new Block(AbstractBlock.Settings.create().strength(8f, 4f).requiresTool().sounds(BlockSoundGroup.METAL)));
     public static final Block RAW_TITANIUM_BLOCK = registerBlock("raw_titanium_block", new Block(AbstractBlock.Settings.create().strength(8f, 4f).requiresTool().sounds(BlockSoundGroup.STONE)));
     public static final Block TITANIUM_ORE = registerBlock("titanium_ore", new ExperienceDroppingBlock(UniformIntProvider.create(2, 5),AbstractBlock.Settings.create().strength(4f, 3f).requiresTool().sounds(BlockSoundGroup.STONE)));
@@ -54,6 +54,8 @@ public class ModBlocks {
     public static final Block TRAPPED_SAND = registerBlock("trapped_sand", new TrappedSandBlock(AbstractBlock.Settings.copy(Blocks.SAND)));
     public static final Block NIGHTSLATE = registerBlock("nightslate", new Block(AbstractBlock.Settings.create().strength(7f, 5f).requiresTool().sounds(BlockSoundGroup.STONE)));
     public static final Block DARK_WORLD_PORTAL = registerBlock("dark_world_portal", new DarkWorldPortalBlock(AbstractBlock.Settings.copy(Blocks.END_PORTAL).luminance(state -> 15).mapColor(MapColor.BLACK).sounds(BlockSoundGroup.GLASS)));
+    public static final Block HARDSTONE = registerBlock("hardstone", new Block(AbstractBlock.Settings.create().mapColor(MapColor.BLACK).requiresTool().strength(150.0F, 1200.0F).sounds(BlockSoundGroup.METAL)));
+    public static final Block PULSE_EMITTER = registerBlock("pulse_emitter", new PulseEmitterBlock(AbstractBlock.Settings.create().mapColor(MapColor.GRAY).requiresTool().strength(7.0F, 5.0F).sounds(BlockSoundGroup.WOOD)));
 
 
     public static Block registerBlock(String name, Block block) {

@@ -1,4 +1,4 @@
-// 1.21	2026-04-02T21:56:02.080382	SilvKings Mod/Block Loot Tables
+// 1.21	2026-04-16T23:06:58.8132555	SilvKings Mod/Block Loot Tables
 a74878ecabbf4c570dbfcdac8e4a7eaf8c4a8b0c data\silvkingsmod\loot_table\blocks\titanium_trapdoor.json
 97e381fb5df96463cd80f1f6d3839937f11a537a data\silvkingsmod\loot_table\blocks\titanium_stairs.json
 a5e84063221baa6ca31cd6de0b59426f939bffaf data\silvkingsmod\loot_table\blocks\nightslate.json
@@ -17,6 +17,7 @@ aaaa3f265609716d2af28782e13590782b471350 data\silvkingsmod\loot_table\blocks\raw
 b365467b3a37227274a494f1eb1349d91209eada data\silvkingsmod\loot_table\blocks\driftwood_planks.json
 e1d97d2651b24fc735c0bacbe64a135e4fc50dd9 data\silvkingsmod\loot_table\blocks\honey_berry_bush.json
 cb3f4aac216768f7fe32570e7a8182d79b8d95fe data\silvkingsmod\loot_table\blocks\titanium_block.json
+e0d371f87fd328f3cc2728f8e66254659b60df0b data\silvkingsmod\loot_table\blocks\pulse_emitter.json
 46088b59e6c2f6eebc5a45dd0c6c34f93d5b2e32 data\silvkingsmod\loot_table\blocks\titanium_deepslate_ore.json
 c65d62fc676cb7c652ce1efd40e13444e75b5b6f data\silvkingsmod\loot_table\blocks\driftwood_leaves.json
 730f8122a2b0eebfb301b589325c8828bc94e9cd data\silvkingsmod\loot_table\blocks\titanium_slab.json

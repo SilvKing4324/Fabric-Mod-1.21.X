@@ -1,50 +1,50 @@
-/place template minecraft:ancient_city/city_center/city_center_3
-/place template minecraft:ancient_city/city_center/city_center_1
-/place template minecraft:ancient_city/city_center/city_center_2
-/place template minecraft:ancient_city/city_center/city_center_1
-/place template minecraft:ancient_city/city_center/city_center_2
-/place template minecraft:ancient_city/city_center/city_center_3
-/place template minecraft:ancient_city/city_center/city_center_1
-/place template minecraft:ancient_city/city_center/city_center_3
-/place template minecraft:ancient_city/city_center/city_center_2
-/place template minecraft:ancient_city/city_center/city_center_1
-/locate structure minecraft:ancient_city
-/tp @s 112 ~ 544
-/place template minecraft:ancient_city/city_center/city_center_1#
-/place template minecraft:ancient_city/city_center/city_center_1
-/place template minecraft:ancient_city/city_center/city_center_2
-/place template minecraft:ancient_city/city_center/city_center_1
-/locate structure minecraft:ancient_city
-/tp @s 1264 ~ -640
-/locate structure minecraft:ancient_city
-/tp @s -1344 ~ -336
-/setblock ~ ~ ~ silvkingsmod:dark_world_portal
-/locate structure minecraft:ancient_city
-/tp @s -1344 ~ -336
-/kill @e[type=!minecraft:player]
-/summon minecraft:end_po
-/setblock ~ ~ ~ minecraft:nether_portal
-/tp @s -1344 ~ -336
-/execute in silvkingsmod:dark_world run tp @s -1344 ~ -336
-/execute in silvkingsmod:dark_world run tp @s 0 0 0
-/locate structure minecraft:ancient_city
-/tp @s 384 ~ 2480
-/recipe give Player802 silvkingsmod:*
-/recipe give Player802 silvkingsmod:titan_heart_from_starlight_ashes
-/recipe give Player802 silvkingsmod:dark_world_key_from_dark_world_orb
-/summon minecraft:wither
-/kill @e[type=minecraft:wither]
-/summon minecraft:wither
-/kill @e[type=minecraft:wither]
-/recipe give Player802 silvkingsmod:titanium_ingot
-/summon minecraft:ender_dragon
-/kill @e[type=minecraft:ender_dragon]
-/summon minecraft:ender_dragon
-/kill @e[type=minecraft:ender_dragon]
-/summon minecraft:ender_dragon
-/kill @e[type=minecraft:ender_dragon]
-/give @s silvkingsmod:dragon_scale
+/tp @s -3808 ~ 4096
+/locate structure silvkingsmod:lava_arena
+/tp @s -4416 ~ 2592
+/replacenear 10 deepslate air
+/replacenear 50 stone air
+/give @s silvkingsmod:titanium_nether_ore
+//copy
+//stack north 5
+//stack 5 north
+/tick freeze
+/item replace entity @e[limit=1,type=minecraft:skeleton,sort=nearest] weapon.mainhand from entity @s weapon.mainhand
+/tick step 1
+/item replace entity @e[limit=1,type=minecraft:skeleton,sort=nearest] weapon.mainhand from entity @s weapon.mainhand
+/tick step 1
+/tick unfreeze
+/tick freeze
+/item replace entity @e[limit=1,type=minecraft:skeleton,sort=nearest] weapon.mainhand from entity @s weapon.mainhand
+/tick unfreeze
+/summon silvkingsmod:lava_golem
+/summon silvkingsmod:magna_minion
 /summon silvkingsmod:magna_titan
 /kill @e[type=!minecraft:player]
-/locate structure minecraft:ancient_city
-/tp @s -992 ~ -1040
+/setblock ~ ~ ~ silvkingsmod:dark_world_portal
+/kill
+/locate structure silvkingsmod:desert_dungeon
+/tp @s 1360 ~ -1776
+/place template silvkingsmod:desert_dungeon_paintingfeature
+/locate structure silvkingsmod:desert_dungeon
+/tp @s -1184 ~ 528
+/place structure silvkingsmod:desert_dungeon
+/tp 10000 ~ ~
+/locate structure silvkingsmod:desert_dungeon
+/tp @s 12096 ~ 3184
+/tp -10000 ~ ~
+/locate structure silvkingsmod:desert_dungeon
+/tp @s -8656 ~ 6224
+/locate structure silvkingsmod:desert_dungeon
+/tp @s -1184 ~ 1360
+/tp @s -11184 ~ 1360
+/locate structure silvkingsmod:desert_dungeon
+/tp @s -8848 ~ 2880
+/tp @s 8848 ~ 2880
+/locate structure silvkingsmod:desert_dungeon
+/tp @s 13600 ~ 7216
+/locate structure silvkingsmod:desert_dungeon
+/tp @s 13600 ~ 17216
+/locate structure silvkingsmod:desert_dungeon
+/tp @s 14336 ~ 13664
+/locate structure silvkingsmod:desert_dungeon
+/tp @s 3680 ~ 3904

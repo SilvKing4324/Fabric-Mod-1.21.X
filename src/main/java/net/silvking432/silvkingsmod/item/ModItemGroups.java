@@ -46,6 +46,7 @@ public class ModItemGroups {
                         entries.add(ModItems.TITAN_PLAYER_SPAWN_EGG);
                         entries.add(ModItems.TITAN_HEART);
                         entries.add(ModItems.DARK_WORLD_ORB);
+                        entries.add(ModItems.DARK_WORLD_KEY);
 
                     }).build());
 
@@ -59,6 +60,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.MAGIC_BLOCK);
                         entries.add(ModBlocks.TITANIUM_ORE);
                         entries.add(ModBlocks.TITANIUM_DEEPSLATE_ORE);
+                        entries.add(ModBlocks.TITANIUM_NETHER_ORE);
+                        entries.add(ModBlocks.TITANIUM_END_ORE);
                         entries.add(ModBlocks.TITANIUM_STAIRS);
                         entries.add(ModBlocks.TITANIUM_SLAB);
                         entries.add(ModBlocks.TITANIUM_BUTTON);
@@ -84,6 +87,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TITANIUM_BEACON);
                         entries.add(ModBlocks.TRAPPED_SAND);
                         entries.add(ModBlocks.DARK_WORLD_PORTAL);
+                        entries.add(ModBlocks.HARDSTONE);
+                        entries.add(ModBlocks.PULSE_EMITTER);
 
 
 

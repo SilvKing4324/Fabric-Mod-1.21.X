@@ -1,11 +1,18 @@
 {
   "values": [
     "silvkingsmod:titanium_block",
+    "silvkingsmod:titanium_slab",
+    "silvkingsmod:titanium_wall",
+    "silvkingsmod:titanium_fence_gate",
+    "silvkingsmod:titanium_fence",
+    "silvkingsmod:titanium_stairs",
     "silvkingsmod:raw_titanium_block",
     "silvkingsmod:titanium_deepslate_ore",
     "silvkingsmod:titanium_ore",
     "silvkingsmod:magic_block",
     "silvkingsmod:matrix_block",
-    "silvkingsmod:nightslate"
+    "silvkingsmod:nightslate",
+    "silvkingsmod:pulse_emitter",
+    "silvkingsmod:hardstone"
   ]
 }
