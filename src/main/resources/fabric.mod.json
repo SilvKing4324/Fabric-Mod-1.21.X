@@ -2,13 +2,14 @@
 	"schemaVersion": 1,
 	"id": "silvkingsmod",
 	"version": "${version}",
-	"name": "SilvKings Mod",
-	"description": "SilvKings first Mod!",
+	"name": "SilvKings Titan Mod",
+	"description": "My first Mod!",
 	"authors": [
 		"SilvKing432!"
 	],
 	"contact": {
 		"homepage": "https://silvking432.net/",
+		"discord": "silvking432v2",
 		"sources": "https://github.com/SilvKing4324/Fabric-Mod-1.21.X"
 	},
 	"license": "MIT",
