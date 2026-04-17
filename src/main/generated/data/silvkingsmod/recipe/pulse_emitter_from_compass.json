@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:repeater"
+    },
+    "N": {
+      "item": "minecraft:comparator"
+    },
+    "R": {
+      "item": "minecraft:chiseled_stone_bricks"
+    },
+    "S": {
+      "item": "minecraft:redstone"
+    },
+    "X": {
+      "item": "minecraft:compass"
+    }
+  },
+  "pattern": [
+    "RAR",
+    "SXS",
+    "RNR"
+  ],
+  "result": {
+    "count": 1,
+    "id": "silvkingsmod:pulse_emitter"
+  }
+}

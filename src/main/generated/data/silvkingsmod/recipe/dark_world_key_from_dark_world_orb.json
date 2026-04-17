@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "silvkingsmod:titan_heart"
+    },
+    "N": {
+      "item": "silvkingsmod:dark_world_orb"
+    },
+    "R": {
+      "item": "silvkingsmod:titanium_ingot"
+    },
+    "S": {
+      "item": "silvkingsmod:dragon_scale"
+    },
+    "X": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "pattern": [
+    "RAR",
+    "SXS",
+    "RNR"
+  ],
+  "result": {
+    "count": 1,
+    "id": "silvkingsmod:dark_world_key"
+  }
+}

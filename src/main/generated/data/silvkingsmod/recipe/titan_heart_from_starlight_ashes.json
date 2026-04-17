@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:amethyst_cluster"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "R": {
+      "item": "silvkingsmod:titanium_ingot"
+    },
+    "S": {
+      "item": "silvkingsmod:starlight_ashes"
+    },
+    "X": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "pattern": [
+    "NAN",
+    "XSX",
+    "RXR"
+  ],
+  "result": {
+    "count": 1,
+    "id": "silvkingsmod:titan_heart"
+  }
+}

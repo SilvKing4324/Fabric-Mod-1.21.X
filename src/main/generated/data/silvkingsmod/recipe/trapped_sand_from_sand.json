@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "R": {
+      "item": "minecraft:sand"
+    },
+    "X": {
+      "item": "minecraft:tripwire_hook"
+    }
+  },
+  "pattern": [
+    "R",
+    "X"
+  ],
+  "result": {
+    "count": 1,
+    "id": "silvkingsmod:trapped_sand"
+  }
+}
