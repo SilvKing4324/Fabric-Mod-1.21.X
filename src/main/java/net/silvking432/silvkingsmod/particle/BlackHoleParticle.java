@@ -26,12 +26,9 @@ public class BlackHoleParticle extends SpriteBillboardParticle {
         this.prevAngle = this.angle;
         super.tick();
 
-        // ROTATION LOGIK:
-        // Erhöhe den Winkel in jedem Tick. 0.1f ist eine moderate Geschwindigkeit.
-        // Ein positiver Wert dreht im Uhrzeigersinn, ein negativer dagegen.
+
         this.angle += 0.15f;
 
-        // Sanftes Ausblenden/Schrumpfen am Ende
         if (this.age > this.maxAge - 20) {
             this.scale *= 0.9f;
         }

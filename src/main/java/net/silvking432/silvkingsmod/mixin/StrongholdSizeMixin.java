@@ -27,13 +27,10 @@ public class StrongholdSizeMixin {
     @Inject(method = "init", at = @At("TAIL"))
     private static void silvkingsmod$boostRoomLimits(CallbackInfo ci) {
         try {
-            // Wir suchen das Feld ALL_PIECES direkt per Reflection in der Klasse
-            // Wir probieren beide Namen: den echten und den Intermediary-Namen (field_31628 oder ähnlich)
             Field allPiecesField;
             try {
                 allPiecesField = StrongholdGenerator.class.getDeclaredField("ALL_PIECES");
             } catch (NoSuchFieldException e) {
-                // Das ist der interne Name für ALL_PIECES in 1.21 Intermediary Mappings
                 allPiecesField = StrongholdGenerator.class.getDeclaredField("field_31628");
             }
 
@@ -43,17 +40,14 @@ public class StrongholdSizeMixin {
             for (Object piece : pieces) {
                 Class<?> pieceClass = piece.getClass();
 
-                // Wir passen die Limits an
                 modifyPrivateInt(piece, pieceClass, "limit", " ", 100);
-                // Wir passen die Gewichtung an
-                modifyPrivateInt(piece, pieceClass, "weight", "field_15278", 200); // 500 = sehr hohe Prio
+                modifyPrivateInt(piece, pieceClass, "weight", "field_15278", 200);
             }
         } catch (Exception e) {
-            System.err.println("[SilvKingsMod] Fehler beim Vergrößern der Strongholds: " + e.getMessage());
+            System.err.println("[SilvKingsTitanMod] An Error Occured: " + e.getMessage());
         }
     }
 
-    // Hilfsmethode um private Felder sicher zu setzen
     @Unique
     private static void modifyPrivateInt(Object instance, Class<?> clazz, String name, String intermediary, int newValue) {
         try {
@@ -65,7 +59,6 @@ public class StrongholdSizeMixin {
             }
             field.setAccessible(true);
 
-            // Wenn es das Limit ist, nur ändern wenn es > 0 ist (Portalraum etc.)
             if (name.equals("limit") || intermediary.equals("field_15277")) {
                 int old = field.getInt(instance);
                 if (old > 0) field.setInt(instance, newValue);

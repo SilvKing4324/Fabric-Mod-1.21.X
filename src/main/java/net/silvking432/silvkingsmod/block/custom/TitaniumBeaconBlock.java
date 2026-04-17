@@ -18,15 +18,10 @@ public class TitaniumBeaconBlock extends Block {
 
     @Override
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
-        // Wir prüfen, ob es ein Spieler ist (und kein Monster)
         if (!world.isClient && entity instanceof PlayerEntity player) {
             if (!player.isSpectator()) {
-                // Sound abspielen
                 world.playSound(null, pos, SoundEvents.BLOCK_BEACON_DEACTIVATE, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                // Partikel erzeugen
                 ((ServerWorld) world).spawnParticles(ParticleTypes.LARGE_SMOKE, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 10, 0.2, 0.2, 0.2, 0.05);
-
-                // Block zerstören
                 world.breakBlock(pos, false);
             }
         }
