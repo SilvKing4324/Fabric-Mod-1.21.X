@@ -13,4 +13,4 @@ A Fabric mod for Minecraft 1.21 that adds powerful Titan equipment, new monsters
 You can find the latest builds in the [Releases](https://github.com/SilvKing4324/silvkingsmod/releases) section.
 
 ## Credits
-See [CREDITS.md](CREDITS.md) for full asset attributions.
+See [CREDITS.md](https://github.com/SilvKing4324/Fabric-Mod-1.21.X/blob/master/credits.md) for full asset attributions.
