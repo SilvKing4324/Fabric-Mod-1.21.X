@@ -90,6 +90,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.DARK_WORLD_ORB, Models.GENERATED);
         itemModelGenerator.register(ModItems.DRAGON_SCALE, Models.GENERATED);
         itemModelGenerator.register(ModItems.DARK_WORLD_KEY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DARK_TITANIUM_INGOT, Models.GENERATED);
 
 
     }

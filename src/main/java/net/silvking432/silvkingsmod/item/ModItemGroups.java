@@ -20,6 +20,7 @@ public class ModItemGroups {
                     .entries((displayContet, entries) -> {
                         entries.add(ModItems.TITANIUM_SHARD);
                         entries.add(ModItems.TITANIUM_INGOT);
+                        entries.add(ModItems.DARK_TITANIUM_INGOT);
                         entries.add(ModItems.CHISEL);
                         entries.add(ModItems.SUPER_FLOWER);
                         entries.add(ModItems.STARLIGHT_ASHES);
