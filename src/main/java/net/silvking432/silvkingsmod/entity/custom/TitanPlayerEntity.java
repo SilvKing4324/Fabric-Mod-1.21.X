@@ -97,12 +97,6 @@ public class TitanPlayerEntity extends HostileEntity {
 
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
         this.targetSelector.add(0, new RevengeGoal(this));
-        this.targetSelector.add(2, new ActiveTargetGoal<>(
-                this,
-                LivingEntity.class,
-                true,
-                target -> !(target instanceof TitanPlayerEntity)
-        ));
     }
 
     public static DefaultAttributeContainer.Builder createAttributes() {

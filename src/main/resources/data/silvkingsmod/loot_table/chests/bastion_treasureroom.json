@@ -1,0 +1,109 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "silvkingsmod:dark_titanium_ingot"
+        }
+      ]
+    },
+    {
+      "rolls": 10,
+      "bonus_rolls": 10,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:enchanted_book",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:soul_speed": 3
+              },
+              "add": true
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:golden_helmet",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "only_compatible": true
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gold_block",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gold_ingot",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 2,
+              "add": true
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_block",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:netherite_scrap",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gilded_blackstone",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_nugget",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 5,
+              "add": true
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_ingot",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:ancient_debris",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 4,
+      "bonus_rolls": 2,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "silvkingsmod:titanium_shard"
+        }
+      ]
+    }
+  ]
+}

@@ -18,6 +18,7 @@ public class ModItemGroups {
                     .icon(() -> new ItemStack(ModItems.TITANIUM_INGOT))
                     .displayName(Text.translatable("itemgroup.silvkingsmod.titanium_items"))
                     .entries((displayContet, entries) -> {
+                        entries.add(ModItems.TITANMOD_GUIDE);
                         entries.add(ModItems.TITANIUM_SHARD);
                         entries.add(ModItems.TITANIUM_INGOT);
                         entries.add(ModItems.DARK_TITANIUM_INGOT);
@@ -34,6 +35,10 @@ public class ModItemGroups {
                         entries.add(ModItems.TITANIUM_CHESTPLATE);
                         entries.add(ModItems.TITANIUM_LEGGINGS);
                         entries.add(ModItems.TITANIUM_BOOTS);
+                        entries.add(ModItems.DARK_TITANIUM_HELMET);
+                        entries.add(ModItems.DARK_TITANIUM_CHESTPLATE);
+                        entries.add(ModItems.DARK_TITANIUM_LEGGINGS);
+                        entries.add(ModItems.DARK_TITANIUM_BOOTS);
                         entries.add(ModItems.TITANIUM_HORSE_ARMOR);
                         entries.add(ModItems.SILV_SMITHING_TEMPLATE);
                         entries.add(ModItems.TITANIUM_BOW);
@@ -46,8 +51,11 @@ public class ModItemGroups {
                         entries.add(ModItems.SPECTRE_STAFF);
                         entries.add(ModItems.TITAN_PLAYER_SPAWN_EGG);
                         entries.add(ModItems.TITAN_HEART);
+                        entries.add(ModItems.DRAGON_SCALE);
                         entries.add(ModItems.DARK_WORLD_ORB);
                         entries.add(ModItems.DARK_WORLD_KEY);
+                        entries.add(ModItems.TITANIUM_UPGRADE_TEMPLATE);
+                        entries.add(ModItems.UNIVERSAL_UPGRADE_TEMPLATE);
 
                     }).build());
 
@@ -63,6 +71,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TITANIUM_DEEPSLATE_ORE);
                         entries.add(ModBlocks.TITANIUM_NETHER_ORE);
                         entries.add(ModBlocks.TITANIUM_END_ORE);
+                        entries.add(ModBlocks.NIGHTSLATE);
+                        entries.add(ModBlocks.NIGHT_BRICKS);
                         entries.add(ModBlocks.TITANIUM_STAIRS);
                         entries.add(ModBlocks.TITANIUM_SLAB);
                         entries.add(ModBlocks.TITANIUM_BUTTON);
@@ -90,8 +100,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.DARK_WORLD_PORTAL);
                         entries.add(ModBlocks.HARDSTONE);
                         entries.add(ModBlocks.PULSE_EMITTER);
-
-
+                        entries.add(ModBlocks.DARK_TITANIUM_BLOCK);
 
                     }).build());
 

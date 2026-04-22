@@ -24,7 +24,16 @@ public class ModArmorMaterials {
                 map.put(ArmorItem.Type.CHESTPLATE, 8);
                 map.put(ArmorItem.Type.HELMET, 3);
                 map.put(ArmorItem.Type.BODY, 11);}), 20, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, () -> Ingredient.ofItems(ModItems.TITANIUM_INGOT),
-                    List.of(new ArmorMaterial.Layer(Identifier.of(SilvKingsMod.MOD_ID, "titanium"))), 4.0f,0.2f));
+                    List.of(new ArmorMaterial.Layer(Identifier.of(SilvKingsMod.MOD_ID, "titanium"))), 4.0f,0.15f));
+
+    public static final RegistryEntry<ArmorMaterial> DARK_TITANIUM_ARMOR_MATERIAL = registerArmorMaterial("dark_titanium",
+            () -> new ArmorMaterial(Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
+                map.put(ArmorItem.Type.BOOTS, 3);
+                map.put(ArmorItem.Type.LEGGINGS, 6);
+                map.put(ArmorItem.Type.CHESTPLATE, 8);
+                map.put(ArmorItem.Type.HELMET, 3);
+                map.put(ArmorItem.Type.BODY, 11);}), 25, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, () -> Ingredient.ofItems(ModItems.DARK_TITANIUM_INGOT),
+                    List.of(new ArmorMaterial.Layer(Identifier.of(SilvKingsMod.MOD_ID, "dark_titanium"))), 4.5f,0.2f));
 
     public static RegistryEntry<ArmorMaterial> registerArmorMaterial(String name, Supplier<ArmorMaterial> material) {
         return Registry.registerReference(Registries.ARMOR_MATERIAL, Identifier.of(SilvKingsMod.MOD_ID, name), material.get());

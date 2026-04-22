@@ -15,6 +15,7 @@ import net.silvking432.silvkingsmod.effect.ModEffects;
 import net.silvking432.silvkingsmod.enchantment.ModEnchantmentEffects;
 import net.silvking432.silvkingsmod.entity.ModEntities;
 import net.silvking432.silvkingsmod.entity.custom.*;
+import net.silvking432.silvkingsmod.event.DarkWorldHandler;
 import net.silvking432.silvkingsmod.event.SmeltingTouchHandler;
 import net.silvking432.silvkingsmod.item.ModItemGroups;
 import net.silvking432.silvkingsmod.item.ModItems;
@@ -55,6 +56,7 @@ public class SilvKingsMod implements ModInitializer {
 		ModRecipes.registerRecipes();
 		ModDimensions.registerDimensions();
 		SmeltingTouchHandler.register();
+		DarkWorldHandler.register();
 
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 200000);
 

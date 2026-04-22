@@ -18,13 +18,15 @@ public class ModLootTableModifiers {
             = Identifier.of("minecraft", "entities/creeper");
     private static final Identifier ENDERDRAGON_ID
             = Identifier.of("minecraft", "entities/ender_dragon");
+    private static final Identifier TITANPLAYER_ID
+            = Identifier.of("silvkingsmod", "entities/titan_player");
 
     public static void modifyLootTables() {
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registry) -> {
             if(GRASS_BLOCK_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.25f)) // Drops 25% of the time
+                        .conditionally(RandomChanceLootCondition.builder(0.01f)) // Drops 1% of the time
                         .with(ItemEntry.builder(ModItems.SUPER_FLOWER_SEEDS))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
 
@@ -56,6 +58,16 @@ public class ModLootTableModifiers {
                         .conditionally(RandomChanceLootCondition.builder(1.0f))
                         .with(ItemEntry.builder(ModItems.DRAGON_SCALE))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0f, 2.0f)).build());
+
+                tableBuilder.pool(poolBuilder.build());
+            }
+
+            if(TITANPLAYER_ID.equals(key.getValue())) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.05f))
+                        .with(ItemEntry.builder(ModItems.STARLIGHT_ASHES))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
 
                 tableBuilder.pool(poolBuilder.build());
             }

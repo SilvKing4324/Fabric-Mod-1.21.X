@@ -16,6 +16,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.world.World;
+import net.silvking432.silvkingsmod.block.ModBlocks;
 import net.silvking432.silvkingsmod.component.ModDataComponentTypes;
 import net.silvking432.silvkingsmod.particle.ModParticles;
 import net.silvking432.silvkingsmod.sound.ModSounds;
@@ -32,9 +33,10 @@ public class ChiselItem extends Item {
                     Blocks.POLISHED_BLACKSTONE, Blocks.POLISHED_BLACKSTONE_BRICKS,
                     Blocks.SANDSTONE, Blocks.CUT_SANDSTONE,
                     Blocks.DEEPSLATE, Blocks.POLISHED_DEEPSLATE,
-                    Blocks.COBBLED_DEEPSLATE, Blocks.POLISHED_DEEPSLATE
+                    Blocks.COBBLED_DEEPSLATE, Blocks.POLISHED_DEEPSLATE,
+                    ModBlocks.NIGHTSLATE, ModBlocks.NIGHT_BRICKS,
+                    Blocks.BEACON, ModBlocks.MAGIC_BLOCK
             );
-
     public ChiselItem(Settings settings) {
         super(settings);
     }

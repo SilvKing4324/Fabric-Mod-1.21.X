@@ -42,25 +42,35 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.TITANIUM_HELMET)
                 .add(ModItems.TITANIUM_CHESTPLATE)
                 .add(ModItems.TITANIUM_LEGGINGS)
-                .add(ModItems.TITANIUM_BOOTS);
+                .add(ModItems.TITANIUM_BOOTS)
+                .add(ModItems.DARK_TITANIUM_HELMET)
+                .add(ModItems.DARK_TITANIUM_CHESTPLATE)
+                .add(ModItems.DARK_TITANIUM_LEGGINGS)
+                .add(ModItems.DARK_TITANIUM_BOOTS);
 
         getOrCreateTagBuilder(ItemTags.HEAD_ARMOR)
+                .add(ModItems.DARK_TITANIUM_HELMET)
                 .add(ModItems.TITANIUM_HELMET);
 
         getOrCreateTagBuilder(ItemTags.CHEST_ARMOR)
+                .add(ModItems.DARK_TITANIUM_CHESTPLATE)
                 .add(ModItems.TITANIUM_CHESTPLATE);
 
         getOrCreateTagBuilder(ItemTags.LEG_ARMOR)
+                .add(ModItems.DARK_TITANIUM_LEGGINGS)
                 .add(ModItems.TITANIUM_LEGGINGS);
 
         getOrCreateTagBuilder(ItemTags.FOOT_ARMOR)
+                .add(ModItems.DARK_TITANIUM_BOOTS)
                 .add(ModItems.TITANIUM_BOOTS);
 
         getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS)
                 .add(ModItems.TITANIUM_INGOT);
 
         getOrCreateTagBuilder(ItemTags.TRIM_TEMPLATES)
-                .add(ModItems.SILV_SMITHING_TEMPLATE);
+                .add(ModItems.SILV_SMITHING_TEMPLATE)
+                .add(ModItems.UNIVERSAL_UPGRADE_TEMPLATE)
+                .add(ModItems.TITANIUM_UPGRADE_TEMPLATE);
 
         getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
                 .add(ModBlocks.DRIFTWOOD_LOG.asItem())
@@ -71,5 +81,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ItemTags.PLANKS)
                 .add(ModBlocks.DRIFTWOOD_PLANKS.asItem());
 
+        getOrCreateTagBuilder(ItemTags.SAPLINGS)
+                .add(ModBlocks.DRIFTWOOD_SAPLING.asItem());
+
+        getOrCreateTagBuilder(ItemTags.BOW_ENCHANTABLE)
+                .add(ModItems.TITANIUM_BOW);
     }
 }

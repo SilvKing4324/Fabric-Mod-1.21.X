@@ -4,15 +4,24 @@
     "silvkingsmod:titanium_slab",
     "silvkingsmod:titanium_wall",
     "silvkingsmod:titanium_fence_gate",
+    "silvkingsmod:titanium_pressure_plate",
     "silvkingsmod:titanium_fence",
     "silvkingsmod:titanium_stairs",
     "silvkingsmod:raw_titanium_block",
     "silvkingsmod:titanium_deepslate_ore",
     "silvkingsmod:titanium_ore",
+    "silvkingsmod:titanium_nether_ore",
+    "silvkingsmod:titanium_end_ore",
     "silvkingsmod:magic_block",
     "silvkingsmod:matrix_block",
     "silvkingsmod:nightslate",
     "silvkingsmod:pulse_emitter",
-    "silvkingsmod:hardstone"
+    "silvkingsmod:hardstone",
+    "silvkingsmod:titanium_door",
+    "silvkingsmod:titanium_button",
+    "silvkingsmod:titanium_lamp",
+    "silvkingsmod:growth_chamber",
+    "silvkingsmod:night_bricks",
+    "silvkingsmod:titanium_trapdoor"
   ]
 }

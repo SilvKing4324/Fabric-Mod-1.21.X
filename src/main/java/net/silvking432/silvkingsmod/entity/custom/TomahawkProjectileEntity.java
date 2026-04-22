@@ -46,7 +46,7 @@ public class TomahawkProjectileEntity extends PersistentProjectileEntity {
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
         Entity entity = entityHitResult.getEntity();
-        entity.damage(this.getDamageSources().thrown(this, this.getOwner()), 4);
+        entity.damage(this.getDamageSources().thrown(this, this.getOwner()), 6);
 
         if (!this.getWorld().isClient()) {
             this.getWorld().sendEntityStatus(this, (byte)3);

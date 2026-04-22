@@ -1,0 +1,200 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "silvkingsmod:necron_doom_music_disc"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "silvkingsmod:silv_armor_trim_smithing_template",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "silvkingsmod:titanium_horse_armor",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "silvkingsmod:chisel",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 5,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_ingot",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "silvkingsmod:tomahawk",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "silvkingsmod:starlight_ashes",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "silvkingsmod:titanium_shard",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "silvkingsmod:super_flower_seeds",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "rolls": 10,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_boots",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "only_compatible": true
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_leggings",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "only_compatible": true
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_chestplate",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "only_compatible": true
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_helmet",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "only_compatible": true
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bone_meal",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:leather",
+          "weight": 10,
+          "conditions": [],
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 2,
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:enchanted_book",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "only_compatible": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:golden_apple",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:air",
+          "weight": 50
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:saddle",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gunpowder",
+          "weight": 30,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 5,
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bone",
+          "weight": 30,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 3,
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:string",
+          "weight": 30,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 5,
+              "add": true
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:rotten_flesh",
+          "weight": 30,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 4,
+              "add": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

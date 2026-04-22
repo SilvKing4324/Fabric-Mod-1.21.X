@@ -1,6 +1,5 @@
 package net.silvking432.silvkingsmod.item;
 
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
@@ -56,7 +55,13 @@ public class ModItems {
     public static final Item DARK_WORLD_KEY = registerItem("dark_world_key", new Item(new Item.Settings()));
     public static final Item DRAGON_SCALE = registerItem("dragon_scale", new Item(new Item.Settings()));
     public static final Item DARK_TITANIUM_INGOT = registerItem("dark_titanium_ingot", new Item(new Item.Settings()));
-
+    public static final Item DARK_TITANIUM_HELMET = registerItem("dark_titanium_helmet", new DarkArmorItem(ModArmorMaterials.DARK_TITANIUM_ARMOR_MATERIAL,ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(56))));
+    public static final Item DARK_TITANIUM_CHESTPLATE = registerItem("dark_titanium_chestplate", new DarkArmorItem(ModArmorMaterials.DARK_TITANIUM_ARMOR_MATERIAL,ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(56))));
+    public static final Item DARK_TITANIUM_LEGGINGS = registerItem("dark_titanium_leggings", new DarkArmorItem(ModArmorMaterials.DARK_TITANIUM_ARMOR_MATERIAL,ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(56))));
+    public static final Item DARK_TITANIUM_BOOTS = registerItem("dark_titanium_boots", new DarkArmorItem(ModArmorMaterials.DARK_TITANIUM_ARMOR_MATERIAL,ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(56))));
+    public static final Item TITANIUM_UPGRADE_TEMPLATE = registerItem("titanium_upgrade_template", TitaniumSmithingTemplateItem.createTitaniumUpgrade());
+    public static final Item UNIVERSAL_UPGRADE_TEMPLATE = registerItem("universal_upgrade_template", UniversalSmithingTemplateItem.createUniversalUpgrade());
+    public static final Item TITANMOD_GUIDE = registerItem("titanmod_guide", new Item(new Item.Settings()));
 
 
 
@@ -66,14 +71,5 @@ public class ModItems {
 
     public static void registerModItems() {
         SilvKingsMod.LOGGER.info("Registering Mod Items for" + SilvKingsMod.MOD_ID);
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
-            entries.add(TITANIUM_INGOT);
-            entries.add(TITANIUM_SHARD);
-            entries.add(CHISEL);
-            entries.add(SUPER_FLOWER);
-            entries.add(STARLIGHT_ASHES);
-
-        });
     }
 }

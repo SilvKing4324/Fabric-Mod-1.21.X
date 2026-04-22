@@ -1,0 +1,7 @@
+v1.0.0:
+Created the mod
+v1.0.1
+Added new structures for the dark world and gave it a purpose.
+Added a new Tier of Armor which can be crafted with loot from the Dark World Bastions.
+Fixed a lot of uncraftable recipes and missing block drops and block tags.
+Nerfed the Knockback Resistance of the Titan Armor

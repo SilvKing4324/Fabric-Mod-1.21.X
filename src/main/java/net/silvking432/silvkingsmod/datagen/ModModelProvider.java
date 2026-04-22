@@ -36,6 +36,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DARK_WORLD_PORTAL);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.HARDSTONE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PULSE_EMITTER);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DARK_TITANIUM_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NIGHT_BRICKS);
 
 
         titanium_pool.stairs(ModBlocks.TITANIUM_STAIRS);
@@ -81,6 +83,10 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor((ArmorItem) ModItems.TITANIUM_CHESTPLATE);
         itemModelGenerator.registerArmor((ArmorItem) ModItems.TITANIUM_LEGGINGS);
         itemModelGenerator.registerArmor((ArmorItem) ModItems.TITANIUM_BOOTS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.DARK_TITANIUM_HELMET);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.DARK_TITANIUM_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.DARK_TITANIUM_LEGGINGS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.DARK_TITANIUM_BOOTS);
         itemModelGenerator.register(ModItems.TITANIUM_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.SILV_SMITHING_TEMPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.NECRON_DOOM_MUSIC_DISC, Models.GENERATED);
@@ -91,6 +97,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.DRAGON_SCALE, Models.GENERATED);
         itemModelGenerator.register(ModItems.DARK_WORLD_KEY, Models.GENERATED);
         itemModelGenerator.register(ModItems.DARK_TITANIUM_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TITANIUM_UPGRADE_TEMPLATE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.UNIVERSAL_UPGRADE_TEMPLATE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TITANMOD_GUIDE, Models.GENERATED);
 
 
     }

@@ -1,9 +1,7 @@
 package net.silvking432.silvkingsmod.block.custom;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
+import com.mojang.serialization.MapCodec;
+import net.minecraft.block.*;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -17,25 +15,24 @@ import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.explosion.Explosion;
 import net.silvking432.silvkingsmod.entity.custom.TitaniumTntEntity;
 import org.jetbrains.annotations.Nullable;
 
 public class TitaniumTntBlock extends Block {
 
     public static final BooleanProperty UNSTABLE = Properties.UNSTABLE;
+    public static final MapCodec<TitaniumTntBlock> CODEC = createCodec(TitaniumTntBlock::new);
+
+    @Override
+    protected MapCodec<? extends Block> getCodec() {
+        return CODEC;
+    }
 
     public TitaniumTntBlock(AbstractBlock.Settings settings) {
         super(settings);
         this.setDefaultState(this.getDefaultState().with(UNSTABLE, false));
     }
-
-    private void primeTnt(World world, BlockPos pos, @Nullable LivingEntity igniter) {
-        if (!world.isClient) {
-            TitaniumTntEntity tnt = new TitaniumTntEntity(world, pos.getX()+0.5, pos.getY(), pos.getZ()+0.5, igniter);
-            world.spawnEntity(tnt);
-        }
-    }
-
 
     @Override
     protected void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
@@ -62,9 +59,12 @@ public class TitaniumTntBlock extends Block {
     }
 
     @Override
-    public void onDestroyedByExplosion(World world, BlockPos pos, net.minecraft.world.explosion.Explosion explosion) {
+    public void onDestroyedByExplosion(World world, BlockPos pos, Explosion explosion) {
         if (!world.isClient) {
-            primeTnt(world, pos, explosion.getCausingEntity() instanceof LivingEntity ? explosion.getCausingEntity() : null);
+            TitaniumTntEntity tntEntity = new TitaniumTntEntity(world, pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, explosion.getCausingEntity());
+            int i = tntEntity.getFuse();
+            tntEntity.setFuse((short)(world.random.nextInt(i / 4) + i / 8));
+            world.spawnEntity(tntEntity);
         }
     }
 
@@ -87,6 +87,13 @@ public class TitaniumTntBlock extends Block {
             return ItemActionResult.success(world.isClient);
         }
         return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
+    }
+
+    private void primeTnt(World world, BlockPos pos, @Nullable LivingEntity igniter) {
+        if (!world.isClient) {
+            TitaniumTntEntity tnt = new TitaniumTntEntity(world, pos.getX()+0.5, pos.getY(), pos.getZ()+0.5, igniter);
+            world.spawnEntity(tnt);
+        }
     }
 
 }

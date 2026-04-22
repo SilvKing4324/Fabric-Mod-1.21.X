@@ -35,7 +35,7 @@
         "type": "minecraft:squeeze",
         "argument": {
           "type": "minecraft:mul",
-          "argument1": 0.64,
+          "argument1": 1.5,
           "argument2": {
             "type": "minecraft:interpolated",
             "argument": {
@@ -64,7 +64,7 @@
                           "type": "minecraft:y_clamped_gradient",
                           "from_value": 1.0,
                           "from_y": 240,
-                          "to_value": 0.0,
+                          "to_value": 1.0,
                           "to_y": 256
                         },
                         "argument2": {
@@ -182,7 +182,7 @@
     },
     "initial_density_without_jaggedness": {
       "type": "minecraft:add",
-      "argument1": 0.1171875,
+      "argument1": 0.3171875,
       "argument2": {
         "type": "minecraft:mul",
         "argument1": {
@@ -204,7 +204,7 @@
                 "type": "minecraft:y_clamped_gradient",
                 "from_value": 1.0,
                 "from_y": 240,
-                "to_value": 0.0,
+                "to_value": 1.0,
                 "to_y": 256
               },
               "argument2": {
@@ -246,7 +246,11 @@
       "xz_scale": 1.0,
       "y_scale": 1.0
     },
-    "ridges": "minecraft:overworld/ridges",
+    "ridges": {
+      "type": "minecraft:mul",
+      "argument1": 2.0,
+      "argument2": "minecraft:overworld/ridges"
+    },
     "temperature": {
       "type": "minecraft:shifted_noise",
       "noise": "minecraft:temperature",

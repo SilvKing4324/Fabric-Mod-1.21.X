@@ -1,0 +1,14 @@
+{
+  "structures": [
+    { "structure": "silvkingsmod:dark_bastion_bridge", "weight": 1 },
+    { "structure": "silvkingsmod:dark_bastion_housing", "weight": 1 },
+    { "structure": "silvkingsmod:dark_bastion_stables", "weight": 1 },
+    { "structure": "silvkingsmod:dark_bastion_treasure", "weight": 1 }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 20,
+    "separation": 10,
+    "salt": 3723478
+  }
+}

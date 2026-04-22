@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:jigsaw",
+  "start_pool": "silvkingsmod:dark_bastion_stables/start_pool",
+  "size": 2,
+  "max_distance_from_center": 80,
+  "spawn_overrides": {},
+  "step": "surface_structures",
+  "liquid_settings": "ignore_waterlogging",
+  "terrain_adaptation": "beard_box",
+  "start_height": {
+    "absolute": -5
+  },
+  "project_start_to_heightmap": "WORLD_SURFACE_WG",
+  "use_expansion_hack": false,
+  "biomes": [
+    "silvkingsmod:soul_desert",
+    "silvkingsmod:midnight_forest"
+  ],
+  "adapt_noise": false
+}

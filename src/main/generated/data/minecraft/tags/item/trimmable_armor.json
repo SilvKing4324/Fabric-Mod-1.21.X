@@ -3,6 +3,10 @@
     "silvkingsmod:titanium_helmet",
     "silvkingsmod:titanium_chestplate",
     "silvkingsmod:titanium_leggings",
-    "silvkingsmod:titanium_boots"
+    "silvkingsmod:titanium_boots",
+    "silvkingsmod:dark_titanium_helmet",
+    "silvkingsmod:dark_titanium_chestplate",
+    "silvkingsmod:dark_titanium_leggings",
+    "silvkingsmod:dark_titanium_boots"
   ]
 }

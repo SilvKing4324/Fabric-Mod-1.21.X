@@ -11,6 +11,7 @@ import net.minecraft.entity.data.*;
 import net.minecraft.entity.effect.*;
 import net.minecraft.entity.mob.*;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.packet.s2c.play.*;
@@ -339,6 +340,13 @@ public class MagnaTitanEntity extends HostileEntity {
         BossState currentState = this.getState();
         boolean isInvulnerable = currentState == BossState.SHIELDED || currentState == BossState.HEALING || currentState == BossState.BLACK_HOLE;
 
+        if (source.getSource() instanceof PersistentProjectileEntity) {
+            if (!this.getWorld().isClient) {
+                this.playSound(SoundEvents.ENTITY_ITEM_BREAK, 0.5f, 1.5f);
+            }
+            return false;
+        }
+
         if (isInvulnerable && !source.isOf(DamageTypes.OUT_OF_WORLD)) {
             if (!this.getWorld().isClient) {
                 this.playSound(SoundEvents.ENTITY_ZOMBIE_ATTACK_IRON_DOOR, 0.5f, 2.0f);
@@ -380,15 +388,13 @@ public class MagnaTitanEntity extends HostileEntity {
         if (this.getWorld().isClient) return;
 
         ServerWorld world = (ServerWorld) this.getWorld();
-        double range = 10.0; // Radius der Druckwelle
+        double range = 10.0;
 
-        // Optisches Feedback: Große Explosion/Rauchwolke
         world.spawnParticles(ParticleTypes.EXPLOSION_EMITTER,
                 this.getX(), this.getY() + 1.0, this.getZ(), 3, 0.5, 0.5, 0.5, 0.1);
         this.getWorld().playSound(null, this.getX(), this.getY(), this.getZ(),
                 SoundEvents.ENTITY_BREEZE_WIND_BURST, this.getSoundCategory(), 2.0f, 0.5f);
 
-        // Alle LivingEntities im Umkreis finden
         var targets = world.getEntitiesByClass(LivingEntity.class,
                 this.getBoundingBox().expand(range), entity -> entity != this);
 
@@ -401,31 +407,24 @@ public class MagnaTitanEntity extends HostileEntity {
                 dx /= distance;
                 dz /= distance;
 
-                // 1. Berechnung des Falloffs (1.0 nah dran, 0.0 weit weg)
                 double falloff = Math.max(0.0, 1.0 - (distance / range));
 
-                // 2. SCHADEN BERECHNEN (Basis 25.0)
-                // Wir nutzen den Falloff, damit der Schaden nach außen hin abnimmt
                 float damageAmount = (float) (50.0 * falloff);
 
-                if (damageAmount > 1.0f) { // Nur Schaden machen, wenn noch relevant
-                    // Wir nutzen 'magic' oder 'explosion', damit Rüstung es nicht komplett blockt
+                if (damageAmount > 1.0f) {
                     target.damage(this.getDamageSources().explosion(this, this), damageAmount);
                 }
 
-                // 3. KNOCKBACK (Wie vorher, aber mit dem Falloff-Wert)
                 double horizontalPower = 2.8 * falloff;
                 double verticalPower = 0.6 * falloff;
 
                 target.addVelocity(dx * horizontalPower, verticalPower, dz * horizontalPower);
 
-                // 4. SYNCHRONISATION
                 if (target instanceof net.minecraft.server.network.ServerPlayerEntity player) {
                     player.velocityDirty = true;
                     player.velocityModified = true;
                     player.networkHandler.sendPacket(new net.minecraft.network.packet.s2c.play.EntityVelocityUpdateS2CPacket(target));
 
-                    // Nachricht an den Spieler
                     player.sendMessage(Text.literal("A Dark Pulse goes through the Boss!")
                             .formatted(net.minecraft.util.Formatting.DARK_RED, net.minecraft.util.Formatting.BOLD), true);
                 }
@@ -663,7 +662,7 @@ public class MagnaTitanEntity extends HostileEntity {
     private void handlePhaseTriggers(float healthPercent) {
         if (this.getState() != BossState.ATTACKING && phase1Triggered) return;
 
-        // --- Phase 1: 100% HP (Erster Spawn) ---
+        // --- Phase 1: 100% HP (1st Spawn) ---
         if (!phase1Triggered) {
             if (!this.getWorld().isClient && this.getWorld() instanceof ServerWorld serverWorld) {
                 serverWorld.setWeather(12000, 0, false, false);
@@ -675,18 +674,18 @@ public class MagnaTitanEntity extends HostileEntity {
                 }
             }
             teleportToCenter();
-            startShieldPhase(2, 0, 1); // Diese Methode sollte setBossState(SHIELDED) rufen
+            startShieldPhase(2, 0, 1);
             phase1Triggered = true;
         }
 
-        // --- 5/6 HP Schwelle (~83%) -> Blowback + Trank 1 ---
+        // --- 5/6 HP (~83%) -> Blowback + Potion 1 ---
         if (healthPercent <= 0.83f && !hasDone56Blowback) {
             executeBlowbackWave();
             executePottingSequence(1);
             hasDone56Blowback = true;
         }
 
-        // --- 4/6 HP Schwelle (~66%) -> Black Hole ---
+        // --- 4/6 HP (~66%) -> Black Hole ---
         if (healthPercent <= 0.66f && !hasDoneBlackHole) {
             if (!this.getWorld().isClient && this.getWorld() instanceof ServerWorld serverWorld) {
                 serverWorld.setTimeOfDay(13400);
@@ -703,14 +702,14 @@ public class MagnaTitanEntity extends HostileEntity {
             this.hasDoneBlackHole = true;
         }
 
-        // --- Phase 2: 50% HP (3/6) -> Schild + Minions ---
+        // --- Phase 2: 50% HP (3/6) -> Shield + Minions ---
         if (healthPercent <= 0.5f && !phase2Triggered) {
             teleportToCenter();
-            startShieldPhase(3, 2, 1); // Setzt State auf SHIELDED
+            startShieldPhase(3, 2, 1);
             phase2Triggered = true;
         }
 
-        // --- 2/6 HP Schwelle (~33%) -> Rage Mode + Potting 2 ---
+        // --- 2/6 HP (~33%) -> Rage Mode + Potting 2 ---
         if (healthPercent <= 0.33f && !hasDone26Blowback) {
             executeBlowbackWave();
             executePottingSequence(3);
@@ -727,21 +726,20 @@ public class MagnaTitanEntity extends HostileEntity {
                 serverWorld.playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER, SoundCategory.HOSTILE, 1.0f, 1.0f);
             }
 
-            // Stats erhöhen
-            this.updateAttributesForRage(); // Tipp: In eigene Methode auslagern für Sauberkeit
+            this.updateAttributesForRage();
             hasDone26Blowback = true;
         }
 
         // --- Phase 3: 25% HP -> Ult Phase ---
         if (healthPercent <= 0.25f && !this.ultPhaseTriggered) {
             this.ultPhaseTriggered = true;
-            startUltPhase(); // Muss setBossState(ULTIMATE) rufen
+            startUltPhase();
         }
 
         // --- Phase 3: 16% HP -> Final Minion Wave ---
         if (healthPercent <= 0.166f && !phase3Triggered) {
             teleportToCenter();
-            startShieldPhase(4, 2, 2); // Setzt State auf SHIELDED
+            startShieldPhase(4, 2, 2);
             phase3Triggered = true;
         }
     }
@@ -749,32 +747,26 @@ public class MagnaTitanEntity extends HostileEntity {
     private void spawnHealingTrails() {
         if (this.getWorld() instanceof ServerWorld world) {
             for (BlockPos beaconPos : this.activeBeacons) {
-                // Startpunkt: Brusthöhe des Bosses
                 double startX = this.getX();
                 double startY = this.getY() + 1.5;
                 double startZ = this.getZ();
 
-                // Endpunkt: Mitte des Beacons
                 double endX = beaconPos.getX() + 0.5;
                 double endY = beaconPos.getY() + 0.5;
                 double endZ = beaconPos.getZ() + 0.5;
 
-                // Vektor berechnen
                 double dx = endX - startX;
                 double dy = endY - startY;
                 double dz = endZ - startZ;
                 double distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
-                // Partikel entlang der Linie spawnen (alle 0.5 Blöcke ein Partikel)
                 for (double d = 0; d < distance; d += 0.5) {
                     double px = startX + (dx / distance) * d;
                     double py = startY + (dy / distance) * d;
                     double pz = startZ + (dz / distance) * d;
 
-                    // Wähle hier Partikel, die zu deinem Boss passen (z.B. Hex oder Villager Happy)
                     world.spawnParticles(ParticleTypes.WITCH, px, py, pz, 1, 0.05, 0.05, 0.05, 0.01);
 
-                    // Optional: Ein paar "Herz"-Partikel direkt am Boss, um Heilung zu zeigen
                     if (this.random.nextInt(10) == 0) {
                         world.spawnParticles(ParticleTypes.HEART, startX, startY + 0.5, startZ, 1, 0.3, 0.3, 0.3, 0.1);
                     }
@@ -863,7 +855,6 @@ public class MagnaTitanEntity extends HostileEntity {
 
     private void stopCurrentMusicGlobally() {
         for (net.minecraft.server.network.ServerPlayerEntity player : this.bossBar.getPlayers()) {
-            // Stoppt alle Sounds aus der Kategorie RECORDS (Jukebox/Musik) für den Spieler
             player.networkHandler.sendPacket(new net.minecraft.network.packet.s2c.play.StopSoundS2CPacket(null, net.minecraft.sound.SoundCategory.RECORDS));
         }
     }
@@ -987,14 +978,9 @@ public class MagnaTitanEntity extends HostileEntity {
                 this.ultDeflections++;
                 this.getWorld().playSound(null, targetCirclePos, SoundEvents.BLOCK_ANVIL_PLACE, SoundCategory.HOSTILE, 1.0f, 2.0f);
 
-                // IMMER reflektieren, auch beim 5. Mal
                 reflectProjectile();
 
-                // Wenn es der 5. Treffer war, löschen wir keinen Kreis mehr (passiert in reflect)
-                // Die Logik für den Sieg wandert jetzt in den "Auto-Deflect" Teil,
-                // weil der Ball den Boss dort oben erst treffen muss.
             } else {
-                // Fehler-Logik (Explosion) bleibt gleich...
                 this.getWorld().createExplosion(this, targetCirclePos.getX(), targetCirclePos.getY(), targetCirclePos.getZ(), 4.0f, World.ExplosionSourceType.MOB);
                 currentUltProjectile.discard();
                 currentUltProjectile = null;

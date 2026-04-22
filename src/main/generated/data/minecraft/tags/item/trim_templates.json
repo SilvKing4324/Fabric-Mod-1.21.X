@@ -1,5 +1,7 @@
 {
   "values": [
-    "silvkingsmod:silv_armor_trim_smithing_template"
+    "silvkingsmod:silv_armor_trim_smithing_template",
+    "silvkingsmod:universal_upgrade_template",
+    "silvkingsmod:titanium_upgrade_template"
   ]
 }

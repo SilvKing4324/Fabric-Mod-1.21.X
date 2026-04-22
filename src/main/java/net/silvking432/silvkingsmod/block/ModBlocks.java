@@ -45,9 +45,9 @@ public class ModBlocks {
     public static final Block DRIFTWOOD_PLANKS = registerBlock("driftwood_planks", new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
     public static final Block DRIFTWOOD_LEAVES = registerBlock("driftwood_leaves", new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
     public static final Block DRIFTWOOD_SAPLING = registerBlock("driftwood_sapling", new ModSaplingBlock(ModSaplingGenerators.DRIFTWOOD, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING), Blocks.STONE));
-    public static final Block CHAIR = registerBlock("chair", new ChairBlock(AbstractBlock.Settings.create().nonOpaque()));
-    public static final Block PEDESTAL = registerBlock("pedestal", new PedestalBlock(AbstractBlock.Settings.create().nonOpaque()));
-    public static final Block GROWTH_CHAMBER = registerBlock("growth_chamber", new GrowthChamberBlock(AbstractBlock.Settings.create()));
+    public static final Block CHAIR = registerBlock("chair", new ChairBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).nonOpaque()));
+    public static final Block PEDESTAL = registerBlock("pedestal", new PedestalBlock(AbstractBlock.Settings.create().nonOpaque().strength(100000f, 1200f)));
+    public static final Block GROWTH_CHAMBER = registerBlock("growth_chamber", new GrowthChamberBlock(AbstractBlock.Settings.create().strength(7f, 5f).requiresTool()));
     public static final Block TITANIUM_TNT = registerBlock("titanium_tnt", new TitaniumTntBlock(AbstractBlock.Settings.create().mapColor(MapColor.BLUE).breakInstantly().sounds(BlockSoundGroup.GRASS).burnable().solidBlock(Blocks::never)));
     public static final Block MATRIX_BLOCK = registerBlock("matrix_block", new MatrixBlock(AbstractBlock.Settings.create().strength(1000f, 1000f).requiresTool().sounds(BlockSoundGroup.METAL)));
     public static final Block TITANIUM_BEACON = registerBlock("titanium_beacon", new TitaniumBeaconBlock(AbstractBlock.Settings.create().strength(8f, 4f).requiresTool().sounds(BlockSoundGroup.GLASS).luminance(state -> 15).nonOpaque()));
@@ -56,6 +56,8 @@ public class ModBlocks {
     public static final Block DARK_WORLD_PORTAL = registerBlock("dark_world_portal", new DarkWorldPortalBlock(AbstractBlock.Settings.copy(Blocks.END_PORTAL).luminance(state -> 15).mapColor(MapColor.BLACK).sounds(BlockSoundGroup.GLASS)));
     public static final Block HARDSTONE = registerBlock("hardstone", new Block(AbstractBlock.Settings.create().mapColor(MapColor.BLACK).requiresTool().strength(150.0F, 1200.0F).sounds(BlockSoundGroup.METAL)));
     public static final Block PULSE_EMITTER = registerBlock("pulse_emitter", new PulseEmitterBlock(AbstractBlock.Settings.create().mapColor(MapColor.GRAY).requiresTool().strength(7.0F, 5.0F).sounds(BlockSoundGroup.WOOD)));
+    public static final Block DARK_TITANIUM_BLOCK = registerBlock("dark_titanium_block", new Block(AbstractBlock.Settings.create().strength(9f, 5f).requiresTool().sounds(BlockSoundGroup.METAL)));
+    public static final Block NIGHT_BRICKS = registerBlock("night_bricks", new Block(AbstractBlock.Settings.create().strength(7f, 5f).requiresTool().sounds(BlockSoundGroup.STONE)));
 
 
     public static Block registerBlock(String name, Block block) {
