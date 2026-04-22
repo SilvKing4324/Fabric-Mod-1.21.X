@@ -225,6 +225,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.TNT), conditionsFromItem(Items.TNT))
                 .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"titanium_tnt_from_tnt"));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.TITANIUM_BOW,1)
+                .pattern(" ST")
+                .pattern("S X")
+                .pattern(" ST")
+                .input('T', ModItems.TITANIUM_INGOT)
+                .input('X', Items.STRING)
+                .input('S', Items.STICK)
+
+                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"titanium_bow_from_stick"));
+
         SmithingTransformRecipeJsonBuilder.create(
                         Ingredient.ofItems(ModItems.TITANIUM_UPGRADE_TEMPLATE),
                         Ingredient.ofItems(Items.NETHERITE_HELMET),
@@ -355,8 +366,5 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID, upgrade.name + "_smithing_universal")));
 
         offerSmithingTrimRecipe(recipeExporter, ModItems.SILV_SMITHING_TEMPLATE, Identifier.of(SilvKingsMod.MOD_ID, "silv"));
-        // TODO: Add Chisel Recipe
-        // TODO: Add Titan horse Armor Drop
-        // TODO: Add Titan Bow Recipe
     }
 }
