@@ -9,6 +9,7 @@ import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.silvking432.silvkingsmod.SilvKingsMod;
@@ -58,7 +59,13 @@ public class ModBlocks {
     public static final Block PULSE_EMITTER = registerBlock("pulse_emitter", new PulseEmitterBlock(AbstractBlock.Settings.create().mapColor(MapColor.GRAY).requiresTool().strength(7.0F, 5.0F).sounds(BlockSoundGroup.WOOD)));
     public static final Block DARK_TITANIUM_BLOCK = registerBlock("dark_titanium_block", new Block(AbstractBlock.Settings.create().strength(9f, 5f).requiresTool().sounds(BlockSoundGroup.METAL)));
     public static final Block NIGHT_BRICKS = registerBlock("night_bricks", new Block(AbstractBlock.Settings.create().strength(7f, 5f).requiresTool().sounds(BlockSoundGroup.STONE)));
-
+    public static final Block ETERNAL_BRICKS = registerBlock("eternal_bricks", new Block(AbstractBlock.Settings.create().strength(7f, 5f).requiresTool().sounds(BlockSoundGroup.STONE)));
+    public static final Block GOLDEN_GLOWING_GLASS = registerBlock("golden_glowing_glass", new StainedGlassBlock(DyeColor.YELLOW, AbstractBlock.Settings.create().mapColor(MapColor.GOLD).strength(1.0f).sounds(BlockSoundGroup.GLASS).nonOpaque().luminance(state -> 12)));
+    public static final Block GOLDEN_GLOWING_GLASS_PANE = registerBlock("golden_glowing_glass_pane", new PaneBlock(AbstractBlock.Settings.create().mapColor(MapColor.GOLD).strength(1.0f).sounds(BlockSoundGroup.GLASS).nonOpaque().luminance(state -> 12)));
+    public static final Block RED_PURPUR_BLOCK = registerBlock("red_purpur_block", new Block(AbstractBlock.Settings.create().strength(7f, 5f).requiresTool().sounds(BlockSoundGroup.STONE)));
+    public static final Block RED_PURPUR_STAIRS = registerBlock("red_purpur_stairs", new StairsBlock(ModBlocks.RED_PURPUR_BLOCK.getDefaultState(), AbstractBlock.Settings.create().strength(8f, 4f).requiresTool().sounds(BlockSoundGroup.STONE)));
+    public static final Block RED_PURPUR_SLAB = registerBlock("red_purpur_slab", new SlabBlock(AbstractBlock.Settings.create().strength(7f, 5f).requiresTool().sounds(BlockSoundGroup.STONE)));
+    public static final Block RED_PURPUR_PILLAR = registerBlock("red_purpur_pillar", new PillarBlock(AbstractBlock.Settings.create().strength(7f, 5f).requiresTool().sounds(BlockSoundGroup.STONE)));
 
     public static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

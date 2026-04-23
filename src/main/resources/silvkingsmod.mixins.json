@@ -5,6 +5,7 @@
   "mixins": [
     "ExampleMixin",
     "LivingEntityMixin",
+    "PlayerEntityMixin",
     "StrongholdSizeMixin"
   ],
   "injectors": {
@@ -16,6 +17,7 @@
   "client": [
     "AbstractClientPlayerEntityMixin",
     "BypassExperimentalLoaderMixin",
+    "ElytraLayerMixin",
     "IntegratedServerLoaderInvoker",
     "ItemRendererMixin",
     "ModelLoaderMixin"

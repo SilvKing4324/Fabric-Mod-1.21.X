@@ -21,6 +21,7 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         BlockStateModelGenerator.BlockTexturePool titanium_pool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.TITANIUM_BLOCK);
+        BlockStateModelGenerator.BlockTexturePool red_purpur_pool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.RED_PURPUR_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_TITANIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TITANIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TITANIUM_DEEPSLATE_ORE);
@@ -38,6 +39,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PULSE_EMITTER);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DARK_TITANIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NIGHT_BRICKS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ETERNAL_BRICKS);
+        blockStateModelGenerator.registerGlassPane(ModBlocks.GOLDEN_GLOWING_GLASS, ModBlocks.GOLDEN_GLOWING_GLASS_PANE);
 
 
         titanium_pool.stairs(ModBlocks.TITANIUM_STAIRS);
@@ -48,6 +51,9 @@ public class ModModelProvider extends FabricModelProvider {
         titanium_pool.fenceGate(ModBlocks.TITANIUM_FENCE_GATE);
         titanium_pool.wall(ModBlocks.TITANIUM_WALL);
 
+        red_purpur_pool.stairs(ModBlocks.RED_PURPUR_STAIRS);
+        red_purpur_pool.slab(ModBlocks.RED_PURPUR_SLAB);
+
         Identifier lampOffIdentifier = TexturedModel.CUBE_ALL.upload(ModBlocks.TITANIUM_LAMP, blockStateModelGenerator.modelCollector);
         Identifier lampOnIdentifier = blockStateModelGenerator.createSubModel(ModBlocks.TITANIUM_LAMP, "_on", Models.CUBE_ALL, TextureMap::all);
         blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.TITANIUM_LAMP)
@@ -57,6 +63,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.HONEY_BERRY_BUSH, BlockStateModelGenerator.TintType.NOT_TINTED, HoneyBerryBushBlock.AGE,0,1,2,3);
 
         blockStateModelGenerator.registerLog(ModBlocks.DRIFTWOOD_LOG).log(ModBlocks.DRIFTWOOD_LOG).wood(ModBlocks.DRIFTWOOD_WOOD);
+        blockStateModelGenerator.registerLog(ModBlocks.RED_PURPUR_PILLAR).log(ModBlocks.RED_PURPUR_PILLAR);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_DRIFTWOOD_LOG).log(ModBlocks.STRIPPED_DRIFTWOOD_LOG).wood(ModBlocks.STRIPPED_DRIFTWOOD_WOOD);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DRIFTWOOD_PLANKS);
         blockStateModelGenerator.registerSingleton(ModBlocks.DRIFTWOOD_LEAVES, TexturedModel.LEAVES);
@@ -100,6 +107,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.TITANIUM_UPGRADE_TEMPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.UNIVERSAL_UPGRADE_TEMPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.TITANMOD_GUIDE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ETERNAL_ELYTRA, Models.GENERATED);
 
 
     }

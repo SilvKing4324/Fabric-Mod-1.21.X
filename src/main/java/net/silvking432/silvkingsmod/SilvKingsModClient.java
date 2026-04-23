@@ -9,6 +9,7 @@ import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
+import net.minecraft.client.render.entity.ShulkerBulletEntityRenderer;
 import net.silvking432.silvkingsmod.block.ModBlocks;
 import net.silvking432.silvkingsmod.block.entity.ModBlockEntities;
 import net.silvking432.silvkingsmod.block.entity.renderer.PedestalBlockEntityRenderer;
@@ -25,6 +26,8 @@ import net.silvking432.silvkingsmod.util.ModModelPredicates;
 public class SilvKingsModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        ModModelPredicates.registerModelPredicates();
+
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TITANIUM_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TITANIUM_TRAPDOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SUPER_FLOWER_CROP, RenderLayer.getCutout());
@@ -32,8 +35,8 @@ public class SilvKingsModClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DRIFTWOOD_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TITANIUM_BEACON, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DARK_WORLD_PORTAL, RenderLayer.getTranslucent());
-
-        ModModelPredicates.registerModelPredicates();
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GOLDEN_GLOWING_GLASS_PANE, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GOLDEN_GLOWING_GLASS, RenderLayer.getTranslucent());
 
         EntityModelLayerRegistry.registerModelLayer(MantisModel.MANTIS, MantisModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(TitanPlayerModel.TITAN_PLAYER, TitanPlayerModel::getTexturedModelData);
@@ -53,6 +56,8 @@ public class SilvKingsModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.CHAIR_ENTITY, ChairRenderer::new);
         EntityRendererRegistry.register(ModEntities.TITANIUM_TNT_ENTITY, TitaniumTntRenderer::new);
         EntityRendererRegistry.register(ModEntities.MAGNA_BOMB, MagnaBombRenderer::new);
+        EntityRendererRegistry.register(ModEntities.ETERNAL_SHULKER, EternalShulkerRenderer::new);
+        EntityRendererRegistry.register(ModEntities.ETERNAL_BULLET, ShulkerBulletEntityRenderer::new);
 
         ParticleFactoryRegistry.getInstance().register(ModParticles.STARLIGHT_ASHES_PARTICLE, StarlightAshesParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.BLACK_HOLE_PARTICLE, BlackHoleParticle.Factory::new);

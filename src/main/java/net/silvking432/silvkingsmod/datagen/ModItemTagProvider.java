@@ -53,6 +53,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.TITANIUM_HELMET);
 
         getOrCreateTagBuilder(ItemTags.CHEST_ARMOR)
+                .add(ModItems.ETERNAL_ELYTRA)
                 .add(ModItems.DARK_TITANIUM_CHESTPLATE)
                 .add(ModItems.TITANIUM_CHESTPLATE);
 

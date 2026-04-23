@@ -39,6 +39,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TITANIUM_LAMP)
                 .add(ModBlocks.GROWTH_CHAMBER)
                 .add(ModBlocks.NIGHT_BRICKS)
+                .add(ModBlocks.RED_PURPUR_BLOCK)
+                .add(ModBlocks.RED_PURPUR_PILLAR)
+                .add(ModBlocks.RED_PURPUR_SLAB)
+                .add(ModBlocks.RED_PURPUR_STAIRS)
+                .add(ModBlocks.ETERNAL_BRICKS)
                 .add(ModBlocks.TITANIUM_TRAPDOOR);
 
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)

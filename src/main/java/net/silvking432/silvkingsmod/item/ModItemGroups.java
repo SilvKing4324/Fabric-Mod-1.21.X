@@ -101,6 +101,13 @@ public class ModItemGroups {
                         entries.add(ModBlocks.HARDSTONE);
                         entries.add(ModBlocks.PULSE_EMITTER);
                         entries.add(ModBlocks.DARK_TITANIUM_BLOCK);
+                        entries.add(ModBlocks.ETERNAL_BRICKS);
+                        entries.add(ModBlocks.GOLDEN_GLOWING_GLASS);
+                        entries.add(ModBlocks.GOLDEN_GLOWING_GLASS_PANE);
+                        entries.add(ModBlocks.RED_PURPUR_BLOCK);
+                        entries.add(ModBlocks.RED_PURPUR_STAIRS);
+                        entries.add(ModBlocks.RED_PURPUR_SLAB);
+                        entries.add(ModBlocks.RED_PURPUR_PILLAR);
 
                     }).build());
 

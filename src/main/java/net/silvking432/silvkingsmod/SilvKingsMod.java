@@ -22,11 +22,13 @@ import net.silvking432.silvkingsmod.item.ModItems;
 import net.silvking432.silvkingsmod.particle.ModParticles;
 import net.silvking432.silvkingsmod.potion.ModPotions;
 import net.silvking432.silvkingsmod.recipe.ModRecipes;
+import net.silvking432.silvkingsmod.registries.ModLootTableKeys;
 import net.silvking432.silvkingsmod.screen.ModScreenHandlers;
 import net.silvking432.silvkingsmod.util.HammerUsageEvent;
 import net.silvking432.silvkingsmod.util.ModLootTableModifiers;
 import net.silvking432.silvkingsmod.villager.ModVillagerTrades;
 import net.silvking432.silvkingsmod.villager.ModVillagers;
+import net.silvking432.silvkingsmod.world.gen.ModStructures;
 import net.silvking432.silvkingsmod.world.gen.ModWorldGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,6 +48,8 @@ public class SilvKingsMod implements ModInitializer {
 		ModPotions.registerPotions();
 		ModEnchantmentEffects.registerEnchantmentEffects();
 		ModEntities.registerModEntities();
+		ModLootTableKeys.registerLootTableKeys();
+		ModStructures.registerModStructures();
 		ModWorldGeneration.generateModWorldGen();
 		ModVillagers.registerVillagers();
 		ModVillagerTrades.registerModVillagerTrades();
@@ -85,6 +89,6 @@ public class SilvKingsMod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.MAGNA_MINION, MagnaMinionEntity.createAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.LAVA_GOLEM, LavaGolemEntity.createAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.MAGNA_WITCH, MagnaWitchEntity.createAttributes());
-
+		FabricDefaultAttributeRegistry.register(ModEntities.ETERNAL_SHULKER, EternalShulkerEntity.createAttributes());
 	}
 }

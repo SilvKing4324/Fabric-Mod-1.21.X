@@ -7,6 +7,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.silvking432.silvkingsmod.SilvKingsMod;
 import net.silvking432.silvkingsmod.block.ModBlocks;
 import net.silvking432.silvkingsmod.entity.ModEntities;
@@ -20,7 +21,7 @@ public class ModItems {
     public static final Item TITANIUM_INGOT = registerItem("titanium_ingot", new Item(new Item.Settings()));
     public static final Item TITANIUM_SHARD = registerItem("titanium_shard", new Item(new Item.Settings()));
     public static final Item CHISEL = registerItem("chisel", new ChiselItem(new Item.Settings().maxDamage(32)));
-    // region  public static final Item SUPER_FLOWER = registerItem("super_flower", new Item(new Item.Settings().food(ModFoodComponents.SUPER_FLOWER))
+    // region  public static final Item SUPER_FLOWER = registerItem("super_flower", new Item(new Item.Settings().food(ModFoodComponents.SUPER_FLOWER)));
     public static final Item SUPER_FLOWER = registerItem("super_flower", new Item(new Item.Settings().food(ModFoodComponents.SUPER_FLOWER)) {
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
@@ -61,8 +62,15 @@ public class ModItems {
     public static final Item DARK_TITANIUM_BOOTS = registerItem("dark_titanium_boots", new DarkArmorItem(ModArmorMaterials.DARK_TITANIUM_ARMOR_MATERIAL,ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(56))));
     public static final Item TITANIUM_UPGRADE_TEMPLATE = registerItem("titanium_upgrade_template", TitaniumSmithingTemplateItem.createTitaniumUpgrade());
     public static final Item UNIVERSAL_UPGRADE_TEMPLATE = registerItem("universal_upgrade_template", UniversalSmithingTemplateItem.createUniversalUpgrade());
-    public static final Item TITANMOD_GUIDE = registerItem("titanmod_guide", new Item(new Item.Settings()));
-
+    // region  public static final Item TITANMOD_GUIDE = registerItem("titanmod_guide", new Item(new Item.Settings()));
+    public static final Item TITANMOD_GUIDE = registerItem("titanmod_guide", new Item(new Item.Settings()){
+        @Override
+        public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+            tooltip.add(Text.translatable("tooltip.silvkingsmod.titanmod_guide"));
+            super.appendTooltip(stack, context, tooltip, type);
+        }});
+    //endregion
+    public static final Item ETERNAL_ELYTRA = registerItem("eternal_elytra", new EternalElytraItem(new Item.Settings().maxDamage(489).rarity(Rarity.EPIC)));
 
 
     private static Item registerItem(String name, Item item) {

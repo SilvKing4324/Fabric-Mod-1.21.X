@@ -74,6 +74,18 @@ public class ModEntities {
                     .dimensions(2.5f, 2.5f)
                     .build());
 
+    public static final EntityType<EternalShulkerEntity> ETERNAL_SHULKER = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "eternal_shulker"),
+            EntityType.Builder.create(EternalShulkerEntity::new, SpawnGroup.MONSTER)
+                    .dimensions(1.0f, 1.0f)
+                    .build());
+
+    public static final EntityType<EternalBulletEntity> ETERNAL_BULLET = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "eternal_bullet"),
+            EntityType.Builder.<EternalBulletEntity>create(EternalBulletEntity::new, SpawnGroup.MONSTER)
+                    .dimensions(0.3125f, 0.2f)
+                    .build());
+
 
     public static void registerModEntities() {
         SilvKingsMod.LOGGER.info("Registering Mod Entities for " + SilvKingsMod.MOD_ID);

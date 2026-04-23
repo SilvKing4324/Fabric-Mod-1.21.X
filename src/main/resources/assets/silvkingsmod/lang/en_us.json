@@ -44,6 +44,7 @@
   "item.silvkingsmod.titanium_upgrade_template": "Smithing Template",
   "item.silvkingsmod.universal_upgrade_template": "§cUniversal Smithing Template",
   "item.silvkingsmod.titanmod_guide": "Guide Book: Titan Mod",
+  "item.silvkingsmod.eternal_elytra": "Eternal Elytra",
 
 
   "block.silvkingsmod.titanium_block": "Block of Titan",
@@ -85,6 +86,11 @@
   "block.silvkingsmod.pulse_emitter": "Pulse Emitter",
   "block.silvkingsmod.dark_titanium_block": "§cDark Block of Titan",
   "block.silvkingsmod.night_bricks": "Night Bricks",
+  "block.silvkingsmod.eternal_bricks": "Eternal Bricks",
+  "block.silvkingsmod.red_purpur_block": "Red Purpur Block",
+  "block.silvkingsmod.red_purpur_stairs": "Red Purpur Stairs",
+  "block.silvkingsmod.red_purpur_slab": "Red Purpur Slab",
+  "block.silvkingsmod.red_purpur_pillar": "Red Purpur Pillar",
 
 
   "effect.silvkingsmod.slimey": "Slimey",
@@ -105,8 +111,8 @@
   "enchantment.silvkingsmod.lightning_striker": "Lightning Striker",
   "enchantment.silvkingsmod.smelting_touch": "Smelting Touch",
 
-  "itemgroup.silvkingsmod.titanium_items": "Titan Items",
-  "itemgroup.silvkingsmod.titanium_blocks": "Titan Blocks",
+  "itemgroup.silvkingsmod.titanium_items": "Titan Mod Items",
+  "itemgroup.silvkingsmod.titanium_blocks": "Titan Mod Blocks",
 
   "tooltip.silvkingsmod.magic_block.tooltip" : "This block §9transmutates§r §6Items§r.",
   "tooltip.silvkingsmod.chisel": "Press §eShift§r for more Information!",
@@ -120,6 +126,7 @@
   "entity.silvkingsmod.magna_minion": "Magna Minion",
   "entity.silvkingsmod.lava_golem": "Lava Golem",
   "entity.silvkingsmod.magna_witch": "Magna Witch",
+  "entity.silvkingsmod.eternal_shulker": "Eternal Shulker",
 
   "entity.silvkingsmod.tomahawk": "Tomahawk",
   "entity.minecraft.villager.titanium_trader": "Titanium Trader",

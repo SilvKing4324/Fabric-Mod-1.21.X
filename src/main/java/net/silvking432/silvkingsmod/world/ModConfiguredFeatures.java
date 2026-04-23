@@ -1,7 +1,6 @@
 package net.silvking432.silvkingsmod.world;
 
 import net.minecraft.block.Blocks;
-import net.minecraft.block.SweetBerryBushBlock;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.structure.rule.RuleTest;
@@ -48,7 +47,7 @@ public class ModConfiguredFeatures {
 
         register(context, TITANIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldTitaniumOres,4,0.95f));
         register(context, TITANIUM_NETHER_ORE_KEY, Feature.ORE, new OreFeatureConfig(netherTitaniumOres,4,1.0f));
-        register(context, TITANIUM_END_ORE_KEY, Feature.ORE, new OreFeatureConfig(endTitaniumOres,5,1.0f));
+        register(context, TITANIUM_END_ORE_KEY, Feature.ORE, new OreFeatureConfig(endTitaniumOres,6,1.0f));
         register(context, DRIFTWOOD_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlocks.DRIFTWOOD_LOG),
                 new StraightTrunkPlacer(5, 6, 3),

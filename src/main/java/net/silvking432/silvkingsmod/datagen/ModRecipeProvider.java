@@ -34,6 +34,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         offerReversibleCompactingRecipes(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModItems.TITANIUM_INGOT, RecipeCategory.MISC, ModBlocks.TITANIUM_BLOCK);
         offerReversibleCompactingRecipes(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModItems.TITANIUM_SHARD, RecipeCategory.MISC, ModBlocks.RAW_TITANIUM_BLOCK);
+        offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.RED_PURPUR_SLAB, ModBlocks.RED_PURPUR_BLOCK);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.TITANIUM_DOOR, 2)
                 .pattern("RR")
@@ -72,6 +73,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('R', ModItems.TITANIUM_INGOT)
                 .criterion(hasItem(ModItems.TITANIUM_INGOT), conditionsFromItem(ModItems.TITANIUM_INGOT))
                 .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"titanium_stairs_from_titanium_ingot"));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.RED_PURPUR_STAIRS, 4)
+                .pattern("R  ")
+                .pattern("RR ")
+                .pattern("RRR")
+                .input('R', ModBlocks.RED_PURPUR_BLOCK)
+                .criterion(hasItem(ModItems.TITANIUM_INGOT), conditionsFromItem(ModItems.TITANIUM_INGOT))
+                .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"red_purpur_stairs_from_red_purpur_block"));
 
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.TITANIUM_FENCE,3)
