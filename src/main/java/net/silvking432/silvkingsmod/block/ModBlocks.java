@@ -44,10 +44,12 @@ public class ModBlocks {
     public static final Block STRIPPED_DRIFTWOOD_LOG = registerBlock("stripped_driftwood_log", new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_LOG)));
     public static final Block STRIPPED_DRIFTWOOD_WOOD = registerBlock("stripped_driftwood_wood", new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD)));
     public static final Block DRIFTWOOD_PLANKS = registerBlock("driftwood_planks", new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
+    public static final Block DRIFTWOOD_STAIRS = registerBlock("driftwood_stairs", new StairsBlock(ModBlocks.DRIFTWOOD_PLANKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_STAIRS)));
+    public static final Block DRIFTWOOD_SLAB = registerBlock("driftwood_slab", new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
     public static final Block DRIFTWOOD_LEAVES = registerBlock("driftwood_leaves", new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
     public static final Block DRIFTWOOD_SAPLING = registerBlock("driftwood_sapling", new ModSaplingBlock(ModSaplingGenerators.DRIFTWOOD, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING), Blocks.STONE));
     public static final Block CHAIR = registerBlock("chair", new ChairBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).nonOpaque()));
-    public static final Block PEDESTAL = registerBlock("pedestal", new PedestalBlock(AbstractBlock.Settings.create().nonOpaque().strength(100000f, 1200f)));
+    public static final Block PEDESTAL = registerBlock("pedestal", new PedestalBlock(AbstractBlock.Settings.create().nonOpaque().strength(-1f, 360000f)));
     public static final Block GROWTH_CHAMBER = registerBlock("growth_chamber", new GrowthChamberBlock(AbstractBlock.Settings.create().strength(7f, 5f).requiresTool()));
     public static final Block TITANIUM_TNT = registerBlock("titanium_tnt", new TitaniumTntBlock(AbstractBlock.Settings.create().mapColor(MapColor.BLUE).breakInstantly().sounds(BlockSoundGroup.GRASS).burnable().solidBlock(Blocks::never)));
     public static final Block MATRIX_BLOCK = registerBlock("matrix_block", new MatrixBlock(AbstractBlock.Settings.create().strength(1000f, 1000f).requiresTool().sounds(BlockSoundGroup.METAL)));
@@ -66,6 +68,12 @@ public class ModBlocks {
     public static final Block RED_PURPUR_STAIRS = registerBlock("red_purpur_stairs", new StairsBlock(ModBlocks.RED_PURPUR_BLOCK.getDefaultState(), AbstractBlock.Settings.create().strength(8f, 4f).requiresTool().sounds(BlockSoundGroup.STONE)));
     public static final Block RED_PURPUR_SLAB = registerBlock("red_purpur_slab", new SlabBlock(AbstractBlock.Settings.create().strength(7f, 5f).requiresTool().sounds(BlockSoundGroup.STONE)));
     public static final Block RED_PURPUR_PILLAR = registerBlock("red_purpur_pillar", new PillarBlock(AbstractBlock.Settings.create().strength(7f, 5f).requiresTool().sounds(BlockSoundGroup.STONE)));
+    public static final Block ETERNAL_SHULKER_BOX = registerBlock("eternal_shulker_box", new EternalShulkerBoxBlock(AbstractBlock.Settings.copy(Blocks.SHULKER_BOX)));
+    public static final Block DARK_SOIL = registerBlock("dark_soil", new DarkSoilBlock(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK)));
+    public static final Block NIGHT_BRICK_SLAB = registerBlock("night_brick_slab", new SlabBlock(AbstractBlock.Settings.create().strength(7f, 5f).requiresTool().sounds(BlockSoundGroup.STONE)));
+    public static final Block NIGHT_BRICK_STAIRS = registerBlock("night_brick_stairs", new StairsBlock(ModBlocks.NIGHT_BRICKS.getDefaultState(), AbstractBlock.Settings.create().strength(7f, 5f).requiresTool().sounds(BlockSoundGroup.STONE)));
+    public static final Block CORE_REFINERY = registerBlock("core_refinery", new CoreRefineryBlock(AbstractBlock.Settings.create().strength(-1.0f, 3600000.0f)));
+    public static final Block DARK_ANVIL = registerBlock("dark_anvil", new DarkAnvilBlock(AbstractBlock.Settings.copy(Blocks.ANVIL)));
 
     public static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

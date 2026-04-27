@@ -21,6 +21,7 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> TITANIUM_END_ORE_PLACED_KEY = registerKey("titanium_end_ore_placed");
     public static final RegistryKey<PlacedFeature> DRIFTWOOD_PLACED_KEY = registerKey("driftwood_placed");
     public static final RegistryKey<PlacedFeature> HONEY_BERRY_BUSHED_PLACED_KEY = registerKey("honey_berry_bush_placed");
+    public static final RegistryKey<PlacedFeature> FALLEN_DRIFTWOOD_PLACED_KEY = registerKey("fallen_driftwood_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -37,9 +38,18 @@ public class ModPlacedFeatures {
         register(context, DRIFTWOOD_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.DRIFTWOOD_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
                         PlacedFeatures.createCountExtraModifier(2,0.1f,2), ModBlocks.DRIFTWOOD_SAPLING));
-        // 1 geteilt durch extraChance muss Int sein
         register(context, HONEY_BERRY_BUSHED_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.HONEY_BERRY_BUSH_KEY),
                 RarityFilterPlacementModifier.of(32), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+
+        register(context, FALLEN_DRIFTWOOD_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.FALLEN_DRIFTWOOD_KEY),
+                List.of(
+                        RarityFilterPlacementModifier.of(16),
+                        SquarePlacementModifier.of(),
+                        PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP,
+                        SurfaceWaterDepthFilterPlacementModifier.of(0),
+                        BiomePlacementModifier.of()
+                )
+        );
 
     }
 

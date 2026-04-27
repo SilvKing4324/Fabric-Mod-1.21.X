@@ -20,6 +20,8 @@ public class ModEffects {
     public static final RegistryEntry<StatusEffect> VULNERABILITY = registerStatusEffect("vulnerability",
             new VulnerabilityEffect(StatusEffectCategory.HARMFUL, 0x9c2a2a));
 
+    public static final RegistryEntry<StatusEffect> ANXIETY = registerStatusEffect("anxiety", new AnxietyEffect());
+
     private static RegistryEntry<StatusEffect> registerStatusEffect(String name, StatusEffect statusEffect) {
         return Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(SilvKingsMod.MOD_ID, name),statusEffect);
     }

@@ -1,11 +1,17 @@
 package net.silvking432.silvkingsmod.world;
 
 import net.minecraft.block.Blocks;
+import net.minecraft.block.PillarBlock;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3i;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
+import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
@@ -28,6 +34,7 @@ public class ModConfiguredFeatures {
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> DRIFTWOOD_KEY = registerKey("driftwood");
     public static final RegistryKey<ConfiguredFeature<?, ?>> HONEY_BERRY_BUSH_KEY = registerKey("honey_berry_bush");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FALLEN_DRIFTWOOD_KEY = registerKey("fallen_driftwood");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         RuleTest stoneReplaceables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
@@ -62,6 +69,26 @@ public class ModConfiguredFeatures {
                         new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.HONEY_BERRY_BUSH.getDefaultState().with(HoneyBerryBushBlock.AGE, 3))),
                         List.of(Blocks.GRASS_BLOCK)));
 
+        register(context, FALLEN_DRIFTWOOD_KEY, Feature.BLOCK_COLUMN, new BlockColumnFeatureConfig(
+                List.of(
+                        BlockColumnFeatureConfig.createLayer(
+                                UniformIntProvider.create(3,6),
+                                BlockStateProvider.of(ModBlocks.DRIFTWOOD_WOOD.getDefaultState().with(PillarBlock.AXIS, Direction.Axis.Z))
+                        )
+                ),
+                Direction.NORTH,
+                BlockPredicate.bothOf(
+                        BlockPredicate.eitherOf(
+                                BlockPredicate.IS_AIR,
+                                BlockPredicate.matchingBlocks(Blocks.SHORT_GRASS, Blocks.TALL_GRASS, Blocks.FERN, Blocks.LARGE_FERN)
+                        ),
+                        BlockPredicate.bothOf(
+                                BlockPredicate.not(BlockPredicate.matchingFluids(Fluids.WATER)),
+                                BlockPredicate.not(BlockPredicate.matchingFluids(new Vec3i(0, -1, 0), Fluids.WATER))
+                        )
+                ),
+                true
+        ));
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {

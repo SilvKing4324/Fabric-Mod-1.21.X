@@ -123,7 +123,7 @@ public class MagnaMinionEntity extends HostileEntity {
     @Override
     public void tick() {
         super.tick();
-
+        // TODO: Check if that code actually still does sth.
         if (this.getWorld().isClient()) {
             this.setupAnimationStates();
         }

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/shulker_box_in",
+  "textures": {
+    "particle": "silvkingsmod:entity/eternal_shulker/eternal_shulker"
+  }
+}

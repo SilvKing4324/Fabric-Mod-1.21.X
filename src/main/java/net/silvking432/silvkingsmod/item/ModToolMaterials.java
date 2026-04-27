@@ -10,7 +10,8 @@ import net.silvking432.silvkingsmod.util.ModTags;
 import java.util.function.Supplier;
 
 public enum ModToolMaterials implements ToolMaterial {
-    TITANIUM(ModTags.Blocks.INCORRECT_FOR_TITANIUM_TOOL, 2601, 12.0F, 5.0F, 22, () -> Ingredient.ofItems(ModItems.TITANIUM_INGOT));
+    TITANIUM (ModTags.Blocks.INCORRECT_FOR_TITANIUM_TOOL, 2601, 12.0F, 5.0F, 22, () -> Ingredient.ofItems(ModItems.TITANIUM_INGOT)),
+    DARK_TITANIUM (ModTags.Blocks.INCORRECT_FOR_TITANIUM_TOOL, 3500, 14.0F, 7.0F, 25, () -> Ingredient.ofItems(ModItems.DARK_TITANIUM_INGOT));
 
     private final TagKey<Block> inverseTag;
     private final int itemDurability;

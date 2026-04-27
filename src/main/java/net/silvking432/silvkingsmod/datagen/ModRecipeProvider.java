@@ -2,6 +2,7 @@ package net.silvking432.silvkingsmod.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
@@ -34,6 +35,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         offerReversibleCompactingRecipes(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModItems.TITANIUM_INGOT, RecipeCategory.MISC, ModBlocks.TITANIUM_BLOCK);
         offerReversibleCompactingRecipes(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModItems.TITANIUM_SHARD, RecipeCategory.MISC, ModBlocks.RAW_TITANIUM_BLOCK);
+        offerReversibleCompactingRecipes(recipeExporter, RecipeCategory.MISC, ModItems.DARK_SHARD_TIER1, RecipeCategory.MISC, ModItems.DARK_SHARD_TIER2, "dark_shard_tier2_from_tier1", null, "dark_shard_tier1_from_tier2", null);
+        offerReversibleCompactingRecipes(recipeExporter, RecipeCategory.MISC, ModItems.DARK_SHARD_TIER2, RecipeCategory.MISC, ModItems.DARK_SHARD_TIER3, "dark_shard_tier3_from_tier2", null, "dark_shard_tier2_from_tier3", null);
+        offerReversibleCompactingRecipes(recipeExporter, RecipeCategory.MISC, ModItems.DARK_SHARD_TIER3, RecipeCategory.MISC, ModItems.DARK_SHARD_TIER4, "dark_shard_tier4_from_tier3", null, "dark_shard_tier3_from_tier4", null);
+        offerReversibleCompactingRecipes(recipeExporter, RecipeCategory.MISC, ModItems.DARK_SHARD_TIER4, RecipeCategory.MISC, ModItems.DARK_SHARD_TIER5, "dark_shard_tier5_from_tier4", null, "dark_shard_tier4_from_tier5", null);
         offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.RED_PURPUR_SLAB, ModBlocks.RED_PURPUR_BLOCK);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.TITANIUM_DOOR, 2)
@@ -117,6 +122,61 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('X', ModItems.TITANIUM_INGOT)
                 .criterion(hasItem(ModItems.TITANIUM_INGOT), conditionsFromItem(ModItems.TITANIUM_INGOT))
                 .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"titanium_pressure_plate_from_titanium_ingot"));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DARK_CORE_TIER1, 1)
+                .pattern("A")
+                .pattern("R")
+                .pattern("A")
+                .input('A', ModItems.DARK_SHARD_TIER2)
+                .input('R', ModItems.DARK_CORE_BASE)
+                .criterion(hasItem(ModItems.DARK_CORE_BASE), conditionsFromItem(ModItems.DARK_CORE_BASE))
+                .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"dark_core_tier1_from_dark_core_base"));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DARK_CORE_TIER2, 1)
+                .pattern("A")
+                .pattern("R")
+                .pattern("A")
+                .input('A', ModItems.DARK_SHARD_TIER3)
+                .input('R', ModItems.DARK_CORE_TIER1)
+                .criterion(hasItem(ModItems.DARK_CORE_TIER1), conditionsFromItem(ModItems.DARK_CORE_TIER1))
+                .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"dark_core_tier2_from_dark_core_tier1"));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DARK_CORE_TIER3, 1)
+                .pattern("A")
+                .pattern("R")
+                .pattern("A")
+                .input('A', ModItems.DARK_SHARD_TIER4)
+                .input('R', ModItems.DARK_CORE_TIER2)
+                .criterion(hasItem(ModItems.DARK_CORE_TIER2), conditionsFromItem(ModItems.DARK_CORE_TIER2))
+                .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"dark_core_tier3_from_dark_core_tier2"));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DARK_CORE_TIER4, 1)
+                .pattern("A")
+                .pattern("R")
+                .pattern("A")
+                .input('A', ModItems.DARK_SHARD_TIER5)
+                .input('R', ModItems.DARK_CORE_TIER3)
+                .criterion(hasItem(ModItems.DARK_CORE_TIER3), conditionsFromItem(ModItems.DARK_CORE_TIER3))
+                .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"dark_core_tier4_from_dark_core_tier3"));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DARK_CORE_TIER5, 1)
+                .pattern("A")
+                .pattern("R")
+                .pattern("A")
+                .input('A', ModBlocks.DARK_TITANIUM_BLOCK)
+                .input('R', ModItems.DARK_CORE_TIER4)
+                .criterion(hasItem(ModItems.DARK_CORE_TIER4), conditionsFromItem(ModItems.DARK_CORE_TIER4))
+                .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"dark_core_tier5_from_dark_core_tier4"));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DARK_CORE_TIER1, 1)
+                .pattern("A")
+                .pattern("R")
+                .pattern("A")
+                .input('A', ModItems.ETERNAL_SHELL)
+                .input('R', Blocks.ENDER_CHEST)
+                .criterion(hasItem(ModItems.ETERNAL_SHELL), conditionsFromItem(ModItems.ETERNAL_SHELL))
+                .offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID,"eternal_shulker_box_from_eternal_shell"));
+
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.TITANIUM_BUTTON, 1)
                 .input(ModItems.TITANIUM_INGOT)
@@ -361,8 +421,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 new SmithingUpgrade(ModItems.TITANIUM_HELMET, ModItems.DARK_TITANIUM_INGOT, ModItems.DARK_TITANIUM_HELMET, "dark_titanium_helmet"),
                 new SmithingUpgrade(ModItems.TITANIUM_CHESTPLATE, ModItems.DARK_TITANIUM_INGOT, ModItems.DARK_TITANIUM_CHESTPLATE, "dark_titanium_chestplate"),
                 new SmithingUpgrade(ModItems.TITANIUM_LEGGINGS, ModItems.DARK_TITANIUM_INGOT, ModItems.DARK_TITANIUM_LEGGINGS, "dark_titanium_leggings"),
-                new SmithingUpgrade(ModItems.TITANIUM_BOOTS, ModItems.DARK_TITANIUM_INGOT, ModItems.DARK_TITANIUM_BOOTS, "dark_titanium_boots")
-        );
+                new SmithingUpgrade(ModItems.TITANIUM_BOOTS, ModItems.DARK_TITANIUM_INGOT, ModItems.DARK_TITANIUM_BOOTS, "dark_titanium_boots"),
+                new SmithingUpgrade(ModItems.TITANIUM_SWORD, ModItems.DARK_TITANIUM_INGOT, ModItems.DARK_TITANIUM_SWORD, "dark_titanium_sword"),
+                new SmithingUpgrade(ModItems.TITANIUM_PICKAXE, ModItems.DARK_TITANIUM_INGOT, ModItems.DARK_TITANIUM_PICKAXE, "dark_titanium_pickaxe"),
+                new SmithingUpgrade(ModItems.TITANIUM_AXE, ModItems.DARK_TITANIUM_INGOT, ModItems.DARK_TITANIUM_AXE, "dark_titanium_axe"),
+                new SmithingUpgrade(ModItems.TITANIUM_SHOVEL, ModItems.DARK_TITANIUM_INGOT, ModItems.DARK_TITANIUM_SHOVEL, "dark_titanium_shovel"),
+                new SmithingUpgrade(ModItems.TITANIUM_HOE, ModItems.DARK_TITANIUM_INGOT, ModItems.DARK_TITANIUM_HOE, "dark_titanium_hoe"),
+
+                new SmithingUpgrade(Blocks.ANVIL.asItem(), ModBlocks.DARK_TITANIUM_BLOCK.asItem(), ModBlocks.DARK_ANVIL.asItem(), "dark_anvil")
+                );
 
         upgrades.forEach(upgrade -> SmithingTransformRecipeJsonBuilder.create(
                         Ingredient.ofItems(ModItems.UNIVERSAL_UPGRADE_TEMPLATE),

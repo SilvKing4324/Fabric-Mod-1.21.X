@@ -8,35 +8,45 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.silvking432.silvkingsmod.component.ModDataComponentTypes;
+import net.silvking432.silvkingsmod.component.custom.CoreTrait;
 import net.silvking432.silvkingsmod.item.custom.HammerItem;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-public class HammerUsageEvent implements PlayerBlockBreakEvents.Before{
-    // Done with the help of https://github.com/CoFH/CoFHCore/blob/c23d117dcd3b3b3408a138716b15507f709494cd/src/main/java/cofh/core/event/AreaEffectEvents.java
+public class HammerUsageEvent implements PlayerBlockBreakEvents.Before {
     private static final Set<BlockPos> HARVESTED_BLOCKS = new HashSet<>();
 
     @Override
     public boolean beforeBlockBreak(World world, PlayerEntity player, BlockPos pos,
                                     BlockState state, @Nullable BlockEntity blockEntity) {
+        if (world.isClient || !(player instanceof ServerPlayerEntity serverPlayer)) return true;
+
         ItemStack mainHandItem = player.getMainHandStack();
 
-        if(mainHandItem.getItem() instanceof HammerItem hammer && player instanceof ServerPlayerEntity serverPlayer) {
-            if(HARVESTED_BLOCKS.contains(pos)) {
-                return true;
-            }
+        boolean isHammer = mainHandItem.getItem() instanceof HammerItem;
 
-            for(BlockPos position : HammerItem.getBlocksToBeDestroyed(1, pos, serverPlayer)) {
-                if(pos == position || !hammer.isCorrectForDrops(mainHandItem, world.getBlockState(position))) {
-                    continue;
-                }
+        List<CoreTrait> traits = mainHandItem.get(ModDataComponentTypes.CORE_TRAITS);
+        boolean hasRangeTrait = traits != null && traits.stream().anyMatch(t -> t.traitId().equals("RANGE_EXTEND"));
 
-                HARVESTED_BLOCKS.add(position);
-                serverPlayer.interactionManager.tryBreakBlock(position);
-                HARVESTED_BLOCKS.remove(position);
-            }
+        if (!isHammer && !hasRangeTrait) return true;
+
+        if (HARVESTED_BLOCKS.contains(pos)) return true;
+
+        int radius = 1;
+
+
+        for (BlockPos position : HammerItem.getBlocksToBeDestroyed(radius, pos, serverPlayer)) {
+            if (pos.equals(position)) continue;
+
+            if (!mainHandItem.isSuitableFor(world.getBlockState(position))) continue;
+
+            HARVESTED_BLOCKS.add(position);
+            serverPlayer.interactionManager.tryBreakBlock(position);
+            HARVESTED_BLOCKS.remove(position);
         }
 
         return true;

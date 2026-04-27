@@ -42,20 +42,55 @@
     ],
     [
       "minecraft:glow_lichen",
-      "minecraft:trees_windswept_hills"
+      "minecraft:trees_windswept_hills",
+      "minecraft:patch_soul_fire"
     ],
-    [
-      "minecraft:freeze_top_layer"
-    ]
+    []
   ],
   "spawn_costs": {},
   "spawners": {
     "monster": [
       {
         "type": "silvkingsmod:titan_player",
-        "maxCount": 16,
-        "minCount": 12,
+        "maxCount": 6,
+        "minCount": 2,
+        "weight": 10
+      },
+      {
+        "type": "silvkingsmod:dark_shadow",
+        "maxCount": 3,
+        "minCount": 1,
         "weight": 20
+      },
+      {
+        "type": "silvkingsmod:necro_pig",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 15
+      },
+      {
+        "type": "silvkingsmod:necro_cow",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 15
+      },
+      {
+        "type": "silvkingsmod:necro_chicken",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 15
+      },
+      {
+        "type": "silvkingsmod:necro_sheep",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 15
+      },
+      {
+        "type": "silvkingsmod:necro_bee",
+        "maxCount": 4,
+        "minCount": 2,
+        "weight": 5
       }
     ],
     "underground_water_creature": [

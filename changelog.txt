@@ -1,9 +1,0 @@
-v1.0.0:
-Created the mod
-v1.1.0
-Added new structures for the dark world and gave it a purpose.
-Added a new Tier of Armor which can be crafted with loot from the Dark World Bastions.
-Fixed a lot of uncraftable recipes and missing block drops item and block tags.
-Nerfed the Knockback Resistance of the Titan Armor
-v1.2.0
-Added the Eternal City Structure, Eternal Elytra and Eternal Shulker

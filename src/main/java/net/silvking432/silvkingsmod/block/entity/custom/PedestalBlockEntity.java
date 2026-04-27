@@ -97,14 +97,13 @@ public class PedestalBlockEntity extends BlockEntity implements ImplementedInven
 
         // TODO: Fix Portal Position for some Ancient Citys
 
-        Direction forward = facing;
         Direction side = facing.rotateYClockwise();
 
 
-        BlockPos origin = pedestalPos.offset(forward, 5).up(8);
+        BlockPos origin = pedestalPos.offset(facing, -5).up(8);
 
-        int leftWidth = 9;
-        int rightWidth = 10;
+        int leftWidth = 10;
+        int rightWidth = 9;
         int height = 6;
 
         for (int s = -leftWidth; s <= rightWidth; s++) {

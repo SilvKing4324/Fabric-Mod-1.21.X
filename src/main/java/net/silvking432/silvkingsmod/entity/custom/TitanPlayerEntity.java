@@ -103,10 +103,10 @@ public class TitanPlayerEntity extends HostileEntity {
 
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH,40)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.33)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.3)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,1)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE,64)
-                .add(EntityAttributes.GENERIC_ARMOR,0)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE,24)
+                .add(EntityAttributes.GENERIC_ARMOR,-10)
                 .add(EntityAttributes.GENERIC_ARMOR_TOUGHNESS,0)
                 .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE,0.0)
                 .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK,1);

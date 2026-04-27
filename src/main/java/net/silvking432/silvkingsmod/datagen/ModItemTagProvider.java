@@ -24,18 +24,23 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.NETHER_STAR);
 
         getOrCreateTagBuilder(ItemTags.SWORDS)
+                .add(ModItems.DARK_TITANIUM_SWORD)
                 .add(ModItems.TITANIUM_SWORD);
 
         getOrCreateTagBuilder(ItemTags.AXES)
+                .add(ModItems.DARK_TITANIUM_AXE)
                 .add(ModItems.TITANIUM_AXE);
 
         getOrCreateTagBuilder(ItemTags.PICKAXES)
+                .add(ModItems.DARK_TITANIUM_PICKAXE)
                 .add(ModItems.TITANIUM_PICKAXE);
 
         getOrCreateTagBuilder(ItemTags.SHOVELS)
+                .add(ModItems.DARK_TITANIUM_SHOVEL)
                 .add(ModItems.TITANIUM_SHOVEL);
 
         getOrCreateTagBuilder(ItemTags.HOES)
+                .add(ModItems.DARK_TITANIUM_HOE)
                 .add(ModItems.TITANIUM_HOE);
 
         getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
@@ -87,5 +92,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.BOW_ENCHANTABLE)
                 .add(ModItems.TITANIUM_BOW);
+
     }
 }

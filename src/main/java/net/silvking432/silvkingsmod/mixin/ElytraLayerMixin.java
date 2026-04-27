@@ -24,25 +24,16 @@ public class ElytraLayerMixin {
     private static final Identifier ETERNAL_ELYTRA_TEXTURE =
             Identifier.of(SilvKingsMod.MOD_ID, "textures/entity/eternal_elytra.png");
 
-    /**
-     * Schritt 1: Den Check "ist das eine Elytra" erweitern,
-     * damit die Methode nicht sofort abbricht.
-     */
     @Redirect(
-            method = "render",
+            method = "render*",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z")
     )
     private boolean allowEternalElytraRendering(ItemStack instance, Item item) {
-        // Wir geben 'true' zurück, wenn es Vanilla Elytra ODER unsere Mod Elytra ist
         return instance.isOf(Items.ELYTRA) || instance.isOf(ModItems.ETERNAL_ELYTRA);
     }
 
-    /**
-     * Schritt 2: Die Textur ändern, falls es unsere Elytra ist.
-     * Da wir jetzt in die if-Klammer reinkommen, greift dieser Code endlich!
-     */
     @ModifyVariable(
-            method = "render",
+            method = "render*",
             at = @At("STORE"),
             ordinal = 0
     )

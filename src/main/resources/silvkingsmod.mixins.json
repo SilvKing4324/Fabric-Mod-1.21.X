@@ -3,10 +3,17 @@
   "package": "net.silvking432.silvkingsmod.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "BlockLootMixin",
+    "BlockMenderMixin",
+    "EnderPearlItemMixin",
+    "EnderPearlMixin",
     "ExampleMixin",
+    "ItemStackMixin",
     "LivingEntityMixin",
     "PlayerEntityMixin",
-    "StrongholdSizeMixin"
+    "BlockOreMixin",
+    "StrongholdSizeMixin",
+    "StructureDistanceMixin"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -17,7 +24,9 @@
   "client": [
     "AbstractClientPlayerEntityMixin",
     "BypassExperimentalLoaderMixin",
+    "DarkWorldFogMixin",
     "ElytraLayerMixin",
+    "GameRendererInvoker",
     "IntegratedServerLoaderInvoker",
     "ItemRendererMixin",
     "ModelLoaderMixin"

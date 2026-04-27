@@ -3,6 +3,8 @@ package net.silvking432.silvkingsmod;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
+import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.registry.*;
 import net.minecraft.item.Items;
@@ -10,20 +12,27 @@ import net.minecraft.potion.Potions;
 import net.silvking432.silvkingsmod.block.ModBlocks;
 import net.silvking432.silvkingsmod.block.entity.ModBlockEntities;
 import net.silvking432.silvkingsmod.component.ModDataComponentTypes;
+import net.silvking432.silvkingsmod.dark_world.MobSpawnHandler;
 import net.silvking432.silvkingsmod.dimension.ModDimensions;
 import net.silvking432.silvkingsmod.effect.ModEffects;
 import net.silvking432.silvkingsmod.enchantment.ModEnchantmentEffects;
 import net.silvking432.silvkingsmod.entity.ModEntities;
 import net.silvking432.silvkingsmod.entity.custom.*;
-import net.silvking432.silvkingsmod.event.DarkWorldHandler;
+import net.silvking432.silvkingsmod.dark_world.DarkWorldHandler;
 import net.silvking432.silvkingsmod.event.SmeltingTouchHandler;
+import net.silvking432.silvkingsmod.event.TraitEffectHandler;
 import net.silvking432.silvkingsmod.item.ModItemGroups;
 import net.silvking432.silvkingsmod.item.ModItems;
+import net.silvking432.silvkingsmod.network.BlockPosPayload;
+import net.silvking432.silvkingsmod.network.DarkFogNetworking;
+import net.silvking432.silvkingsmod.network.DarkFogPayload;
+import net.silvking432.silvkingsmod.network.RefineCoresPayload;
 import net.silvking432.silvkingsmod.particle.ModParticles;
 import net.silvking432.silvkingsmod.potion.ModPotions;
 import net.silvking432.silvkingsmod.recipe.ModRecipes;
 import net.silvking432.silvkingsmod.registries.ModLootTableKeys;
 import net.silvking432.silvkingsmod.screen.ModScreenHandlers;
+import net.silvking432.silvkingsmod.screen.custom.CoreRefineryScreenHandler;
 import net.silvking432.silvkingsmod.util.HammerUsageEvent;
 import net.silvking432.silvkingsmod.util.ModLootTableModifiers;
 import net.silvking432.silvkingsmod.villager.ModVillagerTrades;
@@ -61,6 +70,11 @@ public class SilvKingsMod implements ModInitializer {
 		ModDimensions.registerDimensions();
 		SmeltingTouchHandler.register();
 		DarkWorldHandler.register();
+		DarkFogNetworking.registerServer();
+		MobSpawnHandler.register();
+		TraitEffectHandler.register();
+
+		PayloadTypeRegistry.playS2C().register(DarkFogPayload.ID, DarkFogPayload.CODEC);
 
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 200000);
 
@@ -90,5 +104,23 @@ public class SilvKingsMod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.LAVA_GOLEM, LavaGolemEntity.createAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.MAGNA_WITCH, MagnaWitchEntity.createAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.ETERNAL_SHULKER, EternalShulkerEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.DARK_SHADOW, DarkShadowEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.NECRO_PIG, NecroPigEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.NECRO_COW, NecroCowEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.NECRO_CHICKEN, NecroChickenEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.NECRO_MINI_CHICKEN, NecroMiniChickenEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.NECRO_SHEEP, NecroSheepEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.NECRO_BEE, NecroBeeEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.ABYSSAL_SHADOW, AbyssalShadowEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.NECRO_WOLF, NecroWolfEntity.createAttributes());
+
+		PayloadTypeRegistry.playC2S().register(RefineCoresPayload.ID, RefineCoresPayload.CODEC);
+		PayloadTypeRegistry.playS2C().register(BlockPosPayload.ID, BlockPosPayload.CODEC);
+
+		ServerPlayNetworking.registerGlobalReceiver(RefineCoresPayload.ID, (payload, context) -> context.server().execute(() -> {
+            if (context.player().currentScreenHandler instanceof CoreRefineryScreenHandler gui) {
+                gui.requestRefine();
+            }
+        }));
 	}
 }

@@ -45,17 +45,37 @@ public class ModItemGroups {
                         entries.add(ModItems.NECRON_DOOM_MUSIC_DISC);
                         entries.add(ModItems.SUPER_FLOWER_SEEDS);
                         entries.add(ModItems.HONEY_BERRIES);
-                        entries.add(ModItems.MANTIS_SPAWN_EGG);
                         entries.add(ModItems.TOMAHAWK);
                         entries.add(ModItems.HYPERION);
                         entries.add(ModItems.SPECTRE_STAFF);
-                        entries.add(ModItems.TITAN_PLAYER_SPAWN_EGG);
                         entries.add(ModItems.TITAN_HEART);
                         entries.add(ModItems.DRAGON_SCALE);
                         entries.add(ModItems.DARK_WORLD_ORB);
                         entries.add(ModItems.DARK_WORLD_KEY);
                         entries.add(ModItems.TITANIUM_UPGRADE_TEMPLATE);
                         entries.add(ModItems.UNIVERSAL_UPGRADE_TEMPLATE);
+                        entries.add(ModItems.MANTIS_SPAWN_EGG);
+                        entries.add(ModItems.TITAN_PLAYER_SPAWN_EGG);
+                        entries.add(ModItems.ETERNAL_SHULKER_SPAWN_EGG);
+                        entries.add(ModItems.DARK_SHARD_TIER1);
+                        entries.add(ModItems.DARK_SHARD_TIER2);
+                        entries.add(ModItems.DARK_SHARD_TIER3);
+                        entries.add(ModItems.DARK_SHARD_TIER4);
+                        entries.add(ModItems.DARK_SHARD_TIER5);
+                        entries.add(ModItems.DARK_CORE_BASE);
+                        entries.add(ModItems.DARK_CORE_TIER1);
+                        entries.add(ModItems.DARK_CORE_TIER2);
+                        entries.add(ModItems.DARK_CORE_TIER3);
+                        entries.add(ModItems.DARK_CORE_TIER4);
+                        entries.add(ModItems.DARK_CORE_TIER5);
+                        entries.add(ModItems.REFINED_ARMOR_CORE);
+                        entries.add(ModItems.REFINED_TOOL_CORE);
+                        entries.add(ModItems.REFINED_WEAPON_CORE);
+                        entries.add(ModItems.DARK_TITANIUM_SWORD);
+                        entries.add(ModItems.DARK_TITANIUM_PICKAXE);
+                        entries.add(ModItems.DARK_TITANIUM_AXE);
+                        entries.add(ModItems.DARK_TITANIUM_SHOVEL);
+                        entries.add(ModItems.DARK_TITANIUM_HOE);
 
                     }).build());
 
@@ -71,8 +91,11 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TITANIUM_DEEPSLATE_ORE);
                         entries.add(ModBlocks.TITANIUM_NETHER_ORE);
                         entries.add(ModBlocks.TITANIUM_END_ORE);
+                        entries.add(ModBlocks.HARDSTONE);
                         entries.add(ModBlocks.NIGHTSLATE);
                         entries.add(ModBlocks.NIGHT_BRICKS);
+                        entries.add(ModBlocks.NIGHT_BRICK_STAIRS);
+                        entries.add(ModBlocks.NIGHT_BRICK_SLAB);
                         entries.add(ModBlocks.TITANIUM_STAIRS);
                         entries.add(ModBlocks.TITANIUM_SLAB);
                         entries.add(ModBlocks.TITANIUM_BUTTON);
@@ -89,6 +112,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.STRIPPED_DRIFTWOOD_WOOD);
                         entries.add(ModBlocks.DRIFTWOOD_LEAVES);
                         entries.add(ModBlocks.DRIFTWOOD_PLANKS);
+                        entries.add(ModBlocks.DRIFTWOOD_STAIRS);
+                        entries.add(ModBlocks.DRIFTWOOD_SLAB);
                         entries.add(ModBlocks.DRIFTWOOD_SAPLING);
                         entries.add(ModBlocks.CHAIR);
                         entries.add(ModBlocks.PEDESTAL);
@@ -98,7 +123,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TITANIUM_BEACON);
                         entries.add(ModBlocks.TRAPPED_SAND);
                         entries.add(ModBlocks.DARK_WORLD_PORTAL);
-                        entries.add(ModBlocks.HARDSTONE);
+                        entries.add(ModBlocks.DARK_SOIL);
                         entries.add(ModBlocks.PULSE_EMITTER);
                         entries.add(ModBlocks.DARK_TITANIUM_BLOCK);
                         entries.add(ModBlocks.ETERNAL_BRICKS);
@@ -108,7 +133,9 @@ public class ModItemGroups {
                         entries.add(ModBlocks.RED_PURPUR_STAIRS);
                         entries.add(ModBlocks.RED_PURPUR_SLAB);
                         entries.add(ModBlocks.RED_PURPUR_PILLAR);
-
+                        entries.add(ModItems.ETERNAL_SHULKER_BOX);
+                        entries.add(ModBlocks.CORE_REFINERY);
+                        entries.add(ModBlocks.DARK_ANVIL);
                     }).build());
 
     public static void registerItemGroups() {

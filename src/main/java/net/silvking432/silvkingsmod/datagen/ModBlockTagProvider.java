@@ -44,9 +44,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RED_PURPUR_SLAB)
                 .add(ModBlocks.RED_PURPUR_STAIRS)
                 .add(ModBlocks.ETERNAL_BRICKS)
+                .add(ModBlocks.ETERNAL_SHULKER_BOX)
                 .add(ModBlocks.TITANIUM_TRAPDOOR);
 
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
+                .add(ModBlocks.DARK_SOIL)
                 .add(ModBlocks.TRAPPED_SAND);
 
         getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
@@ -81,10 +83,41 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.PLANKS)
                 .add(ModBlocks.DRIFTWOOD_PLANKS);
 
+        getOrCreateTagBuilder(BlockTags.STAIRS)
+                .add(ModBlocks.NIGHT_BRICK_STAIRS)
+                .add(ModBlocks.TITANIUM_STAIRS)
+                .add(ModBlocks.RED_PURPUR_STAIRS)
+                .add(ModBlocks.DRIFTWOOD_STAIRS);
+
+        getOrCreateTagBuilder(BlockTags.SLABS)
+                .add(ModBlocks.NIGHT_BRICK_SLAB)
+                .add(ModBlocks.TITANIUM_SLAB)
+                .add(ModBlocks.RED_PURPUR_SLAB)
+                .add(ModBlocks.DRIFTWOOD_SLAB);
+
         getOrCreateTagBuilder(BlockTags.LEAVES)
                 .add(ModBlocks.DRIFTWOOD_LEAVES);
 
         getOrCreateTagBuilder(BlockTags.SAPLINGS)
                 .add(ModBlocks.DRIFTWOOD_SAPLING);
+
+        getOrCreateTagBuilder(BlockTags.SHULKER_BOXES)
+                .add(ModBlocks.ETERNAL_SHULKER_BOX);
+
+        getOrCreateTagBuilder(BlockTags.AZALEA_GROWS_ON)
+                .add(ModBlocks.DARK_SOIL);
+
+        getOrCreateTagBuilder(BlockTags.VALID_SPAWN)
+                .add(ModBlocks.NIGHTSLATE)
+                .add(ModBlocks.DARK_SOIL);
+
+        getOrCreateTagBuilder(BlockTags.ENDERMAN_HOLDABLE)
+                .add(ModBlocks.DARK_SOIL);
+
+        getOrCreateTagBuilder(BlockTags.ANIMALS_SPAWNABLE_ON)
+                .add(ModBlocks.DARK_SOIL);
+
+        getOrCreateTagBuilder(BlockTags.DIRT)
+                .add(ModBlocks.DARK_SOIL);
     }
 }

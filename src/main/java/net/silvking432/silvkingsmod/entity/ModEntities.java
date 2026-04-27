@@ -12,27 +12,42 @@ public class ModEntities {
 
     public static final EntityType<MantisEntity> MANTIS = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(SilvKingsMod.MOD_ID, "mantis"),
-            EntityType.Builder.create(MantisEntity::new, SpawnGroup.CREATURE).dimensions(2f,2.5f).build());
+            EntityType.Builder.create(MantisEntity::new, SpawnGroup.CREATURE)
+                    .dimensions(2f,2.5f)
+                    .build());
 
     public static final EntityType<TitanPlayerEntity> TITAN_PLAYER = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(SilvKingsMod.MOD_ID, "titan_player"),
-            EntityType.Builder.create(TitanPlayerEntity::new, SpawnGroup.MONSTER).dimensions(0.5f,1.75f).build());
+            EntityType.Builder.create(TitanPlayerEntity::new, SpawnGroup.MONSTER)
+                    .dimensions(0.5f,1.75f)
+                    .build());
 
     public static final EntityType<MagnaTitanEntity> MAGNA_TITAN = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(SilvKingsMod.MOD_ID, "magna_titan"),
-            EntityType.Builder.create(MagnaTitanEntity::new, SpawnGroup.MONSTER).dimensions(0.8f,2.75f).makeFireImmune().build());
+            EntityType.Builder.create(MagnaTitanEntity::new, SpawnGroup.MONSTER)
+                    .dimensions(0.8f,2.75f)
+                    .makeFireImmune()
+                    .build());
 
     public static final EntityType<MagnaMinionEntity> MAGNA_MINION = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(SilvKingsMod.MOD_ID, "magna_minion"),
-            EntityType.Builder.create(MagnaMinionEntity::new, SpawnGroup.MONSTER).dimensions(0.5f,1.5f).makeFireImmune().build());
+            EntityType.Builder.create(MagnaMinionEntity::new, SpawnGroup.MONSTER)
+                    .dimensions(0.5f,1.5f)
+                    .makeFireImmune()
+                    .build());
 
     public static final EntityType<TomahawkProjectileEntity> TOMAHAWK = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(SilvKingsMod.MOD_ID, "tomahawk"),
-            EntityType.Builder.<TomahawkProjectileEntity>create(TomahawkProjectileEntity::new, SpawnGroup.MISC).dimensions(0.5f,1.15f).build());
+            EntityType.Builder.<TomahawkProjectileEntity>create(TomahawkProjectileEntity::new, SpawnGroup.MISC)
+                    .dimensions(0.5f,1.15f)
+                    .build());
 
     public static final EntityType<ChairEntity> CHAIR_ENTITY = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(SilvKingsMod.MOD_ID, "chair_entity"),
-            EntityType.Builder.create(ChairEntity::new, SpawnGroup.MISC).dimensions(0.5f,0.5f).build());
+            EntityType.Builder.create(ChairEntity::new, SpawnGroup.MISC)
+                    .dimensions(0.5f,0.5f)
+                    .disableSummon()
+                    .build());
 
     public static final EntityType<TitaniumTntEntity> TITANIUM_TNT_ENTITY = Registry.register(
             Registries.ENTITY_TYPE,
@@ -85,6 +100,79 @@ public class ModEntities {
             EntityType.Builder.<EternalBulletEntity>create(EternalBulletEntity::new, SpawnGroup.MONSTER)
                     .dimensions(0.3125f, 0.2f)
                     .build());
+
+    public static final EntityType<DarkShadowEntity> DARK_SHADOW = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "dark_shadow"),
+            EntityType.Builder.create(DarkShadowEntity::new, SpawnGroup.MONSTER)
+                    .makeFireImmune()
+                    .dimensions(0.7f, 0.7f)
+                    .build());
+
+    public static final EntityType<NecroPigEntity> NECRO_PIG = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "necro_pig"),
+            EntityType.Builder.create(NecroPigEntity::new, SpawnGroup.MONSTER)
+                    .makeFireImmune()
+                    .dimensions(0.9f, 0.9f)
+                    .build());
+
+    public static final EntityType<NecroCowEntity> NECRO_COW = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "necro_cow"),
+            EntityType.Builder.create(NecroCowEntity::new, SpawnGroup.MONSTER)
+                    .makeFireImmune()
+                    .dimensions(0.9f, 1.4f)
+                    .build());
+
+    public static final EntityType<NecroChickenEntity> NECRO_CHICKEN = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID,  "necro_chicken"),
+            EntityType.Builder.create(NecroChickenEntity::new, SpawnGroup.MONSTER)
+                    .dimensions(1.2f, 2.1f)
+                    .makeFireImmune()
+                    .build()
+    );
+
+    public static final EntityType<NecroMiniChickenEntity> NECRO_MINI_CHICKEN = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID,  "necro_mini_chicken"),
+            EntityType.Builder.create(NecroMiniChickenEntity::new, SpawnGroup.MONSTER)
+                    .dimensions(0.35f, 0.58f)
+                    .makeFireImmune()
+                    .build()
+    );
+
+    public static final EntityType<NecroSheepEntity> NECRO_SHEEP = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "necro_sheep"),
+            EntityType.Builder.create(NecroSheepEntity::new, SpawnGroup.MONSTER)
+                    .dimensions(0.9f, 1.3f)
+                    .makeFireImmune()
+                    .build()
+    );
+
+    public static final EntityType<NecroBeeEntity> NECRO_BEE = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "necro_bee"),
+            EntityType.Builder.create(NecroBeeEntity::new, SpawnGroup.MONSTER)
+                    .dimensions(0.7f, 0.6f)
+                    .makeFireImmune()
+                    .build()
+    );
+
+    public static final EntityType<AbyssalShadowEntity> ABYSSAL_SHADOW = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "abyssal_shadow"),
+            EntityType.Builder.create(AbyssalShadowEntity::new, SpawnGroup.MONSTER)
+                    .makeFireImmune()
+                    .dimensions(0.7f, 0.7f)
+                    .build());
+
+    public static final EntityType<NecroWolfEntity> NECRO_WOLF = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "necro_wolf"),
+            EntityType.Builder.create(NecroWolfEntity::new, SpawnGroup.MONSTER)
+                    .dimensions(0.6f, 0.85f)
+                    .makeFireImmune()
+                    .build()
+    );
 
 
     public static void registerModEntities() {

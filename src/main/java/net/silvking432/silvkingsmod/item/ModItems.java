@@ -56,10 +56,36 @@ public class ModItems {
     public static final Item DARK_WORLD_KEY = registerItem("dark_world_key", new Item(new Item.Settings()));
     public static final Item DRAGON_SCALE = registerItem("dragon_scale", new Item(new Item.Settings()));
     public static final Item DARK_TITANIUM_INGOT = registerItem("dark_titanium_ingot", new Item(new Item.Settings()));
-    public static final Item DARK_TITANIUM_HELMET = registerItem("dark_titanium_helmet", new DarkArmorItem(ModArmorMaterials.DARK_TITANIUM_ARMOR_MATERIAL,ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(56))));
-    public static final Item DARK_TITANIUM_CHESTPLATE = registerItem("dark_titanium_chestplate", new DarkArmorItem(ModArmorMaterials.DARK_TITANIUM_ARMOR_MATERIAL,ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(56))));
-    public static final Item DARK_TITANIUM_LEGGINGS = registerItem("dark_titanium_leggings", new DarkArmorItem(ModArmorMaterials.DARK_TITANIUM_ARMOR_MATERIAL,ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(56))));
-    public static final Item DARK_TITANIUM_BOOTS = registerItem("dark_titanium_boots", new DarkArmorItem(ModArmorMaterials.DARK_TITANIUM_ARMOR_MATERIAL,ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(56))));
+    // region  public static final Item DARK_TITANIUM_SET = registerItem("dark_titanium_set", new DarkArmorItem(new Item.Settings()));
+    public static final Item DARK_TITANIUM_HELMET = registerItem("dark_titanium_helmet", new DarkArmorItem(ModArmorMaterials.DARK_TITANIUM_ARMOR_MATERIAL,ArmorItem.Type.HELMET,
+            new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(56))){
+        @Override
+        public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+            tooltip.add(Text.translatable("tooltip.silvkingsmod.titan_armor"));
+            super.appendTooltip(stack, context, tooltip, type);
+        }});
+    public static final Item DARK_TITANIUM_CHESTPLATE = registerItem("dark_titanium_chestplate", new DarkArmorItem(ModArmorMaterials.DARK_TITANIUM_ARMOR_MATERIAL,ArmorItem.Type.CHESTPLATE,
+            new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(56))){
+        @Override
+        public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+            tooltip.add(Text.translatable("tooltip.silvkingsmod.titan_armor"));
+            super.appendTooltip(stack, context, tooltip, type);
+        }});
+    public static final Item DARK_TITANIUM_LEGGINGS = registerItem("dark_titanium_leggings", new DarkArmorItem(ModArmorMaterials.DARK_TITANIUM_ARMOR_MATERIAL,ArmorItem.Type.LEGGINGS,
+            new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(56))){
+        @Override
+        public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+            tooltip.add(Text.translatable("tooltip.silvkingsmod.titan_armor"));
+            super.appendTooltip(stack, context, tooltip, type);
+        }});
+    public static final Item DARK_TITANIUM_BOOTS = registerItem("dark_titanium_boots", new DarkArmorItem(ModArmorMaterials.DARK_TITANIUM_ARMOR_MATERIAL,ArmorItem.Type.BOOTS,
+            new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(56))){
+        @Override
+        public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+            tooltip.add(Text.translatable("tooltip.silvkingsmod.titan_armor"));
+            super.appendTooltip(stack, context, tooltip, type);
+        }});
+    //endregion
     public static final Item TITANIUM_UPGRADE_TEMPLATE = registerItem("titanium_upgrade_template", TitaniumSmithingTemplateItem.createTitaniumUpgrade());
     public static final Item UNIVERSAL_UPGRADE_TEMPLATE = registerItem("universal_upgrade_template", UniversalSmithingTemplateItem.createUniversalUpgrade());
     // region  public static final Item TITANMOD_GUIDE = registerItem("titanmod_guide", new Item(new Item.Settings()));
@@ -71,6 +97,29 @@ public class ModItems {
         }});
     //endregion
     public static final Item ETERNAL_ELYTRA = registerItem("eternal_elytra", new EternalElytraItem(new Item.Settings().maxDamage(489).rarity(Rarity.EPIC)));
+    public static final Item ETERNAL_SHELL = registerItem("eternal_shell", new Item(new Item.Settings()));
+    public static final Item ETERNAL_SHULKER_SPAWN_EGG = registerItem("eternal_shulker_spawn_egg", new SpawnEggItem(ModEntities.ETERNAL_SHULKER, 0xE69E10, 0xFFF200, new Item.Settings()));
+    public static final Item ETERNAL_SHULKER_BOX = registerItem("eternal_shulker_box", new EternalShulkerBoxItem(ModBlocks.ETERNAL_SHULKER_BOX, new Item.Settings()));
+    public static final Item DARK_SHARD_TIER1 = registerItem("dark_shard_tier1", new Item(new Item.Settings().maxCount(16)));
+    public static final Item DARK_SHARD_TIER2 = registerItem("dark_shard_tier2", new Item(new Item.Settings().maxCount(16)));
+    public static final Item DARK_SHARD_TIER3 = registerItem("dark_shard_tier3", new Item(new Item.Settings().maxCount(16)));
+    public static final Item DARK_SHARD_TIER4 = registerItem("dark_shard_tier4", new Item(new Item.Settings().maxCount(16)));
+    public static final Item DARK_SHARD_TIER5 = registerItem("dark_shard_tier5", new Item(new Item.Settings().maxCount(16)));
+    public static final Item DARK_CORE_BASE = registerItem("dark_core_base", new Item(new Item.Settings().maxCount(1)));
+    public static final Item DARK_CORE_TIER1 = registerItem("dark_core_tier1", new Item(new Item.Settings().maxCount(1)));
+    public static final Item DARK_CORE_TIER2 = registerItem("dark_core_tier2", new Item(new Item.Settings().maxCount(1)));
+    public static final Item DARK_CORE_TIER3 = registerItem("dark_core_tier3", new Item(new Item.Settings().maxCount(1)));
+    public static final Item DARK_CORE_TIER4 = registerItem("dark_core_tier4", new Item(new Item.Settings().maxCount(1)));
+    public static final Item DARK_CORE_TIER5 = registerItem("dark_core_tier5", new Item(new Item.Settings().maxCount(1)));
+    public static final Item REFINED_WEAPON_CORE = registerItem("refined_weapon_core", new RefinedCoreItem(new Item.Settings().maxCount(1)));
+    public static final Item REFINED_ARMOR_CORE = registerItem("refined_armor_core", new RefinedCoreItem(new Item.Settings().maxCount(1)));
+    public static final Item REFINED_TOOL_CORE = registerItem("refined_tool_core", new RefinedCoreItem(new Item.Settings().maxCount(1)));
+    public static final Item DARK_TITANIUM_SWORD = registerItem("dark_titanium_sword", new DarkSwordItem(ModToolMaterials.DARK_TITANIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.DARK_TITANIUM,3,-2.4f))));
+    public static final Item DARK_TITANIUM_PICKAXE = registerItem("dark_titanium_pickaxe", new DarkPickaxeItem(ModToolMaterials.DARK_TITANIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.DARK_TITANIUM,1,-2.8f))));
+    public static final Item DARK_TITANIUM_AXE = registerItem("dark_titanium_axe", new DarkAxeItem(ModToolMaterials.DARK_TITANIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.DARK_TITANIUM,6,-3.0f))));
+    public static final Item DARK_TITANIUM_SHOVEL = registerItem("dark_titanium_shovel", new DarkShovelItem(ModToolMaterials.DARK_TITANIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.DARK_TITANIUM,2,-3.0f))));
+    public static final Item DARK_TITANIUM_HOE = registerItem("dark_titanium_hoe", new DarkHoeItem(ModToolMaterials.DARK_TITANIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.DARK_TITANIUM,0,-3.0f))));
+
 
 
     private static Item registerItem(String name, Item item) {

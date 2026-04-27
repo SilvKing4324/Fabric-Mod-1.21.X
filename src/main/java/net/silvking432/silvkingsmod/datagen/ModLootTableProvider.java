@@ -49,6 +49,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.TITANIUM_TRAPDOOR);
         addDrop(ModBlocks.TRAPPED_SAND);
         addDrop(ModBlocks.NIGHTSLATE);
+        addDrop(ModBlocks.NIGHT_BRICKS);
         addDrop(ModBlocks.PULSE_EMITTER);
         addDrop(ModBlocks.GROWTH_CHAMBER);
         addDrop(ModBlocks.CHAIR);
@@ -56,7 +57,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.RED_PURPUR_BLOCK);
         addDrop(ModBlocks.RED_PURPUR_SLAB);
         addDrop(ModBlocks.RED_PURPUR_STAIRS);
+        addDrop(ModBlocks.RED_PURPUR_PILLAR);
         addDrop(ModBlocks.ETERNAL_BRICKS);
+        addDrop(ModBlocks.DARK_SOIL);
         addDropWithSilkTouch(ModBlocks.GOLDEN_GLOWING_GLASS);
         addDropWithSilkTouch(ModBlocks.GOLDEN_GLOWING_GLASS_PANE);
 

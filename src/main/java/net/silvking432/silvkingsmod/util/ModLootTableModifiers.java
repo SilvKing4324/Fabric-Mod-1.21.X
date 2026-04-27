@@ -20,6 +20,8 @@ public class ModLootTableModifiers {
             = Identifier.of("minecraft", "entities/ender_dragon");
     private static final Identifier TITANPLAYER_ID
             = Identifier.of("silvkingsmod", "entities/titan_player");
+    private static final Identifier ETERNALSHULKER_ID
+            = Identifier.of("silvkingsmod", "entities/eternal_shulker");
 
     public static void modifyLootTables() {
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registry) -> {
@@ -71,11 +73,18 @@ public class ModLootTableModifiers {
 
                 tableBuilder.pool(poolBuilder.build());
             }
+
+            if(ETERNALSHULKER_ID.equals(key.getValue())) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.05f))
+                        .with(ItemEntry.builder(ModItems.ETERNAL_SHELL))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
+
+                tableBuilder.pool(poolBuilder.build());
+            }
         });
 
-        LootTableEvents.REPLACE.register((key,original,source,registries) -> {
-
-            return original;
-        });
+        LootTableEvents.REPLACE.register((key,original,source,registries) -> original);
     }
 }
