@@ -33,26 +33,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+
+import static net.silvking432.silvkingsmod.util.TraitUtil.NECRO_MOBS;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
 
     @Shadow public abstract boolean hasStatusEffect(RegistryEntry<StatusEffect> effect);
     @Shadow public abstract StatusEffectInstance getStatusEffect(RegistryEntry<StatusEffect> effect);
-
-    @Unique
-    private static final Set<EntityType<?>> NECRO_MOBS = Set.of(
-            ModEntities.NECRO_BEE,
-            ModEntities.NECRO_CHICKEN,
-            ModEntities.NECRO_WOLF,
-            ModEntities.NECRO_COW,
-            ModEntities.NECRO_PIG,
-            ModEntities.NECRO_MINI_CHICKEN,
-            ModEntities.DARK_SHADOW,
-            ModEntities.ABYSSAL_SHADOW,
-            ModEntities.NECRO_SHEEP
-    );
 
     @Unique
     private static final Map<EntityType<?>, Integer> MOB_SHARD_TIERS = Map.of(
@@ -62,7 +50,9 @@ public abstract class LivingEntityMixin {
             ModEntities.NECRO_PIG, 1,
             ModEntities.NECRO_SHEEP, 1,
             ModEntities.DARK_SHADOW, 1,
-            ModEntities.ABYSSAL_SHADOW, 2
+            ModEntities.ABYSSAL_SHADOW, 2,
+            ModEntities.NECRO_LLAMA, 2,
+            ModEntities.NECRO_WOLF, 2
     );
 
     @ModifyVariable(method = "damage", at = @At("HEAD"), argsOnly = true)

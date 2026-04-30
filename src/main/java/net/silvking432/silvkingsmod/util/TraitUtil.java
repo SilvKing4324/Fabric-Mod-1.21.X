@@ -2,16 +2,19 @@ package net.silvking432.silvkingsmod.util;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.TagKey;
 import net.silvking432.silvkingsmod.block.ModBlocks;
+import net.silvking432.silvkingsmod.entity.ModEntities;
 import net.silvking432.silvkingsmod.item.ModItems;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class TraitUtil {
     private static List<Block> BASIC_BLOCKS;
@@ -79,4 +82,18 @@ public class TraitUtil {
         }
         return BONUS_DROPS_TAGS;
     }
+
+    public static final Set<EntityType<?>> NECRO_MOBS = Set.of(
+            ModEntities.NECRO_BEE,
+            ModEntities.NECRO_CHICKEN,
+            ModEntities.NECRO_WOLF,
+            ModEntities.NECRO_COW,
+            ModEntities.NECRO_PIG,
+            ModEntities.NECRO_MINI_CHICKEN,
+            ModEntities.DARK_SHADOW,
+            ModEntities.ABYSSAL_SHADOW,
+            ModEntities.NECRO_LLAMA,
+            ModEntities.NECRO_GECKO,
+            ModEntities.NECRO_SHEEP
+    );
 }

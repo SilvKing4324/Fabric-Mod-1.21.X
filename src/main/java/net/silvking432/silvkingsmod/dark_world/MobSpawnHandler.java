@@ -11,8 +11,7 @@ import net.silvking432.silvkingsmod.SilvKingsMod;
 import net.silvking432.silvkingsmod.component.ModDataComponentTypes;
 import net.silvking432.silvkingsmod.component.custom.CoreTrait;
 import net.silvking432.silvkingsmod.entity.ModEntities;
-import net.silvking432.silvkingsmod.entity.custom.DarkShadowEntity;
-import net.silvking432.silvkingsmod.entity.custom.NecroPigEntity;
+import net.silvking432.silvkingsmod.entity.custom.*;
 import net.silvking432.silvkingsmod.util.MobScalingUtil;
 
 import java.util.List;
@@ -52,19 +51,19 @@ public class MobSpawnHandler {
             multiplier += getRareFinderMultiplier(closestPlayer);
         }
 
-        if (entity instanceof DarkShadowEntity && world.random.nextFloat() < (0.5f * multiplier)) {
-            return convertToAbyssal(entity, ModEntities.ABYSSAL_SHADOW, world);
-        }
+        float finalMultiplier = multiplier;
+        return switch (entity) {
+            case DarkShadowEntity darkShadowEntity when world.random.nextFloat() < (0.5f * finalMultiplier) -> convertToTierTwo(entity, ModEntities.ABYSSAL_SHADOW, world);
+            case NecroPigEntity necroPigEntity when world.random.nextFloat() < (0.5f * finalMultiplier) -> convertToTierTwo(entity, ModEntities.NECRO_WOLF, world);
+            case NecroCowEntity necroCowEntity when world.random.nextFloat() < (0.5f * finalMultiplier) -> convertToTierTwo(entity, ModEntities.NECRO_LLAMA, world);
+            case NecroSheepEntity necroSheepEntity when world.random.nextFloat() < (0.5f * finalMultiplier) -> convertToTierTwo(entity, ModEntities.NECRO_GECKO, world);
+            default -> false;
+        };
 
-        if (entity instanceof NecroPigEntity && world.random.nextFloat() < (0.5f * multiplier)) {
-            return convertToAbyssal(entity, ModEntities.NECRO_WOLF, world);
-        }
-
-        return false;
     }
 
 
-    private static <T extends HostileEntity> boolean convertToAbyssal(HostileEntity original, EntityType<T> targetType, ServerWorld world) {
+    private static <T extends HostileEntity> boolean convertToTierTwo(HostileEntity original, EntityType<T> targetType, ServerWorld world) {
         T newEntity = targetType.create(world);
         if (newEntity != null) {
             newEntity.refreshPositionAndAngles(original.getX(), original.getY(), original.getZ(), original.getYaw(), original.getPitch());

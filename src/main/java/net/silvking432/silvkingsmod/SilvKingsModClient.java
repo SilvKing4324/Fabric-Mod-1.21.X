@@ -55,16 +55,23 @@ public class SilvKingsModClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GOLDEN_GLOWING_GLASS, RenderLayer.getTranslucent());
 
         EntityModelLayerRegistry.registerModelLayer(MantisModel.MANTIS, MantisModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(GeckoModel.GECKO, GeckoModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(NecroGeckoModel.NECRO_GECKO, NecroGeckoModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(TitanPlayerModel.TITAN_PLAYER, TitanPlayerModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(MagnaTitanModel.MAGNA_TITAN, MagnaTitanModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(MagnaMinionModel.MAGNA_MINION, MagnaMinionModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(TomahawkProjectileModel.TOMAHAWK, TomahawkProjectileModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(NecroSheepEntityModel.NECRO_SHEEP, NecroSheepEntityModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(NECRO_WOLF, () -> NecroWolfEntityModel.getTexturedModelData(Dilation.NONE));
+        EntityModelLayerRegistry.registerModelLayer(NecroLlamaModel.NECRO_LLAMA, NecroLlamaModel::getTexturedModelData);
 
         EntityRendererRegistry.register(ModEntities.DARK_SHADOW, EmptyEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.ABYSSAL_SHADOW, EmptyEntityRenderer::new);
+        EntityRendererRegistry.register(ModEntities.PULL, EmptyEntityRenderer::new);
+        EntityRendererRegistry.register(ModEntities.TORNADO, EmptyEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.MANTIS, MantisRenderer::new);
+        EntityRendererRegistry.register(ModEntities.GECKO, GeckoRenderer::new);
+        EntityRendererRegistry.register(ModEntities.NECRO_GECKO, NecroGeckoRenderer::new);
         EntityRendererRegistry.register(ModEntities.TITAN_PLAYER, TitanPlayerRenderer::new);
         EntityRendererRegistry.register(ModEntities.MAGNA_TITAN, MagnaTitanRenderer::new);
         EntityRendererRegistry.register(ModEntities.MAGNA_MINION, MagnaMinionRenderer::new);
@@ -85,6 +92,7 @@ public class SilvKingsModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.NECRO_SHEEP, NecroSheepRenderer::new);
         EntityRendererRegistry.register(ModEntities.NECRO_BEE, NecroBeeRenderer::new);
         EntityRendererRegistry.register(ModEntities.NECRO_WOLF, NecroWolfRenderer::new);
+        EntityRendererRegistry.register(ModEntities.NECRO_LLAMA, NecroLlamaRenderer::new);
 
         ParticleFactoryRegistry.getInstance().register(ModParticles.STARLIGHT_ASHES_PARTICLE, StarlightAshesParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.BLACK_HOLE_PARTICLE, BlackHoleParticle.Factory::new);

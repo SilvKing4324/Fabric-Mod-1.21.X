@@ -10,7 +10,7 @@
     "absolute": 0
   },
   "project_start_to_heightmap": "MOTION_BLOCKING",
-  "use_expansion_hack": false,
+  "use_expansion_hack": true,
   "biomes": "#minecraft:is_mountain",
   "adapt_noise": true
 }

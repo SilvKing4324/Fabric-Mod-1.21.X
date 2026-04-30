@@ -46,6 +46,7 @@ public class ModItemGroups {
                         entries.add(ModItems.SUPER_FLOWER_SEEDS);
                         entries.add(ModItems.HONEY_BERRIES);
                         entries.add(ModItems.TOMAHAWK);
+                        entries.add(ModItems.ETERNAL_ELYTRA);
                         entries.add(ModItems.HYPERION);
                         entries.add(ModItems.SPECTRE_STAFF);
                         entries.add(ModItems.TITAN_HEART);

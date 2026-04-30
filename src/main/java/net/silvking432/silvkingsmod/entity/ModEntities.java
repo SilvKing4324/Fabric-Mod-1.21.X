@@ -174,6 +174,48 @@ public class ModEntities {
                     .build()
     );
 
+    public static final EntityType<PullEntity> PULL = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "pull"),
+            EntityType.Builder.create(PullEntity::new, SpawnGroup.MISC)
+                    .dimensions(0.1f, 0.1f)
+                    .build()
+    );
+
+    public static final EntityType<TornadoEntity> TORNADO = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "tornado"),
+            EntityType.Builder.create(TornadoEntity::new, SpawnGroup.MISC)
+                    .dimensions(0.1f, 0.1f)
+                    .build()
+    );
+
+    public static final EntityType<NecroLlamaEntity> NECRO_LLAMA = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "necro_llama"),
+            EntityType.Builder.create(NecroLlamaEntity::new, SpawnGroup.MONSTER)
+                    .dimensions(0.9f, 1.87f)
+                    .makeFireImmune()
+                    .build()
+    );
+
+    public static final EntityType<GeckoEntity> GECKO = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "gecko"),
+            EntityType.Builder.create(GeckoEntity::new, SpawnGroup.CREATURE)
+                    .dimensions(0.4f, 0.35f)
+                    .build()
+    );
+
+    public static final EntityType<NecroGeckoEntity> NECRO_GECKO = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "necro_gecko"),
+            EntityType.Builder.create(NecroGeckoEntity::new, SpawnGroup.MONSTER)
+                    .dimensions(1.2f, 1.05f)
+                    .makeFireImmune()
+                    .build()
+    );
+
 
     public static void registerModEntities() {
         SilvKingsMod.LOGGER.info("Registering Mod Entities for " + SilvKingsMod.MOD_ID);
