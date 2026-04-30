@@ -94,6 +94,7 @@ public class TraitUtil {
             ModEntities.ABYSSAL_SHADOW,
             ModEntities.NECRO_LLAMA,
             ModEntities.NECRO_GECKO,
-            ModEntities.NECRO_SHEEP
+            ModEntities.NECRO_SHEEP,
+            ModEntities.NECROSAURUS
     );
 }
