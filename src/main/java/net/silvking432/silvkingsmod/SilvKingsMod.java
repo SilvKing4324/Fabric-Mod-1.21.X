@@ -114,8 +114,10 @@ public class SilvKingsMod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.ABYSSAL_SHADOW, AbyssalShadowEntity.createAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.NECRO_WOLF, NecroWolfEntity.createAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.NECRO_LLAMA, NecroLlamaEntity.createAttributes());
-		FabricDefaultAttributeRegistry.register(ModEntities.GECKO, NecroLlamaEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.GECKO, GeckoEntity.createAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.NECRO_GECKO, NecroGeckoEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.RHINO, RhinoEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.NECROSAURUS, NecrosaurusEntity.createAttributes());
 
 		PayloadTypeRegistry.playC2S().register(RefineCoresPayload.ID, RefineCoresPayload.CODEC);
 		PayloadTypeRegistry.playS2C().register(BlockPosPayload.ID, BlockPosPayload.CODEC);

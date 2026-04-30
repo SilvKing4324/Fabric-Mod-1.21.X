@@ -6,8 +6,9 @@ A Fabric mod for Minecraft 1.21 that adds powerful Titan equipment, new monsters
 * **New Ore:** Titan Ore, found deep in the world.
 * **Structures:** Explore new and also old but modified dungeons.
 * **Bosses:** Fight a new very tough Boss for some powerful Items.
-* **Dimension:** Explore a new Dimension full of various threats and goods.
-* **Better Gear:** A tier above Netherite, better food, new enchantments and much more.
+* **New Mobs:** Over 30 new Mobs have been added.
+* **Dimension:** Explore a new Dimension filled with lots of content.
+* **Better Gear:** 2 Tiers above Netherite, better food, gear traits, new enchantments and much more.
 
 ## Download
 You can find the latest builds in the [Releases](https://github.com/SilvKing4324/silvkingsmod/releases) section.

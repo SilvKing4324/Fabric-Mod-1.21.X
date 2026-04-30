@@ -207,10 +207,27 @@ public class ModEntities {
                     .build()
     );
 
+    public static final EntityType<RhinoEntity> RHINO = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "rhino"),
+            EntityType.Builder.create(RhinoEntity::new, SpawnGroup.CREATURE)
+                    .dimensions(2.5f, 2.5f)
+                    .build()
+    );
+
     public static final EntityType<NecroGeckoEntity> NECRO_GECKO = Registry.register(
             Registries.ENTITY_TYPE,
             Identifier.of(SilvKingsMod.MOD_ID, "necro_gecko"),
             EntityType.Builder.create(NecroGeckoEntity::new, SpawnGroup.MONSTER)
+                    .dimensions(1.2f, 1.05f)
+                    .makeFireImmune()
+                    .build()
+    );
+
+    public static final EntityType<NecrosaurusEntity> NECROSAURUS = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "necrosaurus"),
+            EntityType.Builder.create(NecrosaurusEntity::new, SpawnGroup.MONSTER)
                     .dimensions(1.2f, 1.05f)
                     .makeFireImmune()
                     .build()

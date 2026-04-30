@@ -56,6 +56,8 @@ public class SilvKingsModClient implements ClientModInitializer {
 
         EntityModelLayerRegistry.registerModelLayer(MantisModel.MANTIS, MantisModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(GeckoModel.GECKO, GeckoModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(RhinoModel.RHINO_LAYER, RhinoModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(NecrosaurusModel.NECROSAURUS, NecrosaurusModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(NecroGeckoModel.NECRO_GECKO, NecroGeckoModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(TitanPlayerModel.TITAN_PLAYER, TitanPlayerModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(MagnaTitanModel.MAGNA_TITAN, MagnaTitanModel::getTexturedModelData);
@@ -71,6 +73,8 @@ public class SilvKingsModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.TORNADO, EmptyEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.MANTIS, MantisRenderer::new);
         EntityRendererRegistry.register(ModEntities.GECKO, GeckoRenderer::new);
+        EntityRendererRegistry.register(ModEntities.RHINO, RhinoRenderer::new);
+        EntityRendererRegistry.register(ModEntities.NECROSAURUS, NecrosaurusRenderer::new);
         EntityRendererRegistry.register(ModEntities.NECRO_GECKO, NecroGeckoRenderer::new);
         EntityRendererRegistry.register(ModEntities.TITAN_PLAYER, TitanPlayerRenderer::new);
         EntityRendererRegistry.register(ModEntities.MAGNA_TITAN, MagnaTitanRenderer::new);
