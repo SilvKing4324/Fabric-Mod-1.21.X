@@ -22,7 +22,8 @@ import net.silvking432.silvkingsmod.block.entity.custom.EternalShulkerBoxBlockEn
 import net.silvking432.silvkingsmod.block.entity.renderer.PedestalBlockEntityRenderer;
 import net.silvking432.silvkingsmod.command.ShaderTestCommand;
 import net.silvking432.silvkingsmod.entity.ModEntities;
-import net.silvking432.silvkingsmod.entity.client.*;
+import net.silvking432.silvkingsmod.entity.client.model.*;
+import net.silvking432.silvkingsmod.entity.client.renderer.*;
 import net.silvking432.silvkingsmod.item.ModItems;
 import net.silvking432.silvkingsmod.network.DarkFogNetworking;
 import net.silvking432.silvkingsmod.network.DarkFogPayload;
@@ -37,7 +38,7 @@ import net.silvking432.silvkingsmod.screen.custom.PedestalScreen;
 import net.silvking432.silvkingsmod.util.EffectShaderHandler;
 import net.silvking432.silvkingsmod.util.ModModelPredicates;
 
-import static net.silvking432.silvkingsmod.entity.client.NecroWolfEntityModel.NECRO_WOLF;
+import static net.silvking432.silvkingsmod.entity.client.model.NecroWolfEntityModel.NECRO_WOLF;
 
 public class SilvKingsModClient implements ClientModInitializer {
     @Override

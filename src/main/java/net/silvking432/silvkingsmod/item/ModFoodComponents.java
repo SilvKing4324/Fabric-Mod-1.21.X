@@ -22,4 +22,7 @@ public class ModFoodComponents {
             .statusEffect(new StatusEffectInstance(StatusEffects.HASTE, 900,1), 0.1f)
             .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 1200,5), 1.0f)
             .alwaysEdible().snack().build();
+
+    public static final FoodComponent RAW_RHINO_STEAK = new FoodComponent.Builder().nutrition(4).saturationModifier(0.3f).build();
+    public static final FoodComponent RHINO_STEAK = new FoodComponent.Builder().nutrition(7).saturationModifier(0.8f).build();
 }

@@ -24,6 +24,8 @@ public class ModItemGroups {
                         entries.add(ModItems.DARK_TITANIUM_INGOT);
                         entries.add(ModItems.CHISEL);
                         entries.add(ModItems.SUPER_FLOWER);
+                        entries.add(ModItems.RHINO_STEAK);
+                        entries.add(ModItems.RAW_RHINO_STEAK);
                         entries.add(ModItems.STARLIGHT_ASHES);
                         entries.add(ModItems.TITANIUM_SWORD);
                         entries.add(ModItems.TITANIUM_AXE);

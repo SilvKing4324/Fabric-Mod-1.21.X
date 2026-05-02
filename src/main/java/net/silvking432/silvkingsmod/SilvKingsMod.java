@@ -34,7 +34,6 @@ import net.silvking432.silvkingsmod.registries.ModLootTableKeys;
 import net.silvking432.silvkingsmod.screen.ModScreenHandlers;
 import net.silvking432.silvkingsmod.screen.custom.CoreRefineryScreenHandler;
 import net.silvking432.silvkingsmod.util.HammerUsageEvent;
-import net.silvking432.silvkingsmod.util.ModLootTableModifiers;
 import net.silvking432.silvkingsmod.villager.ModVillagerTrades;
 import net.silvking432.silvkingsmod.villager.ModVillagers;
 import net.silvking432.silvkingsmod.world.gen.ModStructures;
@@ -63,7 +62,6 @@ public class SilvKingsMod implements ModInitializer {
 		ModVillagers.registerVillagers();
 		ModVillagerTrades.registerModVillagerTrades();
 		ModParticles.registerParticles();
-		ModLootTableModifiers.modifyLootTables();
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandlers.registerScreenHandlers();
 		ModRecipes.registerRecipes();

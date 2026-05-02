@@ -145,6 +145,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.DARK_TITANIUM_AXE, Models.GENERATED);
         itemModelGenerator.register(ModItems.DARK_TITANIUM_SHOVEL, Models.GENERATED);
         itemModelGenerator.register(ModItems.DARK_TITANIUM_HOE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RHINO_STEAK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RAW_RHINO_STEAK, Models.GENERATED);
 
     }
 }

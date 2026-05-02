@@ -22,6 +22,8 @@ public class TraitUtil {
     private static List<Block> BONUS_DROPS_BLOCKS;
     private static List<TagKey<Block>> BONUS_DROPS_TAGS;
 
+    private static Map<EntityType<?>, Integer> NECRO_MOB_TIERS;
+
     public static List<Block> getBasicBlocks() {
         if (BASIC_BLOCKS == null) {
             BASIC_BLOCKS = List.of(
@@ -97,4 +99,23 @@ public class TraitUtil {
             ModEntities.NECRO_SHEEP,
             ModEntities.NECROSAURUS
     );
+
+    public static Map<EntityType<?>, Integer> getNecroMobTiers() {
+        if (NECRO_MOB_TIERS == null) {
+            NECRO_MOB_TIERS = new HashMap<>();
+            NECRO_MOB_TIERS.put(ModEntities.NECRO_BEE, 1);
+            NECRO_MOB_TIERS.put(ModEntities.NECRO_CHICKEN, 1);
+            NECRO_MOB_TIERS.put(ModEntities.NECRO_COW, 1);
+            NECRO_MOB_TIERS.put(ModEntities.NECRO_PIG, 1);
+            NECRO_MOB_TIERS.put(ModEntities.NECRO_SHEEP, 1);
+            NECRO_MOB_TIERS.put(ModEntities.DARK_SHADOW, 1);
+
+            NECRO_MOB_TIERS.put(ModEntities.ABYSSAL_SHADOW, 2);
+            NECRO_MOB_TIERS.put(ModEntities.NECRO_LLAMA, 2);
+            NECRO_MOB_TIERS.put(ModEntities.NECRO_WOLF, 2);
+            NECRO_MOB_TIERS.put(ModEntities.NECRO_GECKO, 2);
+            NECRO_MOB_TIERS.put(ModEntities.NECROSAURUS, 2);
+        }
+        return NECRO_MOB_TIERS;
+    }
 }

@@ -22,8 +22,8 @@ import net.minecraft.util.math.Vec3d;
 import net.silvking432.silvkingsmod.component.ModDataComponentTypes;
 import net.silvking432.silvkingsmod.component.custom.CoreTrait;
 import net.silvking432.silvkingsmod.effect.ModEffects;
-import net.silvking432.silvkingsmod.entity.ModEntities;
 import net.silvking432.silvkingsmod.item.ModItems; // Achte auf deinen Item-Pfad
+import net.silvking432.silvkingsmod.util.TraitUtil;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -32,7 +32,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.List;
-import java.util.Map;
 
 import static net.silvking432.silvkingsmod.util.TraitUtil.NECRO_MOBS;
 
@@ -42,18 +41,6 @@ public abstract class LivingEntityMixin {
     @Shadow public abstract boolean hasStatusEffect(RegistryEntry<StatusEffect> effect);
     @Shadow public abstract StatusEffectInstance getStatusEffect(RegistryEntry<StatusEffect> effect);
 
-    @Unique
-    private static final Map<EntityType<?>, Integer> MOB_SHARD_TIERS = Map.of(
-            ModEntities.NECRO_BEE, 1,
-            ModEntities.NECRO_CHICKEN, 1,
-            ModEntities.NECRO_COW, 1,
-            ModEntities.NECRO_PIG, 1,
-            ModEntities.NECRO_SHEEP, 1,
-            ModEntities.DARK_SHADOW, 1,
-            ModEntities.ABYSSAL_SHADOW, 2,
-            ModEntities.NECRO_LLAMA, 2,
-            ModEntities.NECRO_WOLF, 2
-    );
 
     @ModifyVariable(method = "damage", at = @At("HEAD"), argsOnly = true)
     private float silvkingsmod$handleAllDamageModifications(float amount, DamageSource source) {
@@ -178,9 +165,9 @@ public abstract class LivingEntityMixin {
         if (!world.getRegistryKey().getValue().getPath().equals("dark_world")) return;
 
         EntityType<?> type = entity.getType();
-        if (!MOB_SHARD_TIERS.containsKey(type)) return;
+        if (!TraitUtil.getNecroMobTiers().containsKey(type)) return;
 
-        int baseTier = MOB_SHARD_TIERS.get(type);
+        int baseTier = TraitUtil.getNecroMobTiers().get(type);
         BlockPos pos = entity.getBlockPos();
         double distance = Math.min(50000.0, Math.sqrt(pos.getSquaredDistance(0, pos.getY(), 0)));
 

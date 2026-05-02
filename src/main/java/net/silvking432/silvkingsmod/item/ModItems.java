@@ -119,6 +119,8 @@ public class ModItems {
     public static final Item DARK_TITANIUM_AXE = registerItem("dark_titanium_axe", new DarkAxeItem(ModToolMaterials.DARK_TITANIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.DARK_TITANIUM,6,-3.0f))));
     public static final Item DARK_TITANIUM_SHOVEL = registerItem("dark_titanium_shovel", new DarkShovelItem(ModToolMaterials.DARK_TITANIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.DARK_TITANIUM,2,-3.0f))));
     public static final Item DARK_TITANIUM_HOE = registerItem("dark_titanium_hoe", new DarkHoeItem(ModToolMaterials.DARK_TITANIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.DARK_TITANIUM,0,-3.0f))));
+    public static final Item RAW_RHINO_STEAK = registerItem("raw_rhino_steak", new Item(new Item.Settings().food(ModFoodComponents.RAW_RHINO_STEAK)));
+    public static final Item RHINO_STEAK = registerItem("rhino_steak", new Item(new Item.Settings().food(ModFoodComponents.RHINO_STEAK)));
 
 
 

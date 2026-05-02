@@ -3,10 +3,7 @@ package net.silvking432.silvkingsmod.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.server.recipe.RecipeExporter;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.SmithingTransformRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
@@ -28,10 +25,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(RecipeExporter recipeExporter) {
-        List<ItemConvertible> TITANIUM_SMELTABLES = List.of(ModBlocks.TITANIUM_ORE,ModBlocks.TITANIUM_DEEPSLATE_ORE,ModBlocks.TITANIUM_NETHER_ORE,ModBlocks.TITANIUM_END_ORE);
+
+        List<ItemConvertible> TITANIUM_SMELTABLES = List.of(ModBlocks.TITANIUM_ORE,ModBlocks.TITANIUM_DEEPSLATE_ORE,ModBlocks.TITANIUM_NETHER_ORE,ModBlocks.TITANIUM_END_ORE, ModItems.TITANIUM_SHARD);
 
         offerSmelting(recipeExporter, TITANIUM_SMELTABLES, RecipeCategory.MISC, ModItems.TITANIUM_INGOT, 0.25f, 200,"titanium_ingot");
         offerBlasting(recipeExporter, TITANIUM_SMELTABLES, RecipeCategory.MISC, ModItems.TITANIUM_INGOT, 0.25f, 100,"titanium_ingot");
+
+        offerSmelting(recipeExporter, List.of(ModItems.RAW_RHINO_STEAK), RecipeCategory.FOOD, ModItems.RHINO_STEAK, 0.7f, 200,"rhino_steak");
+        CookingRecipeJsonBuilder.createSmoking(Ingredient.ofItems(ModItems.RAW_RHINO_STEAK), RecipeCategory.FOOD, ModItems.RHINO_STEAK, 0.35f, 100)
+                .criterion(hasItem(ModItems.RAW_RHINO_STEAK), conditionsFromItem(ModItems.RAW_RHINO_STEAK)).offerTo(recipeExporter, Identifier.of(SilvKingsMod.MOD_ID, "rhino_steak_from_smoking"));
 
         offerReversibleCompactingRecipes(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModItems.TITANIUM_INGOT, RecipeCategory.MISC, ModBlocks.TITANIUM_BLOCK);
         offerReversibleCompactingRecipes(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModItems.TITANIUM_SHARD, RecipeCategory.MISC, ModBlocks.RAW_TITANIUM_BLOCK);
