@@ -23,7 +23,7 @@ public class MobSpawnHandler {
 
     public static void register() {
         ServerEntityEvents.ENTITY_LOAD.register((entity, world) -> {
-            if (world.getRegistryKey().getValue().equals(DARK_WORLD_ID) && entity instanceof LivingEntity hostile) {
+            if (world.getRegistryKey().getValue().equals(DARK_WORLD_ID) && entity instanceof LivingEntity hostile && !(hostile instanceof PlayerEntity)) {
 
                 if (hostile.getCommandTags().contains("is_scaled")) {
                     return;
@@ -33,11 +33,18 @@ public class MobSpawnHandler {
                 double z = hostile.getZ();
                 double distance = Math.sqrt(x * x + z * z);
 
+                if (distance > 5000) {
+                    if (tryReplaceWithOtherTierTwo(hostile, world)) {
+                        return;
+                    }
+                }
+
                 if (distance > 2000) {
                     if (tryReplaceWithOther(hostile, world)) {
                         return;
                     }
                 }
+
 
                 MobScalingUtil.applyScaling(hostile, hostile.getBlockPos());
             }
@@ -54,18 +61,36 @@ public class MobSpawnHandler {
 
         float finalMultiplier = multiplier;
         return switch (entity) {
-            case DarkShadowEntity darkShadowEntity when world.random.nextFloat() < (0.5f * finalMultiplier) -> convertToTierTwo(entity, ModEntities.ABYSSAL_SHADOW, world);
-            case NecroPigEntity necroPigEntity when world.random.nextFloat() < (0.5f * finalMultiplier) -> convertToTierTwo(entity, ModEntities.NECRO_WOLF, world);
-            case NecroCowEntity necroCowEntity when world.random.nextFloat() < (0.5f * finalMultiplier) -> convertToTierTwo(entity, ModEntities.NECRO_LLAMA, world);
-            case NecroSheepEntity necroSheepEntity when world.random.nextFloat() < (0.5f * finalMultiplier) -> convertToTierTwo(entity, ModEntities.NECRO_GECKO, world);
-            case NecroBeeEntity necroBeeEntity when world.random.nextFloat() < (0.5f * finalMultiplier) -> convertToTierTwo(entity, ModEntities.NECROSAURUS, world);
+            case DarkShadowEntity darkShadowEntity when world.random.nextFloat() < (0.5f * finalMultiplier) -> convert(entity, ModEntities.ABYSSAL_SHADOW, world);
+            case NecroPigEntity necroPigEntity when world.random.nextFloat() < (0.5f * finalMultiplier) -> convert(entity, ModEntities.NECRO_WOLF, world);
+            case NecroCowEntity necroCowEntity when world.random.nextFloat() < (0.5f * finalMultiplier) -> convert(entity, ModEntities.NECRO_LLAMA, world);
+            case NecroSheepEntity necroSheepEntity when world.random.nextFloat() < (0.5f * finalMultiplier) -> convert(entity, ModEntities.NECRO_GECKO, world);
+            case NecroBeeEntity necroBeeEntity when world.random.nextFloat() < (0.5f * finalMultiplier) -> convert(entity, ModEntities.NECROSAURUS, world);
+            case NecroChickenEntity necroChickenEntity when world.random.nextFloat() < (0.5f * finalMultiplier) -> convert(entity, ModEntities.NECRO_PIGLIN, world);
+            default -> false;
+        };
+
+    }
+
+    private static boolean tryReplaceWithOtherTierTwo(LivingEntity entity, ServerWorld world) {
+        if (entity.getCommandTags().contains("is_scaled")) return false;
+        PlayerEntity closestPlayer = world.getClosestPlayer(entity.getX(), entity.getY(), entity.getZ(), 16.0, false);
+        float multiplier = 1.0f;
+        if (closestPlayer != null) {
+            multiplier += getRareFinderMultiplier(closestPlayer);
+        }
+
+        float finalMultiplier = multiplier;
+        return switch (entity) {
+            case NecroPigEntity necroPigEntity when world.random.nextFloat() < (0.1f * finalMultiplier) -> convert(entity, ModEntities.NECRO_JUMPER, world);
+
             default -> false;
         };
 
     }
 
 
-    private static <T extends HostileEntity> boolean convertToTierTwo(LivingEntity original, EntityType<T> targetType, ServerWorld world) {
+    private static <T extends HostileEntity> boolean convert(LivingEntity original, EntityType<T> targetType, ServerWorld world) {
         T newEntity = targetType.create(world);
         if (newEntity != null) {
             newEntity.refreshPositionAndAngles(original.getX(), original.getY(), original.getZ(), original.getYaw(), original.getPitch());

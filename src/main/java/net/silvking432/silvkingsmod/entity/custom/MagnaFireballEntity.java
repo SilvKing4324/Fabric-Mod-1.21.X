@@ -8,8 +8,11 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.silvking432.silvkingsmod.entity.ModEntities;
+import net.silvking432.silvkingsmod.util.TraitUtil;
 
 public class MagnaFireballEntity extends SmallFireballEntity {
+    private int lifeTicks = 0;
+    private static final int MAX_LIFE_TICKS = 100;
 
     public MagnaFireballEntity(EntityType<? extends SmallFireballEntity> entityType, World world) {
         super(entityType, world);
@@ -30,7 +33,10 @@ public class MagnaFireballEntity extends SmallFireballEntity {
             boolean isAlly = target instanceof MagnaTitanEntity ||
                     target instanceof MagnaMinionEntity ||
                     target instanceof LavaGolemEntity ||
-                    target instanceof MagnaWitchEntity;
+                    target instanceof TurretEntity ||
+                    target instanceof TitanPlayerEntity ||
+                    target instanceof MagnaWitchEntity ||
+                    TraitUtil.NECRO_MOBS.contains(target.getType());
 
             if (isAlly) {
                 return;
@@ -47,6 +53,14 @@ public class MagnaFireballEntity extends SmallFireballEntity {
     @Override
     public void tick() {
         super.tick();
+
+        if (!this.getWorld().isClient) {
+            this.lifeTicks++;
+            if (this.lifeTicks >= MAX_LIFE_TICKS) {
+                this.discard();
+                return;
+            }
+        }
 
         if (this.getWorld().isClient) {
             for (int i = 0; i < 3; i++) {

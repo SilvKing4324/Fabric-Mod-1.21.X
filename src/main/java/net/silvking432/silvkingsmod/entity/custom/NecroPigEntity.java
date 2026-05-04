@@ -5,15 +5,18 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.silvking432.silvkingsmod.entity.ai.NecroPigRamGoal;
+import org.jetbrains.annotations.Nullable;
 
 public class NecroPigEntity extends HostileEntity {
 
@@ -92,5 +95,20 @@ public class NecroPigEntity extends HostileEntity {
 
             this.ramCooldown = 80;
         }
+    }
+
+    @Override
+    protected @Nullable SoundEvent getAmbientSound() {
+        return SoundEvents.ENTITY_PIG_AMBIENT;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getHurtSound(DamageSource source) {
+        return SoundEvents.ENTITY_PIG_HURT;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getDeathSound() {
+        return SoundEvents.ENTITY_PIG_DEATH;
     }
 }

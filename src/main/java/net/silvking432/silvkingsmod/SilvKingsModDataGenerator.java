@@ -10,6 +10,7 @@ import net.silvking432.silvkingsmod.trim.ModTrimMaterials;
 import net.silvking432.silvkingsmod.trim.ModTrimPatterns;
 import net.silvking432.silvkingsmod.world.ModConfiguredFeatures;
 import net.silvking432.silvkingsmod.world.ModPlacedFeatures;
+import net.silvking432.silvkingsmod.world.gen.ModStructures;
 
 public class SilvKingsModDataGenerator implements DataGeneratorEntrypoint {
 	@Override
@@ -23,6 +24,9 @@ public class SilvKingsModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModRecipeProvider::new);
 		pack.addProvider(ModRegistryDataGenerator::new);
 		pack.addProvider(ModEntityLootTableProvider::new);
+		pack.addProvider(ModEntityTagProvider::new);
+		pack.addProvider(ModWorldgenProvider::new);
+		pack.addProvider(ModAdvancementProvider::new);
 	}
 
 	@Override
@@ -32,5 +36,6 @@ public class SilvKingsModDataGenerator implements DataGeneratorEntrypoint {
 		registryBuilder.addRegistry(RegistryKeys.ENCHANTMENT, ModEnchantments::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.STRUCTURE, ModStructures::bootstrap);
 	}
 }

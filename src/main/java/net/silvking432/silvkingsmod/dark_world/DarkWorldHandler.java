@@ -28,7 +28,9 @@ public class DarkWorldHandler {
 
     private static void handleDarkWorldTick(ServerWorld world) {
         boolean isDarkWorld = world.getRegistryKey().getValue().equals(DARK_WORLD_ID);
-        boolean isSecondTick = world.getTime() % 20 == 0;
+        long time = world.getTime();
+        boolean isSecondTick = time % 20 == 0;
+        boolean isFiveSecondTick = time % 100 == 0;
 
         for (ServerPlayerEntity player : world.getPlayers()) {
             if (isDarkWorld) {
@@ -37,8 +39,44 @@ public class DarkWorldHandler {
                 if (isSecondTick) {
                     syncTraitsImmediately(player);
                 }
+                if (isFiveSecondTick) {
+                    checkDistanceAdvancements(player);
+                }
             } else {
                 resetDarkFog(player);
+            }
+        }
+    }
+
+    private static void checkDistanceAdvancements(ServerPlayerEntity player) {
+        double x = player.getX();
+        double z = player.getZ();
+        double distanceSquared = x * x + z * z;
+        double radius1 = 2000.0;
+        double radius2 = 5000.0;
+        double radius3 = 50000.0;
+
+        if (distanceSquared >= radius1 * radius1) {
+            grantAdvancement(player, "dark_world/beyond_borders");
+        }
+        if (distanceSquared >= radius2 * radius2) {
+            grantAdvancement(player, "dark_world/world_edge");
+        }
+        if (distanceSquared >= radius3 * radius3) {
+            grantAdvancement(player, "dark_world/max_world_edge");
+        }
+    }
+
+    private static void grantAdvancement(ServerPlayerEntity player, String path) {
+        var advancementEntry = player.getServer().getAdvancementLoader()
+                .get(Identifier.of(SilvKingsMod.MOD_ID, path));
+
+        if (advancementEntry != null) {
+            var progress = player.getAdvancementTracker().getProgress(advancementEntry);
+            if (!progress.isDone()) {
+                for (String criterion : progress.getUnobtainedCriteria()) {
+                    player.getAdvancementTracker().grantCriterion(advancementEntry, criterion);
+                }
             }
         }
     }

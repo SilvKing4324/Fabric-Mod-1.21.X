@@ -97,7 +97,9 @@ public class TraitUtil {
             ModEntities.NECRO_LLAMA,
             ModEntities.NECRO_GECKO,
             ModEntities.NECRO_SHEEP,
-            ModEntities.NECROSAURUS
+            ModEntities.NECROSAURUS,
+            ModEntities.NECRO_JUMPER,
+            ModEntities.NECRO_PIGLIN
     );
 
     public static Map<EntityType<?>, Integer> getNecroMobTiers() {
@@ -115,6 +117,9 @@ public class TraitUtil {
             NECRO_MOB_TIERS.put(ModEntities.NECRO_WOLF, 2);
             NECRO_MOB_TIERS.put(ModEntities.NECRO_GECKO, 2);
             NECRO_MOB_TIERS.put(ModEntities.NECROSAURUS, 2);
+            NECRO_MOB_TIERS.put(ModEntities.NECRO_PIGLIN, 2);
+
+            NECRO_MOB_TIERS.put(ModEntities.NECRO_JUMPER, 3);
         }
         return NECRO_MOB_TIERS;
     }

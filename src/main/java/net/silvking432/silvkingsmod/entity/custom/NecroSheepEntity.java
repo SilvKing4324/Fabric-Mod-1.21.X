@@ -14,9 +14,11 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 public class NecroSheepEntity extends HostileEntity implements Shearable {
     private static final TrackedData<Byte> COLOR_DATA = DataTracker.registerData(NecroSheepEntity.class, TrackedDataHandlerRegistry.BYTE);
@@ -127,5 +129,20 @@ public class NecroSheepEntity extends HostileEntity implements Shearable {
     @Override
     public boolean isShearable() {
         return false;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getAmbientSound() {
+        return SoundEvents.ENTITY_SHEEP_AMBIENT;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getHurtSound(DamageSource source) {
+        return SoundEvents.ENTITY_SHEEP_HURT;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getDeathSound() {
+        return SoundEvents.ENTITY_SHEEP_DEATH;
     }
 }

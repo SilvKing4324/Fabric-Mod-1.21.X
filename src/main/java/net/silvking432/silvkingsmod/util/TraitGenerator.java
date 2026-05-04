@@ -65,7 +65,7 @@ public class TraitGenerator {
 
     public enum SkillTraitType {
         PEARL_MAYHEM("Pearl Mayhem", " (Pearls deal no damage and have half Cooldown)", TraitApplication.ARMOR),
-        UNBREAKING("Unbreaking", " (20% Chance to ignore Item Damage (all Items))", TraitApplication.ARMOR),
+        UNBREAKING("Unbreaking", " (20% Chance to ignore Item Damage on this Piece)", TraitApplication.ARMOR),
 
         VOID_DAMAGE("Void Damage", " (Changes Damage Type to Void Damage)", TraitApplication.WEAPON),
         NECRO_SLAYER("Necro Slayer", " (2x Damage vs Necro-Mobs)", TraitApplication.WEAPON),

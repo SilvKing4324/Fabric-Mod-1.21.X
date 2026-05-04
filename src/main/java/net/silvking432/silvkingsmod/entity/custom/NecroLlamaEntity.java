@@ -6,15 +6,18 @@ import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.silvking432.silvkingsmod.entity.ModEntities;
+import org.jetbrains.annotations.Nullable;
 
 public class NecroLlamaEntity extends HostileEntity {
 
@@ -110,5 +113,20 @@ public class NecroLlamaEntity extends HostileEntity {
         this.goalSelector.add(2, new MeleeAttackGoal(this, 1.2, false));
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 1.0));
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
+    }
+
+    @Override
+    protected @Nullable SoundEvent getAmbientSound() {
+        return SoundEvents.ENTITY_LLAMA_AMBIENT;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getHurtSound(DamageSource source) {
+        return SoundEvents.ENTITY_LLAMA_HURT;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getDeathSound() {
+        return SoundEvents.ENTITY_LLAMA_DEATH;
     }
 }

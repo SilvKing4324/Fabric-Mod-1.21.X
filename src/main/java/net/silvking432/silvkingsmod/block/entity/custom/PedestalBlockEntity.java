@@ -87,16 +87,13 @@ public class PedestalBlockEntity extends BlockEntity implements ImplementedInven
         return new PedestalScreenHandler(syncId, playerInventory, this.pos);
     }
 
-    public void updatePortalState(World world, BlockPos pedestalPos, boolean active) {
+    public void updatePortalState(World world, BlockPos pedestalPos, boolean active, @Nullable ServerPlayerEntity player) {
         if (world.isClient()) return;
 
         BlockState state = world.getBlockState(pedestalPos);
         if (!(state.getBlock() instanceof PedestalBlock)) return;
 
         Direction facing = state.get(PedestalBlock.FACING);
-
-        // TODO: Fix Portal Position for some Ancient Citys
-
         Direction side = facing.rotateYClockwise();
 
 
@@ -106,17 +103,38 @@ public class PedestalBlockEntity extends BlockEntity implements ImplementedInven
         int rightWidth = 9;
         int height = 6;
 
+        boolean portalChanged = false;
+
         for (int s = -leftWidth; s <= rightWidth; s++) {
             for (int y = 0; y < height; y++) {
                 BlockPos target = origin.offset(side, s).up(y);
 
                 if (active) {
-                    world.setBlockState(target, ModBlocks.DARK_WORLD_PORTAL.getDefaultState());
+                    if (!world.getBlockState(target).isOf(ModBlocks.DARK_WORLD_PORTAL)) {
+                        world.setBlockState(target, ModBlocks.DARK_WORLD_PORTAL.getDefaultState());
+                        portalChanged = true;
+                    }
                 } else {
                     if (world.getBlockState(target).isOf(ModBlocks.DARK_WORLD_PORTAL)) {
                         world.setBlockState(target, Blocks.AIR.getDefaultState());
                     }
                 }
+            }
+        }
+        if (active && portalChanged && player != null) {
+            grantPedestalAdvancement(player);
+        }
+    }
+
+    private void grantPedestalAdvancement(ServerPlayerEntity player) {
+        var advancementEntry = player.getServer().getAdvancementLoader()
+                .get(net.minecraft.util.Identifier.ofVanilla("nether/pedestal"));
+
+        if (advancementEntry != null) {
+            var tracker = player.getAdvancementTracker();
+            var progress = tracker.getProgress(advancementEntry);
+            if (!progress.isDone()) {
+                tracker.grantCriterion(advancementEntry, "activated_pedestal");
             }
         }
     }

@@ -67,6 +67,7 @@ public class SilvKingsModClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(NecroSheepEntityModel.NECRO_SHEEP, NecroSheepEntityModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(NECRO_WOLF, () -> NecroWolfEntityModel.getTexturedModelData(Dilation.NONE));
         EntityModelLayerRegistry.registerModelLayer(NecroLlamaModel.NECRO_LLAMA, NecroLlamaModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(TurretModel.TURRET_LAYER, TurretModel::getTexturedModelData);
 
         EntityRendererRegistry.register(ModEntities.DARK_SHADOW, EmptyEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.ABYSSAL_SHADOW, EmptyEntityRenderer::new);
@@ -98,6 +99,9 @@ public class SilvKingsModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.NECRO_BEE, NecroBeeRenderer::new);
         EntityRendererRegistry.register(ModEntities.NECRO_WOLF, NecroWolfRenderer::new);
         EntityRendererRegistry.register(ModEntities.NECRO_LLAMA, NecroLlamaRenderer::new);
+        EntityRendererRegistry.register(ModEntities.NECRO_PIGLIN, NecroPiglinRenderer::new);
+        EntityRendererRegistry.register(ModEntities.NECRO_JUMPER, NecroJumperRenderer::new);
+        EntityRendererRegistry.register(ModEntities.TURRET, TurretRenderer::new);
 
         ParticleFactoryRegistry.getInstance().register(ModParticles.STARLIGHT_ASHES_PARTICLE, StarlightAshesParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.BLACK_HOLE_PARTICLE, BlackHoleParticle.Factory::new);

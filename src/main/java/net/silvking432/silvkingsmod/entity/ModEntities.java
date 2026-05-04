@@ -105,7 +105,7 @@ public class ModEntities {
             Identifier.of(SilvKingsMod.MOD_ID, "dark_shadow"),
             EntityType.Builder.create(DarkShadowEntity::new, SpawnGroup.MONSTER)
                     .makeFireImmune()
-                    .dimensions(0.7f, 0.7f)
+                    .dimensions(1.0f, 1.0f)
                     .build());
 
     public static final EntityType<NecroPigEntity> NECRO_PIG = Registry.register(Registries.ENTITY_TYPE,
@@ -162,7 +162,7 @@ public class ModEntities {
             Identifier.of(SilvKingsMod.MOD_ID, "abyssal_shadow"),
             EntityType.Builder.create(AbyssalShadowEntity::new, SpawnGroup.MONSTER)
                     .makeFireImmune()
-                    .dimensions(0.7f, 0.7f)
+                    .dimensions(0.8f, 0.8f)
                     .build());
 
     public static final EntityType<NecroWolfEntity> NECRO_WOLF = Registry.register(
@@ -229,6 +229,33 @@ public class ModEntities {
             Identifier.of(SilvKingsMod.MOD_ID, "necrosaurus"),
             EntityType.Builder.create(NecrosaurusEntity::new, SpawnGroup.MONSTER)
                     .dimensions(1.2f, 1.05f)
+                    .makeFireImmune()
+                    .build()
+    );
+
+    public static final EntityType<NecroPiglinEntity> NECRO_PIGLIN = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "necro_piglin"),
+            EntityType.Builder.create(NecroPiglinEntity::new, SpawnGroup.MONSTER)
+                    .dimensions(0.6f, 1.9f)
+                    .makeFireImmune()
+                    .build()
+    );
+
+    public static final EntityType<NecroJumperEntity> NECRO_JUMPER = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "necro_jumper"),
+            EntityType.Builder.create(NecroJumperEntity::new, SpawnGroup.MONSTER)
+                    .dimensions(0.6f, 1.9f)
+                    .makeFireImmune()
+                    .build()
+    );
+
+    public static final EntityType<TurretEntity> TURRET = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(SilvKingsMod.MOD_ID, "turret"),
+            EntityType.Builder.create(TurretEntity::new, SpawnGroup.MISC)
+                    .dimensions(1.0f, 2.0f)
                     .makeFireImmune()
                     .build()
     );

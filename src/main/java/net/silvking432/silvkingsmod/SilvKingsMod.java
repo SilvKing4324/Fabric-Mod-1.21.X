@@ -11,6 +11,7 @@ import net.minecraft.item.Items;
 import net.minecraft.potion.Potions;
 import net.silvking432.silvkingsmod.block.ModBlocks;
 import net.silvking432.silvkingsmod.block.entity.ModBlockEntities;
+import net.silvking432.silvkingsmod.command.ModCommands;
 import net.silvking432.silvkingsmod.component.ModDataComponentTypes;
 import net.silvking432.silvkingsmod.dark_world.MobSpawnHandler;
 import net.silvking432.silvkingsmod.dimension.ModDimensions;
@@ -71,6 +72,7 @@ public class SilvKingsMod implements ModInitializer {
 		DarkFogNetworking.registerServer();
 		MobSpawnHandler.register();
 		TraitEffectHandler.register();
+		ModCommands.register();
 
 		PayloadTypeRegistry.playS2C().register(DarkFogPayload.ID, DarkFogPayload.CODEC);
 
@@ -116,6 +118,9 @@ public class SilvKingsMod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.NECRO_GECKO, NecroGeckoEntity.createAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.RHINO, RhinoEntity.createAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.NECROSAURUS, NecrosaurusEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.NECRO_PIGLIN, NecroPiglinEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.NECRO_JUMPER, NecroJumperEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.TURRET, TurretEntity.createAttributes());
 
 		PayloadTypeRegistry.playC2S().register(RefineCoresPayload.ID, RefineCoresPayload.CODEC);
 		PayloadTypeRegistry.playS2C().register(BlockPosPayload.ID, BlockPosPayload.CODEC);

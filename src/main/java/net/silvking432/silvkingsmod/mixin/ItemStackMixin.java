@@ -20,29 +20,28 @@ public abstract class ItemStackMixin {
 
     @Inject(
             method = "damage(ILnet/minecraft/server/world/ServerWorld;Lnet/minecraft/server/network/ServerPlayerEntity;Ljava/util/function/Consumer;)V",
-            at = @At("HEAD"),
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isDamageable()Z"),
             cancellable = true
     )
-    private void silvkingsmod$applyGlobalUnbreakingSkill(int amount, ServerWorld world, @Nullable ServerPlayerEntity player, Consumer<Item> breakCallback, CallbackInfo ci) {
+    private void silvkingsmod$applyUnbreakingTrait(int amount, ServerWorld world, @Nullable ServerPlayerEntity player, Consumer<Item> breakCallback, CallbackInfo ci) {
         if (player == null) return;
 
-        boolean hasUnbreakingSkill = false;
-
+        boolean playerHasGlobalSkill = false;
         for (ItemStack armorStack : player.getArmorItems()) {
             List<CoreTrait> traits = armorStack.get(ModDataComponentTypes.CORE_TRAITS);
             if (traits != null) {
                 for (CoreTrait trait : traits) {
-                    if (trait.traitId().equals("SKILL_UNBREAKING") || trait.traitId().equals("SKILL_FRAGILE_RESISTANCE")) {
-                        hasUnbreakingSkill = true;
+                    if ("SKILL_UNBREAKING".equals(trait.traitId()) || "SKILL_FRAGILE_RESISTANCE".equals(trait.traitId())) {
+                        playerHasGlobalSkill = true;
                         break;
                     }
                 }
             }
-            if (hasUnbreakingSkill) break;
+            if (playerHasGlobalSkill) break;
         }
 
-        if (hasUnbreakingSkill) {
-            if (player.getRandom().nextFloat() < 0.20f) {
+        if (playerHasGlobalSkill) {
+            if (world.getRandom().nextFloat() < 0.20f) {
                 ci.cancel();
             }
         }

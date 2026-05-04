@@ -24,8 +24,8 @@ public class ModItemGroups {
                         entries.add(ModItems.DARK_TITANIUM_INGOT);
                         entries.add(ModItems.CHISEL);
                         entries.add(ModItems.SUPER_FLOWER);
-                        entries.add(ModItems.RHINO_STEAK);
                         entries.add(ModItems.RAW_RHINO_STEAK);
+                        entries.add(ModItems.RHINO_STEAK);
                         entries.add(ModItems.STARLIGHT_ASHES);
                         entries.add(ModItems.TITANIUM_SWORD);
                         entries.add(ModItems.TITANIUM_AXE);
@@ -60,6 +60,7 @@ public class ModItemGroups {
                         entries.add(ModItems.MANTIS_SPAWN_EGG);
                         entries.add(ModItems.TITAN_PLAYER_SPAWN_EGG);
                         entries.add(ModItems.ETERNAL_SHULKER_SPAWN_EGG);
+                        entries.add(ModItems.NECRO_MASTER_SPAWN_EGG);
                         entries.add(ModItems.DARK_SHARD_TIER1);
                         entries.add(ModItems.DARK_SHARD_TIER2);
                         entries.add(ModItems.DARK_SHARD_TIER3);

@@ -13,10 +13,12 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.silvking432.silvkingsmod.dark_world.DarkWorldHandler;
+import org.jetbrains.annotations.Nullable;
 
 public class AbyssalShadowEntity extends HostileEntity {
 
@@ -88,5 +90,21 @@ public class AbyssalShadowEntity extends HostileEntity {
         }
 
         return success;
+    }
+
+
+    @Override
+    protected @Nullable SoundEvent getAmbientSound() {
+        return SoundEvents.ENTITY_BREEZE_IDLE_GROUND;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getHurtSound(DamageSource source) {
+        return SoundEvents.ENTITY_BREEZE_HURT;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getDeathSound() {
+        return SoundEvents.ENTITY_BREEZE_DEATH;
     }
 }

@@ -88,14 +88,7 @@ public class ModItems {
     //endregion
     public static final Item TITANIUM_UPGRADE_TEMPLATE = registerItem("titanium_upgrade_template", TitaniumSmithingTemplateItem.createTitaniumUpgrade());
     public static final Item UNIVERSAL_UPGRADE_TEMPLATE = registerItem("universal_upgrade_template", UniversalSmithingTemplateItem.createUniversalUpgrade());
-    // region  public static final Item TITANMOD_GUIDE = registerItem("titanmod_guide", new Item(new Item.Settings()));
-    public static final Item TITANMOD_GUIDE = registerItem("titanmod_guide", new Item(new Item.Settings()){
-        @Override
-        public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-            tooltip.add(Text.translatable("tooltip.silvkingsmod.titanmod_guide"));
-            super.appendTooltip(stack, context, tooltip, type);
-        }});
-    //endregion
+    public static final Item TITANMOD_GUIDE = registerItem("titanmod_guide", new GuideBookItem(new Item.Settings()));
     public static final Item ETERNAL_ELYTRA = registerItem("eternal_elytra", new EternalElytraItem(new Item.Settings().maxDamage(489).rarity(Rarity.EPIC)));
     public static final Item ETERNAL_SHELL = registerItem("eternal_shell", new Item(new Item.Settings()));
     public static final Item ETERNAL_SHULKER_SPAWN_EGG = registerItem("eternal_shulker_spawn_egg", new SpawnEggItem(ModEntities.ETERNAL_SHULKER, 0xE69E10, 0xFFF200, new Item.Settings()));
@@ -121,7 +114,7 @@ public class ModItems {
     public static final Item DARK_TITANIUM_HOE = registerItem("dark_titanium_hoe", new DarkHoeItem(ModToolMaterials.DARK_TITANIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.DARK_TITANIUM,0,-3.0f))));
     public static final Item RAW_RHINO_STEAK = registerItem("raw_rhino_steak", new Item(new Item.Settings().food(ModFoodComponents.RAW_RHINO_STEAK)));
     public static final Item RHINO_STEAK = registerItem("rhino_steak", new Item(new Item.Settings().food(ModFoodComponents.RHINO_STEAK)));
-
+    public static final Item NECRO_MASTER_SPAWN_EGG = registerItem("necro_master_spawn_egg", new SpawnEggItem(ModEntities.NECRO_JUMPER, 0xFFD700, 0x500000, new Item.Settings()));
 
 
     private static Item registerItem(String name, Item item) {

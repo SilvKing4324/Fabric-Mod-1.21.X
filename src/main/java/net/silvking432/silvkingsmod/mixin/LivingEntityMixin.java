@@ -41,7 +41,6 @@ public abstract class LivingEntityMixin {
     @Shadow public abstract boolean hasStatusEffect(RegistryEntry<StatusEffect> effect);
     @Shadow public abstract StatusEffectInstance getStatusEffect(RegistryEntry<StatusEffect> effect);
 
-
     @ModifyVariable(method = "damage", at = @At("HEAD"), argsOnly = true)
     private float silvkingsmod$handleAllDamageModifications(float amount, DamageSource source) {
         float finalAmount = amount;
@@ -93,6 +92,11 @@ public abstract class LivingEntityMixin {
             finalAmount *= (1.0f + (0.15f * amplifier));
         }
 
+        return finalAmount;
+    }
+
+    @ModifyVariable(method = "applyDamage", at = @At("HEAD"), argsOnly = true)
+    private float silvkingsmod$applyCustomTraitReduction(float amount, DamageSource source) {
         if ((Object) this instanceof PlayerEntity targetPlayer) {
             float totalReductionPercentage = 0.0f;
             for (ItemStack armorItem : targetPlayer.getArmorItems()) {
@@ -109,11 +113,10 @@ public abstract class LivingEntityMixin {
             if (totalReductionPercentage > 0) {
                 float cap = 80.0f;
                 float actualReduction = Math.min(totalReductionPercentage, cap);
-                finalAmount *= (1.0f - (actualReduction / 100.0f));
+                return amount * (1.0f - (actualReduction / 100.0f));
             }
         }
-
-        return finalAmount;
+        return amount;
     }
 
     @Inject(method = "applyArmorToDamage", at = @At("HEAD"), cancellable = true)

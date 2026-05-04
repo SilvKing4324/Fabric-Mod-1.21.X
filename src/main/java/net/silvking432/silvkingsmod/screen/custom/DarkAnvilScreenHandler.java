@@ -13,6 +13,7 @@ import net.minecraft.screen.ForgingScreenHandler;
 import net.minecraft.screen.Property;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.slot.ForgingSlotsManager;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.StringHelper;
@@ -93,6 +94,20 @@ public class DarkAnvilScreenHandler extends ForgingScreenHandler {
 
         this.levelCost.set(0);
         this.context.run((world, pos) -> world.syncWorldEvent(WorldEvents.ANVIL_USED, pos, 0));
+
+        if (!player.getWorld().isClient && player instanceof ServerPlayerEntity serverPlayer) {
+            var advancementEntry = serverPlayer.getServer().getAdvancementLoader()
+                    .get(Identifier.of(SilvKingsMod.MOD_ID, "dark_world/dark_anvil"));
+
+            if (advancementEntry != null) {
+                var tracker = serverPlayer.getAdvancementTracker();
+                var progress = tracker.getProgress(advancementEntry);
+
+                if (!progress.isDone()) {
+                    tracker.grantCriterion(advancementEntry, "dark_anvil");
+                }
+            }
+        }
     }
 
     public void updateResult() {
@@ -155,8 +170,6 @@ public class DarkAnvilScreenHandler extends ForgingScreenHandler {
                         miningSpeedBonus += trait.value();
                     }
                 }
-                resultStack.remove(DataComponentTypes.MAX_DAMAGE);
-
 
                 AttributeModifiersComponent currentModifiers = resultStack.getOrDefault(
                         DataComponentTypes.ATTRIBUTE_MODIFIERS,
@@ -187,14 +200,17 @@ public class DarkAnvilScreenHandler extends ForgingScreenHandler {
                 }
 
                 if (extraDurability > 0) {
+
                     int baseMaxDamage = leftStack.getItem().getComponents().getOrDefault(DataComponentTypes.MAX_DAMAGE, 0);
 
                     if (baseMaxDamage > 0) {
-                        int newMaxDamage = baseMaxDamage + (int)extraDurability;
-                        resultStack.set(DataComponentTypes.MAX_DAMAGE, newMaxDamage);
+                        int finalMaxDamage = baseMaxDamage;
+
+                        finalMaxDamage += (int) extraDurability;
+                        resultStack.set(DataComponentTypes.MAX_DAMAGE, finalMaxDamage);
+
                         int currentDamage = leftStack.getOrDefault(DataComponentTypes.DAMAGE, 0);
-                        int newDamage = Math.max(0, currentDamage - (int)extraDurability);
-                        resultStack.set(DataComponentTypes.DAMAGE, newDamage);
+                        resultStack.set(DataComponentTypes.DAMAGE, currentDamage);
                     }
                 }
 

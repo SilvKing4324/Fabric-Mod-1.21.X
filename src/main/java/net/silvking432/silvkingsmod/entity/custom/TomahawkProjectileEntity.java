@@ -15,7 +15,7 @@ import net.silvking432.silvkingsmod.item.ModItems;
 
 public class TomahawkProjectileEntity extends PersistentProjectileEntity {
     private float rotation;
-    public Vector2f groundedOffset;
+    public Vector2f groundedOffset = new Vector2f(0f, 0f);
 
     public TomahawkProjectileEntity(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
         super(entityType, world);

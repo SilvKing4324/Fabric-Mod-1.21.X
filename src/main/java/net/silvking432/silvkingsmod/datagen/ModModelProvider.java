@@ -115,6 +115,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MANTIS_SPAWN_EGG, new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
         itemModelGenerator.register(ModItems.TITAN_PLAYER_SPAWN_EGG, new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
         itemModelGenerator.register(ModItems.ETERNAL_SHULKER_SPAWN_EGG, new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
+        itemModelGenerator.register(ModItems.NECRO_MASTER_SPAWN_EGG, new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
         itemModelGenerator.register(ModItems.TITAN_HEART, Models.GENERATED);
         itemModelGenerator.register(ModItems.DARK_WORLD_ORB, Models.GENERATED);
         itemModelGenerator.register(ModItems.DRAGON_SCALE, Models.GENERATED);

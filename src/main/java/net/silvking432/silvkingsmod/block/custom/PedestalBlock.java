@@ -6,6 +6,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
@@ -84,7 +85,9 @@ public class PedestalBlock extends BlockWithEntity implements BlockEntityProvide
                 pedestalBlockEntity.setStack(0, stackToInsert);
 
                 if (!world.isClient && stackToInsert.isOf(ModItems.DARK_WORLD_KEY)) {
-                    pedestalBlockEntity.updatePortalState(world, pos, true);
+                    if (player instanceof ServerPlayerEntity serverPlayer) {
+                        pedestalBlockEntity.updatePortalState(world, pos, true, serverPlayer);
+                    }
                     world.playSound(null, pos, SoundEvents.BLOCK_END_PORTAL_SPAWN, SoundCategory.BLOCKS, 1f, 1f);
                 }
 
@@ -97,7 +100,7 @@ public class PedestalBlock extends BlockWithEntity implements BlockEntityProvide
                 ItemStack stackOnPedestal = pedestalBlockEntity.getStack(0);
 
                 if (!world.isClient && stackOnPedestal.isOf(ModItems.DARK_WORLD_KEY)) {
-                    pedestalBlockEntity.updatePortalState(world, pos, false);
+                    pedestalBlockEntity.updatePortalState(world, pos, false, null);
                     world.playSound(null, pos, SoundEvents.BLOCK_BEACON_DEACTIVATE, SoundCategory.BLOCKS, 1f, 1f);
                 }
 
